@@ -136,7 +136,7 @@ export default {
     consent: {
       label: "consent",
       component: "SimpleObjectWrapper",
-      type: 4, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: 3, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",
       description: "",
       hint: false,
