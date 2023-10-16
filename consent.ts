@@ -65,7 +65,7 @@ export default {
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
         disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
       },
-      meta: "record", // item type on schema.org
+      meta: "diffusion", // item type on schema.org
     },
     publication: {
       label: "publication",
@@ -82,7 +82,7 @@ export default {
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
         disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
       },
-      meta: "record", // item type on schema.org
+      meta: "publication", // item type on schema.org
     },
     email: {
       label: "email",
@@ -99,7 +99,7 @@ export default {
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
         disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
       },
-      meta: "record", // item type on schema.org
+      meta: "email", // item type on schema.org
     },
     newsletter: {
       label: "newsletter",
@@ -116,7 +116,7 @@ export default {
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
         disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
       },
-      meta: "record", // item type on schema.org
+      meta: "newsletter", // item type on schema.org
     },
   },
 }
