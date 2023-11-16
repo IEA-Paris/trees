@@ -96,7 +96,7 @@ export default {
     consent: consent
     groups: groups */
     firstname: {
-      label: "title",
+      label: "firstname",
       component: "TextField",
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",
@@ -115,7 +115,7 @@ export default {
       meta: "firstname", // item type on schema.org
     },
     lastname: {
-      label: "title",
+      label: "lastname",
       component: "TextField",
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",

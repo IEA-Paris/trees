@@ -1,10 +1,17 @@
 import { image } from "./image"
+import { affiliation } from "./affiliation"
+import { people } from "./people"
 
 export type fellowship = {
   title: string
   description: string
+  shortDescription: string
   picture: image
-  color: string
   link: string
-  date: string
+  action: string
+  publicationDate: string
+  opening: string
+  closing: string
+  Affiliations: [affiliation]
+  fellows: [people]
 }

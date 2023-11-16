@@ -11,6 +11,8 @@ export type consent = {
   email: boolean
   // IEA newsletter
   newsletter: boolean
+  // news about IEA fellowship
+  fellowshipnewsletter: boolean
 }
 
 export default {
