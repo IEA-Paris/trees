@@ -1,5 +1,6 @@
 export type location = {
   name: string
+  alt: string
   street: string
   city: string
   country: string

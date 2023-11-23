@@ -1,6 +1,6 @@
-import { address } from "../atoms/address"
+import { location } from "./location"
 import { image } from "./image"
-import { eventSlot } from "../atoms/eventSlot"
+import { eventSlot } from "./eventSlot"
 
 export type event = {
   name: string
@@ -11,7 +11,7 @@ export type event = {
   availableSlots: number
   slots: [eventSlot]
   delay: number
-  place: address
+  place: location
   url: string
   image: image
   appId: string
