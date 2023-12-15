@@ -1,26 +1,28 @@
 import { image } from "./image"
 import { affiliation } from "./affiliation"
-import { people } from "./people"
-import { fellowshipDetails } from "./fellowshipDetails"
+import { event } from "./event"
+import { file } from "./file"
+import { news } from "./news"
 
-export type fellowship = {
-  action: string
-  affiliations: [affiliation]
-  closing: string
-  contact: string
-  description: string
-  details: fellowshipDetails
-  fellows: [people]
-  link: string
-  opening: string
-  picture: image
-  publicationDate: string
-  shortDescription: string
+export type project = {
   title: string
+  shortDescription: string
+  description: string
+  url: string
+  affiliations: [affiliation]
+  relatedEvents: [event]
+  relatedNews: [news]
+  picture: image
+  video: string
+  tags: [string]
+  files: [file]
+  color: string
+  date: Date
+  featured: Date
 }
 
 export default {
-  source: "gql",
+  source: "md",
   perPage: {
     options: [9, 12, 16],
     default: 9,
@@ -33,18 +35,20 @@ export default {
       type: "Select",
       rules: {},
       label: "year",
-      items: [],
-    } /* 
-      categories: {
-        type: 'TextInput',
-        rules: {},
-        label: 'Search',
+      items: (articles) => {
+        return articles.map((article) => new Date(article.date).getFullYear())
       },
-      author: {
-        type: 'Autocomplete',
-        rules: {},
-        label: 'authors',
-      }, */,
+    } /* 
+        categories: {
+          type: 'TextInput',
+          rules: {},
+          label: 'Search',
+        },
+        author: {
+          type: 'Autocomplete',
+          rules: {},
+          label: 'authors',
+        }, */,
   },
   sort: {
     // sort options
@@ -90,15 +94,15 @@ export default {
   },
   schema: {
     /* firstname: string
-    lastname: string
-    affiliations: [{ affiliation: affiliation; positions: [position] }]
-    picture: image
-    socials: socials
-    biography: string
-    consent: consent
-    groups: groups */
-    firstname: {
-      label: "firstname",
+      lastname: string
+      affiliations: [{ affiliation: affiliation; positions: [position] }]
+      picture: image
+      socials: socials
+      biography: string
+      consent: consent
+      groups: groups */
+    title: {
+      label: "title",
       component: "TextField",
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",
@@ -114,11 +118,11 @@ export default {
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
         disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
       },
-      meta: "firstname", // item type on schema.org
+      meta: "title", // item type on schema.org
     },
-    lastname: {
-      label: "lastname",
-      component: "TextField",
+    shortDescription: {
+      label: "shortDescription",
+      component: "TextArea",
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",
       description: "",
@@ -133,7 +137,44 @@ export default {
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
         disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
       },
-      meta: "lastname", // item type on schema.org
+      meta: "shortDescription", // item type on schema.org
+    },
+    description: {
+      label: "description",
+      component: "TextArea",
+      type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        min: 5,
+        max: 2000,
+      },
+      visibility: {
+        default: true, // same as hidden = true
+        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
+        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+      },
+      meta: "description", // item type on schema.org
+    },
+    url: {
+      label: "url",
+      component: "TextField",
+      type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        url: true,
+      },
+      visibility: {
+        default: true, // same as hidden = true
+        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
+        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+      },
+      meta: "url", // item type on schema.org
     },
     consent: {
       label: "consent",

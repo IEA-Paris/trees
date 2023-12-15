@@ -15,6 +15,7 @@ export type people = {
   consent: consent
   groups: groups
 }
+
 export default {
   source: "gql",
   perPage: {

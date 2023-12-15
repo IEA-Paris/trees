@@ -2,9 +2,9 @@ import { image } from "./image"
 import { location } from "./location"
 
 export type affiliation = {
-  name: string
-  url: string
-  ror: string
-  image: image
   address: location
+  image: image
+  name: string
+  ror: string
+  url: string
 }

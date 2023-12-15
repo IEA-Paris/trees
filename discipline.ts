@@ -1,7 +1,7 @@
 export type discipline = {
-  name: string
+  createdAt: string
   description: string
   icon: string
-  createdAt: string
+  name: string
   updatedAt: string
 }

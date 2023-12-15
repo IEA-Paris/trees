@@ -1,12 +1,11 @@
 import { image } from "./image"
 
 export type action = {
-  title: string
-  picture: image
   color: string
   link: string
+  picture: image
+  title: string
 }
-
 
 export default {
   // fitlers used in the query by default (e.g. only published articles)
@@ -18,7 +17,7 @@ export default {
   },
   path: "content/actions", // path to the folder where the content is stored
   create: true, // allow to create new items
-  type: 'directory', // 'directory' | 'file
+  type: "directory", // 'directory' | 'file
   listFilters: {
     year: {
       type: "Select",
@@ -39,36 +38,41 @@ export default {
       label: 'authors',
     }, */,
   },
-  sort: { // sort options
-    nameasc: { // by name from a to z
+  sort: {
+    // sort options
+    nameasc: {
+      // by name from a to z
       icon: "sort-alphabetical-ascending",
       text: "by-name-from-a-to-z",
       value: ["name", 1],
     },
-    namedesc: { // by name from z to a
+    namedesc: {
+      // by name from z to a
       icon: "sort-alphabetical-descending",
       text: "by-name-from-z-to-a",
       value: ["name", -1],
     },
-    dateasc: { // by date from most recent to oldest
+    dateasc: {
+      // by date from most recent to oldest
       icon: "sort-calendar-descending",
       text: "by-date-most-recent-first",
       value: ["date", -1],
       default: true,
     },
-    datedesc: { // by date from oldest to most recent
+    datedesc: {
+      // by date from oldest to most recent
       icon: "sort-calendar-ascending",
       text: "by-date-oldest-first",
       value: ["date", 1],
     },
   },
   views: [
-    { 
+    {
       name: "rows",
       icon: "view-list",
       default: true,
     },
-    { 
+    {
       name: "tiles",
       icon: "view-quilt",
     },
@@ -81,9 +85,8 @@ export default {
     title: {
       label: "title",
       type: "TextField",
-      default: '',
-      description:
-        "The title of the ad",
+      default: "",
+      description: "The title of the ad",
       hint: false,
       rules: {
         required: true,
@@ -97,7 +100,7 @@ export default {
       },
       meta: "title", // item type on schema.org
     },
-   
+
     picture: {
       label: "picture",
       type: "template",
@@ -105,20 +108,19 @@ export default {
       rules: {
         required: true,
       },
-      default: { url: '', licence: '' }, // default value
+      default: { url: "", licence: "" }, // default value
     },
     url: {
       label: "url",
       type: "TextField",
-      default: '',
-      description:
-        "The url of the app",
+      default: "",
+      description: "The url of the app",
       hint: false,
       rules: {
         required: true,
         min: 2,
         max: 4,
-        url: true
+        url: true,
       },
       visibility: {
         default: true, // same as hidden = true
@@ -130,11 +132,10 @@ export default {
     color: {
       label: "background_color",
       type: "ColorPicker",
-      default: '#FFFFFF',
-      description:
-        "The background color of the content",
+      default: "#FFFFFF",
+      description: "The background color of the content",
       hint: false,
-      rules: { },
+      rules: {},
       visibility: {
         default: true, // same as hidden = true
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
