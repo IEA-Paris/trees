@@ -2,6 +2,7 @@ import { image } from "./image"
 import { affiliation } from "./affiliation"
 import { people } from "./people"
 import { fellowshipDetails } from "./fellowshipDetails"
+import { file } from "./file"
 
 export type fellowship = {
   action: string
@@ -16,6 +17,7 @@ export type fellowship = {
   picture: image
   publicationDate: string
   shortDescription: string
+  files: [file]
   title: string
 }
 
