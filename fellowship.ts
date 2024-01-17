@@ -16,7 +16,7 @@ export type fellowship = {
   opening: string
   picture: image
   publicationDate: string
-  shortDescription: string
+  summary: string
   files: [file]
   title: string
 }
