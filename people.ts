@@ -14,6 +14,7 @@ export type people = {
   biography: string
   consent: consent
   groups: groups
+  lang: string
 }
 
 export default {

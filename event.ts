@@ -30,6 +30,7 @@ export type event = {
   state: number
   stop: string
   subtitle: string
+  summary: string
   tags: [tag]
   totalSlots: number
   type: number // 0 : online, 1: physical, 2: hybrid
