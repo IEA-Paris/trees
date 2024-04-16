@@ -8,3 +8,4 @@ export type affiliation = {
   ror: string
   url: string
 }
+export default {}
