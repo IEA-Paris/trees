@@ -1,7 +1,7 @@
-import { image } from "./molecules/image"
-export type app = {
+import { Image } from "./molecules/image"
+export interface App {
   name: string
-  logo: image
+  logo: Image
 }
 
 export default {

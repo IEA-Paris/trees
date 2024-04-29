@@ -1,4 +1,4 @@
-export type mailing = {
+export interface Mailing {
   title: string
   description: string
   createdAt: string

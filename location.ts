@@ -1,4 +1,4 @@
-export type location = {
+export interface Location {
   name: string
   details: string // natural language description of the location
   alt: string

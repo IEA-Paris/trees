@@ -1,4 +1,4 @@
-export type socials = {
+export interface Socials {
   website: string
   wikipedia: string
   orcid: string

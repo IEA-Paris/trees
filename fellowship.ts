@@ -1,23 +1,23 @@
-import { image } from "./image"
-import { affiliation } from "./affiliation"
-import { people } from "./people"
-import { fellowshipDetails } from "./fellowshipDetails"
-import { file } from "./file"
+import { Image } from "./image"
+import { Affiliation } from "./affiliation"
+import { People } from "./people"
+import { FellowshipDetails } from "./fellowshipDetails"
+import { File } from "./file"
 
-export type fellowship = {
+export interface Fellowship {
   action: string
-  affiliations: [affiliation]
+  affiliations: [Affiliation]
   closing: string
   contact: string
   description: string
-  details: fellowshipDetails
-  fellows: [people]
+  details: FellowshipDetails
+  fellows: [People]
   link: string
   opening: string
-  picture: image
+  picture: Image
   publicationDate: string
   summary: string
-  files: [file]
+  files: [File]
   title: string
 }
 

@@ -1,4 +1,4 @@
-export type image = {
+export interface Image {
   url: string
   alt: string | null
   copyright: string

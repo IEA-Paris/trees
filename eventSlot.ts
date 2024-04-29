@@ -1,4 +1,4 @@
-export type eventSlot = {
+export interface EventSlot {
   email: string
   firstname: string
   institution: string

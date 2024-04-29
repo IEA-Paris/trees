@@ -1,4 +1,4 @@
-export type position = {
+export interface Position {
     name: String
     year: String
 }

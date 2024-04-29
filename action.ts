@@ -1,6 +1,6 @@
 import { image } from "./image"
 
-export type action = {
+export interface Action {
   color: string
   link: string
   picture: image

@@ -1,4 +1,4 @@
-export type video = {
+export interface Video {
   url: string
   alt: string | null
   copyright: string

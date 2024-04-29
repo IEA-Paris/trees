@@ -1,5 +1,7 @@
 
-import {people} from './people'
-import {affiliation} from './affiliation'
+import {People} from './people'
+import {Affiliation} from './affiliation'
 
-export type sponsor = people | affiliation
+export interface Sponsor extends People, Affiliation {
+    
+}

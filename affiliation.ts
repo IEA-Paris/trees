@@ -1,9 +1,9 @@
-import { image } from "./image"
-import { location } from "./location"
+import { Image } from "./image"
+import { Location } from "./location"
 
-export type affiliation = {
-  address: location
-  image: image
+export interface Affiliation {
+  address: Location
+  image: Image
   name: string
   ror: string
   url: string

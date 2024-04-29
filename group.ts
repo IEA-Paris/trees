@@ -1,4 +1,4 @@
-export type groups = {
+export interface Groups  {
   team: boolean
   sab: boolean
   board: boolean
