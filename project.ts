@@ -1,21 +1,21 @@
-import { image } from "./image"
-import { affiliation } from "./affiliation"
-import { event } from "./event"
-import { file } from "./file"
-import { news } from "./news"
+import { Image } from "./image"
+import { Affiliation } from "./affiliation"
+import { Event } from "./event"
+import { File } from "./file"
+import { News } from "./news"
 
-export type project = {
+export interface Project {
   title: string
   shortDescription: string
   description: string
   url: string
-  affiliations: [affiliation]
-  relatedEvents: [event]
-  relatedNews: [news]
-  picture: image
+  affiliations: [Affiliation]
+  relatedEvents: [Event]
+  relatedNews: [News]
+  picture: Image
   video: string
   tags: [string]
-  files: [file]
+  files: [File]
   color: string
   date: Date
   featured: Date

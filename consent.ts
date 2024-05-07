@@ -1,4 +1,4 @@
-export type consent = {
+export interface Consent {
   //data consent (display info about me)
   data: boolean
   // record consent (record my activity, droit à l'image)

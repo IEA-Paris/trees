@@ -1,19 +1,19 @@
-import { affiliation } from "./affiliation"
-import { image } from "./image"
-import { socials } from "./socials"
-import { position } from "./position"
-import { consent } from "./consent"
-import { groups } from "./group"
+import { Affiliation } from "./affiliation"
+import { Image } from "./image"
+import { Socials } from "./socials"
+import { Position } from "./position"
+import { Consent } from "./consent"
+import { Groups } from "./group"
 
-export type people = {
+export interface People {
   firstname: string
   lastname: string
-  affiliations: [{ affiliation: affiliation; positions: [position] }]
-  picture: image
-  socials: socials
+  affiliations: [{ affiliation: Affiliation; positions: [Position] }]
+  picture: Image
+  socials: Socials
   biography: string
-  consent: consent
-  groups: groups
+  consent: Consent
+  groups: Groups
   lang: string
 }
 

@@ -1,37 +1,37 @@
-import { location } from "./location"
-import { image } from "./image"
-import { eventSlot } from "./eventSlot"
-import { discipline } from "./discipline"
-import { tag } from "./tag"
-import { people } from "./people"
-import { affiliation } from "./affiliation"
-import { file } from "./file"
+import { Location } from "./location"
+import { Image } from "./image"
+import { EventSlot } from "./eventSlot"
+import { Discipline } from "./discipline"
+import { Tag } from "./tag"
+import { People } from "./people"
+import { Affiliation } from "./affiliation"
+import { File } from "./file"
 
-export type event = {
-  affiliations: [affiliation]
+export interface Event {
+  affiliations: [Affiliation]
   appId: string
   availableSlots: number
   bookingState: number
   createdAt: string
   delay: number
   description: string
-  disciplines: [discipline]
-  discussants: [people]
-  files: [file]
-  image: image
+  disciplines: [Discipline]
+  discussants: [People]
+  files: [File]
+  image: Image
   name: string
-  onlineSlots: [eventSlot]
-  organizers: [people]
+  onlineSlots: [EventSlot]
+  organizers: [People]
   outside: boolean
-  place: location
-  slots: [eventSlot]
-  speakers: [people]
+  place: Location
+  slots: [EventSlot]
+  speakers: [People]
   start: string
   state: number
   stop: string
   subtitle: string
   summary: string
-  tags: [tag]
+  tags: [Tag]
   totalSlots: number
   type: number // 0 : online, 1: physical, 2: hybrid
   updatedAt: string

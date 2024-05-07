@@ -1,4 +1,4 @@
-export type discipline = {
+export interface Discipline {
   createdAt: string
   description: string
   icon: string

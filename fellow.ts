@@ -1,3 +1,5 @@
-import { people } from "./people"
+import { People } from "./people"
 
-export type fellow = people
+export interface Fellow extends People {
+
+}

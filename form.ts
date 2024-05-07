@@ -1,4 +1,4 @@
-export type form  = {
+export interface Form {
     [key: string]: {
         type: string
         label?: string

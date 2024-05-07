@@ -1,3 +1,5 @@
-import { affiliation } from "./affiliation"
+import { Affiliation } from "./affiliation"
 
-export type member =  affiliation 
+export interface Member extends Affiliation {
+
+}

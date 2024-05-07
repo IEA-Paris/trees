@@ -1,14 +1,14 @@
-import { image } from "./image"
-import { people } from "./people"
+import { Image } from "./image"
+import { People } from "./people"
 
-export type news = {
+export interface News {
   title: string
   description: string
-  picture: image
+  picture: Image
   color: string
   link: string
   date: string
-  authors: [people]
+  authors: [People]
   featured: string
 }
 

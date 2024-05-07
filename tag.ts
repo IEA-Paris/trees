@@ -1,4 +1,4 @@
-export type tag = {
+export interface Tag {
   name: string
   description: string
   icon: string

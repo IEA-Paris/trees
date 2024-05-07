@@ -1,4 +1,4 @@
-export type fellowshipDetails = {
+export interface FellowshipDetails {
   type: string //en groupe, durée courte ou longue, etc.
   fundingPeriod: string // Dates et détails temporels
   profile: string // profile, CV, disciplines, expérience, origine
