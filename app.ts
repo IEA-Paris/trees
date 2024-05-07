@@ -1,4 +1,4 @@
-import { Image } from "./molecules/image"
+import { Image } from "./image"
 export interface App {
   name: string
   logo: Image
@@ -16,7 +16,7 @@ export default {
   path: "content/app", // path to the folder where the content is stored
   create: true, // allow to create new items
   type: "directory", // 'directory' | 'file
-  listFilters: {
+  filters: {
     year: {
       type: "Select",
       rules: {},
@@ -79,7 +79,7 @@ export default {
       icon: "view-day",
     },
   ],
-  schema: {
+  form: {
     name: {
       label: "name",
       type: "TextField",
@@ -236,3 +236,4 @@ export default {
     }, */
   },
 }
+//TODO list + form

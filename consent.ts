@@ -16,7 +16,7 @@ export interface Consent {
 }
 
 export default {
-  schema: {
+  form: {
     data: {
       label: "data",
       component: "Checkbox",
@@ -122,3 +122,4 @@ export default {
     },
   },
 }
+//TODO form

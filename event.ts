@@ -40,84 +40,81 @@ export interface Event {
 
 export default {
   source: "md",
-  perPage: {
-    options: [9, 12, 16],
-    default: 9,
-  },
-  type: null, // 'directory' | 'file' | null
+  // markdown related keys
   path: null, // path to the folder where the content is stored
-  create: true, // allow to create new items
-  filters: {
-    year: {
-      type: "Select",
-      rules: {},
-      label: "year",
-      items: (articles) => {
-        return articles.map((article) => new Date(article.date).getFullYear())
-      },
-    } /* 
-      categories: {
-        type: 'TextInput',
+  type: null, // 'directory' | 'file' | null
+  // GQL related keys
+
+  //Features related keys
+  list: {
+    create: true, // allow to create new items
+    perPage: {
+      options: [9, 12, 16],
+      default: 9,
+    },
+    filters: {
+      year: {
+        type: "Select",
         rules: {},
-        label: 'Search',
+        label: "year",
+        items: [],
+      } /* 
+        categories: {
+          type: 'TextInput',
+          rules: {},
+          label: 'Search',
+        },
+        author: {
+          type: 'Autocomplete',
+          rules: {},
+          label: 'authors',
+        }, */,
+    },
+    sort: {
+      // sort options
+      nameasc: {
+        // by name from a to z
+        icon: "sort-alphabetical-ascending",
+        text: "by-name-from-a-to-z",
+        value: ["article_title", 1],
       },
-      author: {
-        type: 'Autocomplete',
-        rules: {},
-        label: 'authors',
-      }, */,
-  },
-  sort: {
-    // sort options
-    nameasc: {
-      // by name from a to z
-      icon: "sort-alphabetical-ascending",
-      text: "by-name-from-a-to-z",
-      value: ["article_title", 1],
+      namedesc: {
+        // by name from z to a
+        icon: "sort-alphabetical-descending",
+        text: "by-name-from-z-to-a",
+        value: ["article_title", -1],
+      },
+      dateasc: {
+        // by date from most recent to oldest
+        icon: "sort-calendar-descending",
+        text: "by-date-most-recent-first",
+        value: ["date", -1],
+        default: true,
+      },
+      datedesc: {
+        // by date from oldest to most recent
+        icon: "sort-calendar-ascending",
+        text: "by-date-oldest-first",
+        value: ["date", 1],
+      },
     },
-    namedesc: {
-      // by name from z to a
-      icon: "sort-alphabetical-descending",
-      text: "by-name-from-z-to-a",
-      value: ["article_title", -1],
-    },
-    dateasc: {
-      // by date from most recent to oldest
-      icon: "sort-calendar-descending",
-      text: "by-date-most-recent-first",
-      value: ["date", -1],
-      default: true,
-    },
-    datedesc: {
-      // by date from oldest to most recent
-      icon: "sort-calendar-ascending",
-      text: "by-date-oldest-first",
-      value: ["date", 1],
-    },
-  },
-  views: {
-    rows: {
-      icon: "view-list",
-      default: true,
-    },
-    tiles: {
-      name: "tiles",
-      icon: "view-quilt",
-    },
-    grid: {
-      name: "grid",
-      icon: "view-day",
+    views: {
+      rows: {
+        icon: "view-list",
+        default: true,
+      },
+      tiles: {
+        name: "tiles",
+        icon: "view-quilt",
+      },
+      grid: {
+        name: "grid",
+        icon: "view-day",
+      },
     },
   },
-  schema: {
-    /* firstname: string
-    lastname: string
-    affiliations: [{ affiliation: affiliation; positions: [position] }]
-    picture: image
-    socials: socials
-    biography: string
-    consent: consent
-    groups: groups */
+
+  form: {
     firstname: {
       label: "firstname",
       component: "TextField",

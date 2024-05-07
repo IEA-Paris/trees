@@ -11,3 +11,5 @@ export interface Location {
     lng: number
   }
 }
+export default {}
+//TODO form

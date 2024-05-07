@@ -13,7 +13,7 @@ export interface FellowshipDetails {
 }
 
 export default {
-  schema: {
+  form: {
     data: {
       label: "data",
       component: "Checkbox",

@@ -9,3 +9,4 @@ export interface Affiliation {
   url: string
 }
 export default {}
+//TODO list + form

@@ -5,3 +5,4 @@ export interface Mailing {
   updatedAt: string
   date: string
 }
+//TODO list + form

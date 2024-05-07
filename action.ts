@@ -18,7 +18,7 @@ export default {
   path: "content/actions", // path to the folder where the content is stored
   create: true, // allow to create new items
   type: "directory", // 'directory' | 'file
-  listFilters: {
+  filters: {
     year: {
       type: "Select",
       rules: {},
@@ -81,7 +81,7 @@ export default {
       icon: "view-day",
     },
   ],
-  schema: {
+  form: {
     title: {
       label: "title",
       type: "TextField",
@@ -145,3 +145,4 @@ export default {
     },
   },
 }
+//TODO list + form

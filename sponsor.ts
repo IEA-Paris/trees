@@ -1,7 +1,7 @@
+import { People } from "./people"
+import { Affiliation } from "./affiliation"
 
-import {People} from './people'
-import {Affiliation} from './affiliation'
-
-export interface Sponsor extends People, Affiliation {
-    
+export interface Sponsor extends People, Affiliation {}
+export default {
+  aliases: ["People", "Affiliation"],
 }

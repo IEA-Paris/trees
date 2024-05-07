@@ -81,7 +81,7 @@ export default {
       icon: "view-day",
     },
   },
-  schema: {
+  form: {
     /* firstname: string
     lastname: string
     affiliations: [{ affiliation: affiliation; positions: [position] }]
@@ -149,3 +149,4 @@ export default {
     },
   },
 }
+//TODO list + form

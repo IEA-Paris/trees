@@ -1,4 +1,7 @@
 export interface Position {
-    name: String
-    year: String
+  role: string
+  department: string
+  start: Date
+  stop: Date
 }
+//TODO form

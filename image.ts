@@ -6,7 +6,7 @@ export interface Image {
   licenseUrl: string | null
   backgroundColor: string | null
 }
-const imageModel = {
+export default {
   url: {
     type: "image",
     label: "Image URL",
@@ -103,3 +103,4 @@ const imageModel = {
     // meta: 'name', // item type on schema.org
   },
 }
+//TODO list + form
