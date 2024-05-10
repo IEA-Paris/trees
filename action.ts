@@ -1,13 +1,25 @@
-import { Image } from "./image"
+import { Image } from "./image";
+import { PerPage } from "./list";
 
 export interface Action {
-  color: string
-  link: string
-  picture: Image
-  title: string
+  color: string;
+  link: string;
+  picture: Image;
+  title: string;
 }
 
-export default {
+interface QueryFilters {}
+
+interface ConfigAction {
+  source: string;
+  path: string | null;
+  type: string | null;
+  queryFilters: QueryFilters;
+  perPage: PerPage;
+  create: boolean;
+}
+
+const defaultConfig: ConfigAction = {
   // fitlers used in the query by default (e.g. only published articles)
   queryFilters: {},
   source: "md",
@@ -24,7 +36,7 @@ export default {
       rules: {},
       label: "year",
       items: () => {
-        return []
+        return [];
       },
     } /* 
     categories: {
@@ -144,5 +156,5 @@ export default {
       meta: "color", // item type on schema.org
     },
   },
-}
+};
 //TODO list + form

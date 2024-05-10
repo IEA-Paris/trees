@@ -1,4 +1,4 @@
-interface PerPage {
+export interface PerPage {
   options: number[];
   default: number;
 }
