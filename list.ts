@@ -1,30 +1,31 @@
+interface PerPage {
+  options: number[];
+  default: number;
+}
+interface Filters {
+  type: string;
+  rules: Record<string, any>;
+  label: string;
+  items?: any[];
+}
+
+interface Sort {
+  icon: string;
+  text: string;
+  value: [string, number];
+  default?: boolean;
+}
+
+interface Views {
+  icon: string;
+  default?: boolean;
+  name?: string;
+}
+
 export interface List {
-  create: boolean // allow to create new items
-  perPage: {
-    options: number[]
-    default: number
-  }
-  filters: {
-    year: {
-      type: string
-      rules: object
-      label: string
-      items: object[]
-    }
-  }
-  sort: {
-    // sort options
-    [key: string]: {
-      // e.f. by name from a to z
-      icon: string
-      text: string
-      value: [string, number]
-    }
-  }
-  views: {
-    [key: string]: {
-      icon: string
-      default: boolean
-    }
-  }
+  create: boolean;
+  perPage: PerPage;
+  filters: Record<string, Filters>;
+  sort: Record<string, Sort>;
+  views: Record<string, Views>;
 }

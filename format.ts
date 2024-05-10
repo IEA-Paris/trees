@@ -1,1 +1,1 @@
-export type format = {}
+export interface Format {}

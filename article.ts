@@ -1,25 +1,25 @@
 import { Image } from "./image"
-import { people } from "./people"
-import { discipline } from "./discipline"
+import { People } from "./people"
+import { Discipline } from "./discipline"
 import { Format } from "./format"
-import { video } from "./video"
-import { tag } from "./tag"
+import { Video } from "./video"
+import { Tag } from "./tag"
 
-export format article = {
+export interface article {
   title: String
   abstract: String
-  image: image
-  video: video
+  image: Image
+  video: Video
   needDOI: boolean
   DOI: string
   Zid: string
   highlight: boolean
   date: Date
-  authors: [people]
+  authors: [People]
   issue: string
   lang: string
-  disciplines: [discipline]
+  disciplines: [Discipline]
   format: [Format]
-  tag: [tag]
+  tag: [Tag]
 }
 //TODO list + form

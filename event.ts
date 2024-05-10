@@ -1,44 +1,54 @@
-import { Location } from "./location"
-import { Image } from "./image"
-import { EventSlot } from "./eventSlot"
-import { Discipline } from "./discipline"
-import { Tag } from "./tag"
-import { People } from "./people"
-import { Affiliation } from "./affiliation"
-import { File } from "./file"
+import { Location } from "./location";
+import { Image } from "./image";
+import { EventSlot } from "./eventSlot";
+import { Discipline } from "./discipline";
+import { Tag } from "./tag";
+import { People } from "./people";
+import { Affiliation } from "./affiliation";
+import { File } from "./file";
+import { List } from "./list";
+import { Form } from "./form";
 
 export interface Event {
-  affiliations: [Affiliation]
-  appId: string
-  availableSlots: number
-  bookingState: number
-  createdAt: string
-  delay: number
-  description: string
-  disciplines: [Discipline]
-  discussants: [People]
-  files: [File]
-  image: Image
-  name: string
-  onlineSlots: [EventSlot]
-  organizers: [People]
-  outside: boolean
-  place: Location
-  slots: [EventSlot]
-  speakers: [People]
-  start: string
-  state: number
-  stop: string
-  subtitle: string
-  summary: string
-  tags: [Tag]
-  totalSlots: number
-  type: number // 0 : online, 1: physical, 2: hybrid
-  updatedAt: string
-  url: string
+  affiliations: [Affiliation];
+  appId: string;
+  availableSlots: number;
+  bookingState: number;
+  createdAt: string;
+  delay: number;
+  description: string;
+  disciplines: [Discipline];
+  discussants: [People];
+  files: [File];
+  image: Image;
+  name: string;
+  onlineSlots: [EventSlot];
+  organizers: [People];
+  outside: boolean;
+  place: Location;
+  slots: [EventSlot];
+  speakers: [People];
+  start: string;
+  state: number;
+  stop: string;
+  subtitle: string;
+  summary: string;
+  tags: [Tag];
+  totalSlots: number;
+  type: number; // 0 : online, 1: physical, 2: hybrid
+  updatedAt: string;
+  url: string;
 }
 
-export default {
+export interface ConfigEvent {
+  source: string;
+  path: string | null;
+  type: string | null;
+  list: List;
+  form: Record<string, Form>;
+}
+
+const defaultConfig: ConfigEvent = {
   source: "md",
   // markdown related keys
   path: null, // path to the folder where the content is stored
@@ -173,4 +183,6 @@ export default {
       meta: "consent", // item type on schema.org
     },
   },
-}
+};
+
+export default defaultConfig;

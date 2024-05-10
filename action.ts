@@ -1,9 +1,9 @@
-import { image } from "./image"
+import { Image } from "./image"
 
 export interface Action {
   color: string
   link: string
-  picture: image
+  picture: Image
   title: string
 }
 
