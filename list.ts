@@ -9,14 +9,14 @@ interface Filters {
   items?: any;
 }
 
-interface Sort {
+export interface Sort {
   icon: string;
   text: string;
   value: [string, number];
   default?: boolean;
 }
 
-interface Views {
+export interface Views {
   icon: string;
   default?: boolean;
   name?: string;
