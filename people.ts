@@ -1,21 +1,21 @@
-import { Affiliation } from "./affiliation";
-import { Image } from "./image";
-import { Socials } from "./socials";
-import { Position } from "./position";
-import { Consent } from "./consent";
-import { Groups } from "./group";
-import Model from "./model";
+import { Affiliation } from "./affiliation"
+import { Image } from "./image"
+import { Socials } from "./socials"
+import { Position } from "./position"
+import { Consent } from "./consent"
+import { Groups } from "./group"
+import Model from "./model"
 
 export interface People {
-  firstname: string;
-  lastname: string;
-  affiliations: [{ affiliation: Affiliation; positions: [Position] }];
-  picture: Image;
-  socials: Socials;
-  biography: string;
-  consent: Consent;
-  groups: Groups;
-  lang: string;
+  firstname: string
+  lastname: string
+  affiliations: [{ affiliation: Affiliation; positions: [Position] }]
+  picture: Image
+  socials: Socials
+  biography: string
+  consent: Consent
+  groups: Groups
+  lang: string
 }
 
 const defaultConfig: Model = {
@@ -36,7 +36,7 @@ const defaultConfig: Model = {
         items: (articles: any) => {
           return articles.map((article: any) =>
             new Date(article.date).getFullYear()
-          );
+          )
         },
       },
     },
@@ -93,7 +93,7 @@ const defaultConfig: Model = {
       hint: false,
       rules: {
         required: true,
-        min: 5,
+        min: 1,
         max: 200,
       },
       visibility: {
@@ -112,7 +112,7 @@ const defaultConfig: Model = {
       hint: false,
       rules: {
         required: true,
-        min: 5,
+        min: 1,
         max: 200,
       },
       visibility: {
@@ -130,9 +130,7 @@ const defaultConfig: Model = {
       description: "",
       hint: false,
       rules: {
-        required: true,
-        min: 5,
-        max: 200,
+        required: false,
       },
       visibility: {
         default: true,
@@ -149,9 +147,7 @@ const defaultConfig: Model = {
       description: "",
       hint: false,
       rules: {
-        required: true,
-        min: 5,
-        max: 200,
+        required: false,
       },
       visibility: {
         default: true,
@@ -167,11 +163,7 @@ const defaultConfig: Model = {
       default: "",
       description: "",
       hint: false,
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
+      rules: {},
       visibility: {
         default: true,
         switchIf: [],
@@ -181,7 +173,7 @@ const defaultConfig: Model = {
     },
     biography: {
       label: "biography",
-      component: "TextField",
+      component: "TextArea",
       type: 0, //
       default: "",
       description: "",
@@ -189,7 +181,7 @@ const defaultConfig: Model = {
       rules: {
         required: true,
         min: 5,
-        max: 200,
+        max: 2000,
       },
       visibility: {
         default: true,
@@ -207,8 +199,6 @@ const defaultConfig: Model = {
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
       },
       visibility: {
         default: true,
@@ -226,8 +216,6 @@ const defaultConfig: Model = {
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
       },
       visibility: {
         default: true,
@@ -238,15 +226,13 @@ const defaultConfig: Model = {
     },
     lang: {
       label: "lang",
-      component: "TextField",
+      component: "ListAutoComplete",
       type: 0, //
       default: "",
       description: "",
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
       },
       visibility: {
         default: true,
@@ -256,6 +242,6 @@ const defaultConfig: Model = {
       meta: "lang",
     },
   },
-};
+}
 
-export default defaultConfig;
+export default defaultConfig

@@ -1,25 +1,26 @@
-import { Image } from "./image";
-import { Affiliation } from "./affiliation";
-import { Event } from "./event";
-import { File } from "./file";
-import { News } from "./news";
-import Model from "./model";
+import { Image } from "./image"
+import { Affiliation } from "./affiliation"
+import { Event } from "./event"
+import { File } from "./file"
+import { News } from "./news"
+import { Video } from "./video"
+import Model from "./model"
 
 export interface Project {
-  title: string;
-  shortDescription: string;
-  description: string;
-  url: string;
-  affiliations: Affiliation[];
-  relatedEvents: Event[];
-  relatedNews: News[];
-  picture: Image;
-  video: string;
-  tags: string[];
-  files: File[];
-  color: string;
-  date: Date;
-  featured: Date;
+  title: string
+  shortDescription: string
+  description: string
+  url: URL
+  affiliations: Affiliation[]
+  relatedEvents: Event[]
+  relatedNews: News[]
+  picture: Image
+  video: Video
+  tags: string[]
+  files: File[]
+  color: string
+  date: Date
+  featured: Date
 }
 
 const defaultConfig: Model = {
@@ -40,7 +41,7 @@ const defaultConfig: Model = {
         items: (articles: any) => {
           return articles.map((article: any) =>
             new Date(article.date).getFullYear()
-          );
+          )
         },
       },
     },
@@ -170,11 +171,7 @@ const defaultConfig: Model = {
       default: "",
       description: "",
       hint: false,
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
+      rules: {},
       visibility: {
         default: true,
         switchIf: [],
@@ -189,11 +186,7 @@ const defaultConfig: Model = {
       default: "",
       description: "",
       hint: false,
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
+      rules: {},
       visibility: {
         default: true,
         switchIf: [],
@@ -241,16 +234,12 @@ const defaultConfig: Model = {
     },
     video: {
       label: "video",
-      component: "TextField",
-      type: 0, //
+      component: "ObjectContainerPanel",
+      type: 3, //
       default: "",
       description: "",
       hint: false,
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
+      rules: {},
       visibility: {
         default: true,
         switchIf: [],
@@ -260,15 +249,13 @@ const defaultConfig: Model = {
     },
     tags: {
       label: "tags",
-      component: "TextField",
+      component: "ListAutoComplete",
       type: 2, //
       default: "",
       description: "",
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
       },
       visibility: {
         default: true,
@@ -284,11 +271,7 @@ const defaultConfig: Model = {
       default: "",
       description: "",
       hint: false,
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
+      rules: {},
       visibility: {
         default: true,
         switchIf: [],
@@ -298,15 +281,14 @@ const defaultConfig: Model = {
     },
     color: {
       label: "color",
-      component: "TextField",
+      component: "TextColorPicker",
       type: 0, //
       default: "",
       description: "",
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
+        color: true,
       },
       visibility: {
         default: true,
@@ -317,15 +299,14 @@ const defaultConfig: Model = {
     },
     date: {
       label: "date",
-      component: "TextField",
+      component: "FiDatePicker",
       type: 0, //
       default: "",
       description: "",
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
+        date: true,
       },
       visibility: {
         default: true,
@@ -336,15 +317,14 @@ const defaultConfig: Model = {
     },
     featured: {
       label: "featured",
-      component: "TextField",
+      component: "DatePicker",
       type: 0, //
       default: "",
       description: "",
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
+        date: true,
       },
       visibility: {
         default: true,
@@ -354,5 +334,5 @@ const defaultConfig: Model = {
       meta: "featured",
     },
   },
-};
-export default defaultConfig;
+}
+export default defaultConfig

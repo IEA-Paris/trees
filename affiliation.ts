@@ -1,17 +1,16 @@
-import { Image } from "./image";
-import { Location } from "./location";
-import Model from "./model";
+import { Image } from "./image"
+import { Location } from "./location"
+import Model from "./model"
 
 export interface Affiliation {
-  address: Location;
-  image: Image;
-  name: string;
-  ror: string;
-  url: string;
+  address: Location
+  image: Image
+  name: string
+  ror: string
+  url: string
 }
 const defaultConfig: Model = {
   source: "md",
-  path: "content/affliations", // path to the folder where the content is stored
   type: "directory", // 'directory' | 'file
   list: {
     perPage: {
@@ -25,7 +24,7 @@ const defaultConfig: Model = {
         rules: {},
         label: "year",
         items: () => {
-          return [];
+          return []
         },
       },
     },
@@ -84,8 +83,6 @@ const defaultConfig: Model = {
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
       },
       visibility: {
         default: true,
@@ -104,8 +101,6 @@ const defaultConfig: Model = {
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
       },
       visibility: {
         default: true,
@@ -142,8 +137,7 @@ const defaultConfig: Model = {
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
+        ror: true,
       },
       visibility: {
         default: true,
@@ -161,8 +155,7 @@ const defaultConfig: Model = {
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
+        url: true,
       },
       visibility: {
         default: true,
@@ -172,6 +165,6 @@ const defaultConfig: Model = {
       meta: "url",
     },
   },
-};
+}
 
-export default defaultConfig;
+export default defaultConfig

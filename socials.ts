@@ -1,19 +1,19 @@
-import { Form } from "./form";
+import { Form } from "./form"
 
 export interface Socials {
-  website: string;
-  wikipedia: string;
-  orcid: string;
-  linkedin: string;
-  twitter: string;
-  instagram: string;
-  scholar: string;
-  researchgate: string;
-  mendeley: string;
+  website: URL
+  wikipedia: URL
+  orcid: string
+  linkedin: URL
+  twitter: URL
+  instagram: URL
+  scholar: URL
+  researchgate: URL
+  mendeley: URL
 }
 
 interface SocialsForm {
-  form: Record<string, Form>;
+  form: Record<string, Form>
 }
 const defaultConfig: SocialsForm = {
   form: {
@@ -59,7 +59,7 @@ const defaultConfig: SocialsForm = {
       description: "",
       hint: false,
       rules: {
-        url: true,
+        orcid: true,
       },
       visibility: {
         default: true, // same as hidden = true
@@ -171,5 +171,5 @@ const defaultConfig: SocialsForm = {
       meta: "mendeley", // item type on schema.org
     },
   },
-};
-export default defaultConfig;
+}
+export default defaultConfig

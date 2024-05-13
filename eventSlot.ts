@@ -1,16 +1,16 @@
-import { Form } from "./form";
+import { Form } from "./form"
 
 export interface EventSlot {
-  email: string;
-  firstname: string;
-  institution: string;
-  lang: string;
-  lastname: string;
+  email: string
+  firstname: string
+  institution: string
+  lang: string
+  lastname: string
 }
 // form
 
 interface EventSlotForm {
-  form: Record<string, Form>;
+  form: Record<string, Form>
 }
 
 const defautConfig: EventSlotForm = {
@@ -24,8 +24,7 @@ const defautConfig: EventSlotForm = {
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
+        email: true,
       },
       visibility: {
         default: true,
@@ -43,7 +42,7 @@ const defautConfig: EventSlotForm = {
       hint: false,
       rules: {
         required: true,
-        min: 5,
+        min: 1,
         max: 200,
       },
       visibility: {
@@ -61,9 +60,7 @@ const defautConfig: EventSlotForm = {
       description: "",
       hint: false,
       rules: {
-        required: true,
-        min: 5,
-        max: 200,
+        required: false,
       },
       visibility: {
         default: true,
@@ -74,15 +71,13 @@ const defautConfig: EventSlotForm = {
     },
     lang: {
       label: "lang",
-      component: "TextField",
+      component: "ListSelect",
       type: 0, //
       default: "",
       description: "",
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
       },
       visibility: {
         default: true,
@@ -100,7 +95,7 @@ const defautConfig: EventSlotForm = {
       hint: false,
       rules: {
         required: true,
-        min: 5,
+        min: 1,
         max: 200,
       },
       visibility: {
@@ -111,6 +106,6 @@ const defautConfig: EventSlotForm = {
       meta: "lastname",
     },
   },
-};
+}
 
-export default defautConfig;
+export default defautConfig

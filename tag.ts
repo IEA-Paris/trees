@@ -1,11 +1,11 @@
-import Model from "./model";
+import Model from "./model"
 
 export interface Tag {
-  name: string;
-  description: string;
-  icon: string;
-  createdAt: string;
-  updatedAt: string;
+  name: string
+  description: string
+  icon: string
+  createdAt: Date
+  updatedAt: Date
 }
 
 const defaultConfig: Model = {
@@ -26,7 +26,7 @@ const defaultConfig: Model = {
         items: (articles: any) => {
           return articles.map((article: any) =>
             new Date(article.date).getFullYear()
-          );
+          )
         },
       },
     },
@@ -95,7 +95,7 @@ const defaultConfig: Model = {
     },
     description: {
       label: "description",
-      component: "TextField",
+      component: "TextArea",
       type: 0, //
       default: "",
       description: "",
@@ -103,7 +103,7 @@ const defaultConfig: Model = {
       rules: {
         required: true,
         min: 5,
-        max: 200,
+        max: 2000,
       },
       visibility: {
         default: true,
@@ -117,13 +117,10 @@ const defaultConfig: Model = {
       component: "TextField",
       type: 0, //
       default: "",
-      description: "",
+      description:
+        "Select your icon from material design icons https://pictogrammers.com/library/mdi/",
       hint: false,
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
+      rules: {},
       visibility: {
         default: true,
         switchIf: [],
@@ -133,16 +130,12 @@ const defaultConfig: Model = {
     },
     createdAt: {
       label: "createdAt",
-      component: "TextField",
+      component: false,
       type: 0, //
       default: "",
       description: "",
       hint: false,
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
+      rules: {},
       visibility: {
         default: true,
         switchIf: [],
@@ -152,16 +145,12 @@ const defaultConfig: Model = {
     },
     updatedAt: {
       label: "updatedAt",
-      component: "TextField",
+      component: false,
       type: 0, //
       default: "",
       description: "",
       hint: false,
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
+      rules: {},
       visibility: {
         default: true,
         switchIf: [],
@@ -170,5 +159,5 @@ const defaultConfig: Model = {
       meta: "updatedAt",
     },
   },
-};
-export default defaultConfig;
+}
+export default defaultConfig

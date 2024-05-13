@@ -1,15 +1,15 @@
-import { Image } from "./image";
-import Model from "./model";
+import { Image } from "./image"
+import Model from "./model"
 
 export interface Action {
-  color: string;
-  link: string;
-  picture: Image;
-  title: string;
+  color: string
+  link: string
+  picture: Image
+  title: string
 }
 
 interface ActionForm extends Model {
-  queryFilters: any;
+  queryFilters: any
 }
 
 const defaultConfig: ActionForm = {
@@ -30,7 +30,7 @@ const defaultConfig: ActionForm = {
         rules: {},
         label: "year",
         items: () => {
-          return [];
+          return []
         },
       },
     },
@@ -103,7 +103,7 @@ const defaultConfig: ActionForm = {
     picture: {
       label: "picture",
       type: 3,
-      component: "CollectionContainerPanel",
+      component: "ObjectContainerPanel",
       description: "The logo of the app",
       rules: {
         required: true,
@@ -119,8 +119,7 @@ const defaultConfig: ActionForm = {
       hint: false,
       rules: {
         required: true,
-        min: 2,
-        max: 4,
+        url: true,
       },
       visibility: {
         default: true, // same as hidden = true
@@ -136,7 +135,9 @@ const defaultConfig: ActionForm = {
       default: "#FFFFFF",
       description: "The background color of the content",
       hint: false,
-      rules: {},
+      rules: {
+        color: true,
+      },
       visibility: {
         default: true, // same as hidden = true
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
@@ -145,5 +146,5 @@ const defaultConfig: ActionForm = {
       meta: "color", // item type on schema.org
     },
   },
-};
-export default defaultConfig;
+}
+export default defaultConfig

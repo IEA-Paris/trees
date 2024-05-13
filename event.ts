@@ -1,46 +1,48 @@
-import { Location } from "./location";
-import { Image } from "./image";
-import { EventSlot } from "./eventSlot";
-import { Discipline } from "./discipline";
-import { Tag } from "./tag";
-import { People } from "./people";
-import { Affiliation } from "./affiliation";
-import { File } from "./file";
-import Model from "./model";
+import { Location } from "./location"
+import { Image } from "./image"
+import { EventSlot } from "./eventSlot"
+import { Discipline } from "./discipline"
+import { Tag } from "./tag"
+import { People } from "./people"
+import { Affiliation } from "./affiliation"
+import { File } from "./file"
+import Model from "./model"
 
 export interface Event {
-  affiliations: Affiliation[]; // 3 - Server & Client
-  appId: string; // 0 - Server & Client
-  availableSlots: number; // 0 - Server & Client
-  bookingState: number; // 0 - Server & Client
-  createdAt: Date; // 0 - Server & Client
-  delay: number; // 0 - Server & Client
-  description: string; // 0 - Server & Client
-  disciplines: Discipline[]; // 3 - Server & Client
-  discussants: People[]; // 0 - Server & Client
-  files: File[]; // 3 - Server & Client
-  image: Image; // 3 - Server & Client
-  name: string; // 0 - Server & Client
-  onlineSlots: EventSlot[]; //// 3 - Server
-  organizers: People[]; // 3 - Server & Client
-  outside: boolean; // 0 - Server & Client
-  place: Location; // 0 - Server & Client
-  slots: EventSlot[]; //// 3 - Server
-  speakers: People[]; // 3 - Server & Client
-  start: string; // 0 - Server & Client
-  state: number; // 0 - Server & Client
-  stop: string; // 0 - Server & Client
-  subtitle: string; // 0 - Server & Client
-  summary: string; // 0 - Server & Client
-  tags: Tag[]; // 3 - Server & Client
-  totalSlots: number; // 0 - Server & Client
-  type: number; // 0 : online, 1: physical, 2: hybrid// 0 - Server & Client
-  updatedAt: Date; // 0 - Server & Client
-  url: URL; // 0 - Server & Client
+  affiliations: Affiliation[] // 3 - Server & Client
+  appId: string // 0 - Server & Client
+  availableSlots: number // 0 - Server & Client
+  bookingState: number // 0 - Server & Client
+  createdAt: Date // 0 - Server & Client
+  delay: number // 0 - Server & Client
+  description: string // 0 - Server & Client
+  disciplines: Discipline[] // 3 - Server & Client
+  discussants: People[] // 0 - Server & Client
+  files: File[] // 3 - Server & Client
+  image: Image // 3 - Server & Client
+  name: string // 0 - Server & Client
+  onlineSlots?: EventSlot[] //// 3 - Server
+  organizers: People[] | Affiliation[] // 3 - Server & Client
+  outside: boolean // 0 - Server & Client
+  place: Location // 0 - Server & Client
+  relatedProjects?: string[] // 0 - Server & Client
+  relatedNews?: string[] // 0 - Server & Client
+  slots?: EventSlot[] //// 3 - Server
+  speakers: People[] // 3 - Server & Client
+  start: string // 0 - Server & Client
+  state: number // 0 - Server & Client
+  stop: string // 0 - Server & Client
+  subtitle: string // 0 - Server & Client
+  summary: string // 0 - Server & Client
+  tags: Tag[] // 3 - Server & Client
+  totalSlots: number // 0 - Server & Client
+  eventType: number // 0 : online, 1: physical, 2: hybrid// 0 - Server & Client
+  updatedAt: Date // 0 - Server & Client
+  url: URL // 0 - Server & Client
 }
 
 const defaultConfig: Model = {
-  source: "md",
+  source: "gql",
   // markdown related keys
   path: null, // path to the folder where the content is stored
   type: null, // 'directory' | 'file' | null
@@ -141,7 +143,7 @@ const defaultConfig: Model = {
       label: "availableSlots",
       component: false,
       type: 0,
-      default: "",
+      default: 0,
       description: "",
       hint: false,
       visibility: {
@@ -155,7 +157,7 @@ const defaultConfig: Model = {
       label: "bookingState",
       component: false,
       type: 0, //
-      default: "",
+      default: 0,
       description: "",
       hint: false,
       visibility: {
@@ -186,13 +188,11 @@ const defaultConfig: Model = {
       label: "delay",
       component: false,
       type: 0, //
-      default: "",
+      default: 0,
       description: "",
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
       },
       visibility: {
         default: true,
@@ -204,7 +204,7 @@ const defaultConfig: Model = {
 
     description: {
       label: "description",
-      component: false,
+      component: "TextArea",
       type: 0, //
       default: "",
       description: "",
@@ -251,6 +251,23 @@ const defaultConfig: Model = {
       hint: false,
       rules: {
         required: true,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "discussants",
+    },
+    eventType: {
+      label: "type",
+      component: "Select",
+      type: 0, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
         min: 5,
         max: 200,
       },
@@ -259,7 +276,7 @@ const defaultConfig: Model = {
         switchIf: [],
         disjonctive: false,
       },
-      meta: "discussants",
+      meta: "type",
     },
     files: {
       label: "files",
@@ -270,8 +287,6 @@ const defaultConfig: Model = {
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
       },
       visibility: {
         default: true,
@@ -283,14 +298,12 @@ const defaultConfig: Model = {
     image: {
       label: "image",
       component: "ObjectContainerPanel",
-      type: 0, //
+      type: 3, //
       default: "",
       description: "",
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
       },
       visibility: {
         default: true,
@@ -319,25 +332,6 @@ const defaultConfig: Model = {
       meta: "name",
     },
 
-    onlineSlots: {
-      label: "onlineSlots",
-      component: "CollectionContainerPanel",
-      type: 3, //
-      default: "",
-      description: "",
-      hint: false,
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
-      meta: "onlineSlots",
-    },
     organizers: {
       label: "organizers",
       component: "CollectionContainerPanel",
@@ -379,14 +373,12 @@ const defaultConfig: Model = {
     place: {
       label: "place",
       component: "ObjectContainerPanel",
-      type: 0, //
+      type: 3, //
       default: "",
       description: "",
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
       },
       visibility: {
         default: true,
@@ -395,8 +387,23 @@ const defaultConfig: Model = {
       },
       meta: "place",
     },
-    slots: {
-      label: "slots",
+    relatedEvents: {
+      label: "relatedEvents",
+      component: "CollectionContainerPanel",
+      type: 3, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {},
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "relatedEvents",
+    },
+    relatedNews: {
+      label: "relatedNews",
       component: "CollectionContainerPanel",
       type: 3, //
       default: "",
@@ -412,7 +419,7 @@ const defaultConfig: Model = {
         switchIf: [],
         disjonctive: false,
       },
-      meta: "slots",
+      meta: "relatedNews",
     },
     speakers: {
       label: "speakers",
@@ -423,8 +430,6 @@ const defaultConfig: Model = {
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
       },
       visibility: {
         default: true,
@@ -435,15 +440,14 @@ const defaultConfig: Model = {
     },
     start: {
       label: "start",
-      component: "TextField",
+      component: "DatePicker",
       type: 0, //
       default: "",
       description: "",
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
+        date: true,
       },
       visibility: {
         default: true,
@@ -454,15 +458,13 @@ const defaultConfig: Model = {
     },
     state: {
       label: "state",
-      component: "TextField",
+      component: "ListRadio",
       type: 0, //
       default: "",
       description: "",
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
       },
       visibility: {
         default: true,
@@ -473,15 +475,14 @@ const defaultConfig: Model = {
     },
     stop: {
       label: "stop",
-      component: "TextField",
+      component: "DatePicker",
       type: 0, //
       default: "",
       description: "",
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
+        date: true,
       },
       visibility: {
         default: true,
@@ -492,7 +493,7 @@ const defaultConfig: Model = {
     },
     subtitle: {
       label: "subtitle",
-      component: "TextField",
+      component: "TextArea",
       type: 0, //
       default: "",
       description: "",
@@ -511,7 +512,7 @@ const defaultConfig: Model = {
     },
     summary: {
       label: "summary",
-      component: "TextField",
+      component: "TextArea",
       type: 0, //
       default: "",
       description: "",
@@ -537,8 +538,6 @@ const defaultConfig: Model = {
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
       },
       visibility: {
         default: true,
@@ -549,7 +548,7 @@ const defaultConfig: Model = {
     },
     totalSlots: {
       label: "totalSlots",
-      component: "TextField",
+      component: false,
       type: 0, //
       default: "",
       description: "",
@@ -566,36 +565,16 @@ const defaultConfig: Model = {
       },
       meta: "totalSlots",
     },
-    type: {
-      label: "type",
-      component: "TextField",
-      type: 0, //
-      default: "",
-      description: "",
-      hint: false,
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
-      meta: "type",
-    },
+
     updatedAt: {
       label: "updatedAt",
-      component: "TextField",
+      component: false,
       type: 0, //
       default: "",
       description: "",
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
       },
       visibility: {
         default: true,
@@ -613,8 +592,7 @@ const defaultConfig: Model = {
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
+        url: true,
       },
       visibility: {
         default: true,
@@ -624,6 +602,6 @@ const defaultConfig: Model = {
       meta: "url",
     },
   },
-};
+}
 
-export default defaultConfig;
+export default defaultConfig

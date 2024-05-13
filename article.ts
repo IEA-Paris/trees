@@ -1,27 +1,26 @@
-import { Image } from "./image";
-import { People } from "./people";
-import { Discipline } from "./discipline";
-import { Format } from "./format";
-import { Video } from "./video";
-import { Tag } from "./tag";
-import Model from "./model";
-
-export interface article {
-  title: string;
-  abstract: string;
-  image: Image;
-  video: Video;
-  needDOI: boolean;
-  DOI: string;
-  Zid: string;
-  highlight: boolean;
-  date: Date;
-  authors: People[];
-  issue: string;
-  lang: string;
-  disciplines: Discipline[];
-  format: Format[];
-  tag: Tag[];
+import { Image } from "./image"
+import { People } from "./people"
+import { Discipline } from "./discipline"
+import { Video } from "./video"
+import { Tag } from "./tag"
+import Model from "./model"
+// define format from set of articles formats offered by PIAS (i.e. Zenodo api)
+export interface Article {
+  title: string
+  abstract: string
+  image: Image
+  video: Video
+  needDOI: boolean
+  DOI: string
+  Zid: string
+  highlight: boolean
+  date: Date
+  authors: People[]
+  issue: string
+  lang: string
+  disciplines: Discipline[]
+  //format: Format[]
+  tag: Tag[]
 }
 //TODO list + form
 
@@ -40,8 +39,10 @@ const defautConfig: Model = {
         type: "Select",
         rules: {},
         label: "year",
-        items: () => {
-          return [];
+        items: (articles: Article[]) => {
+          return articles.map((article: Article) =>
+            new Date(article.date).getFullYear()
+          )
         },
       },
     },
@@ -111,7 +112,7 @@ const defautConfig: Model = {
     },
     abstract: {
       label: "abstract",
-      component: "TextField",
+      component: "TextArea",
       type: 0, //
       default: "",
       description: "",
@@ -119,7 +120,7 @@ const defautConfig: Model = {
       rules: {
         required: true,
         min: 5,
-        max: 200,
+        max: 2000,
       },
       visibility: {
         default: true,
@@ -137,8 +138,6 @@ const defautConfig: Model = {
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
       },
       visibility: {
         default: true,
@@ -156,8 +155,6 @@ const defautConfig: Model = {
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
       },
       visibility: {
         default: true,
@@ -175,8 +172,6 @@ const defautConfig: Model = {
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
       },
       visibility: {
         default: true,
@@ -195,8 +190,7 @@ const defautConfig: Model = {
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
+        DOI: true,
       },
       visibility: {
         default: true,
@@ -215,8 +209,7 @@ const defautConfig: Model = {
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
+        // TODO add a Zenodo Id validation regex
       },
       visibility: {
         default: true,
@@ -234,8 +227,6 @@ const defautConfig: Model = {
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
       },
       visibility: {
         default: true,
@@ -247,15 +238,14 @@ const defautConfig: Model = {
 
     date: {
       label: "date",
-      component: "TextField",
+      component: "DatePicker", // TODO create the date picker
       type: 0, //
       default: "",
       description: "",
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
+        date: true,
       },
       visibility: {
         default: true,
@@ -274,8 +264,6 @@ const defautConfig: Model = {
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
       },
       visibility: {
         default: true,
@@ -287,15 +275,13 @@ const defautConfig: Model = {
 
     issue: {
       label: "issue",
-      component: "	$TextField",
+      component: "TextField",
       type: 0, //
       default: "",
       description: "",
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
       },
       visibility: {
         default: true,
@@ -313,8 +299,6 @@ const defautConfig: Model = {
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
       },
       visibility: {
         default: true,
@@ -332,8 +316,6 @@ const defautConfig: Model = {
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
       },
       visibility: {
         default: true,
@@ -343,6 +325,7 @@ const defautConfig: Model = {
       meta: "disciplines",
     },
     format: {
+      // TODO define inline @Antoine
       label: "format",
       component: "CollectionContainerPanel",
       type: 3, //
@@ -351,8 +334,6 @@ const defautConfig: Model = {
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
       },
       visibility: {
         default: true,
@@ -381,6 +362,6 @@ const defautConfig: Model = {
       meta: "tag",
     },
   },
-};
+}
 
-export default defautConfig;
+export default defautConfig

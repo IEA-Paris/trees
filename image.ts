@@ -1,12 +1,13 @@
-import Model from "./model";
+import Model from "./model"
 
 export interface Image {
-  url: string;
-  alt: string | null;
-  copyright: string;
-  license: string | null;
-  licenseUrl: string | null;
-  backgroundColor: string | null;
+  url: URL
+  alt: string | null
+  caption: string | null
+  copyright: string
+  license: string | null
+  licenseUrl: string | null
+  backgroundColor: string | null
 }
 const defaultConfig: Model = {
   source: "md",
@@ -94,10 +95,27 @@ const defaultConfig: Model = {
         disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
       },
     },
+    caption: {
+      label: "caption",
+      component: "TextArea",
+      type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+      },
+      visibility: {
+        default: true, // same as hidden = true
+        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
+        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+      },
+      meta: "caption", // item type on schema.org
+    },
     alt: {
       label: "alt",
       type: 0,
-      component: "TextField",
+      component: "TextArea",
       default: "",
       description: "Displayed if the image cannot be loaded",
       hint: false,
@@ -135,7 +153,7 @@ const defaultConfig: Model = {
     licence: {
       label: "licence",
       type: 0,
-      component: "TextField", // TODO change for an autocomplete
+      component: "ListAutoComplete", // TODO change for an autocomplete
       default: null,
       description: "The licence of the image",
       hint: false,
@@ -160,8 +178,7 @@ const defaultConfig: Model = {
       hint: false,
       rules: {
         required: true,
-        min: 2,
-        max: 100,
+        url: true,
       },
       visibility: {
         default: false, // "default: true" is the same than "hidden = false"
@@ -172,15 +189,14 @@ const defaultConfig: Model = {
     },
     backgroundColor: {
       label: "backgroundColor",
-      component: "TextField",
+      component: "TextColorPicker", // TODO create component
       type: 0, //
       default: "",
       description: "",
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
+        color: true,
       },
       visibility: {
         default: true,
@@ -190,6 +206,6 @@ const defaultConfig: Model = {
       meta: "backgroundColor",
     },
   },
-};
+}
 
-export default defaultConfig;
+export default defaultConfig

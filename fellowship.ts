@@ -1,25 +1,25 @@
-import { Image } from "./image";
-import { Affiliation } from "./affiliation";
-import { People } from "./people";
-import { FellowshipDetails } from "./fellowshipDetails";
-import { File } from "./file";
-import Model from "./model";
+import { Image } from "./image"
+import { Affiliation } from "./affiliation"
+import { People } from "./people"
+import { FellowshipDetails } from "./fellowshipDetails"
+import { File } from "./file"
+import Model from "./model"
 
 export interface Fellowship {
-  action: string;
-  affiliations: Affiliation[];
-  closing: string;
-  contact: string;
-  description: string;
-  details: FellowshipDetails;
-  fellows: People[];
-  link: string;
-  opening: string;
-  picture: Image;
-  publicationDate: string;
-  summary: string;
-  files: File[];
-  title: string;
+  action: string
+  affiliations: Affiliation[]
+  start: Date
+  contact: string
+  description: string
+  details: FellowshipDetails
+  fellows: People[]
+  url: URL
+  stop: Date
+  picture: Image
+  publicationDate: Date
+  summary: string
+  files: File[]
+  title: string
 }
 
 const defaultConfig: Model = {
@@ -93,8 +93,6 @@ const defaultConfig: Model = {
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
       },
       visibility: {
         default: true, // same as hidden = true
@@ -112,8 +110,6 @@ const defaultConfig: Model = {
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
       },
       visibility: {
         default: true, // same as hidden = true
@@ -122,24 +118,23 @@ const defaultConfig: Model = {
       },
       meta: "affiliations", // item type on schema.org
     },
-    closing: {
-      label: "closing",
-      component: "TextField",
+    stop: {
+      label: "stop",
+      component: "DatePicker", //TODO
       type: 0, //
       default: "",
       description: "",
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
+        date: true,
       },
       visibility: {
         default: true,
         switchIf: [],
         disjonctive: false,
       },
-      meta: "closing",
+      meta: "stop",
     },
     contact: {
       label: "contact",
@@ -150,8 +145,7 @@ const defaultConfig: Model = {
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
+        email: true,
       },
       visibility: {
         default: true,
@@ -162,7 +156,7 @@ const defaultConfig: Model = {
     },
     description: {
       label: "description",
-      component: "TextField",
+      component: "TextArea",
       type: 0, //
       default: "",
       description: "",
@@ -181,15 +175,13 @@ const defaultConfig: Model = {
     },
     details: {
       label: "details",
-      component: "CollectionContainerPanel",
+      component: "ObjectContainerPanel",
       type: 3, //
       default: "",
       description: "",
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
       },
       visibility: {
         default: true,
@@ -201,14 +193,12 @@ const defaultConfig: Model = {
     fellows: {
       label: "fellows",
       component: "CollectionContainerPanel",
-      type: 0, //
+      type: 3, //
       default: "",
       description: "",
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
       },
       visibility: {
         default: true,
@@ -217,8 +207,8 @@ const defaultConfig: Model = {
       },
       meta: "fellows",
     },
-    link: {
-      label: "link",
+    url: {
+      label: "url",
       component: "TextField",
       type: 0, //
       default: "",
@@ -226,34 +216,32 @@ const defaultConfig: Model = {
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
+        url: true,
       },
       visibility: {
         default: true,
         switchIf: [],
         disjonctive: false,
       },
-      meta: "link",
+      meta: "url",
     },
-    opening: {
-      label: "opening",
-      component: "TextField",
+    start: {
+      label: "start",
+      component: "DatePicker",
       type: 0, //
       default: "",
       description: "",
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
+        date: true,
       },
       visibility: {
         default: true,
         switchIf: [],
         disjonctive: false,
       },
-      meta: "opening",
+      meta: "start",
     },
     picture: {
       label: "picture",
@@ -264,8 +252,6 @@ const defaultConfig: Model = {
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
       },
       visibility: {
         default: true,
@@ -276,15 +262,14 @@ const defaultConfig: Model = {
     },
     publicationDate: {
       label: "publicationDate",
-      component: "TextField",
+      component: "DatePicker",
       type: 0, //
       default: "",
       description: "",
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
+        date: true,
       },
       visibility: {
         default: true,
@@ -295,7 +280,7 @@ const defaultConfig: Model = {
     },
     summary: {
       label: "summary",
-      component: "TextField",
+      component: "TextArea",
       type: 0, //
       default: "",
       description: "",
@@ -315,14 +300,12 @@ const defaultConfig: Model = {
     files: {
       label: "files",
       component: "CollectionContainerPanel",
-      type: 0, //
+      type: 3, //
       default: "",
       description: "",
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
       },
       visibility: {
         default: true,
@@ -351,5 +334,5 @@ const defaultConfig: Model = {
       meta: "title",
     },
   },
-};
-export default defaultConfig;
+}
+export default defaultConfig

@@ -1,16 +1,16 @@
-import { Form } from "./form";
+import { Form } from "./form"
 
 export interface Groups {
-  team: boolean;
-  sab: boolean;
-  board: boolean;
-  fellow: boolean;
-  sponsor: boolean;
-  mileage: number[];
+  team: boolean
+  sab: boolean
+  board: boolean
+  fellow: boolean
+  sponsor: boolean
+  mileage: number[]
 }
 
 interface GroupsForm {
-  form: Record<string, Form>;
+  form: Record<string, Form>
 }
 
 const defaultConfig: GroupsForm = {
@@ -22,11 +22,7 @@ const defaultConfig: GroupsForm = {
       default: "",
       description: "",
       hint: false,
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
+      rules: {},
       visibility: {
         default: true,
         switchIf: [],
@@ -41,11 +37,7 @@ const defaultConfig: GroupsForm = {
       default: "",
       description: "",
       hint: false,
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
+      rules: {},
       visibility: {
         default: true,
         switchIf: [],
@@ -60,11 +52,7 @@ const defaultConfig: GroupsForm = {
       default: "",
       description: "",
       hint: false,
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
+      rules: {},
       visibility: {
         default: true,
         switchIf: [],
@@ -79,11 +67,7 @@ const defaultConfig: GroupsForm = {
       default: "",
       description: "",
       hint: false,
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
+      rules: {},
       visibility: {
         default: true,
         switchIf: [],
@@ -99,11 +83,7 @@ const defaultConfig: GroupsForm = {
       default: "",
       description: "",
       hint: false,
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
+      rules: {},
       visibility: {
         default: true,
         switchIf: [],
@@ -114,16 +94,12 @@ const defaultConfig: GroupsForm = {
 
     mileage: {
       label: "mileage",
-      component: "BooleanCheckbox",
+      component: "ListAutoComplete",
       type: 2, //
       default: "",
       description: "",
       hint: false,
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
+      rules: {},
       visibility: {
         default: true,
         switchIf: [],
@@ -132,6 +108,6 @@ const defaultConfig: GroupsForm = {
       meta: "mileage",
     },
   },
-};
+}
 
-export default defaultConfig;
+export default defaultConfig

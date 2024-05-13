@@ -1,18 +1,18 @@
-import Model from "./model";
+import Model from "./model"
 
 export interface File {
-  name: string;
-  url: string;
-  size: number;
-  type: string;
-  hash: string;
-  path: string;
-  file: string;
-  image: string;
-  thumb: string;
-  createdAt: string;
-  updatedAt: string;
-  id: string;
+  name: string
+  url: URL
+  size: number
+  fileType: string
+  hash: string
+  path: string
+  file: string
+  image: string
+  thumb: URL
+  createdAt: Date
+  updatedAt: Date
+  id: string
 }
 
 const defautConfig: Model = {
@@ -106,8 +106,7 @@ const defautConfig: Model = {
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
+        url: true,
       },
       visibility: {
         default: true,
@@ -118,7 +117,7 @@ const defautConfig: Model = {
     },
     size: {
       label: "size",
-      component: "TextField",
+      component: false,
       type: 0, //
       default: "",
       description: "",
@@ -135,9 +134,9 @@ const defautConfig: Model = {
       },
       meta: "size",
     },
-    type: {
+    fileType: {
       label: "type",
-      component: "TextField",
+      component: "ListSelect",
       type: 0, //
       default: "",
       description: "",
@@ -156,7 +155,7 @@ const defautConfig: Model = {
     },
     hash: {
       label: "hash",
-      component: "TextField",
+      component: false,
       type: 0, //
       default: "",
       description: "",
@@ -251,15 +250,14 @@ const defautConfig: Model = {
     },
     createdAt: {
       label: "createdAt",
-      component: "TextField",
+      component: false,
       type: 0, //
       default: "",
       description: "",
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
+        date: true,
       },
       visibility: {
         default: true,
@@ -270,15 +268,14 @@ const defautConfig: Model = {
     },
     updatedAt: {
       label: "updatedAt",
-      component: "TextField",
+      component: false,
       type: 0, //
       default: "",
       description: "",
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
+        date: true,
       },
       visibility: {
         default: true,
@@ -307,6 +304,6 @@ const defautConfig: Model = {
       meta: "id",
     },
   },
-};
+}
 
-export default defautConfig;
+export default defautConfig

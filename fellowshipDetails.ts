@@ -1,27 +1,27 @@
-import { Form } from "./form";
+import { Form } from "./form"
 
 export interface FellowshipDetails {
-  type: string; //en groupe, durée courte ou longue, etc.
-  fundingPeriod: string; // Dates et détails temporels
-  profile: string; // profile, CV, disciplines, expérience, origine
-  tasks: string; // obligations type conférences, publications, attendance -seminaire, bureau
-  location: string; // texte court sur l’emplacement IEA avec lien vers page dédiée
-  funding: string; // texte sur la bourse, minimal
-  housing: string; // texte court sur logement avec lien page dédiée CIUP
-  meals: string; // texte court repas, forfait, annulations…
-  applicationMaterials: string; // liste des éléments à fournir
-  selectionProcess: string; // Dates, arbitrages, etc.
-  researchSupport: string; // cf les moyens de la recherche
+  type: string //en groupe, durée courte ou longue, etc.
+  fundingPeriod: string // Dates et détails temporels
+  profile: string // profile, CV, disciplines, expérience, origine
+  tasks: string // obligations type conférences, publications, attendance -seminaire, bureau
+  location: string // texte court sur l’emplacement IEA avec lien vers page dédiée
+  funding: string // texte sur la bourse, minimal
+  housing: string // texte court sur logement avec lien page dédiée CIUP
+  meals: string // texte court repas, forfait, annulations…
+  applicationMaterials: string // liste des éléments à fournir
+  selectionProcess: string // Dates, arbitrages, etc.
+  researchSupport: string // cf les moyens de la recherche
 }
 
 interface FellowshipDetailsForm {
-  form: Record<string, Form>;
+  form: Record<string, Form>
 }
 const configDefault: FellowshipDetailsForm = {
   form: {
     type: {
       label: "type",
-      component: "TextField",
+      component: "TextArea",
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: false,
       description: "",
@@ -38,7 +38,7 @@ const configDefault: FellowshipDetailsForm = {
     },
     fundingPeriod: {
       label: "fundingPeriod",
-      component: "TextField",
+      component: "TextArea",
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: false,
       description: "",
@@ -72,7 +72,7 @@ const configDefault: FellowshipDetailsForm = {
     },
     tasks: {
       label: "tasks",
-      component: "TextField",
+      component: "TextArea",
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: false,
       description: "",
@@ -89,7 +89,7 @@ const configDefault: FellowshipDetailsForm = {
     },
     location: {
       label: "location",
-      component: "TextField",
+      component: "TextArea",
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: false,
       description: "",
@@ -106,7 +106,7 @@ const configDefault: FellowshipDetailsForm = {
     },
     funding: {
       label: "funding",
-      component: "TextField",
+      component: "TextArea",
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: false,
       description: "",
@@ -124,7 +124,7 @@ const configDefault: FellowshipDetailsForm = {
 
     housing: {
       label: "housing",
-      component: "TextField",
+      component: "TextArea",
       type: 0, //
       default: "",
       description: "",
@@ -143,7 +143,7 @@ const configDefault: FellowshipDetailsForm = {
     },
     meals: {
       label: "meals",
-      component: "TextField",
+      component: "TextArea",
       type: 0, //
       default: "",
       description: "",
@@ -162,7 +162,7 @@ const configDefault: FellowshipDetailsForm = {
     },
     applicationMaterials: {
       label: "applicationMaterials",
-      component: "TextField",
+      component: "TextArea",
       type: 0, //
       default: "",
       description: "",
@@ -181,7 +181,7 @@ const configDefault: FellowshipDetailsForm = {
     },
     selectionProcess: {
       label: "selectionProcess",
-      component: "TextField",
+      component: "TextArea",
       type: 0, //
       default: "",
       description: "",
@@ -200,7 +200,7 @@ const configDefault: FellowshipDetailsForm = {
     },
     researchSupport: {
       label: "researchSupport",
-      component: "TextField",
+      component: "TextArea",
       type: 0, //
       default: "",
       description: "",
@@ -218,6 +218,6 @@ const configDefault: FellowshipDetailsForm = {
       meta: "researchSupport",
     },
   },
-};
+}
 
-export default configDefault;
+export default configDefault

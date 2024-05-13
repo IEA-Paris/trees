@@ -1,12 +1,13 @@
-import Model from "./model";
+import Model from "./model"
 
 export interface Video {
-  url: string;
-  alt: string | null;
-  copyright: string;
-  license: string | null;
-  licenseUrl: string | null;
-  backgroundColor: string | null;
+  url: URL
+  alt: string | null
+  caption: string | null
+  copyright: string
+  license: string | null
+  licenseUrl: string | null
+  backgroundColor: string | null
 }
 const defaultConfig: Model = {
   source: "md",
@@ -108,6 +109,25 @@ const defaultConfig: Model = {
       },
       meta: "alt", // item type on schema.org
     },
+    caption: {
+      label: "caption",
+      type: 0,
+      component: "TextField",
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        min: 2,
+        max: 100,
+      },
+      visibility: {
+        default: true, // socials"default: true" is the same than "hidden = false"
+        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
+        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+      },
+      meta: "caption", // item type on schema.org
+    },
     copyright: {
       label: "copyright",
       type: 0,
@@ -155,8 +175,7 @@ const defaultConfig: Model = {
       hint: false,
       rules: {
         required: true,
-        min: 2,
-        max: 100,
+        url: true,
       },
       visibility: {
         default: false, // "default: true" is the same than "hidden = false"
@@ -168,14 +187,13 @@ const defaultConfig: Model = {
     backgroundColor: {
       label: "backgroundColor",
       type: 0,
-      component: "TextField", // TODO change for an autocomplete
+      component: "TextColorPicker", // TODO change for an autocomplete
       default: null,
       description: "",
       hint: false,
       rules: {
         required: true,
-        min: 2,
-        max: 100,
+        color: true,
       },
       visibility: {
         default: false, // "default: true" is the same than "hidden = false"
@@ -185,6 +203,6 @@ const defaultConfig: Model = {
       meta: "backgroundColor", // item type on schema.org
     },
   },
-};
+}
 
-export default defaultConfig;
+export default defaultConfig

@@ -1,21 +1,21 @@
-import { Form } from "./form";
+import { Form } from "./form"
 
 export interface Location {
-  name: string;
-  details: string; // natural language description of the location
-  alt: string;
-  street: string;
-  city: string;
-  country: string;
-  zip: string;
+  name: string
+  details: string // natural language description of the location
+  alt: string
+  street: string
+  city: string
+  country: string
+  zip: number
   geocode: {
-    lat: number;
-    lng: number;
-  };
+    lat: number
+    lng: number
+  }
 }
 
 interface LocationForm {
-  form: Record<string, Form>;
+  form: Record<string, Form>
 }
 const defaultConfig: LocationForm = {
   form: {
@@ -40,7 +40,7 @@ const defaultConfig: LocationForm = {
     },
     details: {
       label: "details",
-      component: "TextField",
+      component: "TextArea",
       type: 0, //
       default: "",
       description: "",
@@ -59,7 +59,7 @@ const defaultConfig: LocationForm = {
     },
     alt: {
       label: "alt",
-      component: "TextField",
+      component: "TextArea",
       type: 0, //
       default: "",
       description: "",
@@ -85,7 +85,6 @@ const defaultConfig: LocationForm = {
       hint: false,
       rules: {
         required: true,
-        min: 5,
         max: 200,
       },
       visibility: {
@@ -104,7 +103,6 @@ const defaultConfig: LocationForm = {
       hint: false,
       rules: {
         required: true,
-        min: 5,
         max: 200,
       },
       visibility: {
@@ -116,16 +114,12 @@ const defaultConfig: LocationForm = {
     },
     country: {
       label: "country",
-      component: "TextField",
+      component: "ListAutoComplete",
       type: 0, //
       default: "",
       description: "",
       hint: false,
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
+      rules: {},
       visibility: {
         default: true,
         switchIf: [],
@@ -173,6 +167,6 @@ const defaultConfig: LocationForm = {
       meta: "geocode",
     },
   },
-};
+}
 
-export default defaultConfig;
+export default defaultConfig

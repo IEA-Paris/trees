@@ -1,14 +1,14 @@
-import { Form } from "./form";
+import { Form } from "./form"
 
 export interface Position {
-  role: string;
-  department: string;
-  start: Date;
-  stop: Date;
+  role: string
+  department: string
+  start: Date
+  stop: Date
 }
 
 interface PositionForm {
-  form: Record<string, Form>;
+  form: Record<string, Form>
 }
 const defaultConfig: PositionForm = {
   form: {
@@ -52,15 +52,14 @@ const defaultConfig: PositionForm = {
     },
     start: {
       label: "start",
-      component: "TextField",
+      component: "DatePicker",
       type: 0, //
       default: "",
       description: "",
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
+        date: true,
       },
       visibility: {
         default: true,
@@ -71,15 +70,14 @@ const defaultConfig: PositionForm = {
     },
     stop: {
       label: "stop",
-      component: "TextField",
+      component: "DatePicker",
       type: 0, //
       default: "",
       description: "",
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
+        date: true,
       },
       visibility: {
         default: true,
@@ -89,6 +87,6 @@ const defaultConfig: PositionForm = {
       meta: "stop",
     },
   },
-};
+}
 
-export default defaultConfig;
+export default defaultConfig

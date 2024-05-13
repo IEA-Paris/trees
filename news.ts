@@ -1,16 +1,19 @@
-import { Image } from "./image";
-import Model from "./model";
-import { People } from "./people";
+import { Image } from "./image"
+import Model from "./model"
+import { People } from "./people"
+import { Project } from "./project"
 
 export interface News {
-  title: string;
-  description: string;
-  picture: Image;
-  color: string;
-  link: string;
-  date: string;
-  authors: People[];
-  featured: string;
+  title: string
+  description: string
+  picture: Image
+  color: string
+  url: URL
+  date: Date
+  authors: People[]
+  featured: Date
+  relatedProjects: Project[]
+  relatedEvents: Event[]
 }
 
 const defaultConfig: Model = {
@@ -98,7 +101,7 @@ const defaultConfig: Model = {
 
     description: {
       label: "description",
-      component: "TextField",
+      component: "TextArea",
       type: 0, //
       default: "",
       description: "",
@@ -124,8 +127,6 @@ const defaultConfig: Model = {
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
       },
       visibility: {
         default: true,
@@ -136,15 +137,14 @@ const defaultConfig: Model = {
     },
     color: {
       label: "color",
-      component: "TextField",
+      component: "TextColorPicker",
       type: 0, //
       default: "",
       description: "",
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
+        color: true,
       },
       visibility: {
         default: true,
@@ -153,8 +153,8 @@ const defaultConfig: Model = {
       },
       meta: "color",
     },
-    link: {
-      label: "link",
+    url: {
+      label: "url",
       component: "TextField",
       type: 0, //
       default: "",
@@ -162,27 +162,25 @@ const defaultConfig: Model = {
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
+        url: true,
       },
       visibility: {
         default: true,
         switchIf: [],
         disjonctive: false,
       },
-      meta: "link",
+      meta: "url",
     },
     date: {
       label: "date",
-      component: "TextField",
+      component: "DatePicker",
       type: 0, //
       default: "",
       description: "",
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
+        date: true,
       },
       visibility: {
         default: true,
@@ -200,8 +198,7 @@ const defaultConfig: Model = {
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
+        min: 1,
       },
       visibility: {
         default: true,
@@ -212,8 +209,41 @@ const defaultConfig: Model = {
     },
     featured: {
       label: "featured",
-      component: "TextField",
+      component: "DatePicker",
       type: 0, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        date: true,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "featured",
+    },
+    relatedEvents: {
+      label: "relatedEvents",
+      component: "CollectionContainerPanel",
+      type: 3, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {},
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "relatedEvents",
+    },
+    relatedNews: {
+      label: "relatedNews",
+      component: "CollectionContainerPanel",
+      type: 3, //
       default: "",
       description: "",
       hint: false,
@@ -227,9 +257,9 @@ const defaultConfig: Model = {
         switchIf: [],
         disjonctive: false,
       },
-      meta: "featured",
+      meta: "relatedNews",
     },
   },
-};
+}
 
-export default defaultConfig;
+export default defaultConfig

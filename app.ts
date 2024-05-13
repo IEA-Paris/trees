@@ -1,18 +1,19 @@
-import { Image } from "./image";
-import Model from "./model";
+import { Image } from "./image"
+import { Article } from "./article"
+import Model from "./model"
 export interface App {
-  name: string;
-  logo: Image;
+  name: string
+  logo: Image
 }
 
+// In case we would need to add content to the App Model
 interface AppForm extends Model {
-  queryFilters: any;
-  styles: string[];
+  queryFilters: any
+  //styles: string[]
 }
 const defaultConfig: AppForm = {
   // fitlers used in the query by default (e.g. only published articles)
   queryFilters: {},
-  styles: ["APA" /* 'vancouver' , */, "harvard1"],
   source: "md",
   type: "directory", // 'directory' | 'file
   path: "content/app", // path to the folder where the content is stored
@@ -27,10 +28,8 @@ const defaultConfig: AppForm = {
         type: "Select",
         rules: {},
         label: "year",
-        items: (articles: any) => {
-          return articles.map((article: any) =>
-            new Date(article.date).getFullYear()
-          );
+        items: () => {
+          return []
         },
       },
     },
@@ -110,6 +109,6 @@ const defaultConfig: AppForm = {
       default: { url: "", licence: "" }, // default value
     },
   },
-};
+}
 
-export default defaultConfig;
+export default defaultConfig
