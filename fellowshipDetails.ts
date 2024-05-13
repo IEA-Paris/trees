@@ -1,3 +1,5 @@
+import { Form } from "./form"
+
 export interface FellowshipDetails {
   type: string //en groupe, durée courte ou longue, etc.
   fundingPeriod: string // Dates et détails temporels
@@ -12,14 +14,17 @@ export interface FellowshipDetails {
   researchSupport: string // cf les moyens de la recherche
 }
 
-export default {
+interface FellowshipDetailsForm {
+  form: Record<string, Form>
+}
+const configDefault: FellowshipDetailsForm = {
   form: {
-    data: {
-      label: "data",
-      component: "Checkbox",
+    type: {
+      label: "type",
+      component: "TextArea",
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: false,
-      description: "data consent (display info about me)",
+      description: "",
       hint: false,
       rules: {
         required: true,
@@ -29,14 +34,14 @@ export default {
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
         disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
       },
-      meta: "data", // item type on schema.org
+      meta: "type", // item type on schema.org
     },
-    record: {
-      label: "record",
-      component: "Checkbox",
+    fundingPeriod: {
+      label: "fundingPeriod",
+      component: "TextArea",
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: false,
-      description: "record consent (record my activity, droit à l'image)",
+      description: "",
       hint: false,
       rules: {
         required: true,
@@ -46,62 +51,10 @@ export default {
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
         disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
       },
-      meta: "record", // item type on schema.org
+      meta: "fundingPeriod", // item type on schema.org
     },
-    diffusion: {
-      label: "diffusion",
-      component: "Checkbox",
-      type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
-      default: false,
-      description:
-        "broadcast consent (broadcast my activity, diffusion de contenus)",
-      hint: false,
-      rules: {
-        required: true,
-      },
-      visibility: {
-        default: true, // same as hidden = true
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
-      },
-      meta: "diffusion", // item type on schema.org
-    },
-    publication: {
-      label: "publication",
-      component: "Checkbox",
-      type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
-      default: false,
-      description: "publication consent (publish my content, generate DOIs)",
-      hint: false,
-      rules: {
-        required: true,
-      },
-      visibility: {
-        default: true, // same as hidden = true
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
-      },
-      meta: "publication", // item type on schema.org
-    },
-    email: {
-      label: "email",
-      component: "Checkbox",
-      type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
-      default: false,
-      description: "email communications (including newsletter)",
-      hint: false,
-      rules: {
-        required: true,
-      },
-      visibility: {
-        default: true, // same as hidden = true
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
-      },
-      meta: "email", // item type on schema.org
-    },
-    newsletter: {
-      label: "newsletter",
+    profile: {
+      label: "profile",
       component: "Checkbox",
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: false,
@@ -115,7 +68,156 @@ export default {
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
         disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
       },
-      meta: "newsletter", // item type on schema.org
+      meta: "profile", // item type on schema.org
+    },
+    tasks: {
+      label: "tasks",
+      component: "TextArea",
+      type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      default: false,
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+      },
+      visibility: {
+        default: true, // same as hidden = true
+        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
+        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+      },
+      meta: "tasks", // item type on schema.org
+    },
+    location: {
+      label: "location",
+      component: "TextArea",
+      type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      default: false,
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+      },
+      visibility: {
+        default: true, // same as hidden = true
+        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
+        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+      },
+      meta: "location", // item type on schema.org
+    },
+    funding: {
+      label: "funding",
+      component: "TextArea",
+      type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      default: false,
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+      },
+      visibility: {
+        default: true, // same as hidden = true
+        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
+        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+      },
+      meta: "funding", // item type on schema.org
+    },
+
+    housing: {
+      label: "housing",
+      component: "TextArea",
+      type: 0, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "housing",
+    },
+    meals: {
+      label: "meals",
+      component: "TextArea",
+      type: 0, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "meals",
+    },
+    applicationMaterials: {
+      label: "applicationMaterials",
+      component: "TextArea",
+      type: 0, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "applicationMaterials",
+    },
+    selectionProcess: {
+      label: "selectionProcess",
+      component: "TextArea",
+      type: 0, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "selectionProcess",
+    },
+    researchSupport: {
+      label: "researchSupport",
+      component: "TextArea",
+      type: 0, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "researchSupport",
     },
   },
 }
+
+export default configDefault

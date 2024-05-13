@@ -1,158 +1,175 @@
+import { Form } from "./form"
+
 export interface Socials {
-  website: string
-  wikipedia: string
+  website: URL
+  wikipedia: URL
   orcid: string
-  linkedin: string
-  twitter: string
-  instagram: string
-  scholar: string
-  researchgate: string
-  mendeley: string
+  linkedin: URL
+  twitter: URL
+  instagram: URL
+  scholar: URL
+  researchgate: URL
+  mendeley: URL
 }
-export default {
-  website: {
-    label: "website",
-    type: "TextField",
-    default: "",
-    description: "",
-    hint: false,
-    rules: {
-      url: true,
+
+interface SocialsForm {
+  form: Record<string, Form>
+}
+const defaultConfig: SocialsForm = {
+  form: {
+    website: {
+      label: "website",
+      type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template 4 = readonly
+      component: "TextField",
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        url: true,
+      },
+      visibility: {
+        default: true, // same as hidden = true
+        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
+        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+      },
+      meta: "website", // item type on schema.org
     },
-    visibility: {
-      default: true, // same as hidden = true
-      switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-      disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+    wikipedia: {
+      label: "wikipedia",
+      type: 0,
+      component: "TextField",
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        url: true,
+      },
+      visibility: {
+        default: true, // same as hidden = true
+        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
+        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+      },
+      meta: "wikipedia", // item type on schema.org
     },
-    meta: "website", // item type on schema.org
-  },
-  wikipedia: {
-    label: "wikipedia",
-    type: "TextField",
-    default: "",
-    description: "",
-    hint: false,
-    rules: {
-      url: true,
+    orcid: {
+      label: "orcid",
+      type: 0,
+      component: "TextField",
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        orcid: true,
+      },
+      visibility: {
+        default: true, // same as hidden = true
+        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
+        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+      },
+      meta: "orcid", // item type on schema.org
     },
-    visibility: {
-      default: true, // same as hidden = true
-      switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-      disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+    twitter: {
+      label: "twitter",
+      type: 0,
+      component: "TextField",
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        url: true,
+      },
+      visibility: {
+        default: true, // same as hidden = true
+        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
+        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+      },
+      meta: "twitter", // item type on schema.org
     },
-    meta: "wikipedia", // item type on schema.org
-  },
-  orcid: {
-    label: "orcid",
-    type: "TextField",
-    default: "",
-    description: "",
-    hint: false,
-    rules: {
-      number: true,
+    linkedin: {
+      label: "linkedin",
+      type: 0,
+      component: "TextField",
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        url: true,
+      },
+      visibility: {
+        default: true, // same as hidden = true
+        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
+        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+      },
+      meta: "linkedin", // item type on schema.org
     },
-    visibility: {
-      default: true, // same as hidden = true
-      switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-      disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+    instagram: {
+      label: "instagram",
+      type: 0,
+      component: "TextField",
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        url: true,
+      },
+      visibility: {
+        default: true, // same as hidden = true
+        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
+        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+      },
+      meta: "instagram", // item type on schema.org
     },
-    meta: "orcid", // item type on schema.org
-  },
-  twitter: {
-    label: "twitter",
-    type: "TextField",
-    default: "",
-    description: "",
-    hint: false,
-    rules: {
-      url: true,
+    scholar: {
+      label: "scholar",
+      type: 0,
+      component: "TextField",
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        url: true,
+      },
+      visibility: {
+        default: true, // same as hidden = true
+        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
+        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+      },
+      meta: "scholar", // item type on schema.org
     },
-    visibility: {
-      default: true, // same as hidden = true
-      switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-      disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+    researchgate: {
+      label: "researchgate",
+      type: 0,
+      component: "TextField",
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        url: true,
+      },
+      visibility: {
+        default: true, // same as hidden = true
+        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
+        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+      },
+      meta: "researchgate", // item type on schema.org
     },
-    meta: "twitter", // item type on schema.org
-  },
-  linkedin: {
-    label: "linkedin",
-    type: "TextField",
-    default: "",
-    description: "",
-    hint: false,
-    rules: {
-      url: true,
+    mendeley: {
+      label: "mendeley",
+      type: 0,
+      component: "TextField",
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        url: true,
+      },
+      visibility: {
+        default: true, // same as hidden = true
+        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
+        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+      },
+      meta: "mendeley", // item type on schema.org
     },
-    visibility: {
-      default: true, // same as hidden = true
-      switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-      disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
-    },
-    meta: "linkedin", // item type on schema.org
-  },
-  instagram: {
-    label: "instagram",
-    type: "TextField",
-    default: "",
-    description: "",
-    hint: false,
-    rules: {
-      url: true,
-    },
-    visibility: {
-      default: true, // same as hidden = true
-      switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-      disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
-    },
-    meta: "instagram", // item type on schema.org
-  },
-  scholar: {
-    label: "scholar",
-    type: "TextField",
-    default: "",
-    description: "",
-    hint: false,
-    rules: {
-      url: true,
-    },
-    visibility: {
-      default: true, // same as hidden = true
-      switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-      disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
-    },
-    meta: "scholar", // item type on schema.org
-  },
-  researchgate: {
-    label: "researchgate",
-    type: "TextField",
-    default: "",
-    description: "",
-    hint: false,
-    rules: {
-      url: true,
-    },
-    visibility: {
-      default: true, // same as hidden = true
-      switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-      disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
-    },
-    meta: "researchgate", // item type on schema.org
-  },
-  mendeley: {
-    label: "mendeley",
-    type: "TextField",
-    default: "",
-    description: "",
-    hint: false,
-    rules: {
-      url: true,
-    },
-    visibility: {
-      default: true, // same as hidden = true
-      switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-      disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
-    },
-    meta: "mendeley", // item type on schema.org
   },
 }
-//TODO  form
+export default defaultConfig

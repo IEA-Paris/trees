@@ -3,104 +3,89 @@ import { Affiliation } from "./affiliation"
 import { People } from "./people"
 import { FellowshipDetails } from "./fellowshipDetails"
 import { File } from "./file"
+import Model from "./model"
 
 export interface Fellowship {
   action: string
-  affiliations: [Affiliation]
-  closing: string
+  affiliations: Affiliation[]
+  start: Date
   contact: string
   description: string
   details: FellowshipDetails
-  fellows: [People]
-  link: string
-  opening: string
+  fellows: People[]
+  url: URL
+  stop: Date
   picture: Image
-  publicationDate: string
+  publicationDate: Date
   summary: string
-  files: [File]
+  files: File[]
   title: string
 }
 
-export default {
-  source: "gql",
-  perPage: {
-    options: [9, 12, 16],
-    default: 9,
-  },
+const defaultConfig: Model = {
   type: null, // 'directory' | 'file' | null
   path: null, // path to the folder where the content is stored
-  create: true, // allow to create new items
-  filters: {
-    year: {
-      type: "Select",
-      rules: {},
-      label: "year",
-      items: [],
-    } /* 
-      categories: {
-        type: 'TextInput',
+  source: "gql",
+  list: {
+    create: true, // allow to create new items
+    perPage: {
+      options: [9, 12, 16],
+      default: 9,
+    },
+    filters: {
+      year: {
+        type: "Select",
         rules: {},
-        label: 'Search',
+        label: "year",
+        items: [],
       },
-      author: {
-        type: 'Autocomplete',
-        rules: {},
-        label: 'authors',
-      }, */,
-  },
-  sort: {
-    // sort options
-    nameasc: {
-      // by name from a to z
-      icon: "sort-alphabetical-ascending",
-      text: "by-name-from-a-to-z",
-      value: ["article_title", 1],
     },
-    namedesc: {
-      // by name from z to a
-      icon: "sort-alphabetical-descending",
-      text: "by-name-from-z-to-a",
-      value: ["article_title", -1],
+    sort: {
+      // sort options
+      nameasc: {
+        // by name from a to z
+        icon: "sort-alphabetical-ascending",
+        text: "by-name-from-a-to-z",
+        value: ["article_title", 1],
+      },
+      namedesc: {
+        // by name from z to a
+        icon: "sort-alphabetical-descending",
+        text: "by-name-from-z-to-a",
+        value: ["article_title", -1],
+      },
+      dateasc: {
+        // by date from most recent to oldest
+        icon: "sort-calendar-descending",
+        text: "by-date-most-recent-first",
+        value: ["date", -1],
+        default: true,
+      },
+      datedesc: {
+        // by date from oldest to most recent
+        icon: "sort-calendar-ascending",
+        text: "by-date-oldest-first",
+        value: ["date", 1],
+      },
     },
-    dateasc: {
-      // by date from most recent to oldest
-      icon: "sort-calendar-descending",
-      text: "by-date-most-recent-first",
-      value: ["date", -1],
-      default: true,
-    },
-    datedesc: {
-      // by date from oldest to most recent
-      icon: "sort-calendar-ascending",
-      text: "by-date-oldest-first",
-      value: ["date", 1],
-    },
-  },
-  views: {
-    rows: {
-      icon: "view-list",
-      default: true,
-    },
-    tiles: {
-      name: "tiles",
-      icon: "view-quilt",
-    },
-    grid: {
-      name: "grid",
-      icon: "view-day",
+    views: {
+      rows: {
+        icon: "view-list",
+        default: true,
+      },
+      tiles: {
+        name: "tiles",
+        icon: "view-quilt",
+      },
+      grid: {
+        name: "grid",
+        icon: "view-day",
+      },
     },
   },
   form: {
-    /* firstname: string
-    lastname: string
-    affiliations: [{ affiliation: affiliation; positions: [position] }]
-    picture: image
-    socials: socials
-    biography: string
-    consent: consent
-    groups: groups */
-    firstname: {
-      label: "firstname",
+    action: {
+      label: "action",
       component: "TextField",
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",
@@ -108,53 +93,246 @@ export default {
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
       },
       visibility: {
         default: true, // same as hidden = true
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
         disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
       },
-      meta: "firstname", // item type on schema.org
+      meta: "action", // item type on schema.org
     },
-    lastname: {
-      label: "lastname",
-      component: "TextField",
-      type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
-      default: "",
-      description: "",
-      hint: false,
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
-      visibility: {
-        default: true, // same as hidden = true
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
-      },
-      meta: "lastname", // item type on schema.org
-    },
-    consent: {
-      label: "consent",
-      component: "SimpleObjectWrapper",
+    affiliations: {
+      label: "affiliations",
+      component: "CollectionContainerPanel",
       type: 3, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",
       description: "",
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
       },
       visibility: {
         default: true, // same as hidden = true
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
         disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
       },
-      meta: "consent", // item type on schema.org
+      meta: "affiliations", // item type on schema.org
+    },
+    stop: {
+      label: "stop",
+      component: "DatePicker", //TODO
+      type: 0, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        date: true,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "stop",
+    },
+    contact: {
+      label: "contact",
+      component: "TextField",
+      type: 0, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        email: true,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "contact",
+    },
+    description: {
+      label: "description",
+      component: "TextArea",
+      type: 0, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "description",
+    },
+    details: {
+      label: "details",
+      component: "ObjectContainerPanel",
+      type: 3, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "details",
+    },
+    fellows: {
+      label: "fellows",
+      component: "CollectionContainerPanel",
+      type: 3, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "fellows",
+    },
+    url: {
+      label: "url",
+      component: "TextField",
+      type: 0, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        url: true,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "url",
+    },
+    start: {
+      label: "start",
+      component: "DatePicker",
+      type: 0, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        date: true,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "start",
+    },
+    picture: {
+      label: "picture",
+      component: "ObjectContainerPanel",
+      type: 3, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "picture",
+    },
+    publicationDate: {
+      label: "publicationDate",
+      component: "DatePicker",
+      type: 0, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        date: true,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "publicationDate",
+    },
+    summary: {
+      label: "summary",
+      component: "TextArea",
+      type: 0, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "summary",
+    },
+    files: {
+      label: "files",
+      component: "CollectionContainerPanel",
+      type: 3, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "files",
+    },
+    title: {
+      label: "title",
+      component: "TextField",
+      type: 0, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "title",
     },
   },
 }
+export default defaultConfig

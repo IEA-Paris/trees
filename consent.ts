@@ -1,3 +1,5 @@
+import { Form } from "./form"
+
 export interface Consent {
   //data consent (display info about me)
   data: boolean
@@ -15,11 +17,14 @@ export interface Consent {
   fellowshipnewsletter: boolean
 }
 
-export default {
+interface ConsentForm {
+  form: Record<string, Form>
+}
+const defaultConfig: ConsentForm = {
   form: {
     data: {
       label: "data",
-      component: "Checkbox",
+      component: "BooleanCheckbox",
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: false,
       description: "data consent (display info about me)",
@@ -36,7 +41,7 @@ export default {
     },
     record: {
       label: "record",
-      component: "Checkbox",
+      component: "BooleanCheckbox",
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: false,
       description: "record consent (record my activity, droit à l'image)",
@@ -53,7 +58,7 @@ export default {
     },
     diffusion: {
       label: "diffusion",
-      component: "Checkbox",
+      component: "BooleanCheckbox",
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: false,
       description:
@@ -71,7 +76,7 @@ export default {
     },
     publication: {
       label: "publication",
-      component: "Checkbox",
+      component: "BooleanCheckbox",
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: false,
       description: "publication consent (publish my content, generate DOIs)",
@@ -88,7 +93,7 @@ export default {
     },
     email: {
       label: "email",
-      component: "Checkbox",
+      component: "BooleanCheckbox",
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: false,
       description: "email communications (including newsletter)",
@@ -105,7 +110,7 @@ export default {
     },
     newsletter: {
       label: "newsletter",
-      component: "Checkbox",
+      component: "BooleanCheckbox",
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: false,
       description: "",
@@ -122,4 +127,5 @@ export default {
     },
   },
 }
-//TODO form
+
+export default defaultConfig
