@@ -1,4 +1,4 @@
-import { Affiliation } from "./affiliation"
+import { Affiliation } from "./affiliations"
 import { Image } from "./image"
 import { Socials } from "./socials"
 import { Position } from "./position"

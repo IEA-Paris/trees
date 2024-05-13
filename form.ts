@@ -28,4 +28,5 @@ export interface Form {
   rules?: Rules
   visibility?: Visibility
   meta?: string
+  items?: any
 }

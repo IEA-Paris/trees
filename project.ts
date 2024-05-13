@@ -1,5 +1,5 @@
 import { Image } from "./image"
-import { Affiliation } from "./affiliation"
+import { Affiliation } from "./affiliations"
 import { Event } from "./event"
 import { File } from "./file"
 import { News } from "./news"

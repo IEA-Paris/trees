@@ -4,7 +4,7 @@ import { EventSlot } from "./eventSlot"
 import { Discipline } from "./discipline"
 import { Tag } from "./tag"
 import { People } from "./people"
-import { Affiliation } from "./affiliation"
+import { Affiliation } from "./affiliations"
 import { File } from "./file"
 import Model from "./model"
 

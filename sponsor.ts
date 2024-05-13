@@ -1,5 +1,5 @@
 import configPeople, { People } from "./people"
-import configAffiliation, { Affiliation } from "./affiliation"
+import configAffiliation, { Affiliation } from "./affiliations"
 import Model from "./model"
 
 export interface Sponsor extends People, Affiliation {}
