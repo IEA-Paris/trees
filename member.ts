@@ -1,8 +1,11 @@
-import { Affiliation } from "./affiliation"
+import config, { Affiliation } from "./affiliation";
+import Model from "./model";
 
 export interface Member extends Affiliation {}
-export default {
-  aliases: ["Affiliation"],
-}
 
-//TODO list + form
+const defaultConfig: Model = {
+  aliases: ["Affiliation"],
+  ...config,
+};
+
+export default defaultConfig;

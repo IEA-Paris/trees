@@ -6,7 +6,7 @@ interface Filters {
   type: string;
   rules: Record<string, any>;
   label: string;
-  items?: any[];
+  items?: any;
 }
 
 interface Sort {

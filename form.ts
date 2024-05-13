@@ -11,19 +11,14 @@ interface Visibility {
   disjonctive?: boolean;
 }
 
-interface ShowOnly {
-  if?: any[];
-  disjonctive?: boolean;
-}
 export interface Form {
-  type: string | number;
-  component?: string;
-  label?: string;
+  type: number;
+  component: string | boolean;
+  label: string;
   default?: any;
   description?: string;
   hint?: string | boolean;
   rules?: Rules;
   visibility?: Visibility;
   meta?: string;
-  showOnly?: ShowOnly;
 }

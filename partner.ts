@@ -1,6 +1,9 @@
-import { Affiliation } from "./affiliation"
+import config, { Affiliation } from "./affiliation";
+import Model from "./model";
 
 export interface Partner extends Affiliation {}
-export default {
+const defaultConfig: Model = {
   aliases: ["Affiliation"],
-}
+  ...config,
+};
+export default defaultConfig;

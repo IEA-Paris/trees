@@ -1,102 +1,89 @@
-import { Affiliation } from "./affiliation"
-import { Image } from "./image"
-import { Socials } from "./socials"
-import { Position } from "./position"
-import { Consent } from "./consent"
-import { Groups } from "./group"
+import { Affiliation } from "./affiliation";
+import { Image } from "./image";
+import { Socials } from "./socials";
+import { Position } from "./position";
+import { Consent } from "./consent";
+import { Groups } from "./group";
+import Model from "./model";
 
 export interface People {
-  firstname: string
-  lastname: string
-  affiliations: [{ affiliation: Affiliation; positions: [Position] }]
-  picture: Image
-  socials: Socials
-  biography: string
-  consent: Consent
-  groups: Groups
-  lang: string
+  firstname: string;
+  lastname: string;
+  affiliations: [{ affiliation: Affiliation; positions: [Position] }];
+  picture: Image;
+  socials: Socials;
+  biography: string;
+  consent: Consent;
+  groups: Groups;
+  lang: string;
 }
 
-export default {
+const defaultConfig: Model = {
   source: "gql",
-  perPage: {
-    options: [9, 12, 16],
-    default: 9,
-  },
   type: null, // 'directory' | 'file' | null
   path: null, // path to the folder where the content is stored
-  create: true, // allow to create new items
-  filters: {
-    year: {
-      type: "Select",
-      rules: {},
-      label: "year",
-      items: (articles) => {
-        return articles.map((article) => new Date(article.date).getFullYear())
-      },
-    } /* 
-      categories: {
-        type: 'TextInput',
+  list: {
+    create: true, // allow to create new items
+    perPage: {
+      options: [9, 12, 16],
+      default: 9,
+    },
+    filters: {
+      year: {
+        type: "Select",
         rules: {},
-        label: 'Search',
+        label: "year",
+        items: (articles: any) => {
+          return articles.map((article: any) =>
+            new Date(article.date).getFullYear()
+          );
+        },
       },
-      author: {
-        type: 'Autocomplete',
-        rules: {},
-        label: 'authors',
-      }, */,
-  },
-  sort: {
-    // sort options
-    nameasc: {
-      // by name from a to z
-      icon: "sort-alphabetical-ascending",
-      text: "by-name-from-a-to-z",
-      value: ["article_title", 1],
     },
-    namedesc: {
-      // by name from z to a
-      icon: "sort-alphabetical-descending",
-      text: "by-name-from-z-to-a",
-      value: ["article_title", -1],
+    sort: {
+      // sort options
+      nameasc: {
+        // by name from a to z
+        icon: "sort-alphabetical-ascending",
+        text: "by-name-from-a-to-z",
+        value: ["article_title", 1],
+      },
+      namedesc: {
+        // by name from z to a
+        icon: "sort-alphabetical-descending",
+        text: "by-name-from-z-to-a",
+        value: ["article_title", -1],
+      },
+      dateasc: {
+        // by date from most recent to oldest
+        icon: "sort-calendar-descending",
+        text: "by-date-most-recent-first",
+        value: ["date", -1],
+        default: true,
+      },
+      datedesc: {
+        // by date from oldest to most recent
+        icon: "sort-calendar-ascending",
+        text: "by-date-oldest-first",
+        value: ["date", 1],
+      },
     },
-    dateasc: {
-      // by date from most recent to oldest
-      icon: "sort-calendar-descending",
-      text: "by-date-most-recent-first",
-      value: ["date", -1],
-      default: true,
-    },
-    datedesc: {
-      // by date from oldest to most recent
-      icon: "sort-calendar-ascending",
-      text: "by-date-oldest-first",
-      value: ["date", 1],
-    },
-  },
-  views: {
-    rows: {
-      icon: "view-list",
-      default: true,
-    },
-    tiles: {
-      name: "tiles",
-      icon: "view-quilt",
-    },
-    grid: {
-      name: "grid",
-      icon: "view-day",
+    views: {
+      rows: {
+        icon: "view-list",
+        default: true,
+      },
+      tiles: {
+        name: "tiles",
+        icon: "view-quilt",
+      },
+      grid: {
+        name: "grid",
+        icon: "view-day",
+      },
     },
   },
   form: {
-    /* firstname: string
-    lastname: string
-    affiliations: [{ affiliation: affiliation; positions: [position] }]
-    picture: image
-    socials: socials
-    biography: string
-    consent: consent
-    groups: groups */
     firstname: {
       label: "firstname",
       component: "TextField",
@@ -135,10 +122,10 @@ export default {
       },
       meta: "lastname", // item type on schema.org
     },
-    consent: {
-      label: "consent",
-      component: "SimpleObjectWrapper",
-      type: 3, // 0 = primitive, 1 = object, 2 = array, 3 = template
+    affiliations: {
+      label: "affiliations",
+      component: "CollectionContainerPanel",
+      type: 3, //
       default: "",
       description: "",
       hint: false,
@@ -148,12 +135,127 @@ export default {
         max: 200,
       },
       visibility: {
-        default: true, // same as hidden = true
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+        default: true,
+        switchIf: [],
+        disjonctive: false,
       },
-      meta: "consent", // item type on schema.org
+      meta: "affiliations",
+    },
+    picture: {
+      label: "picture",
+      component: "ObjectContainerPanel",
+      type: 3, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "picture",
+    },
+    socials: {
+      label: "socials",
+      component: "ObjectContainerPanel",
+      type: 3, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "socials",
+    },
+    biography: {
+      label: "biography",
+      component: "TextField",
+      type: 0, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "biography",
+    },
+    consent: {
+      label: "consent",
+      component: "ObjectContainerPanel",
+      type: 3, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "consent",
+    },
+    groups: {
+      label: "groups",
+      component: "ObjectContainerPanel",
+      type: 3, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "groups",
+    },
+    lang: {
+      label: "lang",
+      component: "TextField",
+      type: 0, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "lang",
     },
   },
-}
-//TODO list + form
+};
+
+export default defaultConfig;

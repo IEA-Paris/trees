@@ -1,24 +1,24 @@
-import { Image } from "./image"
-import { Affiliation } from "./affiliation"
-import { People } from "./people"
-import { FellowshipDetails } from "./fellowshipDetails"
-import { File } from "./file"
+import { Image } from "./image";
+import { Affiliation } from "./affiliation";
+import { People } from "./people";
+import { FellowshipDetails } from "./fellowshipDetails";
+import { File } from "./file";
 
 export interface Fellowship {
-  action: string
-  affiliations: [Affiliation]
-  closing: string
-  contact: string
-  description: string
-  details: FellowshipDetails
-  fellows: [People]
-  link: string
-  opening: string
-  picture: Image
-  publicationDate: string
-  summary: string
-  files: [File]
-  title: string
+  action: string;
+  affiliations: Affiliation[];
+  closing: string;
+  contact: string;
+  description: string;
+  details: FellowshipDetails;
+  fellows: People[];
+  link: string;
+  opening: string;
+  picture: Image;
+  publicationDate: string;
+  summary: string;
+  files: File[];
+  title: string;
 }
 
 export default {
@@ -157,4 +157,4 @@ export default {
       meta: "consent", // item type on schema.org
     },
   },
-}
+};

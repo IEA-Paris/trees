@@ -1,8 +1,116 @@
+import { Form } from "./form";
+
 export interface EventSlot {
-  email: string
-  firstname: string
-  institution: string
-  lang: string
-  lastname: string
+  email: string;
+  firstname: string;
+  institution: string;
+  lang: string;
+  lastname: string;
 }
 // form
+
+interface EventSlotForm {
+  form: Record<string, Form>;
+}
+
+const defautConfig: EventSlotForm = {
+  form: {
+    email: {
+      label: "email",
+      component: "TextField",
+      type: 0, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "email",
+    },
+    firstname: {
+      label: "firstname",
+      component: "TextField",
+      type: 0, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "firstname",
+    },
+    institution: {
+      label: "institution",
+      component: "TextField",
+      type: 0, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "institution",
+    },
+    lang: {
+      label: "lang",
+      component: "TextField",
+      type: 0, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "lang",
+    },
+    lastname: {
+      label: "lastname",
+      component: "TextField",
+      type: 0, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "lastname",
+    },
+  },
+};
+
+export default defautConfig;
