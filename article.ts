@@ -1,6 +1,6 @@
 import { Image } from "./image"
 import { People } from "./people"
-import { Discipline } from "./discipline"
+import { Discipline } from "./disciplines"
 import { Video } from "./video"
 import { Tag } from "./tag"
 import Model from "./model"

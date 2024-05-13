@@ -1,7 +1,7 @@
 import { Location } from "./location"
 import { Image } from "./image"
 import { EventSlot } from "./eventSlot"
-import { Discipline } from "./discipline"
+import { Discipline } from "./disciplines"
 import { Tag } from "./tag"
 import { People } from "./people"
 import { Affiliation } from "./affiliations"
