@@ -1,7 +1,7 @@
 import { Image } from "./image"
 import { Affiliation } from "./affiliations"
 import { Event } from "./event"
-import { File } from "./file"
+import { File } from "./files"
 import { News } from "./news"
 import { Video } from "./video"
 import Model from "./model"

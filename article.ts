@@ -2,7 +2,7 @@ import { Image } from "./image"
 import { People } from "./people"
 import { Discipline } from "./disciplines"
 import { Video } from "./video"
-import { Tag } from "./tag"
+import { Tag } from "./tags"
 import Model from "./model"
 // define format from set of articles formats offered by PIAS (i.e. Zenodo api)
 export interface Article {

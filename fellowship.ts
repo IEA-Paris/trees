@@ -2,7 +2,7 @@ import { Image } from "./image"
 import { Affiliation } from "./affiliations"
 import { People } from "./people"
 import { FellowshipDetails } from "./fellowshipDetails"
-import { File } from "./file"
+import { File } from "./files"
 import Model from "./model"
 
 export interface Fellowship {

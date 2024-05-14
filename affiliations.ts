@@ -3,7 +3,7 @@ import { Location } from "./location"
 import Model from "./model"
 
 export interface Affiliation {
-  address: Location
+  location: Location
   image: Image
   name: string
   ror: string
@@ -74,8 +74,8 @@ const defaultConfig: Model = {
   },
 
   form: {
-    address: {
-      label: "address",
+    location: {
+      label: "location",
       component: "ObjectContainerPanel",
       type: 3, //
       default: "",
@@ -89,7 +89,7 @@ const defaultConfig: Model = {
         switchIf: [],
         disjonctive: false,
       },
-      meta: "address",
+      meta: "location",
     },
 
     image: {

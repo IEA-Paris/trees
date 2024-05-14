@@ -2,10 +2,10 @@ import { Location } from "./location"
 import { Image } from "./image"
 import { EventSlot } from "./eventSlot"
 import { Discipline } from "./disciplines"
-import { Tag } from "./tag"
+import { Tag } from "./tags"
 import { People } from "./people"
 import { Affiliation } from "./affiliations"
-import { File } from "./file"
+import { File } from "./files"
 import Model from "./model"
 
 export interface Event {
@@ -24,7 +24,7 @@ export interface Event {
   onlineSlots?: EventSlot[] //// 3 - Server
   organizers: People[] | Affiliation[] // 3 - Server & Client
   outside: boolean // 0 - Server & Client
-  place: Location // 0 - Server & Client
+  location: Location // 0 - Server & Client
   relatedProjects?: string[] // 0 - Server & Client
   relatedNews?: string[] // 0 - Server & Client
   slots?: EventSlot[] //// 3 - Server
@@ -370,7 +370,7 @@ const defaultConfig: Model = {
       },
       meta: "outside",
     },
-    place: {
+    location: {
       label: "place",
       component: "ObjectContainerPanel",
       type: 3, //
@@ -387,7 +387,7 @@ const defaultConfig: Model = {
       },
       meta: "place",
     },
-    relatedEvents: {
+    event: {
       label: "relatedEvents",
       component: "CollectionContainerPanel",
       type: 3, //
@@ -402,7 +402,7 @@ const defaultConfig: Model = {
       },
       meta: "relatedEvents",
     },
-    relatedNews: {
+    news: {
       label: "relatedNews",
       component: "CollectionContainerPanel",
       type: 3, //
