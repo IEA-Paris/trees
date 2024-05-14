@@ -1,15 +1,17 @@
-import { Image } from "./image"
-import Model from "./model"
+import { Image } from "./image";
+import Model from "./model";
 
 export interface Action {
-  color: string
-  link: string
-  picture: Image
-  title: string
+  color: string;
+  link: string;
+  picture: Image;
+  title: string;
+  video: URL;
+  slots: string[];
 }
 
 interface ActionForm extends Model {
-  queryFilters: any
+  queryFilters: any;
 }
 
 const defaultConfig: ActionForm = {
@@ -30,7 +32,7 @@ const defaultConfig: ActionForm = {
         rules: {},
         label: "year",
         items: () => {
-          return []
+          return [];
         },
       },
     },
@@ -145,6 +147,24 @@ const defaultConfig: ActionForm = {
       },
       meta: "color", // item type on schema.org
     },
+    video: {
+      label: "video",
+      component: "TextField",
+      type: 0, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        url: true,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "video",
+    },
   },
-}
-export default defaultConfig
+};
+export default defaultConfig;

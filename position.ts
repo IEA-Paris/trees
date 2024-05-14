@@ -1,14 +1,14 @@
-import { Form } from "./form"
+import { Form } from "./form";
 
 export interface Position {
-  role: string
-  department: string
-  start: Date
-  stop: Date
+  role: string;
+  department: string;
+  start: Date | null;
+  stop: Date | null;
 }
 
 interface PositionForm {
-  form: Record<string, Form>
+  form: Record<string, Form>;
 }
 const defaultConfig: PositionForm = {
   form: {
@@ -87,6 +87,6 @@ const defaultConfig: PositionForm = {
       meta: "stop",
     },
   },
-}
+};
 
-export default defaultConfig
+export default defaultConfig;

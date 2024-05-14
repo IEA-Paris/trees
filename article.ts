@@ -1,26 +1,26 @@
-import { Image } from "./image"
-import { People } from "./people"
-import { Discipline } from "./disciplines"
-import { Video } from "./video"
-import { Tag } from "./tags"
-import Model from "./model"
+import { Image } from "./image";
+import { People } from "./people";
+import { Discipline } from "./disciplines";
+import { Video } from "./video";
+import { Tag } from "./tags";
+import Model from "./model";
 // define format from set of articles formats offered by PIAS (i.e. Zenodo api)
 export interface Article {
-  title: string
-  abstract: string
-  image: Image
-  video: Video
-  needDOI: boolean
-  DOI: string
-  Zid: string
-  highlight: boolean
-  date: Date
-  authors: People[]
-  issue: string
-  lang: string
-  disciplines: Discipline[]
+  title: string;
+  abstract: string;
+  image: Image;
+  video: Video;
+  needDOI: boolean;
+  DOI: string;
+  Zid: string;
+  highlight: boolean;
+  date: Date | null;
+  authors: People[];
+  issue: string;
+  lang: string;
+  disciplines: Discipline[];
   //format: Format[]
-  tag: Tag[]
+  tag: Tag[];
 }
 //TODO list + form
 
@@ -42,7 +42,7 @@ const defautConfig: Model = {
         items: (articles: Article[]) => {
           return articles.map((article: Article) =>
             new Date(article.date).getFullYear()
-          )
+          );
         },
       },
     },
@@ -362,6 +362,6 @@ const defautConfig: Model = {
       meta: "tag",
     },
   },
-}
+};
 
-export default defautConfig
+export default defautConfig;

@@ -1,18 +1,18 @@
-import Model from "./model"
+import Model from "./model";
 
 export interface File {
-  name: string
-  url: URL
-  size: number
-  fileType: string
-  hash: string
-  path: string
-  file: string
-  image: string
-  thumb: URL
-  createdAt: Date
-  updatedAt: Date
-  id: string
+  name: string;
+  url: URL;
+  size: number;
+  fileType: string;
+  hash: string;
+  path: string;
+  file: string;
+  image: string;
+  thumb: URL;
+  createdAt: Date | null;
+  updatedAt: Date | null;
+  id: string;
 }
 
 const defautConfig: Model = {
@@ -304,6 +304,6 @@ const defautConfig: Model = {
       meta: "id",
     },
   },
-}
+};
 
-export default defautConfig
+export default defautConfig;

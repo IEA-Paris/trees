@@ -1,11 +1,11 @@
-import Model from "./model"
+import Model from "./model";
 
 export interface Tag {
-  name: string
-  description: string
-  icon: string
-  createdAt: Date
-  updatedAt: Date
+  name: string;
+  description: string;
+  icon: string;
+  createdAt: Date | null;
+  updatedAt: Date | null;
 }
 
 const defaultConfig: Model = {
@@ -26,7 +26,7 @@ const defaultConfig: Model = {
         items: (articles: any) => {
           return articles.map((article: any) =>
             new Date(article.date).getFullYear()
-          )
+          );
         },
       },
     },
@@ -159,5 +159,5 @@ const defaultConfig: Model = {
       meta: "updatedAt",
     },
   },
-}
-export default defaultConfig
+};
+export default defaultConfig;

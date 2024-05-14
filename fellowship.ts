@@ -1,25 +1,29 @@
-import { Image } from "./image"
-import { Affiliation } from "./affiliations"
-import { People } from "./people"
-import { FellowshipDetails } from "./fellowshipDetails"
-import { File } from "./files"
-import Model from "./model"
+import { Image } from "./image";
+import { Affiliation } from "./affiliations";
+import { People } from "./people";
+import { FellowshipDetails } from "./fellowshipDetails";
+import { File } from "./files";
+import Model from "./model";
+import { Video } from "./video";
 
 export interface Fellowship {
-  action: string
-  affiliations: Affiliation[]
-  start: Date
-  contact: string
-  description: string
-  details: FellowshipDetails
-  fellows: People[]
-  url: URL
-  stop: Date
-  picture: Image
-  publicationDate: Date
-  summary: string
-  files: File[]
-  title: string
+  action: string;
+  affiliations: Affiliation[];
+  applicationStart: Date | null;
+  fellowshipStart: Date | null;
+  contact: string;
+  description: string;
+  details: FellowshipDetails;
+  fellows: People[];
+  url: URL;
+  applicationStop: Date | null;
+  fellowshipStop: Date | null;
+  picture: Image;
+  publicationDate: Date | null;
+  summary: string;
+  files: File[];
+  title: string;
+  video: Video[];
 }
 
 const defaultConfig: Model = {
@@ -334,5 +338,5 @@ const defaultConfig: Model = {
       meta: "title",
     },
   },
-}
-export default defaultConfig
+};
+export default defaultConfig;

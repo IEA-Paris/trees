@@ -1,16 +1,17 @@
-import { Form } from "./form"
+import { Form } from "./form";
+import { Vintage } from "./vintage";
 
 export interface Groups {
-  team: boolean
-  sab: boolean
-  board: boolean
-  fellow: boolean
-  sponsor: boolean
-  mileage: number[]
+  team: boolean;
+  sab: boolean;
+  board: boolean;
+  fellow: boolean;
+  sponsor: boolean;
+  vintage: Vintage[];
 }
 
 interface GroupsForm {
-  form: Record<string, Form>
+  form: Record<string, Form>;
 }
 
 const defaultConfig: GroupsForm = {
@@ -92,10 +93,10 @@ const defaultConfig: GroupsForm = {
       meta: "sponsor",
     },
 
-    mileage: {
-      label: "mileage",
-      component: "ListAutoComplete",
-      type: 2, //
+    vintage: {
+      label: "vintage",
+      component: "CollectionContainerPanel",
+      type: 3, //
       default: "",
       description: "",
       hint: false,
@@ -105,9 +106,9 @@ const defaultConfig: GroupsForm = {
         switchIf: [],
         disjonctive: false,
       },
-      meta: "mileage",
+      meta: "vintage",
     },
   },
-}
+};
 
-export default defaultConfig
+export default defaultConfig;

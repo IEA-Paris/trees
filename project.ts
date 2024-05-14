@@ -1,26 +1,26 @@
-import { Image } from "./image"
-import { Affiliation } from "./affiliations"
-import { Event } from "./event"
-import { File } from "./files"
-import { News } from "./news"
-import { Video } from "./video"
-import Model from "./model"
+import { Image } from "./image";
+import { Affiliation } from "./affiliations";
+import { Event } from "./event";
+import { File } from "./files";
+import { News } from "./news";
+import { Video } from "./video";
+import Model from "./model";
 
 export interface Project {
-  title: string
-  shortDescription: string
-  description: string
-  url: URL
-  affiliations: Affiliation[]
-  relatedEvents: Event[]
-  relatedNews: News[]
-  picture: Image
-  video: Video
-  tags: string[]
-  files: File[]
-  color: string
-  date: Date
-  featured: Date
+  title: string;
+  shortDescription: string;
+  description: string;
+  url: URL;
+  affiliations: Affiliation[];
+  relatedEvents: Event[];
+  relatedNews: News[];
+  picture: Image;
+  video: Video;
+  tags: string[];
+  files: File[];
+  color: string;
+  date: Date | null;
+  featured: Date | null;
 }
 
 const defaultConfig: Model = {
@@ -41,7 +41,7 @@ const defaultConfig: Model = {
         items: (articles: any) => {
           return articles.map((article: any) =>
             new Date(article.date).getFullYear()
-          )
+          );
         },
       },
     },
@@ -334,5 +334,5 @@ const defaultConfig: Model = {
       meta: "featured",
     },
   },
-}
-export default defaultConfig
+};
+export default defaultConfig;

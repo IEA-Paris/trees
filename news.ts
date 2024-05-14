@@ -1,19 +1,20 @@
-import { Image } from "./image"
-import Model from "./model"
-import { People } from "./people"
-import { Project } from "./project"
+import { Image } from "./image";
+import Model from "./model";
+import { People } from "./people";
+import { Project } from "./project";
 
 export interface News {
-  title: string
-  description: string
-  picture: Image
-  color: string
-  url: URL
-  date: Date
-  authors: People[]
-  featured: Date
-  relatedProjects: Project[]
-  relatedEvents: Event[]
+  title: string;
+  description: string;
+  picture: Image;
+  color: string;
+  url: URL;
+  date: Date | null;
+  // authors: People[];
+  featured: Date | null;
+  project: Project[];
+  event: Event[];
+  people: People[];
 }
 
 const defaultConfig: Model = {
@@ -189,8 +190,8 @@ const defaultConfig: Model = {
       },
       meta: "date",
     },
-    authors: {
-      label: "authors",
+    people: {
+      label: "people",
       component: "CollectionContainerPanel",
       type: 3, //
       default: "",
@@ -205,7 +206,7 @@ const defaultConfig: Model = {
         switchIf: [],
         disjonctive: false,
       },
-      meta: "authors",
+      meta: "people",
     },
     featured: {
       label: "featured",
@@ -260,6 +261,6 @@ const defaultConfig: Model = {
       meta: "relatedNews",
     },
   },
-}
+};
 
-export default defaultConfig
+export default defaultConfig;

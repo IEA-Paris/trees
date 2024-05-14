@@ -1,15 +1,15 @@
-import { Form } from "./form"
+import { Form } from "./form";
 
 export interface Mailing {
-  title: string
-  description: string
-  createdAt: string
-  updatedAt: string
-  date: Date
+  title: string;
+  description: string;
+  createdAt: string;
+  updatedAt: string;
+  date: Date | null;
 }
 
 interface MailingForm {
-  form: Record<string, Form>
+  form: Record<string, Form>;
 }
 //TODO list + form
 
@@ -113,6 +113,6 @@ const defaultConfig: MailingForm = {
       meta: "date",
     },
   },
-}
+};
 
-export default defaultConfig
+export default defaultConfig;
