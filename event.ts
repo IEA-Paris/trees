@@ -21,12 +21,12 @@ export interface Event {
   files: File[]; // 3 - Server & Client
   image: Image; // 3 - Server & Client
   name: string; // 0 - Server & Client
-  onlineSlots?: EventSlot[]; //// 3 - Server
+  eventSlot?: EventSlot[]; //// 3 - Server
   organizers: People[] | Affiliation[]; // 3 - Server & Client
   outside: boolean; // 0 - Server & Client
   location: Location; // 0 - Server & Client
-  relatedProjects?: string[]; // 0 - Server & Client
-  relatedNews?: string[]; // 0 - Server & Client
+  project?: string[]; // 0 - Server & Client
+  news?: string[]; // 0 - Server & Client
   slots?: EventSlot[]; //// 3 - Server
   speakers: People[]; // 3 - Server & Client
   start: string; // 0 - Server & Client
@@ -331,8 +331,8 @@ const defaultConfig: Model = {
       },
       meta: "name",
     },
-    onlineSlots: {
-      label: "onlineSlots",
+    eventSlot: {
+      label: "eventSlot",
       component: "CollectionContainerPanel",
       type: 3, //
       default: "",
@@ -348,7 +348,7 @@ const defaultConfig: Model = {
         switchIf: [],
         disjonctive: false,
       },
-      meta: "onlineSlots",
+      meta: "eventSlot",
     },
     organizers: {
       label: "organizers",
@@ -420,8 +420,8 @@ const defaultConfig: Model = {
       },
       meta: "relatedEvents",
     },
-    relatedNews: {
-      label: "relatedNews",
+    news: {
+      label: "news",
       component: "CollectionContainerPanel",
       type: 3, //
       default: "",
@@ -437,10 +437,10 @@ const defaultConfig: Model = {
         switchIf: [],
         disjonctive: false,
       },
-      meta: "relatedNews",
+      meta: "news",
     },
-    relatedProjects: {
-      label: "relatedProjects",
+    project: {
+      label: "project",
       component: "TextField",
       type: 2, //
       default: "",
@@ -456,7 +456,7 @@ const defaultConfig: Model = {
         switchIf: [],
         disjonctive: false,
       },
-      meta: "relatedProjects",
+      meta: "project",
     },
     speakers: {
       label: "speakers",
