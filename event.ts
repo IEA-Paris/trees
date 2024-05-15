@@ -9,36 +9,36 @@ import { File } from "./files";
 import Model from "./model";
 
 export interface Event {
-  affiliations: Affiliation[]; // 3 - Server & Client
-  appId: string; // 0 - Server & Client
-  availableSlots: number; // 0 - Server & Client
-  bookingState: number; // 0 - Server & Client
-  createdAt: Date | null; // 0 - Server & Client
-  delay: number; // 0 - Server & Client
-  description: string; // 0 - Server & Client
-  disciplines: Discipline[]; // 3 - Server & Client
-  discussants: People[]; // 0 - Server & Client
-  files: File[]; // 3 - Server & Client
-  image: Image; // 3 - Server & Client
-  name: string; // 0 - Server & Client
-  eventSlot?: EventSlot[]; //// 3 - Server
-  organizers: People[] | Affiliation[]; // 3 - Server & Client
-  outside: boolean; // 0 - Server & Client
-  location: Location; // 0 - Server & Client
-  project?: string[]; // 0 - Server & Client
-  news?: string[]; // 0 - Server & Client
-  slots?: EventSlot[]; //// 3 - Server
-  speakers: People[]; // 3 - Server & Client
-  start: string; // 0 - Server & Client
-  state: number; // 0 - Server & Client
-  stop: string; // 0 - Server & Client
-  subtitle: string; // 0 - Server & Client
-  summary: string; // 0 - Server & Client
-  tags: Tag[]; // 3 - Server & Client
+  affiliations: Affiliation[]; // 3 - Server & Client -
+  appId: string; // 0 - Server & Client -
+  availableSlots: number; // 0 - Server & Client -
+  bookingState: number; // 0 - Server & Client -
+  createdAt: Date | null; // 0 - Server & Client -
+  delay: number; // 0 - Server & Client -
+  description: string; // 0 - Server & Client -
+  disciplines: Discipline[]; // 3 - Server & Client -
+  discussants: People[]; // 0 - Server & Client -
+  files: File[]; // 3 - Server & Client -
+  image: Image; // 3 - Server & Client -
+  name: string; // 0 - Server & Client -
+  eventSlot?: EventSlot[]; //// 3 - Server -
+  organizers: People[] | Affiliation[]; // 3 - Server & Client -
+  outside: boolean; // 0 - Server & Client -
+  location: Location; // 0 - Server & Client -
+  project?: string[]; // 0 - Server & Client -
+  news?: string[]; // 0 - Server & Client -
+  // slots?: EventSlot[]; //// 3 - Server
+  speakers: People[]; // 3 - Server & Client -
+  start: string; // 0 - Server & Client -
+  state: number; // 0 - Server & Client -
+  stop: string; // 0 - Server & Client -
+  subtitle: string; // 0 - Server &  -
+  summary: string; // 0 - Server & Client -
+  tags: Tag[]; // 3 - Server & Client -
   totalSlots: number; // 0 - Server & Client
-  eventType: number; // 0 : online, 1: physical, 2: hybrid// 0 - Server & Client
-  updatedAt: Date | null; // 0 - Server & Client
-  url: URL; // 0 - Server & Client
+  eventType: number; // 0 : online, 1: physical, 2: hybrid// 0 - Server & Client -
+  updatedAt: Date | null; // 0 - Server & Client -
+  url: URL; // 0 - Server & Client -
 }
 
 const defaultConfig: Model = {
@@ -404,21 +404,6 @@ const defaultConfig: Model = {
         disjonctive: false,
       },
       meta: "place",
-    },
-    event: {
-      label: "relatedEvents",
-      component: "CollectionContainerPanel",
-      type: 3, //
-      default: "",
-      description: "",
-      hint: false,
-      rules: {},
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
-      meta: "relatedEvents",
     },
     news: {
       label: "news",
