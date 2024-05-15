@@ -1,13 +1,13 @@
-import Model from "./model"
+import Model from "./model";
 
 export interface Video {
-  url: URL
-  alt: string | null
-  caption: string | null
-  copyright: string
-  license: string | null
-  licenseUrl: string | null
-  backgroundColor: string | null
+  url: URL;
+  alt: string | null;
+  caption: string | null;
+  copyright: string;
+  license: string | null;
+  licenseUrl: string | null;
+  backgroundColor: string | null;
 }
 const defaultConfig: Model = {
   source: "md",
@@ -203,6 +203,6 @@ const defaultConfig: Model = {
       meta: "backgroundColor", // item type on schema.org
     },
   },
-}
+};
 
-export default defaultConfig
+export default defaultConfig;

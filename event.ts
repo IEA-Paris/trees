@@ -260,7 +260,7 @@ const defaultConfig: Model = {
       meta: "discussants",
     },
     eventType: {
-      label: "type",
+      label: "eventType",
       component: "Select",
       type: 0, //
       default: "",
@@ -276,7 +276,7 @@ const defaultConfig: Model = {
         switchIf: [],
         disjonctive: false,
       },
-      meta: "type",
+      meta: "eventType",
     },
     files: {
       label: "files",
@@ -331,7 +331,25 @@ const defaultConfig: Model = {
       },
       meta: "name",
     },
-
+    onlineSlots: {
+      label: "onlineSlots",
+      component: "CollectionContainerPanel",
+      type: 3, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "onlineSlots",
+    },
     organizers: {
       label: "organizers",
       component: "CollectionContainerPanel",
@@ -402,7 +420,7 @@ const defaultConfig: Model = {
       },
       meta: "relatedEvents",
     },
-    news: {
+    relatedNews: {
       label: "relatedNews",
       component: "CollectionContainerPanel",
       type: 3, //
@@ -420,6 +438,25 @@ const defaultConfig: Model = {
         disjonctive: false,
       },
       meta: "relatedNews",
+    },
+    relatedProjects: {
+      label: "relatedProjects",
+      component: "TextField",
+      type: 2, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "relatedProjects",
     },
     speakers: {
       label: "speakers",
@@ -565,7 +602,6 @@ const defaultConfig: Model = {
       },
       meta: "totalSlots",
     },
-
     updatedAt: {
       label: "updatedAt",
       component: false,

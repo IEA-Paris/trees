@@ -76,7 +76,6 @@ const defaultConfig: GroupsForm = {
       },
       meta: "fellow",
     },
-
     sponsor: {
       label: "sponsor",
       component: "BooleanCheckbox",
@@ -92,7 +91,6 @@ const defaultConfig: GroupsForm = {
       },
       meta: "sponsor",
     },
-
     vintage: {
       label: "vintage",
       component: "CollectionContainerPanel",

@@ -101,7 +101,6 @@ const defaultConfig: ActionForm = {
       },
       meta: "title", // item type on schema.org
     },
-
     picture: {
       label: "picture",
       type: 3,
@@ -164,6 +163,25 @@ const defaultConfig: ActionForm = {
         disjonctive: false,
       },
       meta: "video",
+    },
+    slots: {
+      label: "slots",
+      component: "TextField",
+      type: 2, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "slots",
     },
   },
 };
