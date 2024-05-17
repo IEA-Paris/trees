@@ -190,24 +190,6 @@ const defaultConfig: Model = {
       },
       meta: "date",
     },
-    people: {
-      label: "people",
-      component: "CollectionContainerPanel",
-      type: 3, //
-      default: "",
-      description: "",
-      hint: false,
-      rules: {
-        required: true,
-        min: 1,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
-      meta: "people",
-    },
     featured: {
       label: "featured",
       component: "DatePicker",
@@ -226,8 +208,26 @@ const defaultConfig: Model = {
       },
       meta: "featured",
     },
-    relatedEvents: {
-      label: "relatedEvents",
+    project: {
+      label: "project",
+      component: "CollectionContainerPanel",
+      type: 3, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        min: 1,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "project",
+    },
+    event: {
+      label: "event",
       component: "CollectionContainerPanel",
       type: 3, //
       default: "",
@@ -239,10 +239,10 @@ const defaultConfig: Model = {
         switchIf: [],
         disjonctive: false,
       },
-      meta: "relatedEvents",
+      meta: "event",
     },
-    relatedNews: {
-      label: "relatedNews",
+    people: {
+      label: "people",
       component: "CollectionContainerPanel",
       type: 3, //
       default: "",
@@ -250,15 +250,14 @@ const defaultConfig: Model = {
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
+        min: 1,
       },
       visibility: {
         default: true,
         switchIf: [],
         disjonctive: false,
       },
-      meta: "relatedNews",
+      meta: "people",
     },
   },
 };

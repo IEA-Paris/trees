@@ -122,8 +122,8 @@ const defaultConfig: Model = {
       },
       meta: "affiliations", // item type on schema.org
     },
-    stop: {
-      label: "stop",
+    applicationStart: {
+      label: "applicationStart",
       component: "DatePicker", //TODO
       type: 0, //
       default: "",
@@ -138,7 +138,25 @@ const defaultConfig: Model = {
         switchIf: [],
         disjonctive: false,
       },
-      meta: "stop",
+      meta: "applicationStart",
+    },
+    fellowshipStart: {
+      label: "fellowshipStart",
+      component: "DatePicker", //TODO
+      type: 0, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        date: true,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "fellowshipStart",
     },
     contact: {
       label: "contact",
@@ -229,8 +247,8 @@ const defaultConfig: Model = {
       },
       meta: "url",
     },
-    start: {
-      label: "start",
+    fellowshipStop: {
+      label: "fellowshipStop",
       component: "DatePicker",
       type: 0, //
       default: "",
@@ -245,7 +263,25 @@ const defaultConfig: Model = {
         switchIf: [],
         disjonctive: false,
       },
-      meta: "start",
+      meta: "fellowshipStop",
+    },
+    applicationStop: {
+      label: "applicationStop",
+      component: "DatePicker",
+      type: 0, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        date: true,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "applicationStop",
     },
     picture: {
       label: "picture",
@@ -336,6 +372,23 @@ const defaultConfig: Model = {
         disjonctive: false,
       },
       meta: "title",
+    },
+    video: {
+      label: "video",
+      component: "CollectionContainerPanel",
+      type: 3, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "video",
     },
   },
 };

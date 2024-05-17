@@ -1,13 +1,13 @@
-import { Image } from "./image"
-import { Location } from "./location"
-import Model from "./model"
+import { Image } from "./image";
+import { Location } from "./location";
+import Model from "./model";
 
 export interface Affiliation {
-  location: Location
-  image: Image
-  name: string
-  ror: string
-  url: string
+  location: Location;
+  image: Image;
+  name: string;
+  ror: string;
+  url: string;
 }
 const defaultConfig: Model = {
   source: "md",
@@ -24,7 +24,7 @@ const defaultConfig: Model = {
         rules: {},
         label: "year",
         items: () => {
-          return []
+          return [];
         },
       },
     },
@@ -165,6 +165,6 @@ const defaultConfig: Model = {
       meta: "url",
     },
   },
-}
+};
 
-export default defaultConfig
+export default defaultConfig;

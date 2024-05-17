@@ -1,14 +1,14 @@
-import { Image } from "./image"
-import { Article } from "./article"
-import Model from "./model"
+import { Image } from "./image";
+import { Article } from "./article";
+import Model from "./model";
 export interface App {
-  name: string
-  logo: Image
+  name: string;
+  logo: Image;
 }
 
 // In case we would need to add content to the App Model
 interface AppForm extends Model {
-  queryFilters: any
+  queryFilters: any;
   //styles: string[]
 }
 const defaultConfig: AppForm = {
@@ -29,7 +29,7 @@ const defaultConfig: AppForm = {
         rules: {},
         label: "year",
         items: () => {
-          return []
+          return [];
         },
       },
     },
@@ -109,6 +109,6 @@ const defaultConfig: AppForm = {
       default: { url: "", licence: "" }, // default value
     },
   },
-}
+};
 
-export default defaultConfig
+export default defaultConfig;

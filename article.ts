@@ -22,7 +22,6 @@ export interface Article {
   //format: Format[]
   tag: Tag[];
 }
-//TODO list + form
 
 const defautConfig: Model = {
   source: "md",
@@ -40,8 +39,8 @@ const defautConfig: Model = {
         rules: {},
         label: "year",
         items: (articles: Article[]) => {
-          return articles.map((article: Article) =>
-            new Date(article.date).getFullYear()
+          return articles.map((article: any) =>
+            new Date(article?.date).getFullYear()
           );
         },
       },
@@ -324,24 +323,24 @@ const defautConfig: Model = {
       },
       meta: "disciplines",
     },
-    format: {
-      // TODO define inline @Antoine
-      label: "format",
-      component: "CollectionContainerPanel",
-      type: 3, //
-      default: "",
-      description: "",
-      hint: false,
-      rules: {
-        required: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
-      meta: "format",
-    },
+    // format: {
+    //   // TODO define inline @Antoine
+    //   label: "format",
+    //   component: "CollectionContainerPanel",
+    //   type: 3, //
+    //   default: "",
+    //   description: "",
+    //   hint: false,
+    //   rules: {
+    //     required: true,
+    //   },
+    //   visibility: {
+    //     default: true,
+    //     switchIf: [],
+    //     disjonctive: false,
+    //   },
+    //   meta: "format",
+    // },
     tag: {
       label: "tag",
       component: "CollectionContainerPanel",

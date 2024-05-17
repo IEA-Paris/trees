@@ -1,24 +1,24 @@
-import { Form } from "./form"
+import { Form } from "./form";
 
 export interface Consent {
   //data consent (display info about me)
-  data: boolean
+  data: boolean;
   // record consent (record my activity, droit à l'image)
-  record: boolean
+  record: boolean;
   // broadcast consent (broadcast my activity, diffusion de contenus)
-  diffusion: boolean
+  diffusion: boolean;
   // publication consent (publish my content, generate DOIs)
-  publication: boolean
+  publication: boolean;
   // email communications (including newsletter)
-  email: boolean
+  email: boolean;
   // IEA newsletter
-  newsletter: boolean
+  newsletter: boolean;
   // news about IEA fellowship
-  fellowshipnewsletter: boolean
+  fellowshipnewsletter: boolean;
 }
 
 interface ConsentForm {
-  form: Record<string, Form>
+  form: Record<string, Form>;
 }
 const defaultConfig: ConsentForm = {
   form: {
@@ -125,7 +125,24 @@ const defaultConfig: ConsentForm = {
       },
       meta: "newsletter", // item type on schema.org
     },
+    fellowshipnewsletter: {
+      label: "fellowshipnewsletter",
+      component: "BooleanCheckbox",
+      type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      default: false,
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+      },
+      visibility: {
+        default: true, // same as hidden = true
+        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
+        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+      },
+      meta: "fellowshipnewsletter", // item type on schema.org
+    },
   },
-}
+};
 
-export default defaultConfig
+export default defaultConfig;
