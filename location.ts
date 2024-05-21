@@ -149,7 +149,7 @@ const defaultConfig: LocationForm = {
     },
     geocode: {
       label: "geocode",
-      component: "TextField",
+      component: "LocationPicker",
       type: 1, //
       default: "",
       description: "",
@@ -164,6 +164,47 @@ const defaultConfig: LocationForm = {
         switchIf: [],
         disjonctive: false,
       },
+      items: {
+        lat: {
+          label: "latitude",
+          component: "TextField",
+          type: 0, //
+          default: "",
+          description: "",
+          hint: false,
+          rules: {
+            required: true,
+            min: 5,
+            max: 200,
+          },
+          visibility: {
+            default: true,
+            switchIf: [],
+            disjonctive: false,
+          },
+          meta: "latitude",
+        },
+        lng: {
+          label: "longitude",
+          component: "TextField",
+          type: 0, //
+          default: "",
+          description: "",
+          hint: false,
+          rules: {
+            required: true,
+            min: 5,
+            max: 200,
+          },
+          visibility: {
+            default: true,
+            switchIf: [],
+            disjonctive: false,
+          },
+          meta: "longitude",
+        },
+      },
+
       meta: "geocode",
     },
   },

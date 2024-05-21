@@ -13,8 +13,8 @@ export interface News {
   date: Date | null
   // authors: People[];
   featured: Date | null
-  relatedProject: RelatedProject[]
-  relatedEvents: RelatedEvent[]
+  relatedProject: RelatedProject[] | string[]
+  relatedEvents: RelatedEvent[] | string[]
   people: People[]
 }
 
