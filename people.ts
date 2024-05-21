@@ -1,21 +1,21 @@
-import { Affiliation } from "./affiliations";
-import { Image } from "./image";
-import { Socials } from "./socials";
-import { Position } from "./position";
-import { Consent } from "./consent";
-import { Groups } from "./group";
-import Model from "./model";
+import { Affiliation } from "./affiliations"
+import { Image } from "./image"
+import { Socials } from "./socials"
+import { Position } from "./position"
+import { Consent } from "./consent"
+import { Groups } from "./group"
+import Model from "./model"
 
 export interface People {
-  firstname: string;
-  lastname: string;
-  affiliations: [{ affiliation: Affiliation; positions: [Position] }];
-  picture: Image;
-  socials: Socials;
-  biography: string;
-  consent: Consent;
-  groups: Groups;
-  lang: string;
+  firstname: string
+  lastname: string
+  affiliations: [{ affiliation: Affiliation; positions: [Position] }]
+  image: Image
+  socials: Socials
+  biography: string
+  consent: Consent
+  groups: Groups
+  lang: string
 }
 
 const defaultConfig: Model = {
@@ -36,7 +36,7 @@ const defaultConfig: Model = {
         items: (articles: any) => {
           return articles.map((article: any) =>
             new Date(article.date).getFullYear()
-          );
+          )
         },
       },
     },
@@ -139,8 +139,8 @@ const defaultConfig: Model = {
       },
       meta: "affiliations",
     },
-    picture: {
-      label: "picture",
+    image: {
+      label: "image",
       component: "ObjectContainerPanel",
       type: 3, //
       default: "",
@@ -154,7 +154,7 @@ const defaultConfig: Model = {
         switchIf: [],
         disjonctive: false,
       },
-      meta: "picture",
+      meta: "image",
     },
     socials: {
       label: "socials",
@@ -242,6 +242,6 @@ const defaultConfig: Model = {
       meta: "lang",
     },
   },
-};
+}
 
-export default defaultConfig;
+export default defaultConfig

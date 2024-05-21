@@ -1,29 +1,29 @@
-import { Image } from "./image";
-import { Affiliation } from "./affiliations";
-import { People } from "./people";
-import { FellowshipDetails } from "./fellowshipDetails";
-import { File } from "./files";
-import Model from "./model";
-import { Video } from "./video";
+import { Image } from "./image"
+import { Affiliation } from "./affiliations"
+import { People } from "./people"
+import { FellowshipDetails } from "./fellowshipDetails"
+import { File } from "./files"
+import Model from "./model"
+import { Video } from "./video"
 
 export interface Fellowship {
-  action: string;
-  affiliations: Affiliation[];
-  applicationStart: Date | null;
-  fellowshipStart: Date | null;
-  contact: string;
-  description: string;
-  details: FellowshipDetails;
-  fellows: People[];
-  url: URL;
-  applicationStop: Date | null;
-  fellowshipStop: Date | null;
-  picture: Image;
-  publicationDate: Date | null;
-  summary: string;
-  files: File[];
-  title: string;
-  video: Video[];
+  action: string
+  affiliations: Affiliation[]
+  applicationStart: Date | null
+  fellowshipStart: Date | null
+  contact: string
+  description: string
+  details: FellowshipDetails
+  fellows: People[]
+  url: URL
+  applicationStop: Date | null
+  fellowshipStop: Date | null
+  image: Image
+  publicationDate: Date | null
+  summary: string
+  files: File[]
+  title: string
+  video: Video[]
 }
 
 const defaultConfig: Model = {
@@ -283,8 +283,8 @@ const defaultConfig: Model = {
       },
       meta: "applicationStop",
     },
-    picture: {
-      label: "picture",
+    image: {
+      label: "image",
       component: "ObjectContainerPanel",
       type: 3, //
       default: "",
@@ -298,7 +298,7 @@ const defaultConfig: Model = {
         switchIf: [],
         disjonctive: false,
       },
-      meta: "picture",
+      meta: "image",
     },
     publicationDate: {
       label: "publicationDate",
@@ -391,5 +391,5 @@ const defaultConfig: Model = {
       meta: "video",
     },
   },
-};
-export default defaultConfig;
+}
+export default defaultConfig

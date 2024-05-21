@@ -1,20 +1,20 @@
-import { Image } from "./image";
-import Model from "./model";
-import { People } from "./people";
-import { Project } from "./project";
+import { Image } from "./image"
+import Model from "./model"
+import { People } from "./people"
+import { Project } from "./project"
 
 export interface News {
-  title: string;
-  description: string;
-  picture: Image;
-  color: string;
-  url: URL;
-  date: Date | null;
+  title: string
+  description: string
+  image: Image
+  color: string
+  url: URL
+  date: Date | null
   // authors: People[];
-  featured: Date | null;
-  project: Project[];
-  event: Event[];
-  people: People[];
+  featured: Date | null
+  project: Project[]
+  event: Event[]
+  people: People[]
 }
 
 const defaultConfig: Model = {
@@ -119,8 +119,8 @@ const defaultConfig: Model = {
       },
       meta: "description",
     },
-    picture: {
-      label: "picture",
+    image: {
+      label: "image",
       component: "ObjectContainerPanel",
       type: 3, //
       default: "",
@@ -134,7 +134,7 @@ const defaultConfig: Model = {
         switchIf: [],
         disjonctive: false,
       },
-      meta: "picture",
+      meta: "image",
     },
     color: {
       label: "color",
@@ -260,6 +260,6 @@ const defaultConfig: Model = {
       meta: "people",
     },
   },
-};
+}
 
-export default defaultConfig;
+export default defaultConfig
