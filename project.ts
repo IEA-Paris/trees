@@ -1,10 +1,10 @@
 import { Image } from "./image"
 import { Affiliation } from "./affiliations"
-import { Event } from "./event"
 import { File } from "./files"
-import { News } from "./news"
 import { Video } from "./video"
 import Model from "./model"
+import { RelatedEvent } from "./relatedEvents"
+import { RelatedNews } from "./relatedNews"
 
 export interface Project {
   title: string
@@ -12,8 +12,8 @@ export interface Project {
   description: string
   url: URL
   affiliations: Affiliation[]
-  events: Event[]
-  news: News[]
+  relatedEvents: RelatedEvent[] | string[]
+  relatedNews: RelatedNews[] | string[]
   image: Image
   video: Video
   tags: string[]
@@ -179,10 +179,10 @@ const defaultConfig: Model = {
       },
       meta: "affiliations",
     },
-    events: {
-      label: "events",
-      component: "CollectionContainerPanel",
-      type: 3, //
+    relatedEvents: {
+      label: "relatedEvents",
+      component: "DocumentPicker",
+      type: 4, //
       default: "",
       description: "",
       hint: false,
@@ -192,12 +192,12 @@ const defaultConfig: Model = {
         switchIf: [],
         disjonctive: false,
       },
-      meta: "events",
+      meta: "relatedEvents",
     },
-    news: {
-      label: "news",
-      component: "CollectionContainerPanel",
-      type: 3, //
+    relatedNews: {
+      label: "relatedNews",
+      component: "DocumentPicker",
+      type: 4, //
       default: "",
       description: "",
       hint: false,
@@ -211,7 +211,7 @@ const defaultConfig: Model = {
         switchIf: [],
         disjonctive: false,
       },
-      meta: "news",
+      meta: "relatedNews",
     },
     image: {
       label: "image",

@@ -1,33 +1,34 @@
-import { Affiliation } from "./affiliations"
 import { Image } from "./image"
-import { Socials } from "./socials"
-import { Position } from "./position"
-import { Consent } from "./consent"
-import { Groups } from "./groups"
+import { Affiliation } from "./affiliations"
+import { File } from "./files"
+import { Video } from "./video"
 import Model from "./model"
 
-export interface People {
-  firstname: string
-  lastname: string
-  affiliations: [{ affiliation: Affiliation; positions: [Position] }]
+export interface RelatedProject {
+  title: string
+  affiliations: Affiliation[]
+  shortDescription: string
+  description: string
+  url: URL
   image: Image
-  socials: Socials
-  biography: string
-  consent: Consent
-  groups: Groups
-  lang: string
+  video: Video
+  tags: string[]
+  files: File[]
+  color: string
+  date: Date | null
+  featured: Date | null
 }
 
 const defaultConfig: Model = {
-  source: "gql",
+  source: "md",
   type: null, // 'directory' | 'file' | null
   path: null, // path to the folder where the content is stored
   list: {
-    create: true, // allow to create new items
     perPage: {
       options: [9, 12, 16],
       default: 9,
     },
+    create: true, // allow to create new items
     filters: {
       year: {
         type: "Select",
@@ -84,8 +85,8 @@ const defaultConfig: Model = {
     },
   },
   form: {
-    firstname: {
-      label: "firstname",
+    title: {
+      label: "title",
       component: "TextField",
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",
@@ -93,7 +94,7 @@ const defaultConfig: Model = {
       hint: false,
       rules: {
         required: true,
-        min: 1,
+        min: 5,
         max: 200,
       },
       visibility: {
@@ -101,18 +102,18 @@ const defaultConfig: Model = {
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
         disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
       },
-      meta: "firstname", // item type on schema.org
+      meta: "title", // item type on schema.org
     },
-    lastname: {
-      label: "lastname",
-      component: "TextField",
+    shortDescription: {
+      label: "shortDescription",
+      component: "TextArea",
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",
       description: "",
       hint: false,
       rules: {
         required: true,
-        min: 1,
+        min: 5,
         max: 200,
       },
       visibility: {
@@ -120,7 +121,44 @@ const defaultConfig: Model = {
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
         disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
       },
-      meta: "lastname", // item type on schema.org
+      meta: "shortDescription", // item type on schema.org
+    },
+    description: {
+      label: "description",
+      component: "TextArea",
+      type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        min: 5,
+        max: 2000,
+      },
+      visibility: {
+        default: true, // same as hidden = true
+        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
+        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+      },
+      meta: "description", // item type on schema.org
+    },
+    url: {
+      label: "url",
+      component: "TextField",
+      type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        url: true,
+      },
+      visibility: {
+        default: true, // same as hidden = true
+        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
+        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+      },
+      meta: "url", // item type on schema.org
     },
     affiliations: {
       label: "affiliations",
@@ -129,9 +167,7 @@ const defaultConfig: Model = {
       default: "",
       description: "",
       hint: false,
-      rules: {
-        required: false,
-      },
+      rules: {},
       visibility: {
         default: true,
         switchIf: [],
@@ -139,6 +175,7 @@ const defaultConfig: Model = {
       },
       meta: "affiliations",
     },
+
     image: {
       label: "image",
       component: "ObjectContainerPanel",
@@ -147,7 +184,9 @@ const defaultConfig: Model = {
       description: "",
       hint: false,
       rules: {
-        required: false,
+        required: true,
+        min: 5,
+        max: 200,
       },
       visibility: {
         default: true,
@@ -156,8 +195,8 @@ const defaultConfig: Model = {
       },
       meta: "image",
     },
-    socials: {
-      label: "socials",
+    video: {
+      label: "video",
       component: "ObjectContainerPanel",
       type: 3, //
       default: "",
@@ -169,65 +208,12 @@ const defaultConfig: Model = {
         switchIf: [],
         disjonctive: false,
       },
-      meta: "socials",
+      meta: "video",
     },
-    biography: {
-      label: "biography",
-      component: "TextArea",
-      type: 0, //
-      default: "",
-      description: "",
-      hint: false,
-      rules: {
-        required: true,
-        min: 5,
-        max: 2000,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
-      meta: "biography",
-    },
-    consent: {
-      label: "consent",
-      component: "ObjectContainerPanel",
-      type: 3, //
-      default: "",
-      description: "",
-      hint: false,
-      rules: {
-        required: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
-      meta: "consent",
-    },
-    groups: {
-      label: "groups",
-      component: "ObjectContainerPanel",
-      type: 3, //
-      default: "",
-      description: "",
-      hint: false,
-      rules: {
-        required: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
-      meta: "groups",
-    },
-    lang: {
-      label: "lang",
+    tags: {
+      label: "tags",
       component: "ListAutoComplete",
-      type: 0, //
+      type: 2, //
       default: "",
       description: "",
       hint: false,
@@ -239,9 +225,77 @@ const defaultConfig: Model = {
         switchIf: [],
         disjonctive: false,
       },
-      meta: "lang",
+      meta: "tags",
+    },
+    files: {
+      label: "files",
+      component: "CollectionContainerPanel",
+      type: 3, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {},
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "files",
+    },
+    color: {
+      label: "color",
+      component: "TextColorPicker",
+      type: 0, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        color: true,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "color",
+    },
+    date: {
+      label: "date",
+      component: "FiDatePicker",
+      type: 0, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        date: true,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "date",
+    },
+    featured: {
+      label: "featured",
+      component: "DatePicker",
+      type: 0, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        date: true,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "featured",
     },
   },
 }
-
 export default defaultConfig

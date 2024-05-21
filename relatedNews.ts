@@ -1,21 +1,15 @@
-import { Affiliation } from "./affiliations"
 import { Image } from "./image"
-import { Socials } from "./socials"
-import { Position } from "./position"
-import { Consent } from "./consent"
-import { Groups } from "./groups"
 import Model from "./model"
 
-export interface People {
-  firstname: string
-  lastname: string
-  affiliations: [{ affiliation: Affiliation; positions: [Position] }]
+export interface RelatedNews {
+  title: string
+  description: string
   image: Image
-  socials: Socials
-  biography: string
-  consent: Consent
-  groups: Groups
-  lang: string
+  color: string
+  url: URL
+  date: Date | null
+  // authors: People[];
+  featured: Date | null
 }
 
 const defaultConfig: Model = {
@@ -23,21 +17,17 @@ const defaultConfig: Model = {
   type: null, // 'directory' | 'file' | null
   path: null, // path to the folder where the content is stored
   list: {
-    create: true, // allow to create new items
     perPage: {
       options: [9, 12, 16],
       default: 9,
     },
+    create: true, // allow to create new items
     filters: {
       year: {
         type: "Select",
         rules: {},
         label: "year",
-        items: (articles: any) => {
-          return articles.map((article: any) =>
-            new Date(article.date).getFullYear()
-          )
-        },
+        items: [],
       },
     },
     sort: {
@@ -83,9 +73,10 @@ const defaultConfig: Model = {
       },
     },
   },
+
   form: {
-    firstname: {
-      label: "firstname",
+    title: {
+      label: "title",
       component: "TextField",
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",
@@ -93,7 +84,7 @@ const defaultConfig: Model = {
       hint: false,
       rules: {
         required: true,
-        min: 1,
+        min: 5,
         max: 200,
       },
       visibility: {
@@ -101,43 +92,27 @@ const defaultConfig: Model = {
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
         disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
       },
-      meta: "firstname", // item type on schema.org
+      meta: "title", // item type on schema.org
     },
-    lastname: {
-      label: "lastname",
-      component: "TextField",
-      type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
+
+    description: {
+      label: "description",
+      component: "TextArea",
+      type: 0, //
       default: "",
       description: "",
       hint: false,
       rules: {
         required: true,
-        min: 1,
+        min: 5,
         max: 200,
-      },
-      visibility: {
-        default: true, // same as hidden = true
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
-      },
-      meta: "lastname", // item type on schema.org
-    },
-    affiliations: {
-      label: "affiliations",
-      component: "CollectionContainerPanel",
-      type: 3, //
-      default: "",
-      description: "",
-      hint: false,
-      rules: {
-        required: false,
       },
       visibility: {
         default: true,
         switchIf: [],
         disjonctive: false,
       },
-      meta: "affiliations",
+      meta: "description",
     },
     image: {
       label: "image",
@@ -147,7 +122,7 @@ const defaultConfig: Model = {
       description: "",
       hint: false,
       rules: {
-        required: false,
+        required: true,
       },
       visibility: {
         default: true,
@@ -156,90 +131,77 @@ const defaultConfig: Model = {
       },
       meta: "image",
     },
-    socials: {
-      label: "socials",
-      component: "ObjectContainerPanel",
-      type: 3, //
-      default: "",
-      description: "",
-      hint: false,
-      rules: {},
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
-      meta: "socials",
-    },
-    biography: {
-      label: "biography",
-      component: "TextArea",
+    color: {
+      label: "color",
+      component: "TextColorPicker",
       type: 0, //
       default: "",
       description: "",
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 2000,
+        color: true,
       },
       visibility: {
         default: true,
         switchIf: [],
         disjonctive: false,
       },
-      meta: "biography",
+      meta: "color",
     },
-    consent: {
-      label: "consent",
-      component: "ObjectContainerPanel",
-      type: 3, //
-      default: "",
-      description: "",
-      hint: false,
-      rules: {
-        required: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
-      meta: "consent",
-    },
-    groups: {
-      label: "groups",
-      component: "ObjectContainerPanel",
-      type: 3, //
-      default: "",
-      description: "",
-      hint: false,
-      rules: {
-        required: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
-      meta: "groups",
-    },
-    lang: {
-      label: "lang",
-      component: "ListAutoComplete",
+    url: {
+      label: "url",
+      component: "TextField",
       type: 0, //
       default: "",
       description: "",
       hint: false,
       rules: {
         required: true,
+        url: true,
       },
       visibility: {
         default: true,
         switchIf: [],
         disjonctive: false,
       },
-      meta: "lang",
+      meta: "url",
+    },
+    date: {
+      label: "date",
+      component: "DatePicker",
+      type: 0, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        date: true,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "date",
+    },
+    featured: {
+      label: "featured",
+      component: "DatePicker",
+      type: 0, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        date: true,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "featured",
     },
   },
 }

@@ -8,7 +8,7 @@ import { Affiliation } from "./affiliations"
 import { File } from "./files"
 import Model from "./model"
 
-export interface Event {
+export interface RelatedEvent {
   affiliations: Affiliation[] // 3 - Server & Client -
   appId: string // 0 - Server & Client -
   availableSlots: number // 0 - Server & Client -
@@ -25,8 +25,6 @@ export interface Event {
   organizers: People[] | Affiliation[] // 3 - Server & Client -
   outside: boolean // 0 - Server & Client -
   location: Location // 0 - Server & Client -
-  relatedProject?: string[] // 0 - Server & Client -
-  relatedNews?: string[] // 0 - Server & Client -
   // slots?: EventSlot[]; //// 3 - Server
   speakers: People[] // 3 - Server & Client -
   start: string // 0 - Server & Client -
@@ -404,44 +402,6 @@ const defaultConfig: Model = {
         disjonctive: false,
       },
       meta: "place",
-    },
-    relatedNews: {
-      label: "relatedNews",
-      component: "DocumentPicker",
-      type: 4, //
-      default: "",
-      description: "",
-      hint: false,
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
-      meta: "relatedNews",
-    },
-    relatedProject: {
-      label: "relatedProject",
-      component: "DocumentPicker",
-      type: 4, //
-      default: "",
-      description: "",
-      hint: false,
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
-      meta: "relatedProject",
     },
     speakers: {
       label: "speakers",

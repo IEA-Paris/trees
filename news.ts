@@ -1,7 +1,8 @@
 import { Image } from "./image"
 import Model from "./model"
 import { People } from "./people"
-import { Project } from "./project"
+import { RelatedEvent } from "./relatedEvents"
+import { RelatedProject } from "./relatedProject"
 
 export interface News {
   title: string
@@ -12,8 +13,8 @@ export interface News {
   date: Date | null
   // authors: People[];
   featured: Date | null
-  project: Project[]
-  event: Event[]
+  relatedProject: RelatedProject[]
+  relatedEvents: RelatedEvent[]
   people: People[]
 }
 
@@ -208,10 +209,10 @@ const defaultConfig: Model = {
       },
       meta: "featured",
     },
-    project: {
-      label: "project",
-      component: "CollectionContainerPanel",
-      type: 3, //
+    relatedProject: {
+      label: "relatedProject",
+      component: "DocumentPicker",
+      type: 4, //
       default: "",
       description: "",
       hint: false,
@@ -224,12 +225,12 @@ const defaultConfig: Model = {
         switchIf: [],
         disjonctive: false,
       },
-      meta: "project",
+      meta: "relatedProject",
     },
-    event: {
-      label: "event",
-      component: "CollectionContainerPanel",
-      type: 3, //
+    relatedEvents: {
+      label: "relatedEvent",
+      component: "DocumentPicker",
+      type: 4, //
       default: "",
       description: "",
       hint: false,
