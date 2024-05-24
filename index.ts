@@ -85,4 +85,5 @@ const configData: Record<string, ConfigValue> = {
   vintage: defaultConfigVintage,
 };
 
-export { configData, Form, Sort, Views, ConfigValue };
+export { configData };
+export type { Form, Sort, Views, ConfigValue, Model };
