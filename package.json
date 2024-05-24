@@ -1,0 +1,13 @@
+{
+  "name": "@hamedbouare9/data",
+  "version": "1.7.0",
+  "type": "module",
+  "main": "index.js",
+  "files": [
+    "index.ts",
+    "src/**"
+  ],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

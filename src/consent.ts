@@ -17,7 +17,7 @@ export interface Consent {
   fellowshipnewsletter: boolean;
 }
 
-interface ConsentForm {
+export interface ConsentForm {
   form: Record<string, Form>;
 }
 const defaultConfig: ConsentForm = {

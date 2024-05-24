@@ -7,7 +7,7 @@ export interface App {
 }
 
 // In case we would need to add content to the App Model
-interface AppForm extends Model {
+export interface AppForm extends Model {
   queryFilters: any;
   //styles: string[]
 }
