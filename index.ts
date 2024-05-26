@@ -1,9 +1,9 @@
 import Model from "./src/model";
 import { Sort, Views } from "./src/list";
 import { Form } from "./src/form";
-import defaultConfigAction, { ActionForm } from "./src/action";
+import defaultConfigAction from "./src/action";
 import defaultConfigAffliation from "./src/affiliations";
-import defautConfigApp, { AppForm } from "./src/app";
+import defautConfigApp from "./src/app";
 import defaultConfigArticle from "./src/article";
 import defaultConfigConsent, { ConsentForm } from "./src/consent";
 import defaultConfigDisciplines from "./src/disciplines";
