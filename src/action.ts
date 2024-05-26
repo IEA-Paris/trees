@@ -10,11 +10,7 @@ export interface Action {
   slots: string[];
 }
 
-export interface ActionForm extends Model {
-  queryFilters: any;
-}
-
-const defaultConfig: ActionForm = {
+const defaultConfig: Model = {
   // fitlers used in the query by default (e.g. only published articles)
   queryFilters: {},
   source: "md",

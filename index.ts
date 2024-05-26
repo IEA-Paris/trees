@@ -39,8 +39,6 @@ import defaultConfigVintage from "./src/vintage";
 
 type ConfigValue =
   | Model
-  | ActionForm
-  | AppForm
   | ConsentForm
   | EventSlotForm
   | FellowshipDetailsForm

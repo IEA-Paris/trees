@@ -6,12 +6,7 @@ export interface App {
   logo: Image;
 }
 
-// In case we would need to add content to the App Model
-export interface AppForm extends Model {
-  queryFilters: any;
-  //styles: string[]
-}
-const defaultConfig: AppForm = {
+const defaultConfig: Model = {
   // fitlers used in the query by default (e.g. only published articles)
   queryFilters: {},
   source: "md",
