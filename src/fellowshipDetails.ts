@@ -14,7 +14,7 @@ export interface FellowshipDetails {
   researchSupport: string; // cf les moyens de la recherche
 }
 
-interface FellowshipDetailsForm {
+export interface FellowshipDetailsForm {
   form: Record<string, Form>;
 }
 const configDefault: FellowshipDetailsForm = {

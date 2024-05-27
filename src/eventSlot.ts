@@ -1,19 +1,22 @@
 import { Form } from "./form";
 
-export interface Position {
-  role: string;
-  department: string;
-  start: Date | null;
-  stop: Date | null;
+export interface EventSlot {
+  email: string;
+  firstname: string;
+  institution: string;
+  lang: string;
+  lastname: string;
 }
+// form
 
-interface PositionForm {
+export interface EventSlotForm {
   form: Record<string, Form>;
 }
-const defaultConfig: PositionForm = {
+
+const defautConfig: EventSlotForm = {
   form: {
-    role: {
-      label: "role",
+    email: {
+      label: "email",
       component: "TextField",
       type: 0, //
       default: "",
@@ -21,18 +24,17 @@ const defaultConfig: PositionForm = {
       hint: false,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
+        email: true,
       },
       visibility: {
         default: true,
         switchIf: [],
         disjonctive: false,
       },
-      meta: "role",
+      meta: "email",
     },
-    department: {
-      label: "department",
+    firstname: {
+      label: "firstname",
       component: "TextField",
       type: 0, //
       default: "",
@@ -40,7 +42,7 @@ const defaultConfig: PositionForm = {
       hint: false,
       rules: {
         required: true,
-        min: 5,
+        min: 1,
         max: 200,
       },
       visibility: {
@@ -48,45 +50,62 @@ const defaultConfig: PositionForm = {
         switchIf: [],
         disjonctive: false,
       },
-      meta: "department",
+      meta: "firstname",
     },
-    start: {
-      label: "start",
-      component: "DatePicker",
+    institution: {
+      label: "institution",
+      component: "TextField",
       type: 0, //
       default: "",
       description: "",
       hint: false,
       rules: {
-        required: true,
-        date: true,
+        required: false,
       },
       visibility: {
         default: true,
         switchIf: [],
         disjonctive: false,
       },
-      meta: "start",
+      meta: "institution",
     },
-    stop: {
-      label: "stop",
-      component: "DatePicker",
+    lang: {
+      label: "lang",
+      component: "ListSelect",
       type: 0, //
       default: "",
       description: "",
       hint: false,
       rules: {
         required: true,
-        date: true,
       },
       visibility: {
         default: true,
         switchIf: [],
         disjonctive: false,
       },
-      meta: "stop",
+      meta: "lang",
+    },
+    lastname: {
+      label: "lastname",
+      component: "TextField",
+      type: 0, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        min: 1,
+        max: 200,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "lastname",
     },
   },
 };
 
-export default defaultConfig;
+export default defautConfig;

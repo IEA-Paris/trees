@@ -1,22 +1,19 @@
 import { Form } from "./form";
 
-export interface EventSlot {
-  email: string;
-  firstname: string;
-  institution: string;
-  lang: string;
-  lastname: string;
+export interface Position {
+  role: string;
+  department: string;
+  start: Date | null;
+  stop: Date | null;
 }
-// form
 
-interface EventSlotForm {
+export interface PositionForm {
   form: Record<string, Form>;
 }
-
-const defautConfig: EventSlotForm = {
+const defaultConfig: PositionForm = {
   form: {
-    email: {
-      label: "email",
+    role: {
+      label: "role",
       component: "TextField",
       type: 0, //
       default: "",
@@ -24,25 +21,7 @@ const defautConfig: EventSlotForm = {
       hint: false,
       rules: {
         required: true,
-        email: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
-      meta: "email",
-    },
-    firstname: {
-      label: "firstname",
-      component: "TextField",
-      type: 0, //
-      default: "",
-      description: "",
-      hint: false,
-      rules: {
-        required: true,
-        min: 1,
+        min: 5,
         max: 200,
       },
       visibility: {
@@ -50,44 +29,10 @@ const defautConfig: EventSlotForm = {
         switchIf: [],
         disjonctive: false,
       },
-      meta: "firstname",
+      meta: "role",
     },
-    institution: {
-      label: "institution",
-      component: "TextField",
-      type: 0, //
-      default: "",
-      description: "",
-      hint: false,
-      rules: {
-        required: false,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
-      meta: "institution",
-    },
-    lang: {
-      label: "lang",
-      component: "ListSelect",
-      type: 0, //
-      default: "",
-      description: "",
-      hint: false,
-      rules: {
-        required: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
-      meta: "lang",
-    },
-    lastname: {
-      label: "lastname",
+    department: {
+      label: "department",
       component: "TextField",
       type: 0, //
       default: "",
@@ -95,7 +40,7 @@ const defautConfig: EventSlotForm = {
       hint: false,
       rules: {
         required: true,
-        min: 1,
+        min: 5,
         max: 200,
       },
       visibility: {
@@ -103,9 +48,45 @@ const defautConfig: EventSlotForm = {
         switchIf: [],
         disjonctive: false,
       },
-      meta: "lastname",
+      meta: "department",
+    },
+    start: {
+      label: "start",
+      component: "DatePicker",
+      type: 0, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        date: true,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "start",
+    },
+    stop: {
+      label: "stop",
+      component: "DatePicker",
+      type: 0, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        date: true,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "stop",
     },
   },
 };
 
-export default defautConfig;
+export default defaultConfig;

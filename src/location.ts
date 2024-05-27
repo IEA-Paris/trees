@@ -1,21 +1,21 @@
-import { Form } from "./form"
+import { Form } from "./form";
 
 export interface Location {
-  name: string
-  details: string // natural language description of the location
-  alt: string
-  street: string
-  city: string
-  country: string
-  zip: number
+  name: string;
+  details: string; // natural language description of the location
+  alt: string;
+  street: string;
+  city: string;
+  country: string;
+  zip: number;
   geocode: {
-    lat: number
-    lng: number
-  }
+    lat: number;
+    lng: number;
+  };
 }
 
-interface LocationForm {
-  form: Record<string, Form>
+export interface LocationForm {
+  form: Record<string, Form>;
 }
 const defaultConfig: LocationForm = {
   form: {
@@ -208,6 +208,6 @@ const defaultConfig: LocationForm = {
       meta: "geocode",
     },
   },
-}
+};
 
-export default defaultConfig
+export default defaultConfig;

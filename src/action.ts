@@ -1,20 +1,16 @@
-import { Image } from "./image"
-import Model from "./model"
+import { Image } from "./image";
+import Model from "./model";
 
 export interface Action {
-  color: string
-  link: string
-  image: Image
-  title: string
-  video: URL
-  slots: string[]
+  color: string;
+  link: string;
+  image: Image;
+  title: string;
+  video: URL;
+  slots: string[];
 }
 
-interface ActionForm extends Model {
-  queryFilters: any
-}
-
-const defaultConfig: ActionForm = {
+const defaultConfig: Model = {
   // fitlers used in the query by default (e.g. only published articles)
   queryFilters: {},
   source: "md",
@@ -32,7 +28,7 @@ const defaultConfig: ActionForm = {
         rules: {},
         label: "year",
         items: () => {
-          return []
+          return [];
         },
       },
     },
@@ -184,5 +180,5 @@ const defaultConfig: ActionForm = {
       meta: "slots",
     },
   },
-}
-export default defaultConfig
+};
+export default defaultConfig;

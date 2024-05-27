@@ -10,7 +10,7 @@ export interface Groups {
   vintage: Vintage[];
 }
 
-interface GroupsForm {
+export interface GroupsForm {
   form: Record<string, Form>;
 }
 

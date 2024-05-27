@@ -1,19 +1,19 @@
-import { Form } from "./form"
+import { Form } from "./form";
 
 export interface Socials {
-  website: URL
-  wikipedia: URL
-  orcid: string
-  linkedin: URL
-  twitter: URL
-  instagram: URL
-  scholar: URL
-  researchgate: URL
-  mendeley: URL
+  website: URL;
+  wikipedia: URL;
+  orcid: string;
+  linkedin: URL;
+  twitter: URL;
+  instagram: URL;
+  scholar: URL;
+  researchgate: URL;
+  mendeley: URL;
 }
 
-interface SocialsForm {
-  form: Record<string, Form>
+export interface SocialsForm {
+  form: Record<string, Form>;
 }
 const defaultConfig: SocialsForm = {
   form: {
@@ -171,5 +171,5 @@ const defaultConfig: SocialsForm = {
       meta: "mendeley", // item type on schema.org
     },
   },
-}
-export default defaultConfig
+};
+export default defaultConfig;
