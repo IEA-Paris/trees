@@ -13,6 +13,7 @@ export interface Event {
   appId: string // 0 - Server & Client -
   availableSlots: number // 0 - Server & Client -
   bookingState: number // 0 - Server & Client -
+  category: string // 0 - Server & Client -
   createdAt: Date | null // 0 - Server & Client -
   delay: number // 0 - Server & Client -
   description: string // 0 - Server & Client -
@@ -167,7 +168,23 @@ const defaultConfig: Model = {
       },
       meta: "bookingState",
     },
-
+    category: {
+      label: "category",
+      component: "Select",
+      type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+      },
+      visibility: {
+        default: true, // same as hidden = true
+        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
+        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+      },
+      meta: "category", // item type on schema.org
+    },
     createdAt: {
       label: "createdAt",
       component: false,
