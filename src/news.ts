@@ -7,7 +7,7 @@ import { RelatedProject } from "./relatedProject"
 export interface News {
   title: string
   description: string
-  tag: string
+  tag: string[]
   image: Image
   color: string
   url: URL
