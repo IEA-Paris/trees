@@ -12,7 +12,7 @@ export interface News {
   color: string
   url: URL
   date: Date | null
-  // authors: People[];
+  authors: People[]
   featured: Date | null
   relatedProject: RelatedProject[] | string[]
   relatedEvents: RelatedEvent[] | string[]
@@ -263,6 +263,25 @@ const defaultConfig: Model = {
     },
     people: {
       label: "people",
+      component: "CollectionContainerPanel",
+      type: 3, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        min: 1,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "people",
+    },
+
+    authors: {
+      label: "authors",
       component: "CollectionContainerPanel",
       type: 3, //
       default: "",
