@@ -7,7 +7,7 @@ import { RelatedProject } from "./relatedProject"
 export interface News {
   title: string
   description: string
-  tag: string[]
+  tags: string[]
   image: Image
   color: string
   url: URL
@@ -210,8 +210,8 @@ const defaultConfig: Model = {
       },
       meta: "featured",
     },
-    tag: {
-      label: "tag",
+    tags: {
+      label: "tags",
       component: "DocumentPicker",
       type: 4, //
       default: "",
@@ -226,7 +226,7 @@ const defaultConfig: Model = {
         switchIf: [],
         disjonctive: false,
       },
-      meta: "tag",
+      meta: "tags",
     },
     relatedProject: {
       label: "relatedProject",
