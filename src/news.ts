@@ -3,11 +3,12 @@ import Model from "./model"
 import { People } from "./people"
 import { RelatedEvent } from "./relatedEvents"
 import { RelatedProject } from "./relatedProject"
+import { Tag } from "./tags"
 
 export interface News {
   title: string
   description: string
-  tags: string[]
+  tags: Tag[]
   image: Image
   color: string
   url: URL
@@ -212,8 +213,8 @@ const defaultConfig: Model = {
     },
     tags: {
       label: "tags",
-      component: "DocumentPicker",
-      type: 4, //
+      component: "CollectionContainerPanel",
+      type: 2, //
       default: "",
       description: "",
       hint: false,
