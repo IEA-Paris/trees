@@ -1,19 +1,20 @@
-import { Form } from "./form";
+import { Form } from "./form"
 
 export interface Socials {
-  website: URL;
-  wikipedia: URL;
-  orcid: string;
-  linkedin: URL;
-  twitter: URL;
-  instagram: URL;
-  scholar: URL;
-  researchgate: URL;
-  mendeley: URL;
+  website: URL
+  wikipedia: URL
+  orcid: string
+  linkedin: URL
+  twitter: URL
+  instagram: URL
+  scholar: URL
+  researchgate: URL
+  mendeley: URL
+  idRef: number
 }
 
 export interface SocialsForm {
-  form: Record<string, Form>;
+  form: Record<string, Form>
 }
 const defaultConfig: SocialsForm = {
   form: {
@@ -170,6 +171,23 @@ const defaultConfig: SocialsForm = {
       },
       meta: "mendeley", // item type on schema.org
     },
+    idRef: {
+      label: "idRef",
+      type: 0,
+      component: "TextField",
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        url: true,
+      },
+      visibility: {
+        default: true, // same as hidden = true
+        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
+        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+      },
+      meta: "idRef", // item type on schema.org
+    },
   },
-};
-export default defaultConfig;
+}
+export default defaultConfig
