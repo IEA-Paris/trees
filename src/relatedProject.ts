@@ -1,22 +1,16 @@
 import { Image } from "./image"
-import { Affiliation } from "./affiliations"
-import { File } from "./files"
 import { Video } from "./video"
 import Model from "./model"
 
 export interface RelatedProject {
   title: string
-  affiliations: Affiliation[]
   shortDescription: string
   description: string
   url: URL
   image: Image
   video: Video
-  tags: string[]
-  files: File[]
   color: string
   date: Date | null
-  featured: Date | null
 }
 
 const defaultConfig: Model = {
@@ -160,21 +154,6 @@ const defaultConfig: Model = {
       },
       meta: "url", // item type on schema.org
     },
-    affiliations: {
-      label: "affiliations",
-      component: "CollectionContainerPanel",
-      type: 3, //
-      default: "",
-      description: "",
-      hint: false,
-      rules: {},
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
-      meta: "affiliations",
-    },
 
     image: {
       label: "image",
@@ -209,38 +188,6 @@ const defaultConfig: Model = {
         disjonctive: false,
       },
       meta: "video",
-    },
-    tags: {
-      label: "tags",
-      component: "ListAutoComplete",
-      type: 2, //
-      default: "",
-      description: "",
-      hint: false,
-      rules: {
-        required: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
-      meta: "tags",
-    },
-    files: {
-      label: "files",
-      component: "CollectionContainerPanel",
-      type: 3, //
-      default: "",
-      description: "",
-      hint: false,
-      rules: {},
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
-      meta: "files",
     },
     color: {
       label: "color",
@@ -277,24 +224,6 @@ const defaultConfig: Model = {
         disjonctive: false,
       },
       meta: "date",
-    },
-    featured: {
-      label: "featured",
-      component: "DatePicker",
-      type: 0, //
-      default: "",
-      description: "",
-      hint: false,
-      rules: {
-        required: true,
-        date: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
-      meta: "featured",
     },
   },
 }

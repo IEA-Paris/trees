@@ -1,41 +1,17 @@
-import { Location } from "./location"
 import { Image } from "./image"
-import { EventSlot } from "./eventSlot"
-import { Discipline } from "./disciplines"
-import { Tag } from "./tags"
-import { People } from "./people"
-import { Affiliation } from "./affiliations"
-import { File } from "./files"
 import Model from "./model"
 
 export interface RelatedEvent {
-  affiliations: Affiliation[] // 3 - Server & Client -
-  appId: string // 0 - Server & Client -
-  availableSlots: number // 0 - Server & Client -
   bookingState: number // 0 - Server & Client -
   createdAt: Date | null // 0 - Server & Client -
-  delay: number // 0 - Server & Client -
   description: string // 0 - Server & Client -
-  disciplines: Discipline[] // 3 - Server & Client -
-  discussants: People[] // 0 - Server & Client -
-  files: File[] // 3 - Server & Client -
   image: Image // 3 - Server & Client -
   name: string // 0 - Server & Client -
-  eventSlot?: EventSlot[] //// 3 - Server -
-  organizers: People[] | Affiliation[] // 3 - Server & Client -
   outside: boolean // 0 - Server & Client -
-  location: Location // 0 - Server & Client -
-  // slots?: EventSlot[]; //// 3 - Server
-  speakers: People[] // 3 - Server & Client -
   start: string // 0 - Server & Client -
   state: number // 0 - Server & Client -
-  stop: string // 0 - Server & Client -
-  subtitle: string // 0 - Server &  -
   summary: string // 0 - Server & Client -
-  tags: Tag[] // 3 - Server & Client -
-  totalSlots: number // 0 - Server & Client
   eventType: number // 0 : online, 1: physical, 2: hybrid// 0 - Server & Client -
-  updatedAt: Date | null // 0 - Server & Client -
   url: URL // 0 - Server & Client -
 }
 
@@ -106,51 +82,6 @@ const defaultConfig: Model = {
   },
 
   form: {
-    affiliations: {
-      label: "affiliations",
-      component: "CollectionContainerPanel",
-      type: 3, // 0 = primitive, 1 = object, 2 = array, 3 = template
-      default: "",
-      description: "",
-      hint: false,
-      rules: {
-        required: true,
-      },
-      visibility: {
-        default: true, // same as hidden = true
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
-      },
-      meta: "affiliations", // item type on schema.org
-    },
-    appId: {
-      label: "appId",
-      component: false,
-      type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
-      default: "",
-      description: "",
-      hint: false,
-      visibility: {
-        default: true, // same as hidden = true
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
-      },
-      meta: "appId", // item type on schema.org
-    },
-    availableSlots: {
-      label: "availableSlots",
-      component: false,
-      type: 0,
-      default: 0,
-      description: "",
-      hint: false,
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
-      meta: "availableSlots",
-    },
     bookingState: {
       label: "bookingState",
       component: false,
@@ -182,24 +113,6 @@ const defaultConfig: Model = {
       meta: "createdAt",
     },
 
-    delay: {
-      label: "delay",
-      component: false,
-      type: 0, //
-      default: 0,
-      description: "",
-      hint: false,
-      rules: {
-        required: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
-      meta: "delay",
-    },
-
     description: {
       label: "description",
       component: "TextArea",
@@ -220,43 +133,6 @@ const defaultConfig: Model = {
       meta: "description",
     },
 
-    disciplines: {
-      label: "disciplines",
-      component: "CollectionContainerPanel",
-      type: 3, //
-      default: "",
-      description: "",
-      hint: false,
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
-      meta: "disciplines",
-    },
-
-    discussants: {
-      label: "discussants",
-      component: "CollectionContainerPanel",
-      type: 3, //
-      default: "",
-      description: "",
-      hint: false,
-      rules: {
-        required: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
-      meta: "discussants",
-    },
     eventType: {
       label: "eventType",
       component: "Select",
@@ -275,23 +151,6 @@ const defaultConfig: Model = {
         disjonctive: false,
       },
       meta: "eventType",
-    },
-    files: {
-      label: "files",
-      component: "CollectionContainerPanel",
-      type: 3, //
-      default: "",
-      description: "",
-      hint: false,
-      rules: {
-        required: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
-      meta: "files",
     },
     image: {
       label: "image",
@@ -329,44 +188,6 @@ const defaultConfig: Model = {
       },
       meta: "name",
     },
-    eventSlot: {
-      label: "eventSlot",
-      component: "CollectionContainerPanel",
-      type: 3, //
-      default: "",
-      description: "",
-      hint: false,
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
-      meta: "eventSlot",
-    },
-    organizers: {
-      label: "organizers",
-      component: "CollectionContainerPanel",
-      type: 3, //
-      default: "",
-      description: "",
-      hint: false,
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
-      meta: "organizers",
-    },
     outside: {
       label: "outside",
       component: "BooleanCheckbox",
@@ -385,40 +206,6 @@ const defaultConfig: Model = {
         disjonctive: false,
       },
       meta: "outside",
-    },
-    location: {
-      label: "place",
-      component: "ObjectContainerPanel",
-      type: 3, //
-      default: "",
-      description: "",
-      hint: false,
-      rules: {
-        required: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
-      meta: "place",
-    },
-    speakers: {
-      label: "speakers",
-      component: "CollectionContainerPanel",
-      type: 3, //
-      default: "",
-      description: "",
-      hint: false,
-      rules: {
-        required: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
-      meta: "speakers",
     },
     start: {
       label: "start",
@@ -455,43 +242,6 @@ const defaultConfig: Model = {
       },
       meta: "state",
     },
-    stop: {
-      label: "stop",
-      component: "DatePicker",
-      type: 0, //
-      default: "",
-      description: "",
-      hint: false,
-      rules: {
-        required: true,
-        date: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
-      meta: "stop",
-    },
-    subtitle: {
-      label: "subtitle",
-      component: "TextArea",
-      type: 0, //
-      default: "",
-      description: "",
-      hint: false,
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
-      meta: "subtitle",
-    },
     summary: {
       label: "summary",
       component: "TextArea",
@@ -510,59 +260,6 @@ const defaultConfig: Model = {
         disjonctive: false,
       },
       meta: "summary",
-    },
-    tags: {
-      label: "tags",
-      component: "CollectionContainerPanel",
-      type: 3, //
-      default: "",
-      description: "",
-      hint: false,
-      rules: {
-        required: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
-      meta: "tags",
-    },
-    totalSlots: {
-      label: "totalSlots",
-      component: false,
-      type: 0, //
-      default: "",
-      description: "",
-      hint: false,
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
-      meta: "totalSlots",
-    },
-    updatedAt: {
-      label: "updatedAt",
-      component: false,
-      type: 0, //
-      default: "",
-      description: "",
-      hint: false,
-      rules: {
-        required: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
-      meta: "updatedAt",
     },
     url: {
       label: "url",
