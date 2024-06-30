@@ -213,7 +213,7 @@ const defaultConfig: Model = {
     tags: {
       label: "tags",
       component: "CollectionContainerPanel",
-      type: 2, //
+      type: 3, //
       default: "",
       description: "",
       hint: false,
