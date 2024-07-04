@@ -1,11 +1,11 @@
-import Model from "./model";
+import Model from "./model"
 
 export interface Discipline {
-  createdAt: string;
-  description: string;
-  icon: string;
-  name: string;
-  updatedAt: string;
+  createdAt: string
+  description: string
+  icon: string
+  name: string
+  updatedAt: string
 }
 
 const configDefault: Model = {
@@ -166,6 +166,6 @@ const configDefault: Model = {
       meta: "updatedAt",
     },
   },
-};
+}
 
-export default configDefault;
+export default configDefault

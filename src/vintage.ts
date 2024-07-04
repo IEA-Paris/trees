@@ -1,10 +1,10 @@
-import Model from "./model";
+import Model from "./model"
 
 export interface Vintage {
-  name: string;
-  year: number;
-  theme: string;
-  url: URL;
+  name: string
+  year: number
+  theme: string
+  url: URL
 }
 
 const defaultConfig: Model = {
@@ -146,6 +146,6 @@ const defaultConfig: Model = {
       meta: "url", // item type on schema.org
     },
   },
-};
+}
 
-export default defaultConfig;
+export default defaultConfig

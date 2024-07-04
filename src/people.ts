@@ -33,11 +33,7 @@ const defaultConfig: Model = {
         type: "Select",
         rules: {},
         label: "year",
-        items: (articles: any) => {
-          return articles.map((article: any) =>
-            new Date(article.date).getFullYear()
-          )
-        },
+        items: "",
       },
     },
     sort: {

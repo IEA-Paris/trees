@@ -1,13 +1,13 @@
-import { Image } from "./image";
-import Model from "./model";
+import { Image } from "./image"
+import Model from "./model"
 
 export interface Action {
-  color: string;
-  link: string;
-  image: Image;
-  title: string;
-  video: URL;
-  slots: string[];
+  color: string
+  link: string
+  image: Image
+  title: string
+  video: URL
+  slots: string[]
 }
 
 const defaultConfig: Model = {
@@ -27,9 +27,7 @@ const defaultConfig: Model = {
         type: "Select",
         rules: {},
         label: "year",
-        items: () => {
-          return [];
-        },
+        items: "",
       },
     },
     sort: {
@@ -180,5 +178,5 @@ const defaultConfig: Model = {
       meta: "slots",
     },
   },
-};
-export default defaultConfig;
+}
+export default defaultConfig

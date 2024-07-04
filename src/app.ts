@@ -1,9 +1,9 @@
-import { Image } from "./image";
-import { Article } from "./article";
-import Model from "./model";
+import { Image } from "./image"
+import { Article } from "./article"
+import Model from "./model"
 export interface App {
-  name: string;
-  logo: Image;
+  name: string
+  logo: Image
 }
 
 const defaultConfig: Model = {
@@ -23,9 +23,7 @@ const defaultConfig: Model = {
         type: "Select",
         rules: {},
         label: "year",
-        items: () => {
-          return [];
-        },
+        items: "",
       },
     },
     sort: {
@@ -104,6 +102,6 @@ const defaultConfig: Model = {
       default: { url: "", licence: "" }, // default value
     },
   },
-};
+}
 
-export default defaultConfig;
+export default defaultConfig
