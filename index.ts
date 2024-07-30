@@ -1,41 +1,42 @@
-import Model from "./src/model";
-import { Sort, Views } from "./src/list";
-import { Form } from "./src/form";
-import defaultConfigAction from "./src/action";
-import defaultConfigAffliation from "./src/affiliations";
-import defautConfigApp from "./src/app";
-import defaultConfigArticle from "./src/article";
-import defaultConfigConsent, { ConsentForm } from "./src/consent";
-import defaultConfigDisciplines from "./src/disciplines";
-import defaultConfigDiscussants from "./src/discussants";
-import defaultConfigEvents from "./src/events";
-import defaultConfigEventSlot, { EventSlotForm } from "./src/eventSlot";
-import defaultConfigFellow from "./src/fellow";
-import defaultConfigFellowship from "./src/fellowship";
+import Model from "./src/model"
+import { Sort, Views } from "./src/list"
+import { Form } from "./src/form"
+import defaultConfigAction from "./src/action"
+import defaultConfigAffliation from "./src/affiliations"
+import defautConfigApp from "./src/app"
+import defaultConfigArticle from "./src/article"
+import defaultConfigConsent, { ConsentForm } from "./src/consent"
+import defaultConfigDisciplines from "./src/disciplines"
+import defaultConfigDiscussants from "./src/discussants"
+import defaultConfigEvents from "./src/events"
+import defaultConfigRelatedPeople from "./src/relatedPeople"
+import defaultConfigEventSlot, { EventSlotForm } from "./src/eventSlot"
+import defaultConfigFellow from "./src/fellow"
+import defaultConfigFellowship from "./src/fellowship"
 import defaultConfigFellowshipDetails, {
   FellowshipDetailsForm,
-} from "./src/fellowshipDetails";
-import defaultConfigFiles from "./src/files";
-import defaultConfigGroup, { GroupsForm } from "./src/groups";
-import defaultConfigImage from "./src/image";
-import defaultConfigLocation, { LocationForm } from "./src/location";
-import defaultConfigMailing from "./src/mailing";
-import defaultConfigMember from "./src/member";
-import defaultConfigNews from "./src/news";
-import defaultConfigOrganizers from "./src/organizers";
-import defaultConfigPartner from "./src/partner";
-import defaultConfigPeople from "./src/people";
-import defaultConfigPosition, { PositionForm } from "./src/position";
-import defaultConfigProject from "./src/project";
-import defaultConfigRelatedEvents from "./src/relatedEvents";
-import defaultConfigRelatedNews from "./src/relatedNews";
-import defaultConfigRelatedProject from "./src/relatedProject";
-import defaultConfigSocials, { SocialsForm } from "./src/socials";
-import defaultConfigSpeakers from "./src/speakers";
-import defaultConfigSponsor from "./src/sponsor";
-import defaultConfigTags from "./src/tags";
-import defaultConfigVideo from "./src/video";
-import defaultConfigVintage from "./src/vintage";
+} from "./src/fellowshipDetails"
+import defaultConfigFiles from "./src/files"
+import defaultConfigGroup, { GroupsForm } from "./src/groups"
+import defaultConfigImage from "./src/image"
+import defaultConfigLocation, { LocationForm } from "./src/location"
+import defaultConfigMailing from "./src/mailing"
+import defaultConfigMember from "./src/member"
+import defaultConfigNews from "./src/news"
+import defaultConfigOrganizers from "./src/organizers"
+import defaultConfigPartner from "./src/partner"
+import defaultConfigPeople from "./src/people"
+import defaultConfigPosition, { PositionForm } from "./src/position"
+import defaultConfigProject from "./src/project"
+import defaultConfigRelatedEvents from "./src/relatedEvents"
+import defaultConfigRelatedNews from "./src/relatedNews"
+import defaultConfigRelatedProject from "./src/relatedProject"
+import defaultConfigSocials, { SocialsForm } from "./src/socials"
+import defaultConfigSpeakers from "./src/speakers"
+import defaultConfigSponsor from "./src/sponsor"
+import defaultConfigTags from "./src/tags"
+import defaultConfigVideo from "./src/video"
+import defaultConfigVintage from "./src/vintage"
 
 type ConfigValue =
   | Model
@@ -45,7 +46,7 @@ type ConfigValue =
   | GroupsForm
   | LocationForm
   | PositionForm
-  | SocialsForm;
+  | SocialsForm
 
 const configData: Record<string, ConfigValue> = {
   action: defaultConfigAction,
@@ -81,7 +82,8 @@ const configData: Record<string, ConfigValue> = {
   tags: defaultConfigTags,
   video: defaultConfigVideo,
   vintage: defaultConfigVintage,
-};
+  relatedPeople: defaultConfigRelatedPeople,
+}
 
-export { configData };
-export type { Form, Sort, Views, ConfigValue, Model };
+export { configData }
+export type { Form, Sort, Views, ConfigValue, Model }

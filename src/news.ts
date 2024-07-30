@@ -69,6 +69,7 @@ const defaultConfig: Model = {
       rows: {
         icon: "view-list",
         default: true,
+        // skeleton: [ TODO: generate skeleton schema for rows view xs, sm, md, lg ]
       },
       tiles: {
         name: "tiles",
