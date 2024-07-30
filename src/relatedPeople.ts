@@ -1,12 +1,10 @@
 import { Image } from "./image"
-import { Video } from "./video"
 import Model from "./model"
 
 export interface RelatedPeople {
   firstname: string
   lastname: string
   image: Image
-  video: Video
 }
 
 const defaultConfig: Model = {
@@ -128,21 +126,6 @@ const defaultConfig: Model = {
         disjonctive: false,
       },
       meta: "image",
-    },
-    video: {
-      label: "video",
-      component: "ObjectContainerPanel",
-      type: 3, //
-      default: "",
-      description: "",
-      hint: false,
-      rules: {},
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
-      meta: "video",
     },
   },
 }
