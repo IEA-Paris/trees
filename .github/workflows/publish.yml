@@ -21,6 +21,13 @@ jobs:
         with:
           node-version: 20
           registry-url: "https://registry.npmjs.org"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run generate
+
       - name: Publish package
         run: npm publish --access public
         env:
