@@ -1,5 +1,5 @@
 import { configData, Form, Model, Sort, Views } from "../index.ts"
-import fs from "fs"
+import { createJsonFile } from "./utils.ts"
 
 interface List {
   items: any[]
@@ -28,6 +28,7 @@ export interface ModuleType {
   current: any
   resetFilters: boolean
 }
+
 const completeSchema = async (
   schema: Record<string, Form>
 ): Promise<Record<string, Form>> => {
@@ -43,7 +44,7 @@ const completeSchema = async (
   return schema
 }
 
-const createModule = async (type: string): Promise<ModuleType> => {
+const createModule = async (type: string): Promise<any> => {
   console.log("CREATING MODULE FOR: ", type)
   const baseType = configData[type] as Model
 
@@ -182,6 +183,7 @@ const createModule = async (type: string): Promise<ModuleType> => {
   }
 
   const defaultForm = await buildForm(defaultState)
+
   const module = {
     source: baseType?.source,
     form: {
@@ -216,7 +218,14 @@ const createModule = async (type: string): Promise<ModuleType> => {
     current: null,
     resetFilters: true,
   }
-  fs.writeFileSync(`./dist/${type}.json`, JSON.stringify(module, null, 2))
+
+  createJsonFile(type, module)
 }
 
-export default createModule
+await Promise.all(
+  [/*"fellowship",*/ "project", "events", "news", "people"].map(
+    async (type) => {
+      await createModule(type)
+    }
+  )
+)

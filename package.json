@@ -4,7 +4,8 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "dev": "index.ts"
+    "dev": "index.ts",
+    "generate": "npx tsx lib/generate.ts"
   },
   "files": [
     "index.ts",
@@ -12,5 +13,8 @@
   ],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "ts-node": "^10.9.2"
+  }
 }
