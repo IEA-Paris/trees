@@ -2,7 +2,7 @@ import fs from "fs"
 
 import path from "path"
 
-const distDir = path.relative(process.cwd(), "./dist")
+const distDir = "./dist"
 
 const getJsonFiles = (directory: string): string[] => {
   return fs
