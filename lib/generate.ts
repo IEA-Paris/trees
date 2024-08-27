@@ -29,10 +29,8 @@ export interface ModuleType {
   resetFilters: boolean
 }
 
-const completeSchema = async (
-  schema: Record<string, Form>
-): Promise<Record<string, Form>> => {
-  for await (const key of Object.keys(schema)) {
+const completeSchema = (schema: Record<string, Form>): Record<string, Form> => {
+  for (const key of Object.keys(schema)) {
     // is it a template?
     if (schema[key] && schema[key]?.type === 3) {
       console.log("importing template: ", key)
@@ -44,12 +42,12 @@ const completeSchema = async (
   return schema
 }
 
-const createModule = async (type: string): Promise<any> => {
+const createModule = (type: string): any => {
   console.log("CREATING MODULE FOR: ", type)
   const baseType = configData[type] as Model
 
   const baseSchema: Record<string, Form> = baseType.form
-  const defaultState: Record<string, Form> = await completeSchema(baseSchema)
+  const defaultState: Record<string, Form> = completeSchema(baseSchema)
 
   const defaultViewKey: string | undefined =
     baseType?.list?.views &&
@@ -74,76 +72,70 @@ const createModule = async (type: string): Promise<any> => {
   // console.log("defaultSort: ", defaultSort)
 
   // Helper function to handle aliases
-  const processAliases = async (
-    aliases: string[]
-  ): Promise<Record<string, Form>> => {
+  const processAliases = (aliases: string[]): Record<string, Form> => {
     let aliasTemplatesForms: Record<string, Form> = {}
-    await Promise.all(
-      aliases.map(async (alias) => {
-        const aliasTemplate = configData[alias]
-        aliasTemplatesForms = {
-          ...aliasTemplatesForms,
-          ...aliasTemplate.form,
-        }
-        return aliasTemplatesForms
-      })
-    )
+
+    aliases.map((alias) => {
+      const aliasTemplate = configData[alias]
+      aliasTemplatesForms = {
+        ...aliasTemplatesForms,
+        ...aliasTemplate.form,
+      }
+      return aliasTemplatesForms
+    })
+
     return aliasTemplatesForms
   }
 
   // Helper function to handle template types
-  const processTemplate = async (key: string): Promise<any> => {
+  const processTemplate = (key: string): Promise<any> => {
     const template = configData[key] as Model
     // is it an implementation of another template?
     if (template.aliases?.length) {
       console.log("template aliases found:", template.aliases)
-      const aliasTemplatesForms: Record<string, Form> = await processAliases(
+      const aliasTemplatesForms: Record<string, Form> = processAliases(
         template.aliases
       )
-      return await buildForm(aliasTemplatesForms)
+      return buildForm(aliasTemplatesForms)
       // build based on aliases
     } else {
       console.log("template found:", key)
-      return await buildForm(template.form)
+      return buildForm(template.form)
     }
   }
 
   // Helper function to process items within the schema
-  const processItems = async (
-    key: string,
-    items: any[],
-    form: any
-  ): Promise<any> => {
+  const processItems = (key: string, items: any[], form: any): any => {
     // only collection have items with an array type
     if (Array.isArray(items)) {
       // if (!form[key]) form[key] = [{}];
       if (!form[key]) {
         form[key] = [{}]
       }
-      /*     for await (const item of items) {
+      /*     for  (const item of items) {
         form[key][0] = {
           ...form[key][0],
-          ...(await buildForm({ [item.key]: item })),
+          ...( buildForm({ [item.key]: item })),
         }
       } */
       // else it's an object
     } else {
       if (!form[key]) form[key] = {}
-      for await (const subkey of Object.keys(items)) {
+      for (const subkey of Object.keys(items)) {
         form[key] = {
           ...form[key],
-          ...(await buildForm({ [subkey]: items[subkey] })),
+          ...buildForm({ [subkey]: items[subkey] }),
         }
       }
     }
   }
 
   // Build the form
-  const buildForm = async (schema: Record<string, Form>): Promise<any> => {
+  const buildForm = (schema: Record<string, Form>): any => {
     try {
       if (!schema) return {}
       let form: { [key: string]: any } = {}
-      for await (const key of Object.keys(schema)) {
+      for (const key of Object.keys(schema)) {
         console.log("[key]: ", key)
         switch (schema[key]?.type) {
           // document picker
@@ -153,17 +145,17 @@ const createModule = async (type: string): Promise<any> => {
 
           // template import
           case 3:
-            form[key] = await processTemplate(key)
+            form[key] = processTemplate(key)
             break
 
           // object
           case 2:
-            await processItems(key, schema[key].items, form)
+            processItems(key, schema[key].items, form)
             break
 
           // collection
           case 1:
-            await processItems(key, schema[key].items, form)
+            processItems(key, schema[key].items, form)
             break
 
           // primitive
@@ -182,7 +174,7 @@ const createModule = async (type: string): Promise<any> => {
     }
   }
 
-  const defaultForm = await buildForm(defaultState)
+  const defaultForm = buildForm(defaultState)
 
   const module = {
     source: baseType?.source,
@@ -222,10 +214,7 @@ const createModule = async (type: string): Promise<any> => {
   createJsonFile(type, module)
 }
 
-await Promise.all(
-  [/*"fellowship",*/ "project", "events", "news", "people"].map(
-    async (type) => {
-      await createModule(type)
-    }
-  )
-)
+const typeName = [/*"fellowship",*/ "project", "events", "news", "people"]
+typeName.map((type) => {
+  createModule(type)
+})
