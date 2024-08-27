@@ -9,7 +9,9 @@
   },
   "files": [
     "index.ts",
-    "src/**"
+    "src/**",
+    "lib/**",
+    "dist/**"
   ],
   "author": "",
   "license": "ISC",
