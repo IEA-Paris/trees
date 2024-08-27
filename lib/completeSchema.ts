@@ -1,4 +1,4 @@
-import { Form, configData } from "@paris-ias/data"
+import { Form, configData } from "../index.ts"
 
 export default async (
   schema: Record<string, Form>
