@@ -1,9 +1,7 @@
 import { Form, configData } from "../index.ts"
 
-export default async (
-  schema: Record<string, Form>
-): Promise<Record<string, Form>> => {
-  for await (const key of Object.keys(schema)) {
+export default (schema: Record<string, Form>): Record<string, Form> => {
+  for (const key of Object.keys(schema)) {
     // is it a template?
     if (schema[key] && schema[key]?.type === 3) {
       console.log("importing template: ", key)
