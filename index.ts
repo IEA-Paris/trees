@@ -1,3 +1,4 @@
+import { ModuleType } from "./lib/generate"
 import Model from "./src/model"
 import { Sort, Views } from "./src/list"
 import { Form } from "./src/form"
@@ -86,4 +87,4 @@ const configData: Record<string, ConfigValue> = {
 }
 
 export { configData }
-export type { Form, Sort, Views, ConfigValue, Model }
+export type { Form, Sort, Views, ConfigValue, Model, ModuleType }
