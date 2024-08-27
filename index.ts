@@ -88,7 +88,7 @@ const configData: Record<string, ConfigValue> = {
   relatedPeople: defaultConfigRelatedPeople,
 }
 
-const distDir = path.resolve("./dist")
+const distDir = "./dist"
 
 const getJsonFiles = (directory: string): string[] => {
   return fs
