@@ -8,6 +8,9 @@ export function createJsonFile(type: string, module: any): void {
     fs.mkdirSync(distPath, { recursive: true })
   }
 
-  const filePath = path.join(distPath, `${type}.json`)
-  fs.writeFileSync(filePath, JSON.stringify(module, null, 2))
+  const filePath = path.join(distPath, `${type}.js`)
+  fs.writeFileSync(
+    filePath,
+    `export default ${JSON.stringify(module, null, 2)}`
+  )
 }

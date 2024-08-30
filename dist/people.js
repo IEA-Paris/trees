@@ -1,4 +1,4 @@
-{
+export default {
   "source": "gql",
   "form": {
     "values": {

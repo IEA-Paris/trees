@@ -1,3 +1,7 @@
+import events from "./dist/events"
+import news from "./dist/news"
+import people from "./dist/people"
+import project from "./dist/project"
 import { ModuleType } from "./lib/generate"
 import Model from "./src/model"
 import { Sort, Views } from "./src/list"
@@ -86,5 +90,5 @@ const configData: Record<string, ConfigValue> = {
   relatedPeople: defaultConfigRelatedPeople,
 }
 
-export { configData }
+export { configData, events, news, people, project }
 export type { Form, Sort, Views, ConfigValue, Model, ModuleType }
