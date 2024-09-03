@@ -5,6 +5,7 @@ import { Video } from "./video"
 import Model from "./model"
 import { RelatedEvent } from "./relatedEvents"
 import { RelatedNews } from "./relatedNews"
+import { Tag } from "./tags"
 
 export interface Project {
   title: string
@@ -16,7 +17,7 @@ export interface Project {
   relatedNews: RelatedNews[] | string[]
   image: Image
   video: Video
-  tags: string[]
+  tags: Tag[]
   files: File[]
   color: string
   date: Date | null
@@ -246,7 +247,7 @@ const defaultConfig: Model = {
     tags: {
       label: "tags",
       component: "ListAutoComplete",
-      type: 2, //
+      type: 3, //
       default: "",
       description: "",
       hint: false,

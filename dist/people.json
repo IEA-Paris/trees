@@ -1,11 +1,9 @@
-export default {
-  "source": "md",
+{
+  "source": "gql",
   "form": {
     "values": {
-      "title": "",
-      "shortDescription": "",
-      "description": "",
-      "url": "",
+      "firstname": "",
+      "lastname": "",
       "affiliations": {
         "location": {
           "name": "",
@@ -33,8 +31,6 @@ export default {
         "ror": "",
         "url": ""
       },
-      "relatedEvents": "",
-      "relatedNews": "",
       "image": {
         "url": "",
         "caption": "",
@@ -44,45 +40,46 @@ export default {
         "licenseUrl": "",
         "backgroundColor": ""
       },
-      "video": {
-        "url": "",
-        "alt": "",
-        "caption": "",
-        "copyright": "Free of rights",
-        "licence": "",
-        "licenseUrl": "",
-        "backgroundColor": ""
+      "socials": {
+        "website": "",
+        "wikipedia": "",
+        "orcid": "",
+        "twitter": "",
+        "linkedin": "",
+        "instagram": "",
+        "scholar": "",
+        "researchgate": "",
+        "mendeley": "",
+        "idRef": ""
       },
-      "tags": {
-        "name": "",
-        "description": "",
-        "icon": "",
-        "createdAt": "",
-        "updatedAt": ""
+      "biography": "",
+      "consent": {
+        "data": false,
+        "record": false,
+        "diffusion": false,
+        "publication": false,
+        "email": false,
+        "newsletter": false,
+        "fellowshipnewsletter": false
       },
-      "files": {
-        "name": "",
-        "url": "",
-        "size": "",
-        "fileType": "",
-        "hash": "",
-        "path": "",
-        "file": "",
-        "image": "",
-        "thumb": "",
-        "createdAt": "",
-        "updatedAt": "",
-        "id": ""
+      "groups": {
+        "team": "",
+        "sab": "",
+        "board": "",
+        "fellow": "",
+        "sponsor": "",
+        "vintage": {
+          "name": "",
+          "year": "",
+          "theme": "",
+          "url": ""
+        }
       },
-      "color": "",
-      "date": "",
-      "featured": ""
+      "lang": ""
     },
     "_defaults": {
-      "title": "",
-      "shortDescription": "",
-      "description": "",
-      "url": "",
+      "firstname": "",
+      "lastname": "",
       "affiliations": {
         "location": {
           "name": "",
@@ -110,8 +107,6 @@ export default {
         "ror": "",
         "url": ""
       },
-      "relatedEvents": "",
-      "relatedNews": "",
       "image": {
         "url": "",
         "caption": "",
@@ -121,43 +116,46 @@ export default {
         "licenseUrl": "",
         "backgroundColor": ""
       },
-      "video": {
-        "url": "",
-        "alt": "",
-        "caption": "",
-        "copyright": "Free of rights",
-        "licence": "",
-        "licenseUrl": "",
-        "backgroundColor": ""
+      "socials": {
+        "website": "",
+        "wikipedia": "",
+        "orcid": "",
+        "twitter": "",
+        "linkedin": "",
+        "instagram": "",
+        "scholar": "",
+        "researchgate": "",
+        "mendeley": "",
+        "idRef": ""
       },
-      "tags": {
-        "name": "",
-        "description": "",
-        "icon": "",
-        "createdAt": "",
-        "updatedAt": ""
+      "biography": "",
+      "consent": {
+        "data": false,
+        "record": false,
+        "diffusion": false,
+        "publication": false,
+        "email": false,
+        "newsletter": false,
+        "fellowshipnewsletter": false
       },
-      "files": {
-        "name": "",
-        "url": "",
-        "size": "",
-        "fileType": "",
-        "hash": "",
-        "path": "",
-        "file": "",
-        "image": "",
-        "thumb": "",
-        "createdAt": "",
-        "updatedAt": "",
-        "id": ""
+      "groups": {
+        "team": "",
+        "sab": "",
+        "board": "",
+        "fellow": "",
+        "sponsor": "",
+        "vintage": {
+          "name": "",
+          "year": "",
+          "theme": "",
+          "url": ""
+        }
       },
-      "color": "",
-      "date": "",
-      "featured": ""
+      "lang": ""
     },
     "schema": {
-      "title": {
-        "label": "title",
+      "firstname": {
+        "label": "firstname",
         "component": "TextField",
         "type": 0,
         "default": "",
@@ -165,7 +163,7 @@ export default {
         "hint": false,
         "rules": {
           "required": true,
-          "min": 5,
+          "min": 1,
           "max": 200
         },
         "visibility": {
@@ -173,48 +171,10 @@ export default {
           "switchIf": [],
           "disjonctive": false
         },
-        "meta": "title"
+        "meta": "firstname"
       },
-      "shortDescription": {
-        "label": "shortDescription",
-        "component": "TextArea",
-        "type": 0,
-        "default": "",
-        "description": "",
-        "hint": false,
-        "rules": {
-          "required": true,
-          "min": 5,
-          "max": 200
-        },
-        "visibility": {
-          "default": true,
-          "switchIf": [],
-          "disjonctive": false
-        },
-        "meta": "shortDescription"
-      },
-      "description": {
-        "label": "description",
-        "component": "TextArea",
-        "type": 0,
-        "default": "",
-        "description": "",
-        "hint": false,
-        "rules": {
-          "required": true,
-          "min": 5,
-          "max": 2000
-        },
-        "visibility": {
-          "default": true,
-          "switchIf": [],
-          "disjonctive": false
-        },
-        "meta": "description"
-      },
-      "url": {
-        "label": "url",
+      "lastname": {
+        "label": "lastname",
         "component": "TextField",
         "type": 0,
         "default": "",
@@ -222,14 +182,15 @@ export default {
         "hint": false,
         "rules": {
           "required": true,
-          "url": true
+          "min": 1,
+          "max": 200
         },
         "visibility": {
           "default": true,
           "switchIf": [],
           "disjonctive": false
         },
-        "meta": "url"
+        "meta": "lastname"
       },
       "affiliations": {
         "label": "affiliations",
@@ -238,7 +199,9 @@ export default {
         "default": "",
         "description": "",
         "hint": false,
-        "rules": {},
+        "rules": {
+          "required": false
+        },
         "visibility": {
           "default": true,
           "switchIf": [],
@@ -337,40 +300,6 @@ export default {
           }
         }
       },
-      "relatedEvents": {
-        "label": "relatedEvents",
-        "component": "DocumentPicker",
-        "type": 4,
-        "default": "",
-        "description": "",
-        "hint": false,
-        "rules": {},
-        "visibility": {
-          "default": true,
-          "switchIf": [],
-          "disjonctive": false
-        },
-        "meta": "relatedEvents"
-      },
-      "relatedNews": {
-        "label": "relatedNews",
-        "component": "DocumentPicker",
-        "type": 4,
-        "default": "",
-        "description": "",
-        "hint": false,
-        "rules": {
-          "required": true,
-          "min": 5,
-          "max": 200
-        },
-        "visibility": {
-          "default": true,
-          "switchIf": [],
-          "disjonctive": false
-        },
-        "meta": "relatedNews"
-      },
       "image": {
         "label": "image",
         "component": "ObjectContainerPanel",
@@ -379,9 +308,7 @@ export default {
         "description": "",
         "hint": false,
         "rules": {
-          "required": true,
-          "min": 5,
-          "max": 200
+          "required": false
         },
         "visibility": {
           "default": true,
@@ -520,8 +447,8 @@ export default {
           }
         }
       },
-      "video": {
-        "label": "video",
+      "socials": {
+        "label": "socials",
         "component": "ObjectContainerPanel",
         "type": 3,
         "default": "",
@@ -533,144 +460,202 @@ export default {
           "switchIf": [],
           "disjonctive": false
         },
-        "meta": "video",
+        "meta": "socials",
         "items": {
-          "url": {
-            "type": 0,
-            "component": "TextField",
-            "label": "url",
-            "default": "",
-            "description": "The url where the image is fetched from",
-            "hint": false,
-            "rules": {
-              "required": true,
-              "url": true,
-              "max": 2048
-            },
-            "visibility": {
-              "default": true,
-              "switchIf": [],
-              "disjonctive": false
-            },
-            "meta": "url"
-          },
-          "alt": {
-            "label": "alt",
-            "type": 0,
-            "component": "TextField",
-            "default": "",
-            "description": "Displayed if the image cannot be loaded",
-            "hint": false,
-            "rules": {
-              "required": true,
-              "min": 2,
-              "max": 100
-            },
-            "visibility": {
-              "default": true,
-              "switchIf": [],
-              "disjonctive": false
-            },
-            "meta": "alt"
-          },
-          "caption": {
-            "label": "caption",
+          "website": {
+            "label": "website",
             "type": 0,
             "component": "TextField",
             "default": "",
             "description": "",
             "hint": false,
             "rules": {
-              "required": true,
-              "min": 2,
-              "max": 100
-            },
-            "visibility": {
-              "default": true,
-              "switchIf": [],
-              "disjonctive": false
-            },
-            "meta": "caption"
-          },
-          "copyright": {
-            "label": "copyright",
-            "type": 0,
-            "component": "TextField",
-            "default": "Free of rights",
-            "description": "Owner of the image copyright",
-            "hint": false,
-            "rules": {
-              "required": true,
-              "min": 2,
-              "max": 100
-            },
-            "visibility": {
-              "default": true,
-              "switchIf": [],
-              "disjonctive": false
-            },
-            "meta": "copyright"
-          },
-          "licence": {
-            "label": "licence",
-            "type": 0,
-            "component": "TextField",
-            "default": null,
-            "description": "The licence of the video",
-            "hint": false,
-            "rules": {
-              "required": true,
-              "min": 2,
-              "max": 100
-            },
-            "visibility": {
-              "default": true,
-              "switchIf": [],
-              "disjonctive": false
-            },
-            "meta": "licence"
-          },
-          "licenseUrl": {
-            "label": "licenseUrl",
-            "type": 0,
-            "component": "TextField",
-            "default": null,
-            "description": "The caption of the video",
-            "hint": false,
-            "rules": {
-              "required": true,
               "url": true
             },
             "visibility": {
-              "default": false,
+              "default": true,
               "switchIf": [],
               "disjonctive": false
             },
-            "meta": "licenseUrl"
+            "meta": "website"
           },
-          "backgroundColor": {
-            "label": "backgroundColor",
+          "wikipedia": {
+            "label": "wikipedia",
             "type": 0,
-            "component": "TextColorPicker",
-            "default": null,
+            "component": "TextField",
+            "default": "",
             "description": "",
             "hint": false,
             "rules": {
-              "required": true,
-              "color": true
+              "url": true
             },
             "visibility": {
-              "default": false,
+              "default": true,
               "switchIf": [],
               "disjonctive": false
             },
-            "meta": "backgroundColor"
+            "meta": "wikipedia"
+          },
+          "orcid": {
+            "label": "orcid",
+            "type": 0,
+            "component": "TextField",
+            "default": "",
+            "description": "",
+            "hint": false,
+            "rules": {
+              "orcid": true
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "orcid"
+          },
+          "twitter": {
+            "label": "twitter",
+            "type": 0,
+            "component": "TextField",
+            "default": "",
+            "description": "",
+            "hint": false,
+            "rules": {
+              "url": true
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "twitter"
+          },
+          "linkedin": {
+            "label": "linkedin",
+            "type": 0,
+            "component": "TextField",
+            "default": "",
+            "description": "",
+            "hint": false,
+            "rules": {
+              "url": true
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "linkedin"
+          },
+          "instagram": {
+            "label": "instagram",
+            "type": 0,
+            "component": "TextField",
+            "default": "",
+            "description": "",
+            "hint": false,
+            "rules": {
+              "url": true
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "instagram"
+          },
+          "scholar": {
+            "label": "scholar",
+            "type": 0,
+            "component": "TextField",
+            "default": "",
+            "description": "",
+            "hint": false,
+            "rules": {
+              "url": true
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "scholar"
+          },
+          "researchgate": {
+            "label": "researchgate",
+            "type": 0,
+            "component": "TextField",
+            "default": "",
+            "description": "",
+            "hint": false,
+            "rules": {
+              "url": true
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "researchgate"
+          },
+          "mendeley": {
+            "label": "mendeley",
+            "type": 0,
+            "component": "TextField",
+            "default": "",
+            "description": "",
+            "hint": false,
+            "rules": {
+              "url": true
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "mendeley"
+          },
+          "idRef": {
+            "label": "idRef",
+            "type": 0,
+            "component": "TextField",
+            "default": "",
+            "description": "",
+            "hint": false,
+            "rules": {
+              "url": true
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "idRef"
           }
         }
       },
-      "tags": {
-        "label": "tags",
-        "component": "ListAutoComplete",
+      "biography": {
+        "label": "biography",
+        "component": "TextArea",
+        "type": 0,
+        "default": "",
+        "description": "",
+        "hint": false,
+        "rules": {
+          "required": true,
+          "min": 5,
+          "max": 2000
+        },
+        "visibility": {
+          "default": true,
+          "switchIf": [],
+          "disjonctive": false
+        },
+        "meta": "biography"
+      },
+      "consent": {
+        "label": "consent",
+        "component": "ObjectContainerPanel",
         "type": 3,
         "default": "",
         "description": "",
@@ -683,388 +668,254 @@ export default {
           "switchIf": [],
           "disjonctive": false
         },
-        "meta": "tags",
+        "meta": "consent",
         "items": {
-          "name": {
-            "label": "name",
-            "component": "TextField",
+          "data": {
+            "label": "data",
+            "component": "BooleanCheckbox",
             "type": 0,
-            "default": "",
+            "default": false,
+            "description": "data consent (display info about me)",
+            "hint": false,
+            "rules": {
+              "required": true
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "data"
+          },
+          "record": {
+            "label": "record",
+            "component": "BooleanCheckbox",
+            "type": 0,
+            "default": false,
+            "description": "record consent (record my activity, droit à l'image)",
+            "hint": false,
+            "rules": {
+              "required": true
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "record"
+          },
+          "diffusion": {
+            "label": "diffusion",
+            "component": "BooleanCheckbox",
+            "type": 0,
+            "default": false,
+            "description": "broadcast consent (broadcast my activity, diffusion de contenus)",
+            "hint": false,
+            "rules": {
+              "required": true
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "diffusion"
+          },
+          "publication": {
+            "label": "publication",
+            "component": "BooleanCheckbox",
+            "type": 0,
+            "default": false,
+            "description": "publication consent (publish my content, generate DOIs)",
+            "hint": false,
+            "rules": {
+              "required": true
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "publication"
+          },
+          "email": {
+            "label": "email",
+            "component": "BooleanCheckbox",
+            "type": 0,
+            "default": false,
+            "description": "email communications (including newsletter)",
+            "hint": false,
+            "rules": {
+              "required": true
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "email"
+          },
+          "newsletter": {
+            "label": "newsletter",
+            "component": "BooleanCheckbox",
+            "type": 0,
+            "default": false,
             "description": "",
             "hint": false,
             "rules": {
-              "required": true,
-              "min": 5,
-              "max": 200
+              "required": true
             },
             "visibility": {
               "default": true,
               "switchIf": [],
               "disjonctive": false
             },
-            "meta": "name"
+            "meta": "newsletter"
           },
-          "description": {
-            "label": "description",
-            "component": "TextArea",
+          "fellowshipnewsletter": {
+            "label": "fellowshipnewsletter",
+            "component": "BooleanCheckbox",
             "type": 0,
-            "default": "",
+            "default": false,
             "description": "",
             "hint": false,
             "rules": {
-              "required": true,
-              "min": 5,
-              "max": 2000
+              "required": true
             },
             "visibility": {
               "default": true,
               "switchIf": [],
               "disjonctive": false
             },
-            "meta": "description"
-          },
-          "icon": {
-            "label": "icon",
-            "component": "TextField",
-            "type": 0,
-            "default": "",
-            "description": "Select your icon from material design icons https://pictogrammers.com/library/mdi/",
-            "hint": false,
-            "rules": {},
-            "visibility": {
-              "default": true,
-              "switchIf": [],
-              "disjonctive": false
-            },
-            "meta": "icon"
-          },
-          "createdAt": {
-            "label": "createdAt",
-            "component": false,
-            "type": 0,
-            "default": "",
-            "description": "",
-            "hint": false,
-            "rules": {},
-            "visibility": {
-              "default": true,
-              "switchIf": [],
-              "disjonctive": false
-            },
-            "meta": "createdAt"
-          },
-          "updatedAt": {
-            "label": "updatedAt",
-            "component": false,
-            "type": 0,
-            "default": "",
-            "description": "",
-            "hint": false,
-            "rules": {},
-            "visibility": {
-              "default": true,
-              "switchIf": [],
-              "disjonctive": false
-            },
-            "meta": "updatedAt"
+            "meta": "fellowshipnewsletter"
           }
         }
       },
-      "files": {
-        "label": "files",
-        "component": "CollectionContainerPanel",
+      "groups": {
+        "label": "groups",
+        "component": "ObjectContainerPanel",
         "type": 3,
         "default": "",
         "description": "",
         "hint": false,
-        "rules": {},
+        "rules": {
+          "required": true
+        },
         "visibility": {
           "default": true,
           "switchIf": [],
           "disjonctive": false
         },
-        "meta": "files",
+        "meta": "groups",
         "items": {
-          "name": {
-            "label": "name",
-            "component": "TextField",
+          "team": {
+            "label": "team",
+            "component": "BooleanCheckbox",
             "type": 0,
             "default": "",
             "description": "",
             "hint": false,
-            "rules": {
-              "required": true,
-              "min": 5,
-              "max": 200
-            },
+            "rules": {},
             "visibility": {
               "default": true,
               "switchIf": [],
               "disjonctive": false
             },
-            "meta": "name"
+            "meta": "team"
           },
-          "url": {
-            "label": "url",
-            "component": "TextField",
+          "sab": {
+            "label": "sab",
+            "component": "BooleanCheckbox",
             "type": 0,
             "default": "",
             "description": "",
             "hint": false,
-            "rules": {
-              "required": true,
-              "url": true
-            },
+            "rules": {},
             "visibility": {
               "default": true,
               "switchIf": [],
               "disjonctive": false
             },
-            "meta": "url"
+            "meta": "sab"
           },
-          "size": {
-            "label": "size",
-            "component": false,
+          "board": {
+            "label": "board",
+            "component": "BooleanCheckbox",
             "type": 0,
             "default": "",
             "description": "",
             "hint": false,
-            "rules": {
-              "required": true,
-              "min": 5,
-              "max": 200
-            },
+            "rules": {},
             "visibility": {
               "default": true,
               "switchIf": [],
               "disjonctive": false
             },
-            "meta": "size"
+            "meta": "board"
           },
-          "fileType": {
-            "label": "type",
-            "component": "ListSelect",
+          "fellow": {
+            "label": "fellow",
+            "component": "BooleanCheckbox",
             "type": 0,
             "default": "",
             "description": "",
             "hint": false,
-            "rules": {
-              "required": true,
-              "min": 5,
-              "max": 200
-            },
+            "rules": {},
             "visibility": {
               "default": true,
               "switchIf": [],
               "disjonctive": false
             },
-            "meta": "type"
+            "meta": "fellow"
           },
-          "hash": {
-            "label": "hash",
-            "component": false,
+          "sponsor": {
+            "label": "sponsor",
+            "component": "BooleanCheckbox",
             "type": 0,
             "default": "",
             "description": "",
             "hint": false,
-            "rules": {
-              "required": true,
-              "min": 5,
-              "max": 200
-            },
+            "rules": {},
             "visibility": {
               "default": true,
               "switchIf": [],
               "disjonctive": false
             },
-            "meta": "hash"
+            "meta": "sponsor"
           },
-          "path": {
-            "label": "path",
-            "component": "TextField",
-            "type": 0,
+          "vintage": {
+            "label": "vintage",
+            "component": "CollectionContainerPanel",
+            "type": 3,
             "default": "",
             "description": "",
             "hint": false,
-            "rules": {
-              "required": true,
-              "min": 5,
-              "max": 200
-            },
+            "rules": {},
             "visibility": {
               "default": true,
               "switchIf": [],
               "disjonctive": false
             },
-            "meta": "path"
-          },
-          "file": {
-            "label": "file",
-            "component": "TextField",
-            "type": 0,
-            "default": "",
-            "description": "",
-            "hint": false,
-            "rules": {
-              "required": true,
-              "min": 5,
-              "max": 200
-            },
-            "visibility": {
-              "default": true,
-              "switchIf": [],
-              "disjonctive": false
-            },
-            "meta": "file"
-          },
-          "image": {
-            "label": "image",
-            "component": "TextField",
-            "type": 0,
-            "default": "",
-            "description": "",
-            "hint": false,
-            "rules": {
-              "required": true,
-              "min": 5,
-              "max": 200
-            },
-            "visibility": {
-              "default": true,
-              "switchIf": [],
-              "disjonctive": false
-            },
-            "meta": "image"
-          },
-          "thumb": {
-            "label": "thumb",
-            "component": "TextField",
-            "type": 0,
-            "default": "",
-            "description": "",
-            "hint": false,
-            "rules": {
-              "required": true,
-              "min": 5,
-              "max": 200
-            },
-            "visibility": {
-              "default": true,
-              "switchIf": [],
-              "disjonctive": false
-            },
-            "meta": "thumb"
-          },
-          "createdAt": {
-            "label": "createdAt",
-            "component": false,
-            "type": 0,
-            "default": "",
-            "description": "",
-            "hint": false,
-            "rules": {
-              "required": true,
-              "date": true
-            },
-            "visibility": {
-              "default": true,
-              "switchIf": [],
-              "disjonctive": false
-            },
-            "meta": "createdAt"
-          },
-          "updatedAt": {
-            "label": "updatedAt",
-            "component": false,
-            "type": 0,
-            "default": "",
-            "description": "",
-            "hint": false,
-            "rules": {
-              "required": true,
-              "date": true
-            },
-            "visibility": {
-              "default": true,
-              "switchIf": [],
-              "disjonctive": false
-            },
-            "meta": "updatedAt"
-          },
-          "id": {
-            "label": "id",
-            "component": "TextField",
-            "type": 0,
-            "default": "",
-            "description": "",
-            "hint": false,
-            "rules": {
-              "required": true,
-              "min": 5,
-              "max": 200
-            },
-            "visibility": {
-              "default": true,
-              "switchIf": [],
-              "disjonctive": false
-            },
-            "meta": "id"
+            "meta": "vintage"
           }
         }
       },
-      "color": {
-        "label": "color",
-        "component": "TextColorPicker",
+      "lang": {
+        "label": "lang",
+        "component": "ListAutoComplete",
         "type": 0,
         "default": "",
         "description": "",
         "hint": false,
         "rules": {
-          "required": true,
-          "color": true
+          "required": true
         },
         "visibility": {
           "default": true,
           "switchIf": [],
           "disjonctive": false
         },
-        "meta": "color"
-      },
-      "date": {
-        "label": "date",
-        "component": "FiDatePicker",
-        "type": 0,
-        "default": "",
-        "description": "",
-        "hint": false,
-        "rules": {
-          "required": true,
-          "date": true
-        },
-        "visibility": {
-          "default": true,
-          "switchIf": [],
-          "disjonctive": false
-        },
-        "meta": "date"
-      },
-      "featured": {
-        "label": "featured",
-        "component": "DatePicker",
-        "type": 0,
-        "default": "",
-        "description": "",
-        "hint": false,
-        "rules": {
-          "required": true,
-          "date": true
-        },
-        "visibility": {
-          "default": true,
-          "switchIf": [],
-          "disjonctive": false
-        },
-        "meta": "featured"
+        "meta": "lang"
       }
     }
   },
