@@ -1157,7 +1157,7 @@ export default {
       -1
     ]
   },
-  "loading": [],
+  "loading": true,
   "current": null,
   "resetFilters": true
 }

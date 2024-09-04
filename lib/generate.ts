@@ -24,7 +24,7 @@ export interface ModuleType {
   source?: string
   form: CustomForm
   list: List
-  loading: any[]
+  loading: boolean
   current: any
   resetFilters: boolean
 }
@@ -222,7 +222,7 @@ const createModule = (type: string): any => {
       sortBy: defaultSort && [defaultSort.value[0]],
       sortDesc: defaultSort && [defaultSort.value[1]],
     },
-    loading: [],
+    loading: true,
     current: null,
     resetFilters: true,
   }
