@@ -1,45 +1,46 @@
-import { Location } from "./location"
-import { Image } from "./image"
-import { EventSlot } from "./eventSlot"
-import { Discipline } from "./disciplines"
-import { Tag } from "./tags"
-import { People } from "./people"
-import { Affiliation } from "./affiliations"
-import { File } from "./files"
-import Model from "./model"
+import { Location } from "./location";
+import { Image } from "./image";
+import { EventSlot } from "./eventSlot";
+import { Discipline } from "./disciplines";
+import { Tag } from "./tags";
+import { People } from "./people";
+import { Affiliation } from "./affiliations";
+import { File } from "./files";
+import Model from "./model";
 
 export interface Event {
-  affiliations: Affiliation[] // 3 - Server & Client - //Bottom left Document
-  appId: string // 0 - Server & Client -
-  availableSlots: number // 0 - Server & Client - ? => Claire
-  bookingState: number // 0 - Server & Client -
-  category: number // 0 - Server & Client -
-  createdAt: Date | null // 0 - Server & Client -
-  delay: number // 0 - Server & Client -
-  description: string // 0 - Server & Client -
-  disciplines: Discipline[] // 3 - Server & Client //Inside=> Presentation
-  discussants: People[] // 0 - Server & Client -
-  files: File[] // 3 - Server & Client -
-  image: Image // 3 - Server & Client -
-  name: string // 0 - Server & Client -
-  eventSlot?: EventSlot[] //// 3 - Server -
-  organizers: People[] | Affiliation[] // 3 - Server & Client -
-  outside: boolean // 0 - Server & Client -  // Near inscription
-  location: Location // 0 - Server & Client -
-  relatedProject?: string[] // 0 - Server & Client -
-  relatedNews?: string[] // 0 - Server & Client -
+  affiliations: Affiliation[]; // 3 - Server & Client - //Bottom left Document
+  appId: string; // 0 - Server & Client -
+  availableSlots: number; // 0 - Server & Client - ? => Claire
+  bookingState: number; // 0 - Server & Client -
+  category: number; // 0 - Server & Client -
+  createdAt: Date | null; // 0 - Server & Client -
+  delay: number; // 0 - Server & Client -
+  description: string; // 0 - Server & Client -
+  disciplines: Discipline[]; // 3 - Server & Client //Inside=> Presentation
+  discussants: People[]; // 0 - Server & Client -
+  files: File[]; // 3 - Server & Client -
+  image: Image; // 3 - Server & Client -
+  name: string; // 0 - Server & Client -
+  eventSlot?: EventSlot[]; //// 3 - Server -
+  organizers: People[] | Affiliation[]; // 3 - Server & Client -
+  outside: boolean; // 0 - Server & Client -  // Near inscription
+  location: Location; // 0 - Server & Client -
+  relatedProject?: string[]; // 0 - Server & Client -
+  relatedNews?: string[]; // 0 - Server & Client -
   // slots?: EventSlot[]; //// 3 - Server
-  speakers: People[] // 3 - Server & Client -
-  start: string // 0 - Server & Client -   A verifier string ? string[]
-  state: number // 0 - Server & Client -
-  stop: string // 0 - Server & Client - A verifier string ? string[]
-  subtitle: string // 0 - Server &
-  summary: string // 0 - Server & Client -
-  tags: Tag[] // 3 - Server & Client - Inside=> Presentation
-  totalSlots: number // 0 - Server & Client
-  eventType: number // 0 : online, 1: physical, 2: hybrid// 0 - Server & Client -
-  updatedAt: Date | null // 0 - Server & Client -
-  url: URL // 0 - Server & Client -
+  speakers: People[]; // 3 - Server & Client -
+  start: string; // 0 - Server & Client -   A verifier string ? string[]
+  state: number; // 0 - Server & Client -
+  stop: string; // 0 - Server & Client - A verifier string ? string[]
+  stream: string | null; // 0 - Server & Client -
+  subtitle: string; // 0 - Server &
+  summary: string; // 0 - Server & Client -
+  tags: Tag[]; // 3 - Server & Client - Inside=> Presentation
+  totalSlots: number; // 0 - Server & Client
+  eventType: number; // 0 : online, 1: physical, 2: hybrid// 0 - Server & Client -
+  updatedAt: Date | null; // 0 - Server & Client -
+  url: URL; // 0 - Server & Client -
 }
 
 const defaultConfig: Model = {
@@ -621,6 +622,24 @@ const defaultConfig: Model = {
       },
       meta: "updatedAt",
     },
+    stream: {
+      label: "stream",
+      component: "TextField",
+      type: 0, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        url: true,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "stream",
+    },
     url: {
       label: "url",
       component: "TextField",
@@ -640,8 +659,8 @@ const defaultConfig: Model = {
       meta: "url",
     },
   },
-}
+};
 
-export default defaultConfig
+export default defaultConfig;
 
 //

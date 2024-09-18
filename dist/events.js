@@ -349,6 +349,7 @@ export default {
       },
       "totalSlots": "",
       "updatedAt": "",
+      "stream": "",
       "url": ""
     },
     "_defaults": {
@@ -699,6 +700,7 @@ export default {
       },
       "totalSlots": "",
       "updatedAt": "",
+      "stream": "",
       "url": ""
     },
     "schema": {
@@ -2527,6 +2529,24 @@ export default {
           "disjonctive": false
         },
         "meta": "updatedAt"
+      },
+      "stream": {
+        "label": "stream",
+        "component": "TextField",
+        "type": 0,
+        "default": "",
+        "description": "",
+        "hint": false,
+        "rules": {
+          "required": true,
+          "url": true
+        },
+        "visibility": {
+          "default": true,
+          "switchIf": [],
+          "disjonctive": false
+        },
+        "meta": "stream"
       },
       "url": {
         "label": "url",
