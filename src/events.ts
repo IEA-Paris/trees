@@ -98,9 +98,9 @@ const defaultConfig: Model = {
         icon: "view-list",
         default: true,
       },
-      tiles: {
-        name: "tiles",
-        icon: "view-quilt",
+      dense: {
+        name: "dense",
+        icon: "land-rows-horizontal",
       },
       grid: {
         name: "grid",
