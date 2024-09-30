@@ -12,8 +12,8 @@ export interface Event {
   affiliations: Affiliation[] // 3 - Server & Client - //Bottom left Document
   appId: string // 0 - Server & Client -
   availableSlots: number // 0 - Server & Client - ? => Claire
-  bookingState: number // 0 - Server & Client -
-  category: number // 0 - Server & Client -
+  bookingState: number // 0 - Server & Client -  ==>  0 ferme 1 ouvert 2 complet
+  category: number // 0 - Server & Client - 0 conference => 1 Seminar
   createdAt: Date | null // 0 - Server & Client -
   delay: number // 0 - Server & Client -
   description: string // 0 - Server & Client -
@@ -24,7 +24,7 @@ export interface Event {
   name: string // 0 - Server & Client -
   eventSlot?: EventSlot[] //// 3 - Server -
   organizers: People[] | Affiliation[] // 3 - Server & Client -
-  outside: boolean // 0 - Server & Client -  // Near inscription
+  outside: boolean // 0 - Server & Client -  // Near inscription   --> affichage du tags (true)
   location: Location // 0 - Server & Client -
   relatedProject?: string[] // 0 - Server & Client -
   relatedNews?: string[] // 0 - Server & Client -
