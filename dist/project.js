@@ -1,6 +1,160 @@
 export default {
   "source": "md",
   "form": {
+    "values": {
+      "title": "",
+      "shortDescription": "",
+      "description": "",
+      "url": "",
+      "affiliations": {
+        "location": {
+          "name": "",
+          "details": "",
+          "alt": "",
+          "street": "",
+          "city": "",
+          "country": "",
+          "zip": "",
+          "geocode": {
+            "lat": "",
+            "lng": ""
+          }
+        },
+        "image": {
+          "url": "",
+          "caption": "",
+          "alt": "",
+          "copyright": "Free of rights",
+          "licence": "",
+          "licenseUrl": "",
+          "backgroundColor": ""
+        },
+        "name": "",
+        "ror": "",
+        "url": ""
+      },
+      "relatedEvents": "",
+      "relatedNews": "",
+      "image": {
+        "url": "",
+        "caption": "",
+        "alt": "",
+        "copyright": "Free of rights",
+        "licence": "",
+        "licenseUrl": "",
+        "backgroundColor": ""
+      },
+      "video": {
+        "url": "",
+        "alt": "",
+        "caption": "",
+        "copyright": "Free of rights",
+        "licence": "",
+        "licenseUrl": "",
+        "backgroundColor": ""
+      },
+      "tags": {
+        "name": "",
+        "description": "",
+        "icon": "",
+        "createdAt": "",
+        "updatedAt": ""
+      },
+      "files": {
+        "name": "",
+        "url": "",
+        "size": "",
+        "fileType": "",
+        "hash": "",
+        "path": "",
+        "file": "",
+        "image": "",
+        "thumb": "",
+        "createdAt": "",
+        "updatedAt": "",
+        "id": ""
+      },
+      "color": "",
+      "date": "",
+      "featured": ""
+    },
+    "_defaults": {
+      "title": "",
+      "shortDescription": "",
+      "description": "",
+      "url": "",
+      "affiliations": {
+        "location": {
+          "name": "",
+          "details": "",
+          "alt": "",
+          "street": "",
+          "city": "",
+          "country": "",
+          "zip": "",
+          "geocode": {
+            "lat": "",
+            "lng": ""
+          }
+        },
+        "image": {
+          "url": "",
+          "caption": "",
+          "alt": "",
+          "copyright": "Free of rights",
+          "licence": "",
+          "licenseUrl": "",
+          "backgroundColor": ""
+        },
+        "name": "",
+        "ror": "",
+        "url": ""
+      },
+      "relatedEvents": "",
+      "relatedNews": "",
+      "image": {
+        "url": "",
+        "caption": "",
+        "alt": "",
+        "copyright": "Free of rights",
+        "licence": "",
+        "licenseUrl": "",
+        "backgroundColor": ""
+      },
+      "video": {
+        "url": "",
+        "alt": "",
+        "caption": "",
+        "copyright": "Free of rights",
+        "licence": "",
+        "licenseUrl": "",
+        "backgroundColor": ""
+      },
+      "tags": {
+        "name": "",
+        "description": "",
+        "icon": "",
+        "createdAt": "",
+        "updatedAt": ""
+      },
+      "files": {
+        "name": "",
+        "url": "",
+        "size": "",
+        "fileType": "",
+        "hash": "",
+        "path": "",
+        "file": "",
+        "image": "",
+        "thumb": "",
+        "createdAt": "",
+        "updatedAt": "",
+        "id": ""
+      },
+      "color": "",
+      "date": "",
+      "featured": ""
+    },
     "schema": {
       "title": {
         "label": "title",
@@ -517,7 +671,7 @@ export default {
       "tags": {
         "label": "tags",
         "component": "ListAutoComplete",
-        "type": 2,
+        "type": 3,
         "default": "",
         "description": "",
         "hint": false,
@@ -529,7 +683,92 @@ export default {
           "switchIf": [],
           "disjonctive": false
         },
-        "meta": "tags"
+        "meta": "tags",
+        "items": {
+          "name": {
+            "label": "name",
+            "component": "TextField",
+            "type": 0,
+            "default": "",
+            "description": "",
+            "hint": false,
+            "rules": {
+              "required": true,
+              "min": 5,
+              "max": 200
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "name"
+          },
+          "description": {
+            "label": "description",
+            "component": "TextArea",
+            "type": 0,
+            "default": "",
+            "description": "",
+            "hint": false,
+            "rules": {
+              "required": true,
+              "min": 5,
+              "max": 2000
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "description"
+          },
+          "icon": {
+            "label": "icon",
+            "component": "TextField",
+            "type": 0,
+            "default": "",
+            "description": "Select your icon from material design icons https://pictogrammers.com/library/mdi/",
+            "hint": false,
+            "rules": {},
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "icon"
+          },
+          "createdAt": {
+            "label": "createdAt",
+            "component": false,
+            "type": 0,
+            "default": "",
+            "description": "",
+            "hint": false,
+            "rules": {},
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "createdAt"
+          },
+          "updatedAt": {
+            "label": "updatedAt",
+            "component": false,
+            "type": 0,
+            "default": "",
+            "description": "",
+            "hint": false,
+            "rules": {},
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "updatedAt"
+          }
+        }
       },
       "files": {
         "label": "files",
@@ -918,7 +1157,7 @@ export default {
       -1
     ]
   },
-  "loading": [],
+  "loading": true,
   "current": null,
   "resetFilters": true
 }

@@ -24,22 +24,30 @@ export interface ModuleType {
   source?: string
   form: CustomForm
   list: List
-  loading: any[]
+  loading: boolean
   current: any
   resetFilters: boolean
 }
 
 const completeSchema = (schema: Record<string, Form>): Record<string, Form> => {
-  for (const key of Object.keys(schema)) {
-    // is it a template?
-    if (schema[key] && schema[key]?.type === 3) {
-      console.log("importing template: ", key)
-      const templateState = configData[key].form
-      schema[key].items = templateState
+  let bkey = ""
+  try {
+    for (const key of Object.keys(schema)) {
+      bkey = key
+      // is it a template?
+      if (schema[key] && schema[key]?.type === 3) {
+        console.log("importing template: ", key)
+        const templateState = configData[key].form
+        schema[key].items = templateState
+      }
+      // check if it is an object or a collection?
     }
-    // check if it is an object or a collection?
+    return schema
+  } catch (error) {
+    console.log("missing error", Object.keys(configData))
+    console.log("error: ", error)
+    console.log("error completing schema: ", bkey)
   }
-  return schema
 }
 
 const createModule = (type: string): any => {
@@ -89,6 +97,7 @@ const createModule = (type: string): any => {
 
   // Helper function to handle template types
   const processTemplate = (key: string): Promise<any> => {
+    console.log("procesing template for key: ", key)
     const template = configData[key] as Model
     // is it an implementation of another template?
     if (template.aliases?.length) {
@@ -106,8 +115,13 @@ const createModule = (type: string): any => {
 
   // Helper function to process items within the schema
   const processItems = (key: string, items: any[], form: any): any => {
+    console.log("processing items for key: ", key)
+    if (key === "tags") {
+      console.log(items)
+    }
     // only collection have items with an array type
     if (Array.isArray(items)) {
+      console.log("array case", key)
       // if (!form[key]) form[key] = [{}];
       if (!form[key]) {
         form[key] = [{}]
@@ -120,7 +134,9 @@ const createModule = (type: string): any => {
       } */
       // else it's an object
     } else {
+      console.log("else case", key)
       if (!form[key]) form[key] = {}
+
       for (const subkey of Object.keys(items)) {
         form[key] = {
           ...form[key],
@@ -206,7 +222,7 @@ const createModule = (type: string): any => {
       sortBy: defaultSort && [defaultSort.value[0]],
       sortDesc: defaultSort && [defaultSort.value[1]],
     },
-    loading: [],
+    loading: true,
     current: null,
     resetFilters: true,
   }
@@ -214,7 +230,7 @@ const createModule = (type: string): any => {
   createJsonFile(type, module)
 }
 
-const typeName = [/*"fellowship",*/ "project", "events", "news", "people"]
+const typeName = ["fellowship", "project", "events", "news", "people"]
 typeName.map((type) => {
   createModule(type)
 })

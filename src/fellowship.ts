@@ -13,8 +13,8 @@ export interface Fellowship {
   fellowshipStart: Date | null
   contact: string
   description: string
-  details: FellowshipDetails
-  fellows: People[]
+  fellowshipDetails: FellowshipDetails
+  fellow: People[]
   url: URL
   applicationStop: Date | null
   fellowshipStop: Date | null
@@ -195,7 +195,7 @@ const defaultConfig: Model = {
       },
       meta: "description",
     },
-    details: {
+    fellowshipDetails: {
       label: "details",
       component: "ObjectContainerPanel",
       type: 3, //
@@ -212,7 +212,7 @@ const defaultConfig: Model = {
       },
       meta: "details",
     },
-    fellows: {
+    fellow: {
       label: "fellows",
       component: "CollectionContainerPanel",
       type: 3, //

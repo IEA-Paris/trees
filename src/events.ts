@@ -12,8 +12,8 @@ export interface Event {
   affiliations: Affiliation[] // 3 - Server & Client - //Bottom left Document
   appId: string // 0 - Server & Client -
   availableSlots: number // 0 - Server & Client - ? => Claire
-  bookingState: number // 0 - Server & Client -  ==>  0 ferme 1 ouvert 2 complet
-  category: number // 0 - Server & Client - 0 conference => 1 Seminar
+  bookingState: number // 0 - Server & Client -
+  category: number // 0 - Server & Client -
   createdAt: Date | null // 0 - Server & Client -
   delay: number // 0 - Server & Client -
   description: string // 0 - Server & Client -
@@ -24,7 +24,7 @@ export interface Event {
   name: string // 0 - Server & Client -
   eventSlot?: EventSlot[] //// 3 - Server -
   organizers: People[] | Affiliation[] // 3 - Server & Client -
-  outside: boolean // 0 - Server & Client -  // Near inscription   --> affichage du tags (true)
+  outside: boolean // 0 - Server & Client -  // Near inscription
   location: Location // 0 - Server & Client -
   relatedProject?: string[] // 0 - Server & Client -
   relatedNews?: string[] // 0 - Server & Client -
@@ -33,6 +33,7 @@ export interface Event {
   start: string // 0 - Server & Client -   A verifier string ? string[]
   state: number // 0 - Server & Client -
   stop: string // 0 - Server & Client - A verifier string ? string[]
+  stream: string | null // 0 - Server & Client -
   subtitle: string // 0 - Server &
   summary: string // 0 - Server & Client -
   tags: Tag[] // 3 - Server & Client - Inside=> Presentation
@@ -82,14 +83,14 @@ const defaultConfig: Model = {
         // by date from most recent to oldest
         icon: "sort-calendar-descending",
         text: "by-date-most-recent-first",
-        value: ["date", -1],
+        value: ["start", -1],
         default: true,
       },
       datedesc: {
         // by date from oldest to most recent
         icon: "sort-calendar-ascending",
         text: "by-date-oldest-first",
-        value: ["date", 1],
+        value: ["start", 1],
       },
     },
     views: {
@@ -97,9 +98,9 @@ const defaultConfig: Model = {
         icon: "view-list",
         default: true,
       },
-      tiles: {
-        name: "tiles",
-        icon: "view-quilt",
+      dense: {
+        name: "dense",
+        icon: "land-rows-horizontal",
       },
       grid: {
         name: "grid",
@@ -620,6 +621,24 @@ const defaultConfig: Model = {
         disjonctive: false,
       },
       meta: "updatedAt",
+    },
+    stream: {
+      label: "stream",
+      component: "TextField",
+      type: 0, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        url: true,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "stream",
     },
     url: {
       label: "url",
