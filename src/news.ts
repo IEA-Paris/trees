@@ -47,19 +47,6 @@ const defaultConfig: Model = {
       },
     },
     sort: {
-      // sort options
-      nameasc: {
-        // by name from a to z
-        icon: "sort-alphabetical-ascending",
-        text: "by-name-from-a-to-z",
-        value: ["article_title", 1],
-      },
-      namedesc: {
-        // by name from z to a
-        icon: "sort-alphabetical-descending",
-        text: "by-name-from-z-to-a",
-        value: ["article_title", -1],
-      },
       dateasc: {
         // by date from most recent to oldest
         icon: "sort-calendar-descending",

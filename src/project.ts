@@ -9,7 +9,7 @@ import { Tag } from "./tags"
 
 export interface Project {
   title: string
-  shortDescription: string
+  subtitle: string
   description: string
   url: URL
   affiliations: Affiliation[]
@@ -49,13 +49,13 @@ const defaultConfig: Model = {
         // by name from a to z
         icon: "sort-alphabetical-ascending",
         text: "by-name-from-a-to-z",
-        value: ["article_title", 1],
+        value: ["title", 1],
       },
       namedesc: {
         // by name from z to a
         icon: "sort-alphabetical-descending",
         text: "by-name-from-z-to-a",
-        value: ["article_title", -1],
+        value: ["title", -1],
       },
       dateasc: {
         // by date from most recent to oldest
@@ -98,8 +98,8 @@ const defaultConfig: Model = {
       },
       meta: "title", // item type on schema.org
     },
-    shortDescription: {
-      label: "shortDescription",
+    subtitle: {
+      label: "subtitle",
       component: "TextArea",
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",
@@ -115,7 +115,7 @@ const defaultConfig: Model = {
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
         disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
       },
-      meta: "shortDescription", // item type on schema.org
+      meta: "subtitle", // item type on schema.org
     },
     description: {
       label: "description",
