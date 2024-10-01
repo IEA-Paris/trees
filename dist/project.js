@@ -44,6 +44,15 @@ export default {
         "licenseUrl": "",
         "backgroundColor": ""
       },
+      "gallery": {
+        "url": "",
+        "caption": "",
+        "alt": "",
+        "copyright": "Free of rights",
+        "licence": "",
+        "licenseUrl": "",
+        "backgroundColor": ""
+      },
       "video": {
         "url": "",
         "alt": "",
@@ -113,6 +122,15 @@ export default {
       "relatedEvents": "",
       "relatedNews": "",
       "image": {
+        "url": "",
+        "caption": "",
+        "alt": "",
+        "copyright": "Free of rights",
+        "licence": "",
+        "licenseUrl": "",
+        "backgroundColor": ""
+      },
+      "gallery": {
         "url": "",
         "caption": "",
         "alt": "",
@@ -389,6 +407,151 @@ export default {
           "disjonctive": false
         },
         "meta": "image",
+        "items": {
+          "url": {
+            "type": 0,
+            "component": "TextField",
+            "label": "url",
+            "default": "",
+            "description": "The url where the image is fetched from",
+            "meta": "logo",
+            "hint": false,
+            "rules": {
+              "required": true,
+              "url": true,
+              "max": 2048
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            }
+          },
+          "caption": {
+            "label": "caption",
+            "component": "TextArea",
+            "type": 0,
+            "default": "",
+            "description": "",
+            "hint": false,
+            "rules": {
+              "required": true
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "caption"
+          },
+          "alt": {
+            "label": "alt",
+            "type": 0,
+            "component": "TextArea",
+            "default": "",
+            "description": "Displayed if the image cannot be loaded",
+            "hint": false,
+            "rules": {
+              "required": true,
+              "min": 2,
+              "max": 100
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "alt"
+          },
+          "copyright": {
+            "label": "copyright",
+            "type": 0,
+            "component": "TextField",
+            "default": "Free of rights",
+            "description": "Owner of the image copyright",
+            "hint": false,
+            "rules": {
+              "required": true,
+              "min": 2,
+              "max": 100
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "copyright"
+          },
+          "licence": {
+            "label": "licence",
+            "type": 0,
+            "component": "ListAutoComplete",
+            "default": null,
+            "description": "The licence of the image",
+            "hint": false,
+            "rules": {
+              "required": true,
+              "min": 2,
+              "max": 100
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            }
+          },
+          "licenseUrl": {
+            "label": "licenseUrl",
+            "type": 0,
+            "component": "TextField",
+            "default": null,
+            "description": "The caption of the image",
+            "hint": false,
+            "rules": {
+              "required": true,
+              "url": true
+            },
+            "visibility": {
+              "default": false,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "licenseUrl"
+          },
+          "backgroundColor": {
+            "label": "backgroundColor",
+            "component": "TextColorPicker",
+            "type": 0,
+            "default": "",
+            "description": "",
+            "hint": false,
+            "rules": {
+              "required": true,
+              "color": true
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "backgroundColor"
+          }
+        }
+      },
+      "gallery": {
+        "label": "gallery",
+        "component": "CollectionContainerPanel",
+        "type": 3,
+        "default": "",
+        "description": "",
+        "hint": false,
+        "rules": {},
+        "visibility": {
+          "default": true,
+          "switchIf": [],
+          "disjonctive": false
+        },
+        "meta": "gallery",
         "items": {
           "url": {
             "type": 0,
@@ -1091,14 +1254,6 @@ export default {
       "rows": {
         "icon": "view-list",
         "default": true
-      },
-      "tiles": {
-        "name": "tiles",
-        "icon": "view-quilt"
-      },
-      "grid": {
-        "name": "grid",
-        "icon": "view-day"
       }
     },
     "sort": {
@@ -1142,10 +1297,10 @@ export default {
       "name": "rows"
     },
     "filters": {
-      "year": {
+      "status": {
         "type": "Select",
         "rules": {},
-        "label": "year",
+        "label": "status",
         "items": ""
       }
     },

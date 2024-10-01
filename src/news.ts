@@ -11,6 +11,7 @@ export interface News {
   description: string
   tags: Tag[]
   image: Image
+  gallery: Image[]
   color: string
   url: URL
   date: Date | null
@@ -18,6 +19,7 @@ export interface News {
   relatedProject: RelatedProject[] | string[]
   relatedEvents: RelatedEvent[] | string[]
   people: People[]
+  files: File[]
 }
 
 const defaultConfig: Model = {
@@ -31,10 +33,16 @@ const defaultConfig: Model = {
     },
     create: true, // allow to create new items
     filters: {
-      year: {
+      tags: {
+        type: "AutoComplete",
+        rules: {},
+        label: "tags",
+        items: [],
+      },
+      category: {
         type: "Select",
         rules: {},
-        label: "year",
+        label: "category",
         items: [],
       },
     },
@@ -70,16 +78,11 @@ const defaultConfig: Model = {
       rows: {
         icon: "view-list",
         default: true,
-        // skeleton: [ TODO: generate skeleton schema for rows view xs, sm, md, lg ]
       },
-      tiles: {
-        name: "tiles",
-        icon: "view-quilt",
-      },
-      grid: {
-        name: "grid",
-        icon: "view-day",
-      },
+      dense: {
+        name: "dense",
+        icon: "land-rows-horizontal",
+      }
     },
   },
 
@@ -175,6 +178,38 @@ const defaultConfig: Model = {
         disjonctive: false,
       },
       meta: "url",
+    },
+    files: {
+      label: "files",
+      component: "CollectionContainerPanel",
+      type: 3, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "files",
+    },
+    gallery: {
+      label: "gallery",
+      component: "CollectionContainerPanel",
+      type: 3, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {},
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "gallery",
     },
     date: {
       label: "date",

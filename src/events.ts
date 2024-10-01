@@ -1,7 +1,7 @@
 import { Location } from "./location"
 import { Image } from "./image"
 import { EventSlot } from "./eventSlot"
-import { Discipline } from "./disciplines"
+import { Disciplines } from "./disciplines"
 import { Tag } from "./tags"
 import { People } from "./people"
 import { Affiliation } from "./affiliations"
@@ -17,15 +17,17 @@ export interface Event {
   createdAt: Date | null // 0 - Server & Client -
   delay: number // 0 - Server & Client -
   description: string // 0 - Server & Client -
-  disciplines: Discipline[] // 3 - Server & Client //Inside=> Presentation
+  disciplines: Disciplines[] // 3 - Server & Client //Inside=> Presentation
   discussants: People[] // 0 - Server & Client -
   files: File[] // 3 - Server & Client -
   image: Image // 3 - Server & Client -
+  gallery: Image[]
   name: string // 0 - Server & Client -
   eventSlot?: EventSlot[] //// 3 - Server -
   organizers: People[] | Affiliation[] // 3 - Server & Client -
   outside: boolean // 0 - Server & Client -  // Near inscription
   location: Location // 0 - Server & Client -
+  organiserType: number // server & client - 0 = IAS, 1 = member, 2 = fellow, 3 = external
   relatedProject?: string[] // 0 - Server & Client -
   relatedNews?: string[] // 0 - Server & Client -
   // slots?: EventSlot[]; //// 3 - Server
@@ -58,10 +60,52 @@ const defaultConfig: Model = {
       default: 9,
     },
     filters: {
-      year: {
+      outside: {
+        type: "Checkbox",
+        rules: {},
+        label: "outside",
+        items: [],
+      },
+      category: {
         type: "Select",
         rules: {},
-        label: "year",
+        label: "category",
+        items: [],
+      },
+      past: {
+        type: "Checkbox",
+        rules: {},
+        label: "past",
+        items: [],
+      },
+      status: {
+        type: "Select",
+        rules: {},
+        label: "status",
+        items: [],
+      },
+      organiserCategory: {
+        type: "Select",
+        rules: {},
+        label: "organiserCategory",
+        items: [],
+      },
+      online: {
+        type: "Checkbox",
+        rules: {},
+        label: "online",
+        items: [],
+      },
+      disciplines: {
+        type: "AutoComplete",
+        rules: {},
+        label: "disciplines",
+        items: [],
+      },
+      fellowship: {
+        type: "AutoComplete",
+        rules: {},
+        label: "fellowship",
         items: [],
       },
     },
@@ -101,11 +145,7 @@ const defaultConfig: Model = {
       dense: {
         name: "dense",
         icon: "land-rows-horizontal",
-      },
-      grid: {
-        name: "grid",
-        icon: "view-day",
-      },
+      }
     },
   },
 
@@ -330,6 +370,21 @@ const defaultConfig: Model = {
       },
       meta: "image",
     },
+    gallery: {
+      label: "gallery",
+      component: "CollectionContainerPanel",
+      type: 3, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {},
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "gallery",
+    },
     name: {
       label: "name",
       component: "TextField",
@@ -386,6 +441,23 @@ const defaultConfig: Model = {
         disjonctive: false,
       },
       meta: "organizers",
+    },
+    organizerState: {
+      label: "organizerState",
+      component: "ListRadio",
+      type: 0, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "organizerState",
     },
     outside: {
       label: "outside",

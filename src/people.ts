@@ -4,6 +4,8 @@ import { Socials } from "./socials"
 import { Position } from "./position"
 import { Consent } from "./consent"
 import { Groups } from "./groups"
+import { Disciplines } from "./disciplines"
+import { Video } from "./video"
 import Model from "./model"
 
 export interface People {
@@ -16,6 +18,8 @@ export interface People {
   consent: Consent
   groups: Groups
   lang: string
+  disciplines: Disciplines[]
+  video: Video[]
 }
 
 const defaultConfig: Model = {
@@ -29,11 +33,35 @@ const defaultConfig: Model = {
       default: 9,
     },
     filters: {
-      year: {
+      category: {
         type: "Select",
         rules: {},
-        label: "year",
-        items: "",
+        label: "category",
+        items: [],
+      },
+      vintage: {
+        type: "Select",
+        rules: {},
+        label: "vintage",
+        items: [],
+      },
+      program: {
+        type: "Select",
+        rules: {},
+        label: "program",
+        items: [],
+      },
+      discipline: {
+        type: "Select",
+        rules: {},
+        label: "discipline",
+        items: [],
+      },
+      member: {
+        type: "Select",
+        rules: {},
+        label: "member",
+        items: [],
       },
     },
     sort: {
@@ -69,14 +97,10 @@ const defaultConfig: Model = {
         icon: "view-list",
         default: true,
       },
-      tiles: {
-        name: "tiles",
-        icon: "view-quilt",
-      },
-      grid: {
-        name: "grid",
-        icon: "view-day",
-      },
+      dense: {
+        name: "dense",
+        icon: "land-rows-horizontal",
+      }
     },
   },
   form: {
@@ -166,6 +190,36 @@ const defaultConfig: Model = {
         disjonctive: false,
       },
       meta: "socials",
+    },
+    disciplines: {
+      label: "disciplines",
+      component: "CollectionContainerPanel",
+      type: 3, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {},
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "disciplines",
+    },
+    video: {
+      label: "video",
+      component: "CollectionContainerPanel",
+      type: 3, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {},
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "video",
     },
     biography: {
       label: "biography",

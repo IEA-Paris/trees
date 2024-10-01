@@ -6,6 +6,7 @@ export interface Fellow extends People {
 }
 
 const defaultConfig: Model = {
+  aliases: ["people"],
   ...configPeople,
 };
 export default defaultConfig;

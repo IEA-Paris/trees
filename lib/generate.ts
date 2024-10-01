@@ -44,9 +44,10 @@ const completeSchema = (schema: Record<string, Form>): Record<string, Form> => {
     }
     return schema
   } catch (error) {
-    console.log("missing error", Object.keys(configData))
+   /*  console.log("missing error", Object.keys(configData)) */
     console.log("error: ", error)
     console.log("error completing schema: ", bkey)
+    return {}
   }
 }
 
@@ -81,6 +82,7 @@ const createModule = (type: string): any => {
 
   // Helper function to handle aliases
   const processAliases = (aliases: string[]): Record<string, Form> => {
+    console.log('aliases: ', aliases);
     let aliasTemplatesForms: Record<string, Form> = {}
 
     aliases.map((alias) => {
@@ -101,7 +103,6 @@ const createModule = (type: string): any => {
     const template = configData[key] as Model
     // is it an implementation of another template?
     if (template.aliases?.length) {
-      console.log("template aliases found:", template.aliases)
       const aliasTemplatesForms: Record<string, Form> = processAliases(
         template.aliases
       )
@@ -116,9 +117,7 @@ const createModule = (type: string): any => {
   // Helper function to process items within the schema
   const processItems = (key: string, items: any[], form: any): any => {
     console.log("processing items for key: ", key)
-    if (key === "tags") {
-      console.log(items)
-    }
+
     // only collection have items with an array type
     if (Array.isArray(items)) {
       console.log("array case", key)
@@ -152,7 +151,6 @@ const createModule = (type: string): any => {
       if (!schema) return {}
       let form: { [key: string]: any } = {}
       for (const key of Object.keys(schema)) {
-        console.log("[key]: ", key)
         switch (schema[key]?.type) {
           // document picker
           case 4:

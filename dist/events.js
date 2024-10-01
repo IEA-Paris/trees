@@ -94,6 +94,22 @@ export default {
           "mendeley": "",
           "idRef": ""
         },
+        "disciplines": {
+          "createdAt": "",
+          "description": "",
+          "icon": "",
+          "name": "",
+          "updatedAt": ""
+        },
+        "video": {
+          "url": "",
+          "alt": "",
+          "caption": "",
+          "copyright": "Free of rights",
+          "licence": "",
+          "licenseUrl": "",
+          "backgroundColor": ""
+        },
         "biography": "",
         "consent": {
           "data": false,
@@ -135,6 +151,15 @@ export default {
         "id": ""
       },
       "image": {
+        "url": "",
+        "caption": "",
+        "alt": "",
+        "copyright": "Free of rights",
+        "licence": "",
+        "licenseUrl": "",
+        "backgroundColor": ""
+      },
+      "gallery": {
         "url": "",
         "caption": "",
         "alt": "",
@@ -202,6 +227,22 @@ export default {
           "mendeley": "",
           "idRef": ""
         },
+        "disciplines": {
+          "createdAt": "",
+          "description": "",
+          "icon": "",
+          "name": "",
+          "updatedAt": ""
+        },
+        "video": {
+          "url": "",
+          "alt": "",
+          "caption": "",
+          "copyright": "Free of rights",
+          "licence": "",
+          "licenseUrl": "",
+          "backgroundColor": ""
+        },
         "biography": "",
         "consent": {
           "data": false,
@@ -243,6 +284,7 @@ export default {
         "ror": "",
         "url": ""
       },
+      "organizerState": "",
       "outside": "",
       "location": {
         "name": "",
@@ -309,6 +351,22 @@ export default {
           "researchgate": "",
           "mendeley": "",
           "idRef": ""
+        },
+        "disciplines": {
+          "createdAt": "",
+          "description": "",
+          "icon": "",
+          "name": "",
+          "updatedAt": ""
+        },
+        "video": {
+          "url": "",
+          "alt": "",
+          "caption": "",
+          "copyright": "Free of rights",
+          "licence": "",
+          "licenseUrl": "",
+          "backgroundColor": ""
         },
         "biography": "",
         "consent": {
@@ -445,6 +503,22 @@ export default {
           "mendeley": "",
           "idRef": ""
         },
+        "disciplines": {
+          "createdAt": "",
+          "description": "",
+          "icon": "",
+          "name": "",
+          "updatedAt": ""
+        },
+        "video": {
+          "url": "",
+          "alt": "",
+          "caption": "",
+          "copyright": "Free of rights",
+          "licence": "",
+          "licenseUrl": "",
+          "backgroundColor": ""
+        },
         "biography": "",
         "consent": {
           "data": false,
@@ -486,6 +560,15 @@ export default {
         "id": ""
       },
       "image": {
+        "url": "",
+        "caption": "",
+        "alt": "",
+        "copyright": "Free of rights",
+        "licence": "",
+        "licenseUrl": "",
+        "backgroundColor": ""
+      },
+      "gallery": {
         "url": "",
         "caption": "",
         "alt": "",
@@ -553,6 +636,22 @@ export default {
           "mendeley": "",
           "idRef": ""
         },
+        "disciplines": {
+          "createdAt": "",
+          "description": "",
+          "icon": "",
+          "name": "",
+          "updatedAt": ""
+        },
+        "video": {
+          "url": "",
+          "alt": "",
+          "caption": "",
+          "copyright": "Free of rights",
+          "licence": "",
+          "licenseUrl": "",
+          "backgroundColor": ""
+        },
         "biography": "",
         "consent": {
           "data": false,
@@ -594,6 +693,7 @@ export default {
         "ror": "",
         "url": ""
       },
+      "organizerState": "",
       "outside": "",
       "location": {
         "name": "",
@@ -660,6 +760,22 @@ export default {
           "researchgate": "",
           "mendeley": "",
           "idRef": ""
+        },
+        "disciplines": {
+          "createdAt": "",
+          "description": "",
+          "icon": "",
+          "name": "",
+          "updatedAt": ""
+        },
+        "video": {
+          "url": "",
+          "alt": "",
+          "caption": "",
+          "copyright": "Free of rights",
+          "licence": "",
+          "licenseUrl": "",
+          "backgroundColor": ""
         },
         "biography": "",
         "consent": {
@@ -1140,6 +1256,36 @@ export default {
               "disjonctive": false
             },
             "meta": "socials"
+          },
+          "disciplines": {
+            "label": "disciplines",
+            "component": "CollectionContainerPanel",
+            "type": 3,
+            "default": "",
+            "description": "",
+            "hint": false,
+            "rules": {},
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "disciplines"
+          },
+          "video": {
+            "label": "video",
+            "component": "CollectionContainerPanel",
+            "type": 3,
+            "default": "",
+            "description": "",
+            "hint": false,
+            "rules": {},
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "video"
           },
           "biography": {
             "label": "biography",
@@ -1623,6 +1769,151 @@ export default {
           }
         }
       },
+      "gallery": {
+        "label": "gallery",
+        "component": "CollectionContainerPanel",
+        "type": 3,
+        "default": "",
+        "description": "",
+        "hint": false,
+        "rules": {},
+        "visibility": {
+          "default": true,
+          "switchIf": [],
+          "disjonctive": false
+        },
+        "meta": "gallery",
+        "items": {
+          "url": {
+            "type": 0,
+            "component": "TextField",
+            "label": "url",
+            "default": "",
+            "description": "The url where the image is fetched from",
+            "meta": "logo",
+            "hint": false,
+            "rules": {
+              "required": true,
+              "url": true,
+              "max": 2048
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            }
+          },
+          "caption": {
+            "label": "caption",
+            "component": "TextArea",
+            "type": 0,
+            "default": "",
+            "description": "",
+            "hint": false,
+            "rules": {
+              "required": true
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "caption"
+          },
+          "alt": {
+            "label": "alt",
+            "type": 0,
+            "component": "TextArea",
+            "default": "",
+            "description": "Displayed if the image cannot be loaded",
+            "hint": false,
+            "rules": {
+              "required": true,
+              "min": 2,
+              "max": 100
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "alt"
+          },
+          "copyright": {
+            "label": "copyright",
+            "type": 0,
+            "component": "TextField",
+            "default": "Free of rights",
+            "description": "Owner of the image copyright",
+            "hint": false,
+            "rules": {
+              "required": true,
+              "min": 2,
+              "max": 100
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "copyright"
+          },
+          "licence": {
+            "label": "licence",
+            "type": 0,
+            "component": "ListAutoComplete",
+            "default": null,
+            "description": "The licence of the image",
+            "hint": false,
+            "rules": {
+              "required": true,
+              "min": 2,
+              "max": 100
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            }
+          },
+          "licenseUrl": {
+            "label": "licenseUrl",
+            "type": 0,
+            "component": "TextField",
+            "default": null,
+            "description": "The caption of the image",
+            "hint": false,
+            "rules": {
+              "required": true,
+              "url": true
+            },
+            "visibility": {
+              "default": false,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "licenseUrl"
+          },
+          "backgroundColor": {
+            "label": "backgroundColor",
+            "component": "TextColorPicker",
+            "type": 0,
+            "default": "",
+            "description": "",
+            "hint": false,
+            "rules": {
+              "required": true,
+              "color": true
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "backgroundColor"
+          }
+        }
+      },
       "name": {
         "label": "name",
         "component": "TextField",
@@ -1862,6 +2153,23 @@ export default {
             "meta": "url"
           }
         }
+      },
+      "organizerState": {
+        "label": "organizerState",
+        "component": "ListRadio",
+        "type": 0,
+        "default": "",
+        "description": "",
+        "hint": false,
+        "rules": {
+          "required": true
+        },
+        "visibility": {
+          "default": true,
+          "switchIf": [],
+          "disjonctive": false
+        },
+        "meta": "organizerState"
       },
       "outside": {
         "label": "outside",
@@ -2229,6 +2537,36 @@ export default {
             },
             "meta": "socials"
           },
+          "disciplines": {
+            "label": "disciplines",
+            "component": "CollectionContainerPanel",
+            "type": 3,
+            "default": "",
+            "description": "",
+            "hint": false,
+            "rules": {},
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "disciplines"
+          },
+          "video": {
+            "label": "video",
+            "component": "CollectionContainerPanel",
+            "type": 3,
+            "default": "",
+            "description": "",
+            "hint": false,
+            "rules": {},
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "video"
+          },
           "biography": {
             "label": "biography",
             "component": "TextArea",
@@ -2592,13 +2930,9 @@ export default {
         "icon": "view-list",
         "default": true
       },
-      "tiles": {
-        "name": "tiles",
-        "icon": "view-quilt"
-      },
-      "grid": {
-        "name": "grid",
-        "icon": "view-day"
+      "dense": {
+        "name": "dense",
+        "icon": "land-rows-horizontal"
       }
     },
     "sort": {
@@ -2622,7 +2956,7 @@ export default {
         "icon": "sort-calendar-descending",
         "text": "by-date-most-recent-first",
         "value": [
-          "date",
+          "start",
           -1
         ],
         "default": true
@@ -2631,7 +2965,7 @@ export default {
         "icon": "sort-calendar-ascending",
         "text": "by-date-oldest-first",
         "value": [
-          "date",
+          "start",
           1
         ]
       }
@@ -2642,16 +2976,58 @@ export default {
       "name": "rows"
     },
     "filters": {
-      "year": {
+      "outside": {
+        "type": "Checkbox",
+        "rules": {},
+        "label": "outside",
+        "items": []
+      },
+      "category": {
         "type": "Select",
         "rules": {},
-        "label": "year",
+        "label": "category",
+        "items": []
+      },
+      "past": {
+        "type": "Checkbox",
+        "rules": {},
+        "label": "past",
+        "items": []
+      },
+      "status": {
+        "type": "Select",
+        "rules": {},
+        "label": "status",
+        "items": []
+      },
+      "organiserCategory": {
+        "type": "Select",
+        "rules": {},
+        "label": "organiserCategory",
+        "items": []
+      },
+      "online": {
+        "type": "Checkbox",
+        "rules": {},
+        "label": "online",
+        "items": []
+      },
+      "disciplines": {
+        "type": "AutoComplete",
+        "rules": {},
+        "label": "disciplines",
+        "items": []
+      },
+      "fellowship": {
+        "type": "AutoComplete",
+        "rules": {},
+        "label": "fellowship",
         "items": []
       }
     },
     "limit": 9,
     "sortBy": [
-      "date"
+      "start"
     ],
     "sortDesc": [
       -1

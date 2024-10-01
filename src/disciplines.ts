@@ -1,6 +1,6 @@
 import Model from "./model"
 
-export interface Discipline {
+export interface Disciplines {
   createdAt: string
   description: string
   icon: string

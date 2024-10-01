@@ -52,6 +52,22 @@ export default {
         "mendeley": "",
         "idRef": ""
       },
+      "disciplines": {
+        "createdAt": "",
+        "description": "",
+        "icon": "",
+        "name": "",
+        "updatedAt": ""
+      },
+      "video": {
+        "url": "",
+        "alt": "",
+        "caption": "",
+        "copyright": "Free of rights",
+        "licence": "",
+        "licenseUrl": "",
+        "backgroundColor": ""
+      },
       "biography": "",
       "consent": {
         "data": false,
@@ -127,6 +143,22 @@ export default {
         "researchgate": "",
         "mendeley": "",
         "idRef": ""
+      },
+      "disciplines": {
+        "createdAt": "",
+        "description": "",
+        "icon": "",
+        "name": "",
+        "updatedAt": ""
+      },
+      "video": {
+        "url": "",
+        "alt": "",
+        "caption": "",
+        "copyright": "Free of rights",
+        "licence": "",
+        "licenseUrl": "",
+        "backgroundColor": ""
       },
       "biography": "",
       "consent": {
@@ -634,6 +666,266 @@ export default {
           }
         }
       },
+      "disciplines": {
+        "label": "disciplines",
+        "component": "CollectionContainerPanel",
+        "type": 3,
+        "default": "",
+        "description": "",
+        "hint": false,
+        "rules": {},
+        "visibility": {
+          "default": true,
+          "switchIf": [],
+          "disjonctive": false
+        },
+        "meta": "disciplines",
+        "items": {
+          "createdAt": {
+            "label": "createdAt",
+            "component": "TextField",
+            "type": 0,
+            "default": "",
+            "description": "",
+            "hint": false,
+            "rules": {
+              "required": true,
+              "min": 5,
+              "max": 200
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "createdAt"
+          },
+          "description": {
+            "label": "description",
+            "component": "TextField",
+            "type": 0,
+            "default": "",
+            "description": "",
+            "hint": false,
+            "rules": {
+              "required": true,
+              "min": 5,
+              "max": 200
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "description"
+          },
+          "icon": {
+            "label": "icon",
+            "component": "TextField",
+            "type": 0,
+            "default": "",
+            "description": "",
+            "hint": false,
+            "rules": {
+              "required": true,
+              "min": 5,
+              "max": 200
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "icon"
+          },
+          "name": {
+            "label": "name",
+            "component": "TextField",
+            "type": 0,
+            "default": "",
+            "description": "",
+            "hint": false,
+            "rules": {
+              "required": true,
+              "min": 5,
+              "max": 200
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "name"
+          },
+          "updatedAt": {
+            "label": "updatedAt",
+            "component": "TextField",
+            "type": 0,
+            "default": "",
+            "description": "",
+            "hint": false,
+            "rules": {
+              "required": true,
+              "min": 5,
+              "max": 200
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "updatedAt"
+          }
+        }
+      },
+      "video": {
+        "label": "video",
+        "component": "CollectionContainerPanel",
+        "type": 3,
+        "default": "",
+        "description": "",
+        "hint": false,
+        "rules": {},
+        "visibility": {
+          "default": true,
+          "switchIf": [],
+          "disjonctive": false
+        },
+        "meta": "video",
+        "items": {
+          "url": {
+            "type": 0,
+            "component": "TextField",
+            "label": "url",
+            "default": "",
+            "description": "The url where the image is fetched from",
+            "hint": false,
+            "rules": {
+              "required": true,
+              "url": true,
+              "max": 2048
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "url"
+          },
+          "alt": {
+            "label": "alt",
+            "type": 0,
+            "component": "TextField",
+            "default": "",
+            "description": "Displayed if the image cannot be loaded",
+            "hint": false,
+            "rules": {
+              "required": true,
+              "min": 2,
+              "max": 100
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "alt"
+          },
+          "caption": {
+            "label": "caption",
+            "type": 0,
+            "component": "TextField",
+            "default": "",
+            "description": "",
+            "hint": false,
+            "rules": {
+              "required": true,
+              "min": 2,
+              "max": 100
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "caption"
+          },
+          "copyright": {
+            "label": "copyright",
+            "type": 0,
+            "component": "TextField",
+            "default": "Free of rights",
+            "description": "Owner of the image copyright",
+            "hint": false,
+            "rules": {
+              "required": true,
+              "min": 2,
+              "max": 100
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "copyright"
+          },
+          "licence": {
+            "label": "licence",
+            "type": 0,
+            "component": "TextField",
+            "default": null,
+            "description": "The licence of the video",
+            "hint": false,
+            "rules": {
+              "required": true,
+              "min": 2,
+              "max": 100
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "licence"
+          },
+          "licenseUrl": {
+            "label": "licenseUrl",
+            "type": 0,
+            "component": "TextField",
+            "default": null,
+            "description": "The caption of the video",
+            "hint": false,
+            "rules": {
+              "required": true,
+              "url": true
+            },
+            "visibility": {
+              "default": false,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "licenseUrl"
+          },
+          "backgroundColor": {
+            "label": "backgroundColor",
+            "type": 0,
+            "component": "TextColorPicker",
+            "default": null,
+            "description": "",
+            "hint": false,
+            "rules": {
+              "required": true,
+              "color": true
+            },
+            "visibility": {
+              "default": false,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "backgroundColor"
+          }
+        }
+      },
       "biography": {
         "label": "biography",
         "component": "TextArea",
@@ -943,13 +1235,9 @@ export default {
         "icon": "view-list",
         "default": true
       },
-      "tiles": {
-        "name": "tiles",
-        "icon": "view-quilt"
-      },
-      "grid": {
-        "name": "grid",
-        "icon": "view-day"
+      "dense": {
+        "name": "dense",
+        "icon": "land-rows-horizontal"
       }
     },
     "sort": {
@@ -993,11 +1281,35 @@ export default {
       "name": "rows"
     },
     "filters": {
-      "year": {
+      "category": {
         "type": "Select",
         "rules": {},
-        "label": "year",
-        "items": ""
+        "label": "category",
+        "items": []
+      },
+      "vintage": {
+        "type": "Select",
+        "rules": {},
+        "label": "vintage",
+        "items": []
+      },
+      "program": {
+        "type": "Select",
+        "rules": {},
+        "label": "program",
+        "items": []
+      },
+      "discipline": {
+        "type": "Select",
+        "rules": {},
+        "label": "discipline",
+        "items": []
+      },
+      "member": {
+        "type": "Select",
+        "rules": {},
+        "label": "member",
+        "items": []
       }
     },
     "limit": 9,

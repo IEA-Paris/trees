@@ -23,6 +23,7 @@ import defaultConfigFellowshipDetails, {
   FellowshipDetailsForm,
 } from "./src/fellowshipDetails"
 import defaultConfigFiles from "./src/files"
+import defaultConfigGallery from "./src/gallery"
 import defaultConfigGroup, { GroupsForm } from "./src/groups"
 import defaultConfigImage from "./src/image"
 import defaultConfigLocation, { LocationForm } from "./src/location"
@@ -68,6 +69,7 @@ const configData: Record<string, ConfigValue> = {
   fellowship: defaultConfigFellowship,
   fellowshipDetails: defaultConfigFellowshipDetails,
   files: defaultConfigFiles,
+  gallery: defaultConfigGallery,
   groups: defaultConfigGroup,
   image: defaultConfigImage,
   location: defaultConfigLocation,

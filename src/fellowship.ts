@@ -8,7 +8,7 @@ import { Video } from "./video"
 
 export interface Fellowship {
   action: string
-  affiliations: Affiliation[]
+  affiliations: Affiliation[] // AKA members behind the fellowships
   applicationStart: Date | null
   fellowshipStart: Date | null
   contact: string
@@ -19,9 +19,11 @@ export interface Fellowship {
   applicationStop: Date | null
   fellowshipStop: Date | null
   image: Image
+  member: Affiliation[]
   publicationDate: Date | null
   summary: string
   files: File[]
+  gallery: Image[]
   title: string
   video: Video[]
 }
@@ -37,10 +39,28 @@ const defaultConfig: Model = {
       default: 9,
     },
     filters: {
-      year: {
+      status: {
         type: "Select",
         rules: {},
-        label: "year",
+        label: "status",
+        items: [],
+      },
+      duration: {
+        type: "Select",
+        rules: {},
+        label: "duration",
+        items: [],
+      },
+      affiliation: {
+        type: "Select",
+        rules: {},
+        label: "affiliation",
+        items: [],
+      },
+      discipline: {
+        type: "Select",
+        rules: {},
+        label: "discipline",
         items: [],
       },
     },
@@ -77,14 +97,10 @@ const defaultConfig: Model = {
         icon: "view-list",
         default: true,
       },
-      tiles: {
-        name: "tiles",
-        icon: "view-quilt",
-      },
-      grid: {
-        name: "grid",
-        icon: "view-day",
-      },
+      dense: {
+        name: "dense",
+        icon: "land-rows-horizontal",
+      }
     },
   },
   form: {
@@ -122,6 +138,7 @@ const defaultConfig: Model = {
       },
       meta: "affiliations", // item type on schema.org
     },
+    
     applicationStart: {
       label: "applicationStart",
       component: "DatePicker", //TODO
@@ -228,6 +245,21 @@ const defaultConfig: Model = {
         disjonctive: false,
       },
       meta: "fellows",
+    },
+    gallery: {
+      label: "gallery",
+      component: "CollectionContainerPanel",
+      type: 3, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {},
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "gallery",
     },
     url: {
       label: "url",

@@ -15,6 +15,7 @@ export interface Project {
   affiliations: Affiliation[]
   relatedEvents: RelatedEvent[] | string[]
   relatedNews: RelatedNews[] | string[]
+  gallery: Image[]
   image: Image
   video: Video
   tags: Tag[]
@@ -35,10 +36,10 @@ const defaultConfig: Model = {
     },
     create: true, // allow to create new items
     filters: {
-      year: {
+      status: {
         type: "Select",
         rules: {},
-        label: "year",
+        label: "status",
         items: "",
       },
     },
@@ -74,14 +75,6 @@ const defaultConfig: Model = {
       rows: {
         icon: "view-list",
         default: true,
-      },
-      tiles: {
-        name: "tiles",
-        icon: "view-quilt",
-      },
-      grid: {
-        name: "grid",
-        icon: "view-day",
       },
     },
   },
@@ -228,6 +221,21 @@ const defaultConfig: Model = {
         disjonctive: false,
       },
       meta: "image",
+    },
+    gallery: {
+      label: "gallery",
+      component: "CollectionContainerPanel",
+      type: 3, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {},
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "gallery",
     },
     video: {
       label: "video",
