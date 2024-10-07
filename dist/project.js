@@ -3,7 +3,7 @@ export default {
   "form": {
     "values": {
       "title": "",
-      "shortDescription": "",
+      "subtitle": "",
       "description": "",
       "url": "",
       "affiliations": {
@@ -89,7 +89,7 @@ export default {
     },
     "_defaults": {
       "title": "",
-      "shortDescription": "",
+      "subtitle": "",
       "description": "",
       "url": "",
       "affiliations": {
@@ -193,8 +193,8 @@ export default {
         },
         "meta": "title"
       },
-      "shortDescription": {
-        "label": "shortDescription",
+      "subtitle": {
+        "label": "subtitle",
         "component": "TextArea",
         "type": 0,
         "default": "",
@@ -210,7 +210,7 @@ export default {
           "switchIf": [],
           "disjonctive": false
         },
-        "meta": "shortDescription"
+        "meta": "subtitle"
       },
       "description": {
         "label": "description",
@@ -1261,7 +1261,7 @@ export default {
         "icon": "sort-alphabetical-ascending",
         "text": "by-name-from-a-to-z",
         "value": [
-          "article_title",
+          "title",
           1
         ]
       },
@@ -1269,7 +1269,7 @@ export default {
         "icon": "sort-alphabetical-descending",
         "text": "by-name-from-z-to-a",
         "value": [
-          "article_title",
+          "title",
           -1
         ]
       },

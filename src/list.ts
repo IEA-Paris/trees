@@ -5,10 +5,10 @@ export interface PerPage {
 }
 interface Filters {
   type: string;
-  rules: Record<string, any>;
+  rules?: Record<string, any>;
   label: string;
   items?: any;
-  visibility: Visibility;
+  visibility?: Visibility;
 }
 
 export interface Sort {

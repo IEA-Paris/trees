@@ -1324,22 +1324,6 @@ export default {
       }
     },
     "sort": {
-      "nameasc": {
-        "icon": "sort-alphabetical-ascending",
-        "text": "by-name-from-a-to-z",
-        "value": [
-          "article_title",
-          1
-        ]
-      },
-      "namedesc": {
-        "icon": "sort-alphabetical-descending",
-        "text": "by-name-from-z-to-a",
-        "value": [
-          "article_title",
-          -1
-        ]
-      },
       "dateasc": {
         "icon": "sort-calendar-descending",
         "text": "by-date-most-recent-first",

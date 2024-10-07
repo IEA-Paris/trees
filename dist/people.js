@@ -1245,7 +1245,7 @@ export default {
         "icon": "sort-alphabetical-ascending",
         "text": "by-name-from-a-to-z",
         "value": [
-          "article_title",
+          "lastname",
           1
         ]
       },
@@ -1253,25 +1253,8 @@ export default {
         "icon": "sort-alphabetical-descending",
         "text": "by-name-from-z-to-a",
         "value": [
-          "article_title",
+          "lastname",
           -1
-        ]
-      },
-      "dateasc": {
-        "icon": "sort-calendar-descending",
-        "text": "by-date-most-recent-first",
-        "value": [
-          "date",
-          -1
-        ],
-        "default": true
-      },
-      "datedesc": {
-        "icon": "sort-calendar-ascending",
-        "text": "by-date-oldest-first",
-        "value": [
-          "date",
-          1
         ]
       }
     },
@@ -1291,34 +1274,64 @@ export default {
         "type": "Select",
         "rules": {},
         "label": "vintage",
-        "items": []
+        "items": [],
+        "visibility": {
+          "default": false,
+          "switchIf": [
+            {
+              "category": "fellows"
+            }
+          ],
+          "disjonctive": false
+        }
       },
       "program": {
         "type": "Select",
         "rules": {},
         "label": "program",
-        "items": []
+        "items": [],
+        "visibility": {
+          "default": false,
+          "switchIf": [
+            {
+              "category": "fellows"
+            }
+          ],
+          "disjonctive": false
+        }
       },
       "discipline": {
         "type": "Select",
         "rules": {},
         "label": "discipline",
-        "items": []
+        "items": [],
+        "visibility": {
+          "default": false,
+          "switchIf": [
+            {
+              "category": "fellows"
+            }
+          ],
+          "disjonctive": false
+        }
       },
       "member": {
         "type": "Select",
         "rules": {},
         "label": "member",
-        "items": []
+        "items": [],
+        "visibility": {
+          "default": false,
+          "switchIf": [
+            {
+              "category": "fellows"
+            }
+          ],
+          "disjonctive": false
+        }
       }
     },
-    "limit": 9,
-    "sortBy": [
-      "date"
-    ],
-    "sortDesc": [
-      -1
-    ]
+    "limit": 9
   },
   "loading": true,
   "current": null,
