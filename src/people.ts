@@ -91,6 +91,7 @@ const defaultConfig: Model = {
         icon: "sort-alphabetical-ascending",
         text: "by-name-from-a-to-z",
         value: ["lastname", 1],
+        default: true,
       },
       namedesc: {
         // by name from z to a

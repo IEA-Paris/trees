@@ -1247,7 +1247,8 @@ export default {
         "value": [
           "lastname",
           1
-        ]
+        ],
+        "default": true
       },
       "namedesc": {
         "icon": "sort-alphabetical-descending",
@@ -1331,7 +1332,13 @@ export default {
         }
       }
     },
-    "limit": 9
+    "limit": 9,
+    "sortBy": [
+      "lastname"
+    ],
+    "sortDesc": [
+      1
+    ]
   },
   "loading": true,
   "current": null,
