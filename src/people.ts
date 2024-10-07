@@ -1,25 +1,25 @@
-import { Affiliation } from "./affiliations"
-import { Image } from "./image"
-import { Socials } from "./socials"
-import { Position } from "./position"
-import { Consent } from "./consent"
-import { Groups } from "./groups"
-import { Disciplines } from "./disciplines"
-import { Video } from "./video"
-import Model from "./model"
+import { Affiliation } from "./affiliations";
+import { Image } from "./image";
+import { Socials } from "./socials";
+import { Position } from "./position";
+import { Consent } from "./consent";
+import { Groups } from "./groups";
+import { Disciplines } from "./disciplines";
+import { Video } from "./video";
+import Model from "./model";
 
 export interface People {
-  firstname: string
-  lastname: string
-  affiliations: [{ affiliation: Affiliation; positions: [Position] }]
-  image: Image
-  socials: Socials
-  biography: string
-  consent: Consent
-  groups: Groups
-  lang: string
-  disciplines: Disciplines[]
-  video: Video[]
+  firstname: string;
+  lastname: string;
+  affiliations: [{ affiliation: Affiliation; positions: [Position] }];
+  image: Image;
+  socials: Socials;
+  biography: string;
+  consent: Consent;
+  groups: Groups;
+  lang: string;
+  disciplines: Disciplines[];
+  video: Video[];
 }
 
 const defaultConfig: Model = {
@@ -44,24 +44,44 @@ const defaultConfig: Model = {
         rules: {},
         label: "vintage",
         items: [],
+        visibility: {
+          default: false, // same as hidden = true
+          switchIf: [{ category: "fellows" }], // array of conditions to switch the visibility, each condition will be assessed as a boolean
+          disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+        },
       },
       program: {
         type: "Select",
         rules: {},
         label: "program",
         items: [],
+        visibility: {
+          default: false, // same as hidden = true
+          switchIf: [{ category: "fellows" }], // array of conditions to switch the visibility, each condition will be assessed as a boolean
+          disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+        },
       },
       discipline: {
         type: "Select",
         rules: {},
         label: "discipline",
         items: [],
+        visibility: {
+          default: false, // same as hidden = true
+          switchIf: [{ category: "fellows" }], // array of conditions to switch the visibility, each condition will be assessed as a boolean
+          disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+        },
       },
       member: {
         type: "Select",
         rules: {},
         label: "member",
         items: [],
+        visibility: {
+          default: false, // same as hidden = true
+          switchIf: [{ category: "fellows" }], // array of conditions to switch the visibility, each condition will be assessed as a boolean
+          disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+        },
       },
     },
     sort: {
@@ -87,7 +107,7 @@ const defaultConfig: Model = {
       dense: {
         name: "dense",
         icon: "land-rows-horizontal",
-      }
+      },
     },
   },
   form: {
@@ -279,6 +299,6 @@ const defaultConfig: Model = {
       meta: "lang",
     },
   },
-}
+};
 
-export default defaultConfig
+export default defaultConfig;

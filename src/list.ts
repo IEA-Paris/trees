@@ -1,3 +1,4 @@
+import { Visibility } from "./form";
 export interface PerPage {
   options: number[];
   default: number;
@@ -7,6 +8,7 @@ interface Filters {
   rules: Record<string, any>;
   label: string;
   items?: any;
+  visibility: Visibility;
 }
 
 export interface Sort {
