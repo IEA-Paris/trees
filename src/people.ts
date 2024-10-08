@@ -38,6 +38,7 @@ const defaultConfig: Model = {
         rules: {},
         label: "category",
         items: [],
+        multiple: true,
       },
       vintage: {
         type: "Select",
@@ -49,6 +50,7 @@ const defaultConfig: Model = {
           switchIf: [{ category: "fellows" }], // array of conditions to switch the visibility, each condition will be assessed as a boolean
           disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
         },
+        multiple: true,
       },
       program: {
         type: "Select",
@@ -60,6 +62,7 @@ const defaultConfig: Model = {
           switchIf: [{ category: "fellows" }], // array of conditions to switch the visibility, each condition will be assessed as a boolean
           disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
         },
+        multiple: true,
       },
       discipline: {
         type: "Select",
@@ -71,6 +74,7 @@ const defaultConfig: Model = {
           switchIf: [{ category: "fellows" }], // array of conditions to switch the visibility, each condition will be assessed as a boolean
           disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
         },
+        multiple: true,
       },
       member: {
         type: "Select",
@@ -82,6 +86,7 @@ const defaultConfig: Model = {
           switchIf: [{ category: "fellows" }], // array of conditions to switch the visibility, each condition will be assessed as a boolean
           disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
         },
+        multiple: true,
       },
     },
     sort: {

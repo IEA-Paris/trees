@@ -1,31 +1,31 @@
-import { Image } from "./image"
-import { Affiliation } from "./affiliations"
-import { People } from "./people"
-import { FellowshipDetails } from "./fellowshipDetails"
-import { File } from "./files"
-import Model from "./model"
-import { Video } from "./video"
+import { Image } from "./image";
+import { Affiliation } from "./affiliations";
+import { People } from "./people";
+import { FellowshipDetails } from "./fellowshipDetails";
+import { File } from "./files";
+import Model from "./model";
+import { Video } from "./video";
 
 export interface Fellowship {
-  action: string
-  affiliations: Affiliation[] // AKA members behind the fellowships
-  applicationStart: Date | null
-  fellowshipStart: Date | null
-  contact: string
-  description: string
-  fellowshipDetails: FellowshipDetails
-  fellow: People[]
-  url: URL
-  applicationStop: Date | null
-  fellowshipStop: Date | null
-  image: Image
-  member: Affiliation[]
-  publicationDate: Date | null
-  summary: string
-  files: File[]
-  gallery: Image[]
-  title: string
-  video: Video[]
+  action: string;
+  affiliations: Affiliation[]; // AKA members behind the fellowships
+  applicationStart: Date | null;
+  fellowshipStart: Date | null;
+  contact: string;
+  description: string;
+  fellowshipDetails: FellowshipDetails;
+  fellow: People[];
+  url: URL;
+  applicationStop: Date | null;
+  fellowshipStop: Date | null;
+  image: Image;
+  member: Affiliation[];
+  publicationDate: Date | null;
+  summary: string;
+  files: File[];
+  gallery: Image[];
+  title: string;
+  video: Video[];
 }
 
 const defaultConfig: Model = {
@@ -50,18 +50,21 @@ const defaultConfig: Model = {
         rules: {},
         label: "duration",
         items: [],
+        multiple: true,
       },
       affiliation: {
         type: "Select",
         rules: {},
         label: "affiliation",
         items: [],
+        multiple: true,
       },
       discipline: {
         type: "Select",
         rules: {},
         label: "discipline",
         items: [],
+        multiple: true,
       },
     },
     sort: {
@@ -100,7 +103,7 @@ const defaultConfig: Model = {
       dense: {
         name: "dense",
         icon: "land-rows-horizontal",
-      }
+      },
     },
   },
   form: {
@@ -138,7 +141,7 @@ const defaultConfig: Model = {
       },
       meta: "affiliations", // item type on schema.org
     },
-    
+
     applicationStart: {
       label: "applicationStart",
       component: "DatePicker", //TODO
@@ -423,5 +426,5 @@ const defaultConfig: Model = {
       meta: "video",
     },
   },
-}
-export default defaultConfig
+};
+export default defaultConfig;

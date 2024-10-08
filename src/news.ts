@@ -1,25 +1,25 @@
-import { Image } from "./image"
-import Model from "./model"
-import { People } from "./people"
-import { RelatedEvent } from "./relatedEvents"
-import { RelatedProject } from "./relatedProject"
-import { Tag } from "./tags"
+import { Image } from "./image";
+import Model from "./model";
+import { People } from "./people";
+import { RelatedEvent } from "./relatedEvents";
+import { RelatedProject } from "./relatedProject";
+import { Tag } from "./tags";
 
 export interface News {
-  title: string
-  category: number
-  description: string
-  tags: Tag[]
-  image: Image
-  gallery: Image[]
-  color: string
-  url: URL
-  date: Date | null
-  featured: Date | null
-  relatedProject: RelatedProject[] | string[]
-  relatedEvents: RelatedEvent[] | string[]
-  people: People[]
-  files: File[]
+  title: string;
+  category: number;
+  description: string;
+  tags: Tag[];
+  image: Image;
+  gallery: Image[];
+  color: string;
+  url: URL;
+  date: Date | null;
+  featured: Date | null;
+  relatedProject: RelatedProject[] | string[];
+  relatedEvents: RelatedEvent[] | string[];
+  people: People[];
+  files: File[];
 }
 
 const defaultConfig: Model = {
@@ -38,12 +38,14 @@ const defaultConfig: Model = {
         rules: {},
         label: "tags",
         items: [],
+        multiple: true,
       },
       category: {
         type: "Select",
         rules: {},
         label: "category",
         items: [],
+        multiple: true,
       },
     },
     sort: {
@@ -69,7 +71,7 @@ const defaultConfig: Model = {
       dense: {
         name: "dense",
         icon: "land-rows-horizontal",
-      }
+      },
     },
   },
 
@@ -322,6 +324,6 @@ const defaultConfig: Model = {
       meta: "category", // item type on schema.org
     },
   },
-}
+};
 
-export default defaultConfig
+export default defaultConfig;

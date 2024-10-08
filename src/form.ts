@@ -29,4 +29,5 @@ export interface Form {
   visibility?: Visibility;
   meta?: string;
   items?: any;
+  multiple?: boolean;
 }

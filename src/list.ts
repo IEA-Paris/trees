@@ -9,6 +9,7 @@ interface Filters {
   label: string;
   items?: any;
   visibility?: Visibility;
+  multiple?: boolean;
 }
 
 export interface Sort {
