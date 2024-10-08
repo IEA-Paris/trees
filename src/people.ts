@@ -33,12 +33,11 @@ const defaultConfig: Model = {
       default: 9,
     },
     filters: {
-      category: {
+      categories: {
         type: "Select",
         rules: {},
         label: "category",
         items: [],
-        multiple: true,
       },
       vintage: {
         type: "Select",
