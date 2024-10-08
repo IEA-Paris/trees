@@ -46,7 +46,7 @@ const defaultConfig: Model = {
         items: [],
         visibility: {
           default: false, // same as hidden = true
-          switchIf: [{ category: "fellows" }], // array of conditions to switch the visibility, each condition will be assessed as a boolean
+          switchIf: [{ categories: "fellows" }], // array of conditions to switch the visibility, each condition will be assessed as a boolean
           disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
         },
         multiple: true,
@@ -58,7 +58,7 @@ const defaultConfig: Model = {
         items: [],
         visibility: {
           default: false, // same as hidden = true
-          switchIf: [{ category: "fellows" }], // array of conditions to switch the visibility, each condition will be assessed as a boolean
+          switchIf: [{ categories: "fellows" }], // array of conditions to switch the visibility, each condition will be assessed as a boolean
           disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
         },
         multiple: true,
@@ -70,7 +70,7 @@ const defaultConfig: Model = {
         items: [],
         visibility: {
           default: false, // same as hidden = true
-          switchIf: [{ category: "fellows" }], // array of conditions to switch the visibility, each condition will be assessed as a boolean
+          switchIf: [{ categories: "fellows" }], // array of conditions to switch the visibility, each condition will be assessed as a boolean
           disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
         },
         multiple: true,
@@ -82,7 +82,7 @@ const defaultConfig: Model = {
         items: [],
         visibility: {
           default: false, // same as hidden = true
-          switchIf: [{ category: "fellows" }], // array of conditions to switch the visibility, each condition will be assessed as a boolean
+          switchIf: [{ categories: "fellows" }], // array of conditions to switch the visibility, each condition will be assessed as a boolean
           disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
         },
         multiple: true,

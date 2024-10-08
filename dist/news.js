@@ -1352,13 +1352,15 @@ export default {
         "type": "AutoComplete",
         "rules": {},
         "label": "tags",
-        "items": []
+        "items": [],
+        "multiple": true
       },
       "category": {
         "type": "Select",
         "rules": {},
         "label": "category",
-        "items": []
+        "items": [],
+        "multiple": true
       }
     },
     "limit": 9,

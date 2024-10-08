@@ -2986,7 +2986,8 @@ export default {
         "type": "Select",
         "rules": {},
         "label": "category",
-        "items": []
+        "items": [],
+        "multiple": true
       },
       "past": {
         "type": "Checkbox",
@@ -3004,7 +3005,8 @@ export default {
         "type": "Select",
         "rules": {},
         "label": "organiserCategory",
-        "items": []
+        "items": [],
+        "multiple": true
       },
       "online": {
         "type": "Checkbox",
@@ -3016,13 +3018,15 @@ export default {
         "type": "AutoComplete",
         "rules": {},
         "label": "disciplines",
-        "items": []
+        "items": [],
+        "multiple": true
       },
       "fellowship": {
         "type": "AutoComplete",
         "rules": {},
         "label": "fellowship",
-        "items": []
+        "items": [],
+        "multiple": true
       }
     },
     "limit": 9,

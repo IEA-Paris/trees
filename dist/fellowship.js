@@ -1872,19 +1872,22 @@ export default {
         "type": "Select",
         "rules": {},
         "label": "duration",
-        "items": []
+        "items": [],
+        "multiple": true
       },
       "affiliation": {
         "type": "Select",
         "rules": {},
         "label": "affiliation",
-        "items": []
+        "items": [],
+        "multiple": true
       },
       "discipline": {
         "type": "Select",
         "rules": {},
         "label": "discipline",
-        "items": []
+        "items": [],
+        "multiple": true
       }
     },
     "limit": 9,

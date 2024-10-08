@@ -1265,7 +1265,7 @@ export default {
       "name": "rows"
     },
     "filters": {
-      "category": {
+      "categories": {
         "type": "Select",
         "rules": {},
         "label": "category",
@@ -1284,7 +1284,8 @@ export default {
             }
           ],
           "disjonctive": false
-        }
+        },
+        "multiple": true
       },
       "program": {
         "type": "Select",
@@ -1299,7 +1300,8 @@ export default {
             }
           ],
           "disjonctive": false
-        }
+        },
+        "multiple": true
       },
       "discipline": {
         "type": "Select",
@@ -1314,7 +1316,8 @@ export default {
             }
           ],
           "disjonctive": false
-        }
+        },
+        "multiple": true
       },
       "member": {
         "type": "Select",
@@ -1329,7 +1332,8 @@ export default {
             }
           ],
           "disjonctive": false
-        }
+        },
+        "multiple": true
       }
     },
     "limit": 9,
