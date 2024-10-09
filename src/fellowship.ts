@@ -5,11 +5,12 @@ import { FellowshipDetails } from "./fellowshipDetails";
 import { File } from "./files";
 import Model from "./model";
 import { Video } from "./video";
-
+import { Disciplines } from "./disciplines";
 export interface Fellowship {
   action: string;
   affiliations: Affiliation[]; // AKA members behind the fellowships
   applicationStart: Date | null;
+  disciplines: Disciplines[]; // 3 - Server & Client //Inside=> Presentation
   fellowshipStart: Date | null;
   contact: string;
   description: string;
@@ -23,6 +24,7 @@ export interface Fellowship {
   publicationDate: Date | null;
   summary: string;
   files: File[];
+  fellowshipType: Number;
   gallery: Image[];
   title: string;
   video: Video[];
@@ -214,6 +216,45 @@ const defaultConfig: Model = {
         disjonctive: false,
       },
       meta: "description",
+    },
+
+    disciplines: {
+      label: "disciplines",
+      component: "CollectionContainerPanel",
+      type: 3, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "disciplines",
+    },
+    fellowshipType: {
+      label: "fellowshipType",
+      component: "Select",
+      type: 0, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "fellowshipType",
     },
     fellowshipDetails: {
       label: "details",
