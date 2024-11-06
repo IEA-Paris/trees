@@ -300,6 +300,7 @@ export default {
         }
       },
       "relatedNews": "",
+      "relatedPublications": "",
       "relatedProject": "",
       "speakers": {
         "firstname": "",
@@ -709,6 +710,7 @@ export default {
         }
       },
       "relatedNews": "",
+      "relatedPublications": "",
       "relatedProject": "",
       "speakers": {
         "firstname": "",
@@ -2414,6 +2416,25 @@ export default {
         },
         "meta": "relatedNews"
       },
+      "relatedPublications": {
+        "label": "relatedPublications",
+        "component": "DocumentPicker",
+        "type": 4,
+        "default": "",
+        "description": "",
+        "hint": false,
+        "rules": {
+          "required": true,
+          "min": 5,
+          "max": 200
+        },
+        "visibility": {
+          "default": true,
+          "switchIf": [],
+          "disjonctive": false
+        },
+        "meta": "relatedPublications"
+      },
       "relatedProject": {
         "label": "relatedProject",
         "component": "DocumentPicker",
@@ -2933,6 +2954,10 @@ export default {
       "dense": {
         "name": "dense",
         "icon": "land-rows-horizontal"
+      },
+      "expanded": {
+        "name": "expanded",
+        "icon": "arrow-expand-vertical"
       }
     },
     "sort": {

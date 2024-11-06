@@ -29,6 +29,7 @@ export interface Event {
   location: Location; // 0 - Server & Client -
   organiserType: number; // server & client - 0 = IAS, 1 = member, 2 = fellow, 3 = external
   relatedProject?: string[]; // 0 - Server & Client -
+  relatedPublications?: string[]; // 0 - Server & Client -
   relatedNews?: string[]; // 0 - Server & Client -
   // slots?: EventSlot[]; //// 3 - Server
   speakers: People[]; // 3 - Server & Client -
@@ -150,6 +151,10 @@ const defaultConfig: Model = {
         name: "dense",
         icon: "land-rows-horizontal",
       },
+      expanded: {
+        name: "expanded",
+        icon: "arrow-expand-vertical",
+    },
     },
   },
 
@@ -517,6 +522,25 @@ const defaultConfig: Model = {
         disjonctive: false,
       },
       meta: "relatedNews",
+    },
+    relatedPublications: {
+      label: "relatedPublications",
+      component: "DocumentPicker",
+      type: 4, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "relatedPublications",
     },
     relatedProject: {
       label: "relatedProject",

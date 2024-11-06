@@ -1280,7 +1280,7 @@ export default {
           "default": false,
           "switchIf": [
             {
-              "category": "fellows"
+              "categories": "fellows"
             }
           ],
           "disjonctive": false
@@ -1296,7 +1296,7 @@ export default {
           "default": false,
           "switchIf": [
             {
-              "category": "fellows"
+              "categories": "fellows"
             }
           ],
           "disjonctive": false
@@ -1312,7 +1312,7 @@ export default {
           "default": false,
           "switchIf": [
             {
-              "category": "fellows"
+              "categories": "fellows"
             }
           ],
           "disjonctive": false
@@ -1328,7 +1328,7 @@ export default {
           "default": false,
           "switchIf": [
             {
-              "category": "fellows"
+              "categories": "fellows"
             }
           ],
           "disjonctive": false

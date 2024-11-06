@@ -34,6 +34,14 @@ export default {
       "fellowshipStart": "",
       "contact": "",
       "description": "",
+      "disciplines": {
+        "createdAt": "",
+        "description": "",
+        "icon": "",
+        "name": "",
+        "updatedAt": ""
+      },
+      "fellowshipType": "",
       "fellowshipDetails": {
         "type": false,
         "fundingPeriod": false,
@@ -220,6 +228,14 @@ export default {
       "fellowshipStart": "",
       "contact": "",
       "description": "",
+      "disciplines": {
+        "createdAt": "",
+        "description": "",
+        "icon": "",
+        "name": "",
+        "updatedAt": ""
+      },
+      "fellowshipType": "",
       "fellowshipDetails": {
         "type": false,
         "fundingPeriod": false,
@@ -571,6 +587,141 @@ export default {
           "disjonctive": false
         },
         "meta": "description"
+      },
+      "disciplines": {
+        "label": "disciplines",
+        "component": "CollectionContainerPanel",
+        "type": 3,
+        "default": "",
+        "description": "",
+        "hint": false,
+        "rules": {
+          "required": true,
+          "min": 5,
+          "max": 200
+        },
+        "visibility": {
+          "default": true,
+          "switchIf": [],
+          "disjonctive": false
+        },
+        "meta": "disciplines",
+        "items": {
+          "createdAt": {
+            "label": "createdAt",
+            "component": "TextField",
+            "type": 0,
+            "default": "",
+            "description": "",
+            "hint": false,
+            "rules": {
+              "required": true,
+              "min": 5,
+              "max": 200
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "createdAt"
+          },
+          "description": {
+            "label": "description",
+            "component": "TextField",
+            "type": 0,
+            "default": "",
+            "description": "",
+            "hint": false,
+            "rules": {
+              "required": true,
+              "min": 5,
+              "max": 200
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "description"
+          },
+          "icon": {
+            "label": "icon",
+            "component": "TextField",
+            "type": 0,
+            "default": "",
+            "description": "",
+            "hint": false,
+            "rules": {
+              "required": true,
+              "min": 5,
+              "max": 200
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "icon"
+          },
+          "name": {
+            "label": "name",
+            "component": "TextField",
+            "type": 0,
+            "default": "",
+            "description": "",
+            "hint": false,
+            "rules": {
+              "required": true,
+              "min": 5,
+              "max": 200
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "name"
+          },
+          "updatedAt": {
+            "label": "updatedAt",
+            "component": "TextField",
+            "type": 0,
+            "default": "",
+            "description": "",
+            "hint": false,
+            "rules": {
+              "required": true,
+              "min": 5,
+              "max": 200
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "updatedAt"
+          }
+        }
+      },
+      "fellowshipType": {
+        "label": "fellowshipType",
+        "component": "Select",
+        "type": 0,
+        "default": "",
+        "description": "",
+        "hint": false,
+        "rules": {
+          "required": true,
+          "min": 5,
+          "max": 200
+        },
+        "visibility": {
+          "default": true,
+          "switchIf": [],
+          "disjonctive": false
+        },
+        "meta": "fellowshipType"
       },
       "fellowshipDetails": {
         "label": "details",
