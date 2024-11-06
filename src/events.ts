@@ -5,6 +5,9 @@ import { Disciplines } from "./disciplines";
 import { Tag } from "./tags";
 import { People } from "./people";
 import { Affiliation } from "./affiliations";
+import { RelatedProject } from "./relatedProject";
+import { RelatedPublications } from "./relatedPublications";
+import { RelatedNews } from "./relatedNews";
 import { File } from "./files";
 import Model from "./model";
 
@@ -28,9 +31,9 @@ export interface Event {
   outside: boolean; // 0 - Server & Client -  // Near inscription
   location: Location; // 0 - Server & Client -
   organiserType: number; // server & client - 0 = IAS, 1 = member, 2 = fellow, 3 = external
-  relatedProject?: string[]; // 0 - Server & Client -
-  relatedPublications?: string[]; // 0 - Server & Client -
-  relatedNews?: string[]; // 0 - Server & Client -
+  relatedProject?: RelatedProject[] | string[]; // 0 - Server & Client -
+  relatedPublications?: RelatedPublications[] | string[]; // 0 - Server & Client -
+  relatedNews?: RelatedNews[] | string[]; // 0 - Server & Client -
   // slots?: EventSlot[]; //// 3 - Server
   speakers: People[]; // 3 - Server & Client -
   start: string; // 0 - Server & Client -   A verifier string ? string[]

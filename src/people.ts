@@ -7,6 +7,10 @@ import { Groups } from "./groups";
 import { Disciplines } from "./disciplines";
 import { Video } from "./video";
 import Model from "./model";
+import { RelatedProject } from "./relatedProject";
+import { RelatedEvent } from "./relatedEvents";
+import { RelatedPublications } from "./relatedPublications";
+import { RelatedNews } from "./relatedNews";
 
 export interface People {
   firstname: string;
@@ -19,6 +23,10 @@ export interface People {
   groups: Groups;
   lang: string;
   disciplines: Disciplines[];
+  relatedProject: RelatedProject[] | string[];
+  relatedEvents: RelatedEvent[] | string[];
+  relatedPublications: RelatedPublications[] | string[]
+  relatedNews: RelatedNews[] | string[]
   video: Video[];
 }
 
@@ -251,6 +259,77 @@ const defaultConfig: Model = {
         disjonctive: false,
       },
       meta: "biography",
+    },
+    relatedProject: {
+      label: "relatedProject",
+      component: "DocumentPicker",
+      type: 4, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        min: 1,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "relatedProject",
+    },
+    relatedPublications: {
+      label: "relatedPublications",
+      component: "DocumentPicker",
+      type: 4, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "relatedPublications",
+    },
+    relatedEvents: {
+      label: "relatedEvent",
+      component: "DocumentPicker",
+      type: 4, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {},
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "event",
+    },
+    relatedNews: {
+      label: "relatedNews",
+      component: "DocumentPicker",
+      type: 4, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "relatedNews",
     },
     consent: {
       label: "consent",

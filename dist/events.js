@@ -111,6 +111,10 @@ export default {
           "backgroundColor": ""
         },
         "biography": "",
+        "relatedProject": "",
+        "relatedPublications": "",
+        "relatedEvents": "",
+        "relatedNews": "",
         "consent": {
           "data": false,
           "record": false,
@@ -244,6 +248,10 @@ export default {
           "backgroundColor": ""
         },
         "biography": "",
+        "relatedProject": "",
+        "relatedPublications": "",
+        "relatedEvents": "",
+        "relatedNews": "",
         "consent": {
           "data": false,
           "record": false,
@@ -370,6 +378,10 @@ export default {
           "backgroundColor": ""
         },
         "biography": "",
+        "relatedProject": "",
+        "relatedPublications": "",
+        "relatedEvents": "",
+        "relatedNews": "",
         "consent": {
           "data": false,
           "record": false,
@@ -521,6 +533,10 @@ export default {
           "backgroundColor": ""
         },
         "biography": "",
+        "relatedProject": "",
+        "relatedPublications": "",
+        "relatedEvents": "",
+        "relatedNews": "",
         "consent": {
           "data": false,
           "record": false,
@@ -654,6 +670,10 @@ export default {
           "backgroundColor": ""
         },
         "biography": "",
+        "relatedProject": "",
+        "relatedPublications": "",
+        "relatedEvents": "",
+        "relatedNews": "",
         "consent": {
           "data": false,
           "record": false,
@@ -780,6 +800,10 @@ export default {
           "backgroundColor": ""
         },
         "biography": "",
+        "relatedProject": "",
+        "relatedPublications": "",
+        "relatedEvents": "",
+        "relatedNews": "",
         "consent": {
           "data": false,
           "record": false,
@@ -1307,6 +1331,77 @@ export default {
               "disjonctive": false
             },
             "meta": "biography"
+          },
+          "relatedProject": {
+            "label": "relatedProject",
+            "component": "DocumentPicker",
+            "type": 4,
+            "default": "",
+            "description": "",
+            "hint": false,
+            "rules": {
+              "required": true,
+              "min": 1
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "relatedProject"
+          },
+          "relatedPublications": {
+            "label": "relatedPublications",
+            "component": "DocumentPicker",
+            "type": 4,
+            "default": "",
+            "description": "",
+            "hint": false,
+            "rules": {
+              "required": true,
+              "min": 5,
+              "max": 200
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "relatedPublications"
+          },
+          "relatedEvents": {
+            "label": "relatedEvent",
+            "component": "DocumentPicker",
+            "type": 4,
+            "default": "",
+            "description": "",
+            "hint": false,
+            "rules": {},
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "event"
+          },
+          "relatedNews": {
+            "label": "relatedNews",
+            "component": "DocumentPicker",
+            "type": 4,
+            "default": "",
+            "description": "",
+            "hint": false,
+            "rules": {
+              "required": true,
+              "min": 5,
+              "max": 200
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "relatedNews"
           },
           "consent": {
             "label": "consent",
@@ -2606,6 +2701,77 @@ export default {
               "disjonctive": false
             },
             "meta": "biography"
+          },
+          "relatedProject": {
+            "label": "relatedProject",
+            "component": "DocumentPicker",
+            "type": 4,
+            "default": "",
+            "description": "",
+            "hint": false,
+            "rules": {
+              "required": true,
+              "min": 1
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "relatedProject"
+          },
+          "relatedPublications": {
+            "label": "relatedPublications",
+            "component": "DocumentPicker",
+            "type": 4,
+            "default": "",
+            "description": "",
+            "hint": false,
+            "rules": {
+              "required": true,
+              "min": 5,
+              "max": 200
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "relatedPublications"
+          },
+          "relatedEvents": {
+            "label": "relatedEvent",
+            "component": "DocumentPicker",
+            "type": 4,
+            "default": "",
+            "description": "",
+            "hint": false,
+            "rules": {},
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "event"
+          },
+          "relatedNews": {
+            "label": "relatedNews",
+            "component": "DocumentPicker",
+            "type": 4,
+            "default": "",
+            "description": "",
+            "hint": false,
+            "rules": {
+              "required": true,
+              "min": 5,
+              "max": 200
+            },
+            "visibility": {
+              "default": true,
+              "switchIf": [],
+              "disjonctive": false
+            },
+            "meta": "relatedNews"
           },
           "consent": {
             "label": "consent",

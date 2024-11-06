@@ -227,7 +227,7 @@ const createModule = (type: string): any => {
   createJsonFile(type, module);
 };
 
-const typeName = ["fellowship", "project", "events", "news", "people"];
+const typeName = ["fellowship", "project", "events", "news", "people", "publications"];
 typeName.map((type) => {
   createModule(type);
 });

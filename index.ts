@@ -3,6 +3,7 @@ import news from "./dist/news"
 import people from "./dist/people"
 import project from "./dist/project"
 import fellowship from "./dist/fellowship"
+import publications from "./dist/publications"
 import { ModuleType } from "./lib/generate"
 import Model from "./src/model"
 import { Sort, Views } from "./src/list"
@@ -19,6 +20,7 @@ import defaultConfigRelatedPeople from "./src/relatedPeople"
 import defaultConfigEventSlot, { EventSlotForm } from "./src/eventSlot"
 import defaultConfigFellow from "./src/fellow"
 import defaultConfigFellowship from "./src/fellowship"
+import defaultConfigPublications from "./src/publications"
 import defaultConfigFellowshipDetails, {
   FellowshipDetailsForm,
 } from "./src/fellowshipDetails"
@@ -36,6 +38,7 @@ import defaultConfigPeople from "./src/people"
 import defaultConfigPosition, { PositionForm } from "./src/position"
 import defaultConfigProject from "./src/project"
 import defaultConfigRelatedEvents from "./src/relatedEvents"
+import defaultConfigRelatedPublications from "./src/relatedPublications"
 import defaultConfigRelatedNews from "./src/relatedNews"
 import defaultConfigRelatedProject from "./src/relatedProject"
 import defaultConfigSocials, { SocialsForm } from "./src/socials"
@@ -81,9 +84,11 @@ const configData: Record<string, ConfigValue> = {
   people: defaultConfigPeople,
   position: defaultConfigPosition,
   project: defaultConfigProject,
+  publications: defaultConfigPublications,
   relatedEvents: defaultConfigRelatedEvents,
   relatedNews: defaultConfigRelatedNews,
   relatedProject: defaultConfigRelatedProject,
+  relatedPublications: defaultConfigRelatedPublications,
   socials: defaultConfigSocials,
   speakers: defaultConfigSpeakers,
   sponsor: defaultConfigSponsor,
@@ -93,5 +98,5 @@ const configData: Record<string, ConfigValue> = {
   relatedPeople: defaultConfigRelatedPeople,
 }
 
-export { configData, events, news, people, project, fellowship }
+export { configData, events, news, people, project, fellowship, publications }
 export type { Form, Sort, Views, ConfigValue, Model, ModuleType }

@@ -3,6 +3,7 @@ import Model from "./model";
 import { People } from "./people";
 import { RelatedEvent } from "./relatedEvents";
 import { RelatedProject } from "./relatedProject";
+import { RelatedPublications } from "./relatedPublications";
 import { Tag } from "./tags";
 
 export interface News {
@@ -18,6 +19,7 @@ export interface News {
   featured: Date | null;
   relatedProject: RelatedProject[] | string[];
   relatedEvents: RelatedEvent[] | string[];
+  relatedPublications: RelatedPublications[] | string[]
   people: People[];
   files: File[];
 }
@@ -275,6 +277,25 @@ const defaultConfig: Model = {
         disjonctive: false,
       },
       meta: "relatedProject",
+    },
+    relatedPublications: {
+      label: "relatedPublications",
+      component: "DocumentPicker",
+      type: 4, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
+      },
+      meta: "relatedPublications",
     },
     relatedEvents: {
       label: "relatedEvent",

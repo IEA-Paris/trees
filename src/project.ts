@@ -5,6 +5,7 @@ import { Video } from "./video"
 import Model from "./model"
 import { RelatedEvent } from "./relatedEvents"
 import { RelatedNews } from "./relatedNews"
+import { RelatedPublications } from "./relatedPublications"
 import { Tag } from "./tags"
 
 export interface Project {
@@ -14,6 +15,7 @@ export interface Project {
   url: URL
   affiliations: Affiliation[]
   relatedEvents: RelatedEvent[] | string[]
+  relatedPublications: RelatedPublications[] | string[]
   relatedNews: RelatedNews[] | string[]
   gallery: Image[]
   image: Image
