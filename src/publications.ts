@@ -77,6 +77,10 @@ const defaultConfig: Model = {
         icon: "view-list",
         default: true,
       },
+      expanded: {
+        name: "expanded",
+        icon: "arrow-expand-vertical",
+      },
     },
   },
   form: {
@@ -205,20 +209,20 @@ const defaultConfig: Model = {
       meta: "relatedNews",
     },
     relatedProject: {
-        label: "relatedProject",
-        component: "DocumentPicker",
-        type: 4, //
-        default: "",
-        description: "",
-        hint: false,
-        rules: {},
-        visibility: {
-          default: true,
-          switchIf: [],
-          disjonctive: false,
-        },
-        meta: "relatedProject",
+      label: "relatedProject",
+      component: "DocumentPicker",
+      type: 4, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {},
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
       },
+      meta: "relatedProject",
+    },
     image: {
       label: "image",
       component: "ObjectContainerPanel",

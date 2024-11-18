@@ -1,33 +1,33 @@
-import { Affiliation } from "./affiliations";
-import { Image } from "./image";
-import { Socials } from "./socials";
-import { Position } from "./position";
-import { Consent } from "./consent";
-import { Groups } from "./groups";
-import { Disciplines } from "./disciplines";
-import { Video } from "./video";
-import Model from "./model";
-import { RelatedProject } from "./relatedProject";
-import { RelatedEvent } from "./relatedEvents";
-import { RelatedPublications } from "./relatedPublications";
-import { RelatedNews } from "./relatedNews";
+import { Affiliation } from "./affiliations"
+import { Image } from "./image"
+import { Socials } from "./socials"
+import { Position } from "./position"
+import { Consent } from "./consent"
+import { Groups } from "./groups"
+import { Disciplines } from "./disciplines"
+import { Video } from "./video"
+import Model from "./model"
+import { RelatedProject } from "./relatedProject"
+import { RelatedEvent } from "./relatedEvents"
+import { RelatedPublications } from "./relatedPublications"
+import { RelatedNews } from "./relatedNews"
 
 export interface People {
-  firstname: string;
-  lastname: string;
-  affiliations: [{ affiliation: Affiliation; positions: [Position] }];
-  image: Image;
-  socials: Socials;
-  biography: string;
-  consent: Consent;
-  groups: Groups;
-  lang: string;
-  disciplines: Disciplines[];
-  relatedProject: RelatedProject[] | string[];
-  relatedEvents: RelatedEvent[] | string[];
+  firstname: string
+  lastname: string
+  affiliations: [{ affiliation: Affiliation; positions: [Position] }]
+  image: Image
+  socials: Socials
+  biography: string
+  consent: Consent
+  groups: Groups
+  lang: string
+  disciplines: Disciplines[]
+  relatedProject: RelatedProject[] | string[]
+  relatedEvents: RelatedEvent[] | string[]
   relatedPublications: RelatedPublications[] | string[]
   relatedNews: RelatedNews[] | string[]
-  video: Video[];
+  video: Video[]
 }
 
 const defaultConfig: Model = {
@@ -120,6 +120,10 @@ const defaultConfig: Model = {
       dense: {
         name: "dense",
         icon: "land-rows-horizontal",
+      },
+      expanded: {
+        name: "expanded",
+        icon: "arrow-expand-vertical",
       },
     },
   },
@@ -383,6 +387,6 @@ const defaultConfig: Model = {
       meta: "lang",
     },
   },
-};
+}
 
-export default defaultConfig;
+export default defaultConfig

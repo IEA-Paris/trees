@@ -78,6 +78,10 @@ const defaultConfig: Model = {
         icon: "view-list",
         default: true,
       },
+      expanded: {
+        name: "expanded",
+        icon: "arrow-expand-vertical",
+      },
     },
   },
   form: {
