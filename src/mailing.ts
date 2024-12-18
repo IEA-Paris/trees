@@ -1,12 +1,12 @@
-import { Form } from "./form";
-import Model from "./model";
+import { Form } from "./form"
+import Model from "./model"
 
 export interface Mailing {
-  title: string;
-  description: string;
-  createdAt: string;
-  updatedAt: string;
-  date: Date | null;
+  name: string
+  description: string
+  createdAt: string
+  updatedAt: string
+  date: Date | null
 }
 
 const defaultConfig: Model = {
@@ -76,8 +76,8 @@ const defaultConfig: Model = {
   },
 
   form: {
-    title: {
-      label: "title",
+    name: {
+      label: "name",
       component: "TextField",
       type: 0, //
       default: "",
@@ -93,7 +93,7 @@ const defaultConfig: Model = {
         switchIf: [],
         disjonctive: false,
       },
-      meta: "title",
+      meta: "name",
     },
     description: {
       label: "description",
@@ -174,6 +174,6 @@ const defaultConfig: Model = {
       meta: "date",
     },
   },
-};
+}
 
-export default defaultConfig;
+export default defaultConfig

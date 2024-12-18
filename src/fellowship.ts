@@ -26,7 +26,7 @@ export interface Fellowship {
   files: File[]
   fellowshipType: Number
   gallery: Image[]
-  title: string
+  name: string
   video: Video[]
 }
 
@@ -434,8 +434,8 @@ const defaultConfig: Model = {
       },
       meta: "files",
     },
-    title: {
-      label: "title",
+    name: {
+      label: "name",
       component: "TextField",
       type: 0, //
       default: "",
@@ -451,7 +451,7 @@ const defaultConfig: Model = {
         switchIf: [],
         disjonctive: false,
       },
-      meta: "title",
+      meta: "name",
     },
     video: {
       label: "video",

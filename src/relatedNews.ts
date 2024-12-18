@@ -2,7 +2,7 @@ import { Image } from "./image"
 import Model from "./model"
 
 export interface RelatedNews {
-  title: string
+  name: string
   description: string
   image: Image
   color: string
@@ -75,8 +75,8 @@ const defaultConfig: Model = {
   },
 
   form: {
-    title: {
-      label: "title",
+    name: {
+      label: "name",
       component: "TextField",
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",
@@ -92,7 +92,7 @@ const defaultConfig: Model = {
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
         disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
       },
-      meta: "title", // item type on schema.org
+      meta: "name", // item type on schema.org
     },
 
     description: {
