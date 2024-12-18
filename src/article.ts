@@ -6,7 +6,7 @@ import { Tag } from "./tags"
 import Model from "./model"
 // define format from set of articles formats offered by PIAS (i.e. Zenodo api)
 export interface Article {
-  title: string
+  name: string
   abstract: string
   image: Image
   video: Video
@@ -86,8 +86,8 @@ const defautConfig: Model = {
     },
   },
   form: {
-    title: {
-      label: "title",
+    name: {
+      label: "name",
       component: "TextField",
       type: 0, //
       default: "",
@@ -103,7 +103,7 @@ const defautConfig: Model = {
         switchIf: [],
         disjonctive: false,
       },
-      meta: "title",
+      meta: "name",
     },
     abstract: {
       label: "abstract",

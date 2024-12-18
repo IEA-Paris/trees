@@ -9,7 +9,7 @@ import { RelatedPublications } from "./relatedPublications"
 import { Tag } from "./tags"
 
 export interface Project {
-  title: string
+  name: string
   subtitle: string
   description: string
   url: URL
@@ -85,8 +85,8 @@ const defaultConfig: Model = {
     },
   },
   form: {
-    title: {
-      label: "title",
+    name: {
+      label: "name",
       component: "TextField",
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",

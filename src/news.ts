@@ -1,27 +1,27 @@
-import { Image } from "./image";
-import Model from "./model";
-import { People } from "./people";
-import { RelatedEvent } from "./relatedEvents";
-import { RelatedProject } from "./relatedProject";
-import { RelatedPublications } from "./relatedPublications";
-import { Tag } from "./tags";
+import { Image } from "./image"
+import Model from "./model"
+import { People } from "./people"
+import { RelatedEvent } from "./relatedEvents"
+import { RelatedProject } from "./relatedProject"
+import { RelatedPublications } from "./relatedPublications"
+import { Tag } from "./tags"
 
 export interface News {
-  title: string;
-  category: number;
-  description: string;
-  tags: Tag[];
-  image: Image;
-  gallery: Image[];
-  color: string;
-  url: URL;
-  date: Date | null;
-  featured: Date | null;
-  relatedProject: RelatedProject[] | string[];
-  relatedEvents: RelatedEvent[] | string[];
+  name: string
+  category: number
+  description: string
+  tags: Tag[]
+  image: Image
+  gallery: Image[]
+  color: string
+  url: URL
+  date: Date | null
+  featured: Date | null
+  relatedProject: RelatedProject[] | string[]
+  relatedEvents: RelatedEvent[] | string[]
   relatedPublications: RelatedPublications[] | string[]
-  people: People[];
-  files: File[];
+  people: People[]
+  files: File[]
 }
 
 const defaultConfig: Model = {
@@ -77,13 +77,13 @@ const defaultConfig: Model = {
       expanded: {
         name: "expanded",
         icon: "arrow-expand-vertical",
+      },
     },
   },
-},
 
   form: {
-    title: {
-      label: "title",
+    name: {
+      label: "name",
       component: "TextField",
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",
@@ -99,7 +99,7 @@ const defaultConfig: Model = {
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
         disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
       },
-      meta: "title", // item type on schema.org
+      meta: "name", // item type on schema.org
     },
 
     description: {
@@ -349,6 +349,6 @@ const defaultConfig: Model = {
       meta: "category", // item type on schema.org
     },
   },
-};
+}
 
-export default defaultConfig;
+export default defaultConfig

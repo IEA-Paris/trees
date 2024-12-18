@@ -9,7 +9,7 @@ import { RelatedProject } from "./relatedProject"
 import { Tag } from "./tags"
 
 export interface Publications {
-  title: string
+  name: string
   subtitle: string
   description: string
   url: URL
@@ -50,13 +50,13 @@ const defaultConfig: Model = {
         // by name from a to z
         icon: "sort-alphabetical-ascending",
         text: "by-name-from-a-to-z",
-        value: ["title", 1],
+        value: ["name", 1],
       },
       namedesc: {
         // by name from z to a
         icon: "sort-alphabetical-descending",
         text: "by-name-from-z-to-a",
-        value: ["title", -1],
+        value: ["name", -1],
       },
       dateasc: {
         // by date from most recent to oldest
@@ -84,8 +84,8 @@ const defaultConfig: Model = {
     },
   },
   form: {
-    title: {
-      label: "title",
+    name: {
+      label: "name",
       component: "TextField",
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",
@@ -101,7 +101,7 @@ const defaultConfig: Model = {
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
         disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
       },
-      meta: "title", // item type on schema.org
+      meta: "name", // item type on schema.org
     },
     subtitle: {
       label: "subtitle",

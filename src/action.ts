@@ -5,7 +5,7 @@ export interface Action {
   color: string
   link: string
   image: Image
-  title: string
+  name: string
   video: URL
   slots: string[]
 }
@@ -76,12 +76,12 @@ const defaultConfig: Model = {
   },
 
   form: {
-    title: {
-      label: "title",
+    name: {
+      label: "name",
       type: 0,
       component: "TextField",
       default: "",
-      description: "The title of the ad",
+      description: "The name of the ad",
       hint: false,
       rules: {
         required: true,
@@ -93,7 +93,7 @@ const defaultConfig: Model = {
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
         disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
       },
-      meta: "title", // item type on schema.org
+      meta: "name", // item type on schema.org
     },
     image: {
       label: "image",
