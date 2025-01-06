@@ -1,4 +1,4 @@
-import { configData, Form, Model, Sort, Views } from "../index.ts"
+import { configData, Form, Model, Sort, Views } from "../src/index.ts"
 import { createJsonFile } from "./utils.ts"
 
 interface List {
