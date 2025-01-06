@@ -10,7 +10,7 @@ export interface Disciplines {
 
 const configDefault: Model = {
   source: "md",
-  type: null, // 'directory' | 'file'
+  type: "file", // 'directory' | 'file'
   path: null, // path to the folder where the content is stored
   list: {
     create: true, // allow to create new items
