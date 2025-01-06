@@ -1,83 +1,206 @@
-// produced with the following command from the src folder level:
-// > grep -rPzo "(interface\s+\w+\s+{[^}]*})" . --include \*.ts > interfaces.txt
 
-./location.ts:interface Location {
-  name: string;
-  details: string; // natural language description of the location
-  alt: string;
-  street: string;
-  city: string;
-  country: string;
-  zip: number;
-  geocode: {
-    lat: number;
-    lng: number;
-  }
-  ./location.ts:interface LocationForm {
-  form: Record<string, Form>;
-}
-./relatedNews.ts:interface RelatedNews {
+grep -rPzo "(interface\s+\w+\s+{[^}]*})" . --include \*.ts > interfaces.txt
+./publications.ts:interface Publications {
   title: string
-  description: string
-  image: Image
-  color: string
+  subtitle?: string
+  description?: string
+  url?: URL
+  affiliations?: Affiliation[]
+  relatedEvents?: RelatedEvent[] | string[]
+  relatedNews?: RelatedNews[] | string[]
+  relatedProjects?: RelatedProject[] | string[]
+  gallery?: Image[]
+  image?: Image
+  video?: Video
+  tags?: Tag[]
+  files?: File[]
+  color?: string
+  date?: Date
+}./article.ts:interface Article {
+  title: string
+  abstract: string
+  image?: Image
+  video?: Video
+  needDOI: boolean
+  DOI?: string
+  Zid?: string
+  highlight: boolean
+  date?: Date
+  authors: People[]
+  issue?: string
+  lang: string
+  disciplines?: Discipline[]
+  //format: Format[]
+  tag?: Tag[]
+}
+
+./files.ts:interface File {
+  name: string
   url: URL
-  date: Date | null
-  // authors: People[];
-  featured: Date | null
+  size: number
+  fileType: string
+  hash: string
+  path: string
+  file: string
+  image?: string
+  thumb: URL
+  createdAt: Date
+  updatedAt: Date
+  id: string
 }
-./events.ts:interface Event {
-  affiliations: Affiliation[]; // 3 - Server & Client - //Bottom left Document
-  appId: string; // 0 - Server & Client -
-  availableSlots: number; // 0 - Server & Client - ? => Claire
-  bookingState: number; // 0 - Server & Client -
-  category: number; // 0 - Server & Client -
-  createdAt: Date | null; // 0 - Server & Client -
-  delay: number; // 0 - Server & Client -
-  description: string; // 0 - Server & Client -
-  disciplines: Discipline[]; // 3 - Server & Client //Inside=> Presentation
-  discussants: People[]; // 0 - Server & Client -
-  files: File[]; // 3 - Server & Client -
-  image: Image; // 3 - Server & Client -
-  name: string; // 0 - Server & Client -
-  eventSlot?: EventSlot[]; //// 3 - Server -
-  organizers: People[] | Affiliation[]; // 3 - Server & Client -
-  outside: boolean; // 0 - Server & Client -  // Near inscription
-  location: Location; // 0 - Server & Client -
-  relatedProject?: string[]; // 0 - Server & Client -
-  relatedNews?: string[]; // 0 - Server & Client -
-  // slots?: EventSlot[]; //// 3 - Server
-  speakers: People[]; // 3 - Server & Client -
-  start: string; // 0 - Server & Client -   A verifier string ? string[]
-  state: number; // 0 - Server & Client -
-  stop: string; // 0 - Server & Client - A verifier string ? string[]
-  stream: string | null; // 0 - Server & Client -
-  subtitle: string; // 0 - Server &
-  summary: string; // 0 - Server & Client -
-  tags: Tag[]; // 3 - Server & Client - Inside=> Presentation
-  totalSlots: number; // 0 - Server & Client
-  eventType: number; // 0 : online, 1: physical, 2: hybrid// 0 - Server & Client -
-  updatedAt: Date | null; // 0 - Server & Client -
-  url: URL; // 0 - Server & Client -
+
+./news.ts:interface News {
+  title: string
+  category?: number
+  description?: string
+  tags?: Tag[]
+  image?: Image
+  gallery?: Image[]
+  color?: string
+  url?: URL
+  date?: Date
+  featured?: Date
+  relatedProject?: RelatedProject[] | string[]
+  relatedEvents?: RelatedEvent[] | string[]
+  relatedPublications?: RelatedPublications[] | string[]
+  people?: People[]
+  files?: File[]
 }
-./eventSlot.ts:interface EventSlot {
-  email: string;
-  firstname: string;
-  institution: string;
-  lang: string;
-  lastname: string;
+
+./groups.ts:interface Groups {
+  team?: boolean
+  sab?: boolean
+  board?: boolean
+  fellow?: boolean
+  sponsor?: boolean
+  vintage?: Vintage[]
 }
-./people.ts:interface People {
-  firstname: string
-  lastname: string
-  affiliations: [{ affiliation: Affiliation; positions: [Position] }
+
+./groups.ts:interface GroupsForm {
+  form: Record<string, Form>
+}
 
 ./vintage.ts:interface Vintage {
-  name: string;
-  year: number;
-  theme: string;
-  url?: URL;
+  name: string
+  year: number
+  theme?: string
+  url?: URL
 }
+
+./form.ts:interface Rules {
+  required?: boolean;
+  min?: number;
+  max?: number;
+  url?: boolean;
+  color?: boolean;
+  ror?: boolean;
+  DOI?: boolean;
+  date?: boolean;
+  email?: boolean;
+  digit?: boolean;
+  orcid?: boolean;
+}
+
+./form.ts:interface Visibility {
+  default?: boolean;
+  switchIf?: any[];
+  disjonctive?: boolean;
+}
+
+./form.ts:interface Form {
+  type: number;
+  component: string | boolean;
+  label: string;
+  default?: any;
+  description?: string;
+  hint?: string | boolean;
+  rules?: Rules;
+  visibility?: Visibility;
+  meta?: string;
+  items?: any;
+  multiple?: boolean;
+}
+
+./relatedProject.ts:interface RelatedProject {
+  title: string
+  shortDescription?: string
+  description?: string
+  url: URL
+  image?: Image
+  video?: Video
+  color?: string
+  date?: Date
+}
+
+./fellowshipDetails.ts:interface FellowshipDetails {
+  type?: string //en groupe, durée courte ou longue, etc.
+  fundingPeriod?: string // Dates et détails temporels
+  profile?: string // profile, CV, disciplines, expérience, origine
+  tasks?: string // obligations type conférences, publications, attendance -seminaire, bureau
+  location?: string // texte court sur l’emplacement IEA avec lien vers page dédiée
+  funding?: string // texte sur la bourse, minimal
+  housing?: string // texte court sur logement avec lien page dédiée CIUP
+  meals?: string // texte court repas, forfait, annulations…
+  applicationMaterials?: string // liste des éléments à fournir
+  selectionProcess?: string // Dates, arbitrages, etc.
+  researchSupport?: string // cf les moyens de la recherche
+}
+
+./fellowshipDetails.ts:interface FellowshipDetailsForm {
+  form: Record<string, Form>
+}
+
+./mailing.ts:interface Mailing {
+  title: string
+  description?: string
+  createdAt: string
+  updatedAt: string
+  date: Date
+}
+
+./model.ts:interface Model {
+  queryFilters?: any
+  aliases?: string[]
+  source: string
+  path?: string
+  type: string
+  list: List
+  form?: Record<string, Form>
+}
+
+./relatedPublications.ts:interface RelatedPublications {
+  title: string
+  shortDescription?: string
+  description?: string
+  url: URL
+  image?: Image
+  video?: Video
+  color?: string
+  date?: Date
+}
+
+./relatedPeople.ts:interface RelatedPeople {
+  firstname: string
+  lastname: string
+  image?: Image
+}
+
+./app.ts:interface App {
+  name: string
+  logo?: Image
+}
+
+./position.ts:interface Position {
+  role: string
+  department?: string
+  start?: Date
+  stop?: Date
+}
+
+./position.ts:interface PositionForm {
+  form: Record<string, Form>
+}
+
 ./consent.ts:interface Consent {
   //data consent (display info about me)
   data: boolean;
@@ -94,139 +217,253 @@
   // news about IEA fellowship
   fellowshipnewsletter: boolean;
 }
-./groups.ts:interface Groups {
-  team: boolean;
-  sab: boolean;
-  board: boolean;
-  fellow: boolean;
-  sponsor: boolean;
-  vintage: Vintage[];
+
+./consent.ts:interface ConsentForm {
+  form: Record<string, Form>;
 }
-./relatedProject.ts:interface RelatedProject {
-  title: string
-  shortDescription: string
+
+./affiliations.ts:interface Affiliation {
+  location?: Location
+  image?: Image
+  name: string
+  ror?: string
+  url?: string
+}
+
+./disciplines.ts:interface Disciplines {
+  createdAt: Date
   description: string
-  url: URL
-  image: Image
-  video: Video
-  color: string
-  date: Date | null
+  icon: string
+  name: string
+  updatedAt: Date
 }
-./relatedPeople.ts:interface RelatedPeople {
-  firstname: string
-  lastname: string
-  image: Image
+
+./list.ts:interface PerPage {
+  options: number[];
+  default: number;
 }
+
+./list.ts:interface Filters {
+  type: string;
+  rules?: Record<string, any>;
+  label: string;
+  items?: any;
+  visibility?: Visibility;
+  multiple?: boolean;
+}
+
+./list.ts:interface Sort {
+  icon: string;
+  text: string;
+  value: [string, number];
+  default?: boolean;
+}
+
+./list.ts:interface Views {
+  icon: string;
+  default?: boolean;
+  name?: string;
+}
+
+./list.ts:interface List {
+  create: boolean;
+  perPage: PerPage;
+  filters: Record<string, Filters>;
+  sort: Record<string, Sort>;
+  views: Record<string, Views>;
+}
+
+./socials.ts:interface Socials {
+  website?: URL
+  wikipedia?: URL
+  orcid?: string
+  linkedin?: URL
+  twitter?: URL
+  instagram?: URL
+  scholar?: URL
+  researchgate?: URL
+  mendeley?: URL
+  idRef?: number
+}
+
+./socials.ts:interface SocialsForm {
+  form: Record<string, Form>
+}
+
 ./relatedEvents.ts:interface RelatedEvent {
   bookingState: number // 0 - Server & Client -
-  createdAt: Date | null // 0 - Server & Client -
-  description: string // 0 - Server & Client -
-  image: Image // 3 - Server & Client -
+  createdAt: Date // 0 - Server & Client -
+  description?: string // 0 - Server & Client -
+  image?: Image // 3 - Server & Client -
   name: string // 0 - Server & Client -
-  outside: boolean // 0 - Server & Client -
-  start: string // 0 - Server & Client -
+  outside?: boolean // 0 - Server & Client -
+  start?: string // 0 - Server & Client -
   state: number // 0 - Server & Client -
-  summary: string // 0 - Server & Client -
+  summary?: string // 0 - Server & Client -
   eventType: number // 0 : online, 1: physical, 2: hybrid// 0 - Server & Client -
   url: URL // 0 - Server & Client -
 }
-./video.ts:interface Video {
-  url: URL
-  alt: string | null
-  caption: string | null
-  copyright: string
-  license: string | null
-  licenseUrl: string | null
-  backgroundColor: string | null
+
+./tags.ts:interface Tag {
+  name: string
+  description?: string
+  icon?: string
+  createdAt?: Date
+  updatedAt?: Date
 }
-./news.ts:interface News {
+
+./location.ts:interface Location {
+  name: string
+  details?: string // natural language description of the location
+  alt?: string
+  street?: string
+  city?: string
+  country?: string
+  zip?: number
+  geocode?: {
+    lat: number
+    lng: number
+  }
+
+./location.ts:interface LocationForm {
+  form: Record<string, Form>
+}
+
+./relatedNews.ts:interface RelatedNews {
   title: string
-  description: string
-  tags: Tag[]
-  image: Image
-  color: string
+  description?: string
+  image?: Image
+  color?: string
   url: URL
-  date: Date | null
-  featured: Date | null
-  relatedProject: RelatedProject[] | string[]
-  relatedEvents: RelatedEvent[] | string[]
-  people: People[]
+  date?: Date
+  // authors: People[];
+  featured?: Date
 }
-./affiliations.ts:interface Affiliation {
-  location: Location;
-  image: Image;
-  name: string;
-  // TODO move the application socials in a dedicated ApplicationSocials model
-  ror: string;
-  url: string;
-  isni: string; //https://www.bnf.fr/fr/isni-international-standard-name-identifier
-  ofr: string; // https://www.crossref.org/services/funder-registry/
-}
-./image.ts:interface Image {
-  url: URL
-  alt: string | null
-  caption: string | null
-  copyright: string
-  license: string | null
-  licenseUrl: string | null
-  backgroundColor: string | null
-}
+
 ./action.ts:interface Action {
-  color: string
+  color?: string
   link: string
   image: Image
   title: string
-  video: URL
+  video?: URL
   slots: string[]
 }
-./disciplines.ts:interface Discipline {
-  createdAt: string
+
+./image.ts:interface Image {
+  url: URL
+  alt?: string
+  caption?: string
+  copyright?: string
+  license?: string
+  licenseUrl?: string
+  backgroundColor?: string
+}
+
+./events.ts:interface Event {
+  affiliations?: Affiliation[] // 3 - Server & Client - //Bottom left Document
+  appId: string // 0 - Server & Client -
+  availableSlots: number // 0 - Server & Client - ? => Claire
+  bookingState: number // 0 - Server & Client -
+  category: number // 0 - Server & Client -
+  createdAt?: Date // 0 - Server & Client -
+  delay?: number // 0 - Server & Client -
+  description: string // 0 - Server & Client -
+  disciplines?: Disciplines[] // 3 - Server & Client //Inside=> Presentation
+  discussants?: People[] // 0 - Server & Client -
+  files?: File[] // 3 - Server & Client -
+  image?: Image // 3 - Server & Client -
+  gallery?: Image[]
+  name: string // 0 - Server & Client -
+  eventSlot?: EventSlot[] //// 3 - Server -
+  organizers: People[] | Affiliation[] // 3 - Server & Client -
+  outside: boolean // 0 - Server & Client -  // Near inscription
+  location: Location // 0 - Server & Client -
+  organiserType: number // server & client - 0 = IAS, 1 = member, 2 = fellow, 3 = external
+  relatedProject?: RelatedProject[] | string[] // 0 - Server & Client -
+  relatedPublications?: RelatedPublications[] | string[] // 0 - Server & Client -
+  relatedNews?: RelatedNews[] | string[] // 0 - Server & Client -
+  // slots?: EventSlot[]; //// 3 - Server
+  speakers?: People[] // 3 - Server & Client -
+  start: string // 0 - Server & Client -   A verifier string ? string[]
+  state: number // 0 - Server & Client -
+  stop: string // 0 - Server & Client - A verifier string ? string[]
+  stream?: string // 0 - Server & Client -
+  subtitle?: string // 0 - Server &
+  summary?: string // 0 - Server & Client -
+  tags?: Tag[] // 3 - Server & Client - Inside=> Presentation
+  totalSlots: number // 0 - Server & Client
+  eventType: number // 0 : online, 1: physical, 2: hybrid// 0 - Server & Client -
+  updatedAt: Date // 0 - Server & Client -
+  url?: URL // 0 - Server & Client -
+}
+
+./people.ts:interface People {
+  firstname: string
+  lastname: string
+  affiliations?: [{ affiliation: Affiliation; positions: [Position] }
+
+./eventSlot.ts:interface EventSlot {
+  email: string
+  firstname: string
+  institution?: string
+  lang: string
+  lastname: string
+}
+
+./eventSlot.ts:interface EventSlotForm {
+  form: Record<string, Form>
+}
+
+./video.ts:interface Video {
+  url: URL
+  alt?: string
+  caption?: string
+  copyright?: string
+  license?: string
+  licenseUrl?: string
+  backgroundColor?: string
+}
+
+./fellowship.ts:interface Fellowship {
+  action?: string
+  affiliations?: Affiliation[] // AKA members behind the fellowships
+  applicationStart?: Date
+  disciplines?: Disciplines[] // 3 - Server & Client //Inside=> Presentation
+  fellowshipStart?: Date
+  contact?: string
   description: string
-  icon: string
-  name: string
-  updatedAt: string
+  fellowshipDetails: FellowshipDetails
+  fellow?: People[]
+  url?: URL
+  applicationStop?: Date
+  fellowshipStop?: Date
+  image?: Image
+  member?: Affiliation[]
+  publicationDate?: Date
+  summary?: string
+  files?: File[]
+  fellowshipType: Number
+  gallery?: Image[]
+  title: string
+  video?: Video[]
 }
-./position.ts:interface Position {
-  role: string;
-  department: string;
-  start: Date | null;
-  stop: Date | null;
+
+./project.ts:interface Project {
+  title: string
+  subtitle?: string
+  description?: string
+  url?: URL
+  affiliations?: Affiliation[]
+  relatedEvents?: RelatedEvent[] | string[]
+  relatedPublications?: RelatedPublications[] | string[]
+  relatedNews?: RelatedNews[] | string[]
+  gallery?: Image[]
+  image?: Image
+  video?: Video
+  tags?: Tag[]
+  files?: File[]
+  color?: string
+  date?: Date
+  featured?: Date
 }
-./position.ts:interface PositionForm {
-  form: Record<string, Form>;
-}
-./socials.ts:interface Socials {
-  website: URL;
-  wikipedia: URL;
-  orcid: string;
-  linkedin: URL;
-  twitter: URL;
-  instagram: URL;
-  scholar: URL;
-  researchgate: URL;
-  mendeley: URL;
-  idRef: number;
-  isni: string;
-  scopus: string;
-}
-./tags.ts:interface Tag {
-  name: string
-  description: string
-  icon: string
-  createdAt: Date | null
-  updatedAt: Date | null
-}
-./files.ts:interface File {
-  name: string;
-  url: URL;
-  size: number;
-  fileType: string;
-  hash: string;
-  path: string;
-  file: string;
-  image: string;
-  thumb: URL;
-  createdAt: Date | null;
-  updatedAt: Date | null;
-  id: string;
-}
+
