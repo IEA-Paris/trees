@@ -76,8 +76,8 @@ const defaultConfig: Model = {
   },
 
   form: {
-    title: {
-      label: "title",
+    name: {
+      label: "name",
       component: "TextField",
       type: 0, //
       default: "",
@@ -93,7 +93,7 @@ const defaultConfig: Model = {
         switchIf: [],
         disjonctive: false,
       },
-      meta: "title",
+      meta: "name",
     },
     description: {
       label: "description",

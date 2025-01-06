@@ -78,11 +78,15 @@ const defaultConfig: Model = {
         icon: "view-list",
         default: true,
       },
+      expanded: {
+        name: "expanded",
+        icon: "arrow-expand-vertical",
+      },
     },
   },
   form: {
-    title: {
-      label: "title",
+    name: {
+      label: "name",
       component: "TextField",
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",
