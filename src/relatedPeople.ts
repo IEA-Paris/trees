@@ -4,12 +4,12 @@ import Model from "./model"
 export interface RelatedPeople {
   firstname: string
   lastname: string
-  image: Image
+  image?: Image
 }
 
 const defaultConfig: Model = {
   source: "md",
-  type: null, // 'directory' | 'file' | null
+  type: null, // 'directory' | 'file'
   path: null, // path to the folder where the content is stored
   list: {
     perPage: {

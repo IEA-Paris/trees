@@ -3,7 +3,7 @@ import { Article } from "./article"
 import Model from "./model"
 export interface App {
   name: string
-  logo: Image
+  logo?: Image
 }
 
 const defaultConfig: Model = {

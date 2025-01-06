@@ -1,15 +1,15 @@
-import Model from "./model";
+import Model from "./model"
 
 export interface Vintage {
-  name: string;
-  year: number;
-  theme: string;
-  url?: URL;
+  name: string
+  year: number
+  theme?: string
+  url?: URL
 }
 
 const defaultConfig: Model = {
   source: "md",
-  type: null, // 'directory' | 'file' | null
+  type: null, // 'directory' | 'file'
   path: null, // path to the folder where the content is stored
   list: {
     perPage: {
@@ -146,6 +146,6 @@ const defaultConfig: Model = {
       meta: "url", // item type on schema.org
     },
   },
-};
+}
 
-export default defaultConfig;
+export default defaultConfig

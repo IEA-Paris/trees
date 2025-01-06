@@ -2,11 +2,11 @@ import { Image } from "./image"
 import Model from "./model"
 
 export interface Action {
-  color: string
+  color?: string
   link: string
   image: Image
   title: string
-  video: URL
+  video?: URL
   slots: string[]
 }
 

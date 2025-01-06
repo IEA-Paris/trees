@@ -10,26 +10,26 @@ import { Tag } from "./tags"
 
 export interface Project {
   title: string
-  subtitle: string
-  description: string
-  url: URL
-  affiliations: Affiliation[]
-  relatedEvents: RelatedEvent[] | string[]
-  relatedPublications: RelatedPublications[] | string[]
-  relatedNews: RelatedNews[] | string[]
-  gallery: Image[]
-  image: Image
-  video: Video
-  tags: Tag[]
-  files: File[]
-  color: string
-  date: Date | null
-  featured: Date | null
+  subtitle?: string
+  description?: string
+  url?: URL
+  affiliations?: Affiliation[]
+  relatedEvents?: RelatedEvent[] | string[]
+  relatedPublications?: RelatedPublications[] | string[]
+  relatedNews?: RelatedNews[] | string[]
+  gallery?: Image[]
+  image?: Image
+  video?: Video
+  tags?: Tag[]
+  files?: File[]
+  color?: string
+  date?: Date
+  featured?: Date
 }
 
 const defaultConfig: Model = {
   source: "md",
-  type: null, // 'directory' | 'file' | null
+  type: null, // 'directory' | 'file'
   path: null, // path to the folder where the content is stored
   list: {
     perPage: {

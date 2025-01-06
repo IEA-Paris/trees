@@ -10,25 +10,25 @@ import { Tag } from "./tags"
 
 export interface Publications {
   title: string
-  subtitle: string
-  description: string
-  url: URL
-  affiliations: Affiliation[]
-  relatedEvents: RelatedEvent[] | string[]
-  relatedNews: RelatedNews[] | string[]
-  relatedProjects: RelatedProject[] | string[]
-  gallery: Image[]
-  image: Image
-  video: Video
-  tags: Tag[]
-  files: File[]
-  color: string
-  date: Date | null
+  subtitle?: string
+  description?: string
+  url?: URL
+  affiliations?: Affiliation[]
+  relatedEvents?: RelatedEvent[] | string[]
+  relatedNews?: RelatedNews[] | string[]
+  relatedProjects?: RelatedProject[] | string[]
+  gallery?: Image[]
+  image?: Image
+  video?: Video
+  tags?: Tag[]
+  files?: File[]
+  color?: string
+  date?: Date
 }
 
 const defaultConfig: Model = {
   source: "md",
-  type: null, // 'directory' | 'file' | null
+  type: null, // 'directory' | 'file'
   path: null, // path to the folder where the content is stored
   list: {
     perPage: {
@@ -205,20 +205,20 @@ const defaultConfig: Model = {
       meta: "relatedNews",
     },
     relatedProject: {
-        label: "relatedProject",
-        component: "DocumentPicker",
-        type: 4, //
-        default: "",
-        description: "",
-        hint: false,
-        rules: {},
-        visibility: {
-          default: true,
-          switchIf: [],
-          disjonctive: false,
-        },
-        meta: "relatedProject",
+      label: "relatedProject",
+      component: "DocumentPicker",
+      type: 4, //
+      default: "",
+      description: "",
+      hint: false,
+      rules: {},
+      visibility: {
+        default: true,
+        switchIf: [],
+        disjonctive: false,
       },
+      meta: "relatedProject",
+    },
     image: {
       label: "image",
       component: "ObjectContainerPanel",

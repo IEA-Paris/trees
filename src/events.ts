@@ -1,59 +1,59 @@
-import { Location } from "./location";
-import { Image } from "./image";
-import { EventSlot } from "./eventSlot";
-import { Disciplines } from "./disciplines";
-import { Tag } from "./tags";
-import { People } from "./people";
-import { Affiliation } from "./affiliations";
-import { RelatedProject } from "./relatedProject";
-import { RelatedPublications } from "./relatedPublications";
-import { RelatedNews } from "./relatedNews";
-import { File } from "./files";
-import Model from "./model";
+import { Location } from "./location"
+import { Image } from "./image"
+import { EventSlot } from "./eventSlot"
+import { Disciplines } from "./disciplines"
+import { Tag } from "./tags"
+import { People } from "./people"
+import { Affiliation } from "./affiliations"
+import { RelatedProject } from "./relatedProject"
+import { RelatedPublications } from "./relatedPublications"
+import { RelatedNews } from "./relatedNews"
+import { File } from "./files"
+import Model from "./model"
 
 export interface Event {
-  affiliations: Affiliation[]; // 3 - Server & Client - //Bottom left Document
-  appId: string; // 0 - Server & Client -
-  availableSlots: number; // 0 - Server & Client - ? => Claire
-  bookingState: number; // 0 - Server & Client -
-  category: number; // 0 - Server & Client -
-  createdAt: Date | null; // 0 - Server & Client -
-  delay: number; // 0 - Server & Client -
-  description: string; // 0 - Server & Client -
-  disciplines: Disciplines[]; // 3 - Server & Client //Inside=> Presentation
-  discussants: People[]; // 0 - Server & Client -
-  files: File[]; // 3 - Server & Client -
-  image: Image; // 3 - Server & Client -
-  gallery: Image[];
-  name: string; // 0 - Server & Client -
-  eventSlot?: EventSlot[]; //// 3 - Server -
-  organizers: People[] | Affiliation[]; // 3 - Server & Client -
-  outside: boolean; // 0 - Server & Client -  // Near inscription
-  location: Location; // 0 - Server & Client -
-  organiserType: number; // server & client - 0 = IAS, 1 = member, 2 = fellow, 3 = external
-  relatedProject?: RelatedProject[] | string[]; // 0 - Server & Client -
-  relatedPublications?: RelatedPublications[] | string[]; // 0 - Server & Client -
-  relatedNews?: RelatedNews[] | string[]; // 0 - Server & Client -
+  affiliations?: Affiliation[] // 3 - Server & Client - //Bottom left Document
+  appId: string // 0 - Server & Client -
+  availableSlots: number // 0 - Server & Client - ? => Claire
+  bookingState: number // 0 - Server & Client -
+  category: number // 0 - Server & Client -
+  createdAt?: Date // 0 - Server & Client -
+  delay?: number // 0 - Server & Client -
+  description: string // 0 - Server & Client -
+  disciplines?: Disciplines[] // 3 - Server & Client //Inside=> Presentation
+  discussants?: People[] // 0 - Server & Client -
+  files?: File[] // 3 - Server & Client -
+  image?: Image // 3 - Server & Client -
+  gallery?: Image[]
+  name: string // 0 - Server & Client -
+  eventSlot?: EventSlot[] //// 3 - Server -
+  organizers: People[] | Affiliation[] // 3 - Server & Client -
+  outside: boolean // 0 - Server & Client -  // Near inscription
+  location: Location // 0 - Server & Client -
+  organiserType: number // server & client - 0 = IAS, 1 = member, 2 = fellow, 3 = external
+  relatedProject?: RelatedProject[] | string[] // 0 - Server & Client -
+  relatedPublications?: RelatedPublications[] | string[] // 0 - Server & Client -
+  relatedNews?: RelatedNews[] | string[] // 0 - Server & Client -
   // slots?: EventSlot[]; //// 3 - Server
-  speakers: People[]; // 3 - Server & Client -
-  start: string; // 0 - Server & Client -   A verifier string ? string[]
-  state: number; // 0 - Server & Client -
-  stop: string; // 0 - Server & Client - A verifier string ? string[]
-  stream: string | null; // 0 - Server & Client -
-  subtitle: string; // 0 - Server &
-  summary: string; // 0 - Server & Client -
-  tags: Tag[]; // 3 - Server & Client - Inside=> Presentation
-  totalSlots: number; // 0 - Server & Client
-  eventType: number; // 0 : online, 1: physical, 2: hybrid// 0 - Server & Client -
-  updatedAt: Date | null; // 0 - Server & Client -
-  url: URL; // 0 - Server & Client -
+  speakers?: People[] // 3 - Server & Client -
+  start: string // 0 - Server & Client -   A verifier string ? string[]
+  state: number // 0 - Server & Client -
+  stop: string // 0 - Server & Client - A verifier string ? string[]
+  stream?: string // 0 - Server & Client -
+  subtitle?: string // 0 - Server &
+  summary?: string // 0 - Server & Client -
+  tags?: Tag[] // 3 - Server & Client - Inside=> Presentation
+  totalSlots: number // 0 - Server & Client
+  eventType: number // 0 : online, 1: physical, 2: hybrid// 0 - Server & Client -
+  updatedAt: Date // 0 - Server & Client -
+  url?: URL // 0 - Server & Client -
 }
 
 const defaultConfig: Model = {
   source: "gql",
   // markdown related keys
   path: null, // path to the folder where the content is stored
-  type: null, // 'directory' | 'file' | null
+  type: null, // 'directory' | 'file'
   // GQL related keys
 
   //Features related keys
@@ -157,7 +157,7 @@ const defaultConfig: Model = {
       expanded: {
         name: "expanded",
         icon: "arrow-expand-vertical",
-    },
+      },
     },
   },
 
@@ -762,8 +762,8 @@ const defaultConfig: Model = {
       meta: "url",
     },
   },
-};
+}
 
-export default defaultConfig;
+export default defaultConfig
 
 //

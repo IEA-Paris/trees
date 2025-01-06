@@ -4,18 +4,18 @@ import Model from "./model"
 
 export interface RelatedPublications {
   title: string
-  shortDescription: string
-  description: string
+  shortDescription?: string
+  description?: string
   url: URL
-  image: Image
-  video: Video
-  color: string
-  date: Date | null
+  image?: Image
+  video?: Video
+  color?: string
+  date?: Date
 }
 
 const defaultConfig: Model = {
   source: "md",
-  type: null, // 'directory' | 'file' | null
+  type: null, // 'directory' | 'file'
   path: null, // path to the folder where the content is stored
   list: {
     perPage: {

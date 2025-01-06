@@ -2,15 +2,15 @@ import Model from "./model"
 
 export interface Tag {
   name: string
-  description: string
-  icon: string
-  createdAt: Date | null
-  updatedAt: Date | null
+  description?: string
+  icon?: string
+  createdAt?: Date
+  updatedAt?: Date
 }
 
 const defaultConfig: Model = {
   source: "md",
-  type: null, // 'directory' | 'file' | null
+  type: null, // 'directory' | 'file'
   path: null, // path to the folder where the content is stored
   list: {
     perPage: {

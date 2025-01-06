@@ -1,23 +1,23 @@
-import Model from "./model";
+import Model from "./model"
 
 export interface File {
-  name: string;
-  url: URL;
-  size: number;
-  fileType: string;
-  hash: string;
-  path: string;
-  file: string;
-  image: string;
-  thumb: URL;
-  createdAt: Date | null;
-  updatedAt: Date | null;
-  id: string;
+  name: string
+  url: URL
+  size: number
+  fileType: string
+  hash: string
+  path: string
+  file: string
+  image?: string
+  thumb: URL
+  createdAt: Date
+  updatedAt: Date
+  id: string
 }
 
 const defautConfig: Model = {
   source: "md",
-  type: null, // 'directory' | 'file' | null
+  type: null, // 'directory' | 'file'
   path: null, // path to the folder where the content is stored
   list: {
     create: true, // allow to create new items
@@ -304,6 +304,6 @@ const defautConfig: Model = {
       meta: "id",
     },
   },
-};
+}
 
-export default defautConfig;
+export default defautConfig

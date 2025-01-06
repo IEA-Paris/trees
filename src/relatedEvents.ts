@@ -3,14 +3,14 @@ import Model from "./model"
 
 export interface RelatedEvent {
   bookingState: number // 0 - Server & Client -
-  createdAt: Date | null // 0 - Server & Client -
-  description: string // 0 - Server & Client -
-  image: Image // 3 - Server & Client -
+  createdAt: Date // 0 - Server & Client -
+  description?: string // 0 - Server & Client -
+  image?: Image // 3 - Server & Client -
   name: string // 0 - Server & Client -
-  outside: boolean // 0 - Server & Client -
-  start: string // 0 - Server & Client -
+  outside?: boolean // 0 - Server & Client -
+  start?: string // 0 - Server & Client -
   state: number // 0 - Server & Client -
-  summary: string // 0 - Server & Client -
+  summary?: string // 0 - Server & Client -
   eventType: number // 0 : online, 1: physical, 2: hybrid// 0 - Server & Client -
   url: URL // 0 - Server & Client -
 }
@@ -19,7 +19,7 @@ const defaultConfig: Model = {
   source: "gql",
   // markdown related keys
   path: null, // path to the folder where the content is stored
-  type: null, // 'directory' | 'file' | null
+  type: null, // 'directory' | 'file'
   // GQL related keys
 
   //Features related keys

@@ -1,16 +1,16 @@
 import Model from "./model"
 
 export interface Disciplines {
-  createdAt: string
+  createdAt: Date
   description: string
   icon: string
   name: string
-  updatedAt: string
+  updatedAt: Date
 }
 
 const configDefault: Model = {
   source: "md",
-  type: null, // 'directory' | 'file' | null
+  type: null, // 'directory' | 'file'
   path: null, // path to the folder where the content is stored
   list: {
     create: true, // allow to create new items

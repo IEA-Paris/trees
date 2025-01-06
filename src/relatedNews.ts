@@ -3,18 +3,18 @@ import Model from "./model"
 
 export interface RelatedNews {
   title: string
-  description: string
-  image: Image
-  color: string
+  description?: string
+  image?: Image
+  color?: string
   url: URL
-  date: Date | null
+  date?: Date
   // authors: People[];
-  featured: Date | null
+  featured?: Date
 }
 
 const defaultConfig: Model = {
   source: "gql",
-  type: null, // 'directory' | 'file' | null
+  type: null, // 'directory' | 'file'
   path: null, // path to the folder where the content is stored
   list: {
     perPage: {

@@ -1,32 +1,32 @@
-import { Image } from "./image";
-import Model from "./model";
-import { People } from "./people";
-import { RelatedEvent } from "./relatedEvents";
-import { RelatedProject } from "./relatedProject";
-import { RelatedPublications } from "./relatedPublications";
-import { Tag } from "./tags";
+import { Image } from "./image"
+import Model from "./model"
+import { People } from "./people"
+import { RelatedEvent } from "./relatedEvents"
+import { RelatedProject } from "./relatedProject"
+import { RelatedPublications } from "./relatedPublications"
+import { Tag } from "./tags"
 
 export interface News {
-  title: string;
-  category: number;
-  description: string;
-  tags: Tag[];
-  image: Image;
-  gallery: Image[];
-  color: string;
-  url: URL;
-  date: Date | null;
-  featured: Date | null;
-  relatedProject: RelatedProject[] | string[];
-  relatedEvents: RelatedEvent[] | string[];
-  relatedPublications: RelatedPublications[] | string[]
-  people: People[];
-  files: File[];
+  title: string
+  category?: number
+  description?: string
+  tags?: Tag[]
+  image?: Image
+  gallery?: Image[]
+  color?: string
+  url?: URL
+  date?: Date
+  featured?: Date
+  relatedProject?: RelatedProject[] | string[]
+  relatedEvents?: RelatedEvent[] | string[]
+  relatedPublications?: RelatedPublications[] | string[]
+  people?: People[]
+  files?: File[]
 }
 
 const defaultConfig: Model = {
   source: "gql",
-  type: null, // 'directory' | 'file' | null
+  type: null, // 'directory' | 'file'
   path: null, // path to the folder where the content is stored
   list: {
     perPage: {
@@ -77,9 +77,9 @@ const defaultConfig: Model = {
       expanded: {
         name: "expanded",
         icon: "arrow-expand-vertical",
+      },
     },
   },
-},
 
   form: {
     title: {
@@ -349,6 +349,6 @@ const defaultConfig: Model = {
       meta: "category", // item type on schema.org
     },
   },
-};
+}
 
-export default defaultConfig;
+export default defaultConfig

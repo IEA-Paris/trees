@@ -8,19 +8,19 @@ import Model from "./model"
 export interface Article {
   title: string
   abstract: string
-  image: Image
-  video: Video
+  image?: Image
+  video?: Video
   needDOI: boolean
-  DOI: string
-  Zid: string
+  DOI?: string
+  Zid?: string
   highlight: boolean
-  date: Date | null
+  date?: Date
   authors: People[]
-  issue: string
+  issue?: string
   lang: string
-  disciplines: Discipline[]
+  disciplines?: Discipline[]
   //format: Format[]
-  tag: Tag[]
+  tag?: Tag[]
 }
 
 const defautConfig: Model = {

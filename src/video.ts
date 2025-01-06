@@ -2,16 +2,16 @@ import Model from "./model"
 
 export interface Video {
   url: URL
-  alt: string | null
-  caption: string | null
-  copyright: string
-  license: string | null
-  licenseUrl: string | null
-  backgroundColor: string | null
+  alt?: string
+  caption?: string
+  copyright?: string
+  license?: string
+  licenseUrl?: string
+  backgroundColor?: string
 }
 const defaultConfig: Model = {
   source: "md",
-  type: null, // 'directory' | 'file' | null
+  type: null, // 'directory' | 'file'
   path: null, // path to the folder where the content is stored
   list: {
     perPage: {

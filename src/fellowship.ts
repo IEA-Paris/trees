@@ -1,37 +1,37 @@
-import { Image } from "./image";
-import { Affiliation } from "./affiliations";
-import { People } from "./people";
-import { FellowshipDetails } from "./fellowshipDetails";
-import { File } from "./files";
-import Model from "./model";
-import { Video } from "./video";
-import { Disciplines } from "./disciplines";
+import { Image } from "./image"
+import { Affiliation } from "./affiliations"
+import { People } from "./people"
+import { FellowshipDetails } from "./fellowshipDetails"
+import { File } from "./files"
+import Model from "./model"
+import { Video } from "./video"
+import { Disciplines } from "./disciplines"
 export interface Fellowship {
-  action: string;
-  affiliations: Affiliation[]; // AKA members behind the fellowships
-  applicationStart: Date | null;
-  disciplines: Disciplines[]; // 3 - Server & Client //Inside=> Presentation
-  fellowshipStart: Date | null;
-  contact: string;
-  description: string;
-  fellowshipDetails: FellowshipDetails;
-  fellow: People[];
-  url: URL;
-  applicationStop: Date | null;
-  fellowshipStop: Date | null;
-  image: Image;
-  member: Affiliation[];
-  publicationDate: Date | null;
-  summary: string;
-  files: File[];
-  fellowshipType: Number;
-  gallery: Image[];
-  title: string;
-  video: Video[];
+  action?: string
+  affiliations?: Affiliation[] // AKA members behind the fellowships
+  applicationStart?: Date
+  disciplines?: Disciplines[] // 3 - Server & Client //Inside=> Presentation
+  fellowshipStart?: Date
+  contact?: string
+  description: string
+  fellowshipDetails: FellowshipDetails
+  fellow?: People[]
+  url?: URL
+  applicationStop?: Date
+  fellowshipStop?: Date
+  image?: Image
+  member?: Affiliation[]
+  publicationDate?: Date
+  summary?: string
+  files?: File[]
+  fellowshipType: Number
+  gallery?: Image[]
+  title: string
+  video?: Video[]
 }
 
 const defaultConfig: Model = {
-  type: null, // 'directory' | 'file' | null
+  type: null, // 'directory' | 'file'
   path: null, // path to the folder where the content is stored
   source: "gql",
   list: {
@@ -467,5 +467,5 @@ const defaultConfig: Model = {
       meta: "video",
     },
   },
-};
-export default defaultConfig;
+}
+export default defaultConfig

@@ -1,16 +1,16 @@
 import { Form } from "./form"
 
 export interface Socials {
-  website: URL
-  wikipedia: URL
-  orcid: string
-  linkedin: URL
-  twitter: URL
-  instagram: URL
-  scholar: URL
-  researchgate: URL
-  mendeley: URL
-  idRef: number
+  website?: URL
+  wikipedia?: URL
+  orcid?: string
+  linkedin?: URL
+  twitter?: URL
+  instagram?: URL
+  scholar?: URL
+  researchgate?: URL
+  mendeley?: URL
+  idRef?: number
 }
 
 export interface SocialsForm {

@@ -1,19 +1,19 @@
-import { Form } from "./form";
-import Model from "./model";
+import { Form } from "./form"
+import Model from "./model"
 
 export interface Mailing {
-  title: string;
-  description: string;
-  createdAt: string;
-  updatedAt: string;
-  date: Date | null;
+  title: string
+  description?: string
+  createdAt: string
+  updatedAt: string
+  date: Date
 }
 
 const defaultConfig: Model = {
   source: "gql",
   // markdown related keys
   path: null, // path to the folder where the content is stored
-  type: null, // 'directory' | 'file' | null
+  type: null, // 'directory' | 'file'
   // GQL related keys
 
   //Features related keys
@@ -174,6 +174,6 @@ const defaultConfig: Model = {
       meta: "date",
     },
   },
-};
+}
 
-export default defaultConfig;
+export default defaultConfig

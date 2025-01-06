@@ -1,17 +1,17 @@
-import { Form } from "./form";
-import { Vintage } from "./vintage";
+import { Form } from "./form"
+import { Vintage } from "./vintage"
 
 export interface Groups {
-  team: boolean;
-  sab: boolean;
-  board: boolean;
-  fellow: boolean;
-  sponsor: boolean;
-  vintage: Vintage[];
+  team?: boolean
+  sab?: boolean
+  board?: boolean
+  fellow?: boolean
+  sponsor?: boolean
+  vintage?: Vintage[]
 }
 
 export interface GroupsForm {
-  form: Record<string, Form>;
+  form: Record<string, Form>
 }
 
 const defaultConfig: GroupsForm = {
@@ -107,6 +107,6 @@ const defaultConfig: GroupsForm = {
       meta: "vintage",
     },
   },
-};
+}
 
-export default defaultConfig;
+export default defaultConfig

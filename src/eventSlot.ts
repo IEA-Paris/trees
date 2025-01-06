@@ -1,16 +1,16 @@
-import { Form } from "./form";
+import { Form } from "./form"
 
 export interface EventSlot {
-  email: string;
-  firstname: string;
-  institution: string;
-  lang: string;
-  lastname: string;
+  email: string
+  firstname: string
+  institution?: string
+  lang: string
+  lastname: string
 }
 // form
 
 export interface EventSlotForm {
-  form: Record<string, Form>;
+  form: Record<string, Form>
 }
 
 const defautConfig: EventSlotForm = {
@@ -106,6 +106,6 @@ const defautConfig: EventSlotForm = {
       meta: "lastname",
     },
   },
-};
+}
 
-export default defautConfig;
+export default defautConfig

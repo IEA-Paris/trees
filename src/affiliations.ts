@@ -3,11 +3,11 @@ import { Location } from "./location"
 import Model from "./model"
 
 export interface Affiliation {
-  location: Location
-  image: Image
+  location?: Location
+  image?: Image
   name: string
-  ror: string
-  url: string
+  ror?: string
+  url?: string
 }
 const defaultConfig: Model = {
   source: "md",
