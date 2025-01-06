@@ -12,8 +12,8 @@ export interface Image {
 const defaultConfig: Model = {
   source: "md",
   // markdown related keys
-  path: null, // path to the folder where the content is stored
-  type: null, // 'directory' | 'file'
+  path: "", // path to the folder where the content is stored
+  type: "", // 'directory' | 'file'
   // GQL related keys
 
   //Features related keys

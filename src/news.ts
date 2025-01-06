@@ -26,8 +26,8 @@ export interface News {
 
 const defaultConfig: Model = {
   source: "gql",
-  type: null, // 'directory' | 'file'
-  path: null, // path to the folder where the content is stored
+  type: "", // 'directory' | 'file'
+  path: "", // path to the folder where the content is stored
   list: {
     perPage: {
       options: [9, 12, 16],

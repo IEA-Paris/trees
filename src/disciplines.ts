@@ -10,8 +10,8 @@ export interface Disciplines {
 
 const configDefault: Model = {
   source: "md",
-  type: null, // 'directory' | 'file'
-  path: null, // path to the folder where the content is stored
+  type: "", // 'directory' | 'file'
+  path: "", // path to the folder where the content is stored
   list: {
     create: true, // allow to create new items
     perPage: {

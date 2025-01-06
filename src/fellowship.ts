@@ -31,8 +31,8 @@ export interface Fellowship {
 }
 
 const defaultConfig: Model = {
-  type: null, // 'directory' | 'file'
-  path: null, // path to the folder where the content is stored
+  type: "", // 'directory' | 'file'
+  path: "", // path to the folder where the content is stored
   source: "gql",
   list: {
     create: true, // allow to create new items
