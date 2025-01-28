@@ -71,7 +71,7 @@ grep -rPzo "(interface\s+\w+\s+{[^}]*})" . --include \*.ts > interfaces.txt
   team?: boolean
   sab?: boolean
   board?: boolean
-  fellow?: boolean
+  fellows?: boolean
   sponsor?: boolean
   vintage?: Vintage[]
 }

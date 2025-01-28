@@ -15,7 +15,7 @@ export interface Fellowship {
   contact?: string
   description: string
   fellowshipDetails: FellowshipDetails
-  fellow?: People[]
+  fellows?: People[]
   url?: URL
   applicationStop?: Date
   fellowshipStop?: Date
@@ -277,7 +277,7 @@ const defaultConfig: Model = {
       },
       meta: "details",
     },
-    fellow: {
+    fellows: {
       label: "fellows",
       component: "CollectionContainerPanel",
       type: 3, //

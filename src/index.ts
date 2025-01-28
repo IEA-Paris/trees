@@ -12,7 +12,7 @@ import defaultConfigDiscussants from "./discussants"
 import defaultConfigEvents from "./events"
 import defaultConfigRelatedPeople from "./relatedPeople"
 import defaultConfigEventSlot, { EventSlotForm } from "./eventSlot"
-import defaultConfigFellow from "./fellow"
+import defaultConfigFellow from "./fellows"
 import defaultConfigFellowship from "./fellowship"
 import defaultConfigPublications from "./publications"
 import defaultConfigFellowshipDetails, {
