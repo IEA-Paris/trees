@@ -20,9 +20,6 @@ const defaultConfig: Model = {
     filters: {
       year: {
         type: "Select",
-        rules: {},
-        label: "year",
-        items: [],
       },
     },
     sort: {
@@ -75,7 +72,6 @@ const defaultConfig: Model = {
       component: "TextField",
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 2,
@@ -84,7 +80,7 @@ const defaultConfig: Model = {
       visibility: {
         default: true, // socials"default: true" is the same than "hidden = false"
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "name", // item type on schema.org
     },
@@ -94,7 +90,6 @@ const defaultConfig: Model = {
       component: "TextField",
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 2,
@@ -103,7 +98,7 @@ const defaultConfig: Model = {
       visibility: {
         default: true, // socials"default: true" is the same than "hidden = false"
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "year",
     },
@@ -113,7 +108,6 @@ const defaultConfig: Model = {
       component: "TextField",
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 2,
@@ -122,7 +116,7 @@ const defaultConfig: Model = {
       visibility: {
         default: true, // socials"default: true" is the same than "hidden = false"
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "theme",
     },
@@ -132,7 +126,6 @@ const defaultConfig: Model = {
       label: "url",
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         url: true,
@@ -141,7 +134,7 @@ const defaultConfig: Model = {
       visibility: {
         default: true, // socials"default: true" is the same than "hidden = false"
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "url", // item type on schema.org
     },

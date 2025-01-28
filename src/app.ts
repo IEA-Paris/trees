@@ -21,8 +21,6 @@ const defaultConfig: Model = {
     filters: {
       year: {
         type: "Select",
-        rules: {},
-        label: "year",
         items: "",
       },
     },
@@ -78,7 +76,6 @@ const defaultConfig: Model = {
       default: "",
       description:
         "The name of the app as displayed on google or the header of the app",
-      hint: false,
       rules: {
         required: true,
         min: 2,
@@ -87,7 +84,7 @@ const defaultConfig: Model = {
       visibility: {
         default: true, // same as hidden = true
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "name", // item type on schema.org
     },

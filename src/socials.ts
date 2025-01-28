@@ -24,14 +24,13 @@ const defaultConfig: SocialsForm = {
       component: "TextField",
       default: "",
       description: "",
-      hint: false,
       rules: {
         url: true,
       },
       visibility: {
         default: true, // same as hidden = true
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "website", // item type on schema.org
     },
@@ -41,14 +40,13 @@ const defaultConfig: SocialsForm = {
       component: "TextField",
       default: "",
       description: "",
-      hint: false,
       rules: {
         url: true,
       },
       visibility: {
         default: true, // same as hidden = true
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "wikipedia", // item type on schema.org
     },
@@ -58,14 +56,13 @@ const defaultConfig: SocialsForm = {
       component: "TextField",
       default: "",
       description: "",
-      hint: false,
       rules: {
         orcid: true,
       },
       visibility: {
         default: true, // same as hidden = true
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "orcid", // item type on schema.org
     },
@@ -75,14 +72,13 @@ const defaultConfig: SocialsForm = {
       component: "TextField",
       default: "",
       description: "",
-      hint: false,
       rules: {
         url: true,
       },
       visibility: {
         default: true, // same as hidden = true
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "twitter", // item type on schema.org
     },
@@ -92,14 +88,13 @@ const defaultConfig: SocialsForm = {
       component: "TextField",
       default: "",
       description: "",
-      hint: false,
       rules: {
         url: true,
       },
       visibility: {
         default: true, // same as hidden = true
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "linkedin", // item type on schema.org
     },
@@ -109,14 +104,13 @@ const defaultConfig: SocialsForm = {
       component: "TextField",
       default: "",
       description: "",
-      hint: false,
       rules: {
         url: true,
       },
       visibility: {
         default: true, // same as hidden = true
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "instagram", // item type on schema.org
     },
@@ -126,14 +120,13 @@ const defaultConfig: SocialsForm = {
       component: "TextField",
       default: "",
       description: "",
-      hint: false,
       rules: {
         url: true,
       },
       visibility: {
         default: true, // same as hidden = true
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "scholar", // item type on schema.org
     },
@@ -143,14 +136,13 @@ const defaultConfig: SocialsForm = {
       component: "TextField",
       default: "",
       description: "",
-      hint: false,
       rules: {
         url: true,
       },
       visibility: {
         default: true, // same as hidden = true
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "researchgate", // item type on schema.org
     },
@@ -160,14 +152,13 @@ const defaultConfig: SocialsForm = {
       component: "TextField",
       default: "",
       description: "",
-      hint: false,
       rules: {
         url: true,
       },
       visibility: {
         default: true, // same as hidden = true
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "mendeley", // item type on schema.org
     },
@@ -177,14 +168,13 @@ const defaultConfig: SocialsForm = {
       component: "TextField",
       default: "",
       description: "",
-      hint: false,
       rules: {
         url: true,
       },
       visibility: {
         default: true, // same as hidden = true
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "idRef", // item type on schema.org
     },

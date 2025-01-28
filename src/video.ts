@@ -22,9 +22,6 @@ const defaultConfig: Model = {
     filters: {
       year: {
         type: "Select",
-        rules: {},
-        label: "year",
-        items: [],
       },
     },
     sort: {
@@ -77,7 +74,6 @@ const defaultConfig: Model = {
       label: "url",
       default: "",
       description: "The url where the image is fetched from",
-      hint: false,
       rules: {
         required: true,
         url: true,
@@ -86,7 +82,7 @@ const defaultConfig: Model = {
       visibility: {
         default: true, // socials"default: true" is the same than "hidden = false"
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "url", // item type on schema.org
     },
@@ -96,7 +92,6 @@ const defaultConfig: Model = {
       component: "TextField",
       default: "",
       description: "Displayed if the image cannot be loaded",
-      hint: false,
       rules: {
         required: true,
         min: 2,
@@ -105,7 +100,7 @@ const defaultConfig: Model = {
       visibility: {
         default: true, // socials"default: true" is the same than "hidden = false"
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "alt", // item type on schema.org
     },
@@ -115,7 +110,6 @@ const defaultConfig: Model = {
       component: "TextField",
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 2,
@@ -124,7 +118,7 @@ const defaultConfig: Model = {
       visibility: {
         default: true, // socials"default: true" is the same than "hidden = false"
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "caption", // item type on schema.org
     },
@@ -134,7 +128,6 @@ const defaultConfig: Model = {
       component: "TextField",
       default: "Free of rights",
       description: "Owner of the image copyright",
-      hint: false,
       rules: {
         required: true,
         min: 2,
@@ -143,7 +136,7 @@ const defaultConfig: Model = {
       visibility: {
         default: true, // socials"default: true" is the same than "hidden = false"
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "copyright", // item type on schema.org
     },
@@ -153,7 +146,6 @@ const defaultConfig: Model = {
       component: "TextField", // TODO change for an autocomplete
       default: null,
       description: "The licence of the video",
-      hint: false,
       rules: {
         required: true,
         min: 2,
@@ -162,7 +154,7 @@ const defaultConfig: Model = {
       visibility: {
         default: true, // socials"default: true" is the same than "hidden = false"
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "licence", // item type on schema.org
     },
@@ -172,7 +164,6 @@ const defaultConfig: Model = {
       component: "TextField", // TODO change for an autocomplete
       default: null,
       description: "The caption of the video",
-      hint: false,
       rules: {
         required: true,
         url: true,
@@ -180,7 +171,7 @@ const defaultConfig: Model = {
       visibility: {
         default: false, // "default: true" is the same than "hidden = false"
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "licenseUrl", // item type on schema.org
     },
@@ -190,7 +181,6 @@ const defaultConfig: Model = {
       component: "TextColorPicker", // TODO change for an autocomplete
       default: null,
       description: "",
-      hint: false,
       rules: {
         required: true,
         color: true,
@@ -198,7 +188,7 @@ const defaultConfig: Model = {
       visibility: {
         default: false, // "default: true" is the same than "hidden = false"
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "backgroundColor", // item type on schema.org
     },

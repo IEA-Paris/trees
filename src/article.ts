@@ -36,8 +36,6 @@ const defautConfig: Model = {
     filters: {
       year: {
         type: "Select",
-        rules: {},
-        label: "year",
         items: "",
       },
     },
@@ -92,16 +90,10 @@ const defautConfig: Model = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 5,
         max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "name",
     },
@@ -111,16 +103,10 @@ const defautConfig: Model = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 5,
         max: 2000,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "abstract",
     },
@@ -130,14 +116,8 @@ const defautConfig: Model = {
       type: 3, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "image",
     },
@@ -147,14 +127,8 @@ const defautConfig: Model = {
       type: 3, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "video",
     },
@@ -164,14 +138,8 @@ const defautConfig: Model = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "needDOI",
     },
@@ -182,15 +150,9 @@ const defautConfig: Model = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         DOI: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "DOI",
     },
@@ -201,15 +163,9 @@ const defautConfig: Model = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         // TODO add a Zenodo Id validation regex
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "Zid",
     },
@@ -219,14 +175,8 @@ const defautConfig: Model = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "highlight",
     },
@@ -237,15 +187,9 @@ const defautConfig: Model = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         date: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "date",
     },
@@ -256,14 +200,8 @@ const defautConfig: Model = {
       type: 3, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "authors",
     },
@@ -274,14 +212,8 @@ const defautConfig: Model = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "issue",
     },
@@ -291,14 +223,8 @@ const defautConfig: Model = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "lang",
     },
@@ -308,14 +234,8 @@ const defautConfig: Model = {
       type: 3, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "disciplines",
     },
@@ -343,16 +263,10 @@ const defautConfig: Model = {
       type: 3, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 5,
         max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "tag",
     },

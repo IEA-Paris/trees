@@ -25,8 +25,6 @@ const defaultConfig: Model = {
     filters: {
       year: {
         type: "Select",
-        rules: {},
-        label: "year",
         items: "",
       },
     },
@@ -82,7 +80,6 @@ const defaultConfig: Model = {
       component: "TextField",
       default: "",
       description: "The name of the ad",
-      hint: false,
       rules: {
         required: true,
         min: 2,
@@ -91,7 +88,7 @@ const defaultConfig: Model = {
       visibility: {
         default: true, // same as hidden = true
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "name", // item type on schema.org
     },
@@ -111,7 +108,6 @@ const defaultConfig: Model = {
       component: "TextField",
       default: "",
       description: "The url of the app",
-      hint: false,
       rules: {
         required: true,
         url: true,
@@ -119,7 +115,7 @@ const defaultConfig: Model = {
       visibility: {
         default: true, // same as hidden = true
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "link", // item type on schema.org
     },
@@ -129,14 +125,13 @@ const defaultConfig: Model = {
       component: "TextField",
       default: "#FFFFFF",
       description: "The background color of the content",
-      hint: false,
       rules: {
         color: true,
       },
       visibility: {
         default: true, // same as hidden = true
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "color", // item type on schema.org
     },
@@ -146,15 +141,9 @@ const defaultConfig: Model = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         url: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "video",
     },
@@ -164,16 +153,10 @@ const defaultConfig: Model = {
       type: 2, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 5,
         max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "slots",
     },

@@ -25,14 +25,13 @@ const configDefault: FellowshipDetailsForm = {
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: false,
       description: "",
-      hint: false,
       rules: {
         required: true,
       },
       visibility: {
         default: true, // same as hidden = true
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "type", // item type on schema.org
     },
@@ -42,14 +41,13 @@ const configDefault: FellowshipDetailsForm = {
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: false,
       description: "",
-      hint: false,
       rules: {
         required: true,
       },
       visibility: {
         default: true, // same as hidden = true
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "fundingPeriod", // item type on schema.org
     },
@@ -59,14 +57,13 @@ const configDefault: FellowshipDetailsForm = {
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: false,
       description: "",
-      hint: false,
       rules: {
         required: true,
       },
       visibility: {
         default: true, // same as hidden = true
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "profile", // item type on schema.org
     },
@@ -76,14 +73,13 @@ const configDefault: FellowshipDetailsForm = {
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: false,
       description: "",
-      hint: false,
       rules: {
         required: true,
       },
       visibility: {
         default: true, // same as hidden = true
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "tasks", // item type on schema.org
     },
@@ -93,14 +89,13 @@ const configDefault: FellowshipDetailsForm = {
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: false,
       description: "",
-      hint: false,
       rules: {
         required: true,
       },
       visibility: {
         default: true, // same as hidden = true
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "location", // item type on schema.org
     },
@@ -110,14 +105,13 @@ const configDefault: FellowshipDetailsForm = {
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: false,
       description: "",
-      hint: false,
       rules: {
         required: true,
       },
       visibility: {
         default: true, // same as hidden = true
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "funding", // item type on schema.org
     },
@@ -128,16 +122,10 @@ const configDefault: FellowshipDetailsForm = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 5,
         max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "housing",
     },
@@ -147,16 +135,10 @@ const configDefault: FellowshipDetailsForm = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 5,
         max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "meals",
     },
@@ -166,16 +148,10 @@ const configDefault: FellowshipDetailsForm = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 5,
         max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "applicationMaterials",
     },
@@ -185,16 +161,10 @@ const configDefault: FellowshipDetailsForm = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 5,
         max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "selectionProcess",
     },
@@ -204,16 +174,10 @@ const configDefault: FellowshipDetailsForm = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 5,
         max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "researchSupport",
     },

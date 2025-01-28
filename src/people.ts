@@ -43,55 +43,40 @@ const defaultConfig: Model = {
     filters: {
       categories: {
         type: "Select",
-        rules: {},
-        label: "category",
-        items: [],
       },
       vintage: {
         type: "Select",
-        rules: {},
-        label: "vintage",
-        items: [],
         visibility: {
           default: false, // same as hidden = true
           switchIf: [{ categories: "fellows" }], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-          disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+          disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
         },
         multiple: true,
       },
       program: {
         type: "Select",
-        rules: {},
-        label: "program",
-        items: [],
         visibility: {
           default: false, // same as hidden = true
           switchIf: [{ categories: "fellows" }], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-          disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+          disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
         },
         multiple: true,
       },
       discipline: {
         type: "Select",
-        rules: {},
-        label: "discipline",
-        items: [],
         visibility: {
           default: false, // same as hidden = true
           switchIf: [{ categories: "fellows" }], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-          disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+          disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
         },
         multiple: true,
       },
       member: {
         type: "Select",
-        rules: {},
-        label: "member",
-        items: [],
         visibility: {
           default: false, // same as hidden = true
           switchIf: [{ categories: "fellows" }], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-          disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+          disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
         },
         multiple: true,
       },
@@ -134,7 +119,6 @@ const defaultConfig: Model = {
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 1,
@@ -143,7 +127,7 @@ const defaultConfig: Model = {
       visibility: {
         default: true, // same as hidden = true
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "firstname", // item type on schema.org
     },
@@ -153,7 +137,6 @@ const defaultConfig: Model = {
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 1,
@@ -162,7 +145,7 @@ const defaultConfig: Model = {
       visibility: {
         default: true, // same as hidden = true
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "lastname", // item type on schema.org
     },
@@ -172,14 +155,8 @@ const defaultConfig: Model = {
       type: 3, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: false,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "affiliations",
     },
@@ -189,14 +166,8 @@ const defaultConfig: Model = {
       type: 3, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: false,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "image",
     },
@@ -206,13 +177,6 @@ const defaultConfig: Model = {
       type: 3, //
       default: "",
       description: "",
-      hint: false,
-      rules: {},
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
       meta: "socials",
     },
     disciplines: {
@@ -221,13 +185,6 @@ const defaultConfig: Model = {
       type: 3, //
       default: "",
       description: "",
-      hint: false,
-      rules: {},
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
       meta: "disciplines",
     },
     video: {
@@ -236,13 +193,6 @@ const defaultConfig: Model = {
       type: 3, //
       default: "",
       description: "",
-      hint: false,
-      rules: {},
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
       meta: "video",
     },
     biography: {
@@ -251,16 +201,10 @@ const defaultConfig: Model = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 5,
         max: 2000,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "biography",
     },
@@ -270,15 +214,9 @@ const defaultConfig: Model = {
       type: 4, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 1,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "relatedProject",
     },
@@ -288,16 +226,10 @@ const defaultConfig: Model = {
       type: 4, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 5,
         max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "relatedPublications",
     },
@@ -307,13 +239,6 @@ const defaultConfig: Model = {
       type: 4, //
       default: "",
       description: "",
-      hint: false,
-      rules: {},
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
       meta: "event",
     },
     relatedNews: {
@@ -322,16 +247,10 @@ const defaultConfig: Model = {
       type: 4, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 5,
         max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "relatedNews",
     },
@@ -341,14 +260,8 @@ const defaultConfig: Model = {
       type: 3, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "consent",
     },
@@ -358,14 +271,8 @@ const defaultConfig: Model = {
       type: 3, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "groups",
     },
@@ -375,14 +282,8 @@ const defaultConfig: Model = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "lang",
     },

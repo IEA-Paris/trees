@@ -21,15 +21,9 @@ const defautConfig: EventSlotForm = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         email: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "email",
     },
@@ -39,16 +33,10 @@ const defautConfig: EventSlotForm = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 1,
         max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "firstname",
     },
@@ -58,14 +46,8 @@ const defautConfig: EventSlotForm = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: false,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "institution",
     },
@@ -75,14 +57,8 @@ const defautConfig: EventSlotForm = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "lang",
     },
@@ -92,16 +68,10 @@ const defautConfig: EventSlotForm = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 1,
         max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "lastname",
     },

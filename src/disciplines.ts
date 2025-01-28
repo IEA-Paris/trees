@@ -21,9 +21,6 @@ const configDefault: Model = {
     filters: {
       year: {
         type: "Select",
-        rules: {},
-        label: "year",
-        items: [],
       },
     },
     sort: {
@@ -76,16 +73,10 @@ const configDefault: Model = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 5,
         max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "createdAt",
     },
@@ -95,16 +86,10 @@ const configDefault: Model = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 5,
         max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "description",
     },
@@ -114,16 +99,10 @@ const configDefault: Model = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 5,
         max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "icon",
     },
@@ -133,16 +112,10 @@ const configDefault: Model = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 5,
         max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "name",
     },
@@ -152,16 +125,10 @@ const configDefault: Model = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 5,
         max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "updatedAt",
     },

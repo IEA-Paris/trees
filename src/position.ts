@@ -18,16 +18,10 @@ const defaultConfig: PositionForm = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 5,
         max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "role",
     },
@@ -37,16 +31,10 @@ const defaultConfig: PositionForm = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 5,
         max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "department",
     },
@@ -56,15 +44,9 @@ const defaultConfig: PositionForm = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         date: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "start",
     },
@@ -74,15 +56,9 @@ const defaultConfig: PositionForm = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         date: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "stop",
     },

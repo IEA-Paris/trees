@@ -20,8 +20,6 @@ const defaultConfig: Model = {
     filters: {
       year: {
         type: "Select",
-        rules: {},
-        label: "year",
         items: "",
       },
     },
@@ -75,16 +73,10 @@ const defaultConfig: Model = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 1,
         max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "firstname",
     },
@@ -94,16 +86,10 @@ const defaultConfig: Model = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 1,
         max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "lastname",
     },
@@ -114,16 +100,10 @@ const defaultConfig: Model = {
       type: 3, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 5,
         max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "image",
     },

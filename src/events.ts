@@ -64,57 +64,43 @@ const defaultConfig: Model = {
       default: 9,
     },
     filters: {
-      outside: {
-        type: "Checkbox",
-        rules: {},
-        label: "outside",
-        items: [],
-      },
       category: {
         type: "Select",
-        rules: {},
-        label: "category",
         items: [],
         multiple: true,
       },
-      past: {
-        type: "Checkbox",
-        rules: {},
-        label: "past",
-        items: [],
-      },
+
       status: {
         type: "Select",
-        rules: {},
-        label: "status",
         items: [],
       },
       organiserCategory: {
         type: "Select",
-        rules: {},
-        label: "organiserCategory",
         items: [],
         multiple: true,
       },
-      online: {
-        type: "Checkbox",
-        rules: {},
-        label: "online",
-        items: [],
-      },
+
       disciplines: {
         type: "AutoComplete",
-        rules: {},
-        label: "disciplines",
         items: [],
         multiple: true,
       },
       fellowship: {
         type: "AutoComplete",
-        rules: {},
-        label: "fellowship",
         items: [],
         multiple: true,
+      },
+      online: {
+        type: "Checkbox",
+        items: [],
+      },
+      outside: {
+        type: "Checkbox",
+        items: [],
+      },
+      past: {
+        type: "Checkbox",
+        items: [],
       },
     },
     sort: {
@@ -168,14 +154,13 @@ const defaultConfig: Model = {
       type: 3, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
       },
       visibility: {
         default: true, // same as hidden = true
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "affiliations", // item type on schema.org
     },
@@ -185,11 +170,10 @@ const defaultConfig: Model = {
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",
       description: "",
-      hint: false,
       visibility: {
         default: true, // same as hidden = true
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "appId", // item type on schema.org
     },
@@ -199,12 +183,6 @@ const defaultConfig: Model = {
       type: 0,
       default: 0,
       description: "",
-      hint: false,
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
       meta: "availableSlots",
     },
     bookingState: {
@@ -213,12 +191,6 @@ const defaultConfig: Model = {
       type: 0, //
       default: 0,
       description: "",
-      hint: false,
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
       meta: "bookingState",
     },
     category: {
@@ -227,14 +199,13 @@ const defaultConfig: Model = {
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
       },
       visibility: {
         default: true, // same as hidden = true
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, // if true, show only if one of the if is true, if false, show only if all of the if are true
+        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "category", // item type on schema.org
     },
@@ -244,13 +215,7 @@ const defaultConfig: Model = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
 
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
       meta: "createdAt",
     },
 
@@ -260,14 +225,8 @@ const defaultConfig: Model = {
       type: 0, //
       default: 0,
       description: "",
-      hint: false,
       rules: {
         required: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "delay",
     },
@@ -278,16 +237,10 @@ const defaultConfig: Model = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 5,
         max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "description",
     },
@@ -298,16 +251,10 @@ const defaultConfig: Model = {
       type: 3, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 5,
         max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "disciplines",
     },
@@ -318,14 +265,8 @@ const defaultConfig: Model = {
       type: 3, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "discussants",
     },
@@ -335,16 +276,10 @@ const defaultConfig: Model = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 5,
         max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "eventType",
     },
@@ -354,14 +289,8 @@ const defaultConfig: Model = {
       type: 3, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "files",
     },
@@ -371,14 +300,8 @@ const defaultConfig: Model = {
       type: 3, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "image",
     },
@@ -388,13 +311,6 @@ const defaultConfig: Model = {
       type: 3, //
       default: "",
       description: "",
-      hint: false,
-      rules: {},
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
       meta: "gallery",
     },
     name: {
@@ -403,16 +319,10 @@ const defaultConfig: Model = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 5,
         max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "name",
     },
@@ -422,16 +332,10 @@ const defaultConfig: Model = {
       type: 3, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 5,
         max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "eventSlot",
     },
@@ -441,16 +345,10 @@ const defaultConfig: Model = {
       type: 3, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 5,
         max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "organizers",
     },
@@ -460,14 +358,8 @@ const defaultConfig: Model = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "organizerState",
     },
@@ -477,16 +369,10 @@ const defaultConfig: Model = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 5,
         max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "outside",
     },
@@ -496,14 +382,8 @@ const defaultConfig: Model = {
       type: 3, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "place",
     },
@@ -513,16 +393,10 @@ const defaultConfig: Model = {
       type: 4, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 5,
         max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "relatedNews",
     },
@@ -532,16 +406,10 @@ const defaultConfig: Model = {
       type: 4, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 5,
         max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "relatedPublications",
     },
@@ -551,16 +419,10 @@ const defaultConfig: Model = {
       type: 4, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 5,
         max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "relatedProject",
     },
@@ -570,14 +432,8 @@ const defaultConfig: Model = {
       type: 3, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "speakers",
     },
@@ -587,15 +443,9 @@ const defaultConfig: Model = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         date: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "start",
     },
@@ -605,14 +455,8 @@ const defaultConfig: Model = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "state",
     },
@@ -622,15 +466,9 @@ const defaultConfig: Model = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         date: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "stop",
     },
@@ -640,16 +478,10 @@ const defaultConfig: Model = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 5,
         max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "subtitle",
     },
@@ -659,16 +491,10 @@ const defaultConfig: Model = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 5,
         max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "summary",
     },
@@ -678,14 +504,8 @@ const defaultConfig: Model = {
       type: 3, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "tags",
     },
@@ -695,16 +515,10 @@ const defaultConfig: Model = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 5,
         max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "totalSlots",
     },
@@ -714,14 +528,8 @@ const defaultConfig: Model = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "updatedAt",
     },
@@ -731,15 +539,9 @@ const defaultConfig: Model = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         url: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "stream",
     },
@@ -749,15 +551,9 @@ const defaultConfig: Model = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         url: true,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "url",
     },

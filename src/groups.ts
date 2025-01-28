@@ -22,13 +22,6 @@ const defaultConfig: GroupsForm = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
-      rules: {},
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
       meta: "team",
     },
     sab: {
@@ -37,13 +30,6 @@ const defaultConfig: GroupsForm = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
-      rules: {},
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
       meta: "sab",
     },
     board: {
@@ -52,13 +38,6 @@ const defaultConfig: GroupsForm = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
-      rules: {},
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
       meta: "board",
     },
     fellow: {
@@ -67,13 +46,6 @@ const defaultConfig: GroupsForm = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
-      rules: {},
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
       meta: "fellow",
     },
     sponsor: {
@@ -82,13 +54,6 @@ const defaultConfig: GroupsForm = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
-      rules: {},
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
       meta: "sponsor",
     },
     vintage: {
@@ -97,13 +62,6 @@ const defaultConfig: GroupsForm = {
       type: 3, //
       default: "",
       description: "",
-      hint: false,
-      rules: {},
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
       meta: "vintage",
     },
   },

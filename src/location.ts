@@ -25,16 +25,10 @@ const defaultConfig: LocationForm = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 5,
         max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "name",
     },
@@ -44,16 +38,10 @@ const defaultConfig: LocationForm = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 5,
         max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "details",
     },
@@ -63,16 +51,10 @@ const defaultConfig: LocationForm = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 5,
         max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "alt",
     },
@@ -82,15 +64,9 @@ const defaultConfig: LocationForm = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "street",
     },
@@ -100,15 +76,9 @@ const defaultConfig: LocationForm = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "city",
     },
@@ -118,13 +88,6 @@ const defaultConfig: LocationForm = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
-      rules: {},
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
-      },
       meta: "country",
     },
 
@@ -134,16 +97,10 @@ const defaultConfig: LocationForm = {
       type: 0, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 5,
         max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       meta: "zip",
     },
@@ -153,16 +110,10 @@ const defaultConfig: LocationForm = {
       type: 1, //
       default: "",
       description: "",
-      hint: false,
       rules: {
         required: true,
         min: 5,
         max: 200,
-      },
-      visibility: {
-        default: true,
-        switchIf: [],
-        disjonctive: false,
       },
       items: {
         lat: {
