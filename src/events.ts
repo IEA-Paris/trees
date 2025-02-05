@@ -20,6 +20,7 @@ export interface Event {
   createdAt?: Date // 0 - Server & Client -
   delay?: number // 0 - Server & Client -
   description: string // 0 - Server & Client -
+  details: String // 0 - Server & Client -
   disciplines?: Disciplines[] // 3 - Server & Client //Inside=> Presentation
   discussants?: People[] // 0 - Server & Client -
   files?: File[] // 3 - Server & Client -
@@ -31,6 +32,7 @@ export interface Event {
   outside: boolean // 0 - Server & Client -  // Near inscription
   location: Location // 0 - Server & Client -
   organiserType: number // server & client - 0 = IAS, 1 = member, 2 = fellow, 3 = external
+  program: String // 0 - Server & Client -
   relatedProject?: RelatedProject[] | string[] // 0 - Server & Client -
   relatedPublications?: RelatedPublications[] | string[] // 0 - Server & Client -
   relatedNews?: RelatedNews[] | string[] // 0 - Server & Client -
@@ -244,7 +246,19 @@ const defaultConfig: Model = {
       },
       meta: "description",
     },
-
+    details: {
+      label: "details",
+      component: "TextArea",
+      type: 0, //
+      default: "",
+      description: "",
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      meta: "details",
+    },
     disciplines: {
       label: "disciplines",
       component: "CollectionContainerPanel",
@@ -386,6 +400,19 @@ const defaultConfig: Model = {
         required: true,
       },
       meta: "place",
+    },
+    program: {
+      label: "program",
+      component: "TextArea",
+      type: 0, //
+      default: "",
+      description: "",
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      meta: "program",
     },
     relatedNews: {
       label: "relatedNews",
