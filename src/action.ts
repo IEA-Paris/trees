@@ -5,7 +5,7 @@ export interface Action {
   color?: string
   link: string
   image: Image
-  title: string
+  name: string
   video?: URL
   slots: string[]
 }

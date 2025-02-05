@@ -3,7 +3,7 @@ import { Video } from "./video"
 import Model from "./model"
 
 export interface RelatedProject {
-  title: string
+  name: string
   shortDescription?: string
   description?: string
   url: URL

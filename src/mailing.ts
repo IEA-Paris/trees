@@ -2,7 +2,7 @@ import { Form } from "./form"
 import Model from "./model"
 
 export interface Mailing {
-  title: string
+  name: string
   description?: string
   createdAt: string
   updatedAt: string

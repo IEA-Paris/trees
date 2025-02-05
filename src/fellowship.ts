@@ -26,7 +26,7 @@ export interface Fellowship {
   files?: File[]
   fellowshipType: Number
   gallery?: Image[]
-  title: string
+  name: string
   video?: Video[]
 }
 

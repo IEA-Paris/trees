@@ -2,7 +2,7 @@ import { Image } from "./image"
 import Model from "./model"
 
 export interface RelatedNews {
-  title: string
+  name: string
   description?: string
   image?: Image
   color?: string

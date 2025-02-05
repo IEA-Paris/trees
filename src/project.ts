@@ -9,7 +9,7 @@ import { RelatedPublications } from "./relatedPublications"
 import { Tag } from "./tags"
 
 export interface Project {
-  title: string
+  name: string
   subtitle?: string
   description?: string
   url?: URL

@@ -7,7 +7,7 @@ import { RelatedPublications } from "./relatedPublications"
 import { Tag } from "./tags"
 
 export interface News {
-  title: string
+  name: string
   category?: number
   description?: string
   tags?: Tag[]
