@@ -95,6 +95,7 @@ const defaultConfig: Model = {
       label: "caption",
       component: "TextArea",
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      i18n: true,
       default: "",
       description: "",
       rules: {

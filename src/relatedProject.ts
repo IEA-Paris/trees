@@ -77,6 +77,7 @@ const defaultConfig: Model = {
       label: "name",
       component: "TextField",
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      i18n: true,
       default: "",
       description: "",
       rules: {
@@ -96,6 +97,7 @@ const defaultConfig: Model = {
       component: "TextArea",
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",
+      i18n: true,
       description: "",
       rules: {
         required: true,
@@ -115,6 +117,7 @@ const defaultConfig: Model = {
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",
       description: "",
+      i18n: true,
       rules: {
         required: true,
         min: 5,

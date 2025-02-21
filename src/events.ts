@@ -237,6 +237,7 @@ const defaultConfig: Model = {
       label: "description",
       component: "TextArea",
       type: 0, //
+      i18n: true,
       default: "",
       description: "",
       rules: {
@@ -251,6 +252,7 @@ const defaultConfig: Model = {
       component: "TextArea",
       type: 0, //
       default: "",
+      i18n: true,
       description: "",
       rules: {
         required: true,
@@ -332,6 +334,7 @@ const defaultConfig: Model = {
       component: "TextField",
       type: 0, //
       default: "",
+      i18n: true,
       description: "",
       rules: {
         required: true,
@@ -407,6 +410,7 @@ const defaultConfig: Model = {
       type: 0, //
       default: "",
       description: "",
+      i18n: true,
       rules: {
         required: true,
         min: 5,
@@ -502,6 +506,7 @@ const defaultConfig: Model = {
     subtitle: {
       label: "subtitle",
       component: "TextArea",
+      i18n: true,
       type: 0, //
       default: "",
       description: "",
@@ -516,6 +521,7 @@ const defaultConfig: Model = {
       label: "summary",
       component: "TextArea",
       type: 0, //
+      i18n: true,
       default: "",
       description: "",
       rules: {

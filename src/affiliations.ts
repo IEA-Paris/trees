@@ -97,6 +97,7 @@ const defaultConfig: Model = {
       label: "name",
       component: "TextField",
       type: 0, //
+      i18n: true,
       default: "",
       description: "",
       rules: {

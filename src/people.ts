@@ -198,6 +198,7 @@ const defaultConfig: Model = {
     biography: {
       label: "biography",
       component: "TextArea",
+      i18n: true,
       type: 0, //
       default: "",
       description: "",

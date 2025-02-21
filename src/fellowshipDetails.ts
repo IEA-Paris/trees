@@ -23,6 +23,7 @@ const configDefault: FellowshipDetailsForm = {
       label: "type",
       component: "TextArea",
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      i18n: true,
       default: false,
       description: "",
       rules: {
@@ -39,6 +40,7 @@ const configDefault: FellowshipDetailsForm = {
       label: "fundingPeriod",
       component: "TextArea",
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      i18n: true,
       default: false,
       description: "",
       rules: {
@@ -56,6 +58,7 @@ const configDefault: FellowshipDetailsForm = {
       component: "Checkbox",
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: false,
+      i18n: true,
       description: "",
       rules: {
         required: true,
@@ -72,6 +75,7 @@ const configDefault: FellowshipDetailsForm = {
       component: "TextArea",
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: false,
+      i18n: true,
       description: "",
       rules: {
         required: true,
@@ -87,6 +91,7 @@ const configDefault: FellowshipDetailsForm = {
       label: "location",
       component: "TextArea",
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      i18n: true,
       default: false,
       description: "",
       rules: {
@@ -105,6 +110,7 @@ const configDefault: FellowshipDetailsForm = {
       type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: false,
       description: "",
+      i18n: true,
       rules: {
         required: true,
       },
@@ -122,6 +128,7 @@ const configDefault: FellowshipDetailsForm = {
       type: 0, //
       default: "",
       description: "",
+      i18n: true,
       rules: {
         required: true,
         min: 5,
@@ -134,6 +141,7 @@ const configDefault: FellowshipDetailsForm = {
       component: "TextArea",
       type: 0, //
       default: "",
+      i18n: true,
       description: "",
       rules: {
         required: true,
@@ -147,6 +155,7 @@ const configDefault: FellowshipDetailsForm = {
       component: "TextArea",
       type: 0, //
       default: "",
+      i18n: true,
       description: "",
       rules: {
         required: true,
@@ -160,6 +169,7 @@ const configDefault: FellowshipDetailsForm = {
       component: "TextArea",
       type: 0, //
       default: "",
+      i18n: true,
       description: "",
       rules: {
         required: true,
@@ -173,6 +183,7 @@ const configDefault: FellowshipDetailsForm = {
       component: "TextArea",
       type: 0, //
       default: "",
+      i18n: true,
       description: "",
       rules: {
         required: true,

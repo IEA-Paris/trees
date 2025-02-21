@@ -175,6 +175,7 @@ const defaultConfig: Model = {
       component: "TextArea",
       type: 0, //
       default: "",
+      i18n: true,
       description: "",
       rules: {
         required: true,
@@ -305,6 +306,7 @@ const defaultConfig: Model = {
       type: 0, //
       default: "",
       description: "",
+      i18n: true,
       rules: {
         required: true,
         min: 5,
@@ -326,6 +328,7 @@ const defaultConfig: Model = {
     name: {
       label: "name",
       component: "TextField",
+      i18n: true,
       type: 0, //
       default: "",
       description: "",
