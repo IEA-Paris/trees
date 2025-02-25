@@ -6,6 +6,7 @@ import { File } from "./files"
 import Model from "./model"
 import { Video } from "./video"
 import { Disciplines } from "./disciplines"
+import { RelatedPeople } from "./relatedPeople"
 export interface Fellowship {
   action?: string
   affiliations?: Affiliation[] // AKA members behind the fellowships
@@ -15,7 +16,7 @@ export interface Fellowship {
   contact?: string
   description: string
   fellowshipDetails: FellowshipDetails
-  fellows?: People[]
+  fellows?: RelatedPeople[]
   url?: URL
   applicationStop?: Date
   fellowshipStop?: Date
