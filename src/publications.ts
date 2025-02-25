@@ -190,7 +190,7 @@ const defaultConfig: Model = {
       },
       meta: "relatedNews",
     },
-    relatedProject: {
+    relatedProjects: {
       label: "relatedProject",
       component: "DocumentPicker",
       type: 4, //

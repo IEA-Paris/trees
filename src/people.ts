@@ -23,7 +23,7 @@ export interface People {
   groups: Groups
   lang: string
   disciplines?: Disciplines[]
-  relatedProject?: RelatedProject[] | string[]
+  relatedProjects?: RelatedProject[] | string[]
   relatedEvents?: RelatedEvent[] | string[]
   relatedPublications?: RelatedPublications[] | string[]
   relatedNews?: RelatedNews[] | string[]
@@ -209,7 +209,7 @@ const defaultConfig: Model = {
       },
       meta: "biography",
     },
-    relatedProject: {
+    relatedProjects: {
       label: "relatedProject",
       component: "DocumentPicker",
       type: 4, //

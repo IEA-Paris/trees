@@ -17,7 +17,7 @@ export interface News {
   url?: URL
   date?: Date
   featured?: Date
-  relatedProject?: RelatedProject[] | string[]
+  relatedProjects?: RelatedProject[] | string[]
   relatedEvents?: RelatedEvent[] | string[]
   relatedPublications?: RelatedPublications[] | string[]
   people?: People[]
@@ -200,7 +200,7 @@ const defaultConfig: Model = {
       },
       meta: "tags",
     },
-    relatedProject: {
+    relatedProjects: {
       label: "relatedProject",
       component: "DocumentPicker",
       type: 4, //

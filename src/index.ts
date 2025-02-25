@@ -81,7 +81,7 @@ const configData: Record<string, ConfigValue> = {
   publications: defaultConfigPublications,
   relatedEvents: defaultConfigRelatedEvents,
   relatedNews: defaultConfigRelatedNews,
-  relatedProject: defaultConfigRelatedProject,
+  relatedProjects: defaultConfigRelatedProject,
   relatedPublications: defaultConfigRelatedPublications,
   socials: defaultConfigSocials,
   speakers: defaultConfigSpeakers,

@@ -33,7 +33,7 @@ export interface Event {
   location: Location // 0 - Server & Client -
   organiserType: number // server & client - 0 = IAS, 1 = member, 2 = fellow, 3 = external
   program: String // 0 - Server & Client -
-  relatedProject?: RelatedProject[] | string[] // 0 - Server & Client -
+  relatedProjects?: RelatedProject[] | string[] // 0 - Server & Client -
   relatedPublications?: RelatedPublications[] | string[] // 0 - Server & Client -
   relatedNews?: RelatedNews[] | string[] // 0 - Server & Client -
   // slots?: EventSlot[]; //// 3 - Server
@@ -444,8 +444,8 @@ const defaultConfig: Model = {
       },
       meta: "relatedPublications",
     },
-    relatedProject: {
-      label: "relatedProject",
+    relatedProjects: {
+      label: "relatedProjects",
       component: "DocumentPicker",
       type: 4, //
       default: "",
@@ -455,7 +455,7 @@ const defaultConfig: Model = {
         min: 5,
         max: 200,
       },
-      meta: "relatedProject",
+      meta: "relatedProjects",
     },
     speakers: {
       label: "speakers",
