@@ -18,12 +18,14 @@ export interface Event {
   bookingState: number // 0 - Server & Client -
   category: number // 0 - Server & Client -
   createdAt?: Date // 0 - Server & Client -
+  dateText: string // 0 - Server & Client -
   delay?: number // 0 - Server & Client -
   description: string // 0 - Server & Client -
   details: String // 0 - Server & Client -
   disciplines?: Disciplines[] // 3 - Server & Client //Inside=> Presentation
   discussants?: People[] // 0 - Server & Client -
   files?: File[] // 3 - Server & Client -
+  lang: [String]
   image?: Image // 3 - Server & Client -
   gallery?: Image[]
   name: string // 0 - Server & Client -
@@ -247,6 +249,20 @@ const defaultConfig: Model = {
       },
       meta: "description",
     },
+    dateText: {
+      label: "dateText",
+      component: "TextArea",
+      type: 0, //
+      default: "",
+      i18n: true,
+      description: "",
+      rules: {
+        required: false,
+        min: 5,
+        max: 200,
+      },
+      meta: "dateText",
+    },
     details: {
       label: "details",
       component: "TextArea",
@@ -299,6 +315,7 @@ const defaultConfig: Model = {
       },
       meta: "eventType",
     },
+    // TODO ADD LANG
     files: {
       label: "files",
       component: "CollectionContainerPanel",

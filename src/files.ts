@@ -1,4 +1,5 @@
 import Model from "./model"
+import { Image } from "./image"
 
 export interface File {
   name: string
@@ -8,7 +9,7 @@ export interface File {
   hash: string
   path: string
   file: string
-  image?: string
+  image?: Image
   thumb: URL
   createdAt: Date
   updatedAt: Date
@@ -167,14 +168,12 @@ const defautConfig: Model = {
     },
     image: {
       label: "image",
-      component: "TextField",
-      type: 0, //
+      component: "ObjectContainerPanel",
+      type: 3, //
       default: "",
       description: "",
       rules: {
         required: true,
-        min: 5,
-        max: 200,
       },
       meta: "image",
     },
