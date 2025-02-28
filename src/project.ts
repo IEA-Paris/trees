@@ -14,9 +14,9 @@ export interface Project {
   description?: string
   url?: URL
   affiliations?: Affiliation[]
-  relatedEvents?: RelatedEvent[] | string[]
-  relatedPublications?: RelatedPublications[] | string[]
-  relatedNews?: RelatedNews[] | string[]
+  relatedEvents?: RelatedEvent[]
+  relatedPublications?: RelatedPublications[]
+  relatedNews?: RelatedNews[]
   gallery?: Image[]
   image?: Image
   video?: Video

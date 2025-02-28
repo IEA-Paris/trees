@@ -23,10 +23,10 @@ export interface People {
   groups: Groups
   lang: string
   disciplines?: Disciplines[]
-  relatedProjects?: RelatedProject[] | string[]
-  relatedEvents?: RelatedEvent[] | string[]
-  relatedPublications?: RelatedPublications[] | string[]
-  relatedNews?: RelatedNews[] | string[]
+  relatedProjects?: RelatedProject[]
+  relatedEvents?: RelatedEvent[]
+  relatedPublications?: RelatedPublications[]
+  relatedNews?: RelatedNews[]
   video?: Video[]
 }
 

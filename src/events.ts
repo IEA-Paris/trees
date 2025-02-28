@@ -25,7 +25,7 @@ export interface Event {
   disciplines?: Disciplines[] // 3 - Server & Client //Inside=> Presentation
   discussants?: People[] // 0 - Server & Client -
   files?: File[] // 3 - Server & Client -
-  lang: [String]
+  lang: string[]
   image?: Image // 3 - Server & Client -
   gallery?: Image[]
   name: string // 0 - Server & Client -
@@ -35,9 +35,9 @@ export interface Event {
   location: Location // 0 - Server & Client -
   organiserType: number // server & client - 0 = IAS, 1 = member, 2 = fellow, 3 = external
   program: String // 0 - Server & Client -
-  relatedProjects?: RelatedProject[] | string[] // 0 - Server & Client -
-  relatedPublications?: RelatedPublications[] | string[] // 0 - Server & Client -
-  relatedNews?: RelatedNews[] | string[] // 0 - Server & Client -
+  relatedProjects?: RelatedProject[] // 0 - Server & Client -
+  relatedPublications?: RelatedPublications[] // 0 - Server & Client -
+  relatedNews?: RelatedNews[] // 0 - Server & Client -
   // slots?: EventSlot[]; //// 3 - Server
   speakers?: People[] // 3 - Server & Client -
   start: string // 0 - Server & Client -   A verifier string ? string[]
@@ -315,7 +315,17 @@ const defaultConfig: Model = {
       },
       meta: "eventType",
     },
-    // TODO ADD LANG
+    lang: {
+      label: "lang",
+      component: "CollectionContainerPanel",
+      type: 3, //
+      default: "",
+      description: "",
+      rules: {
+        required: true,
+      },
+      meta: "lang",
+    },
     files: {
       label: "files",
       component: "CollectionContainerPanel",

@@ -14,9 +14,9 @@ export interface Publications {
   description?: string
   url?: URL
   affiliations?: Affiliation[]
-  relatedEvents?: RelatedEvent[] | string[]
-  relatedNews?: RelatedNews[] | string[]
-  relatedProjects?: RelatedProject[] | string[]
+  relatedEvents?: RelatedEvent[]
+  relatedNews?: RelatedNews[]
+  relatedProjects?: RelatedProject[]
   gallery?: Image[]
   image?: Image
   video?: Video

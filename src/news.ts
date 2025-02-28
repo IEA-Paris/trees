@@ -17,9 +17,9 @@ export interface News {
   url?: URL
   date?: Date
   featured?: Date
-  relatedProjects?: RelatedProject[] | string[]
-  relatedEvents?: RelatedEvent[] | string[]
-  relatedPublications?: RelatedPublications[] | string[]
+  relatedProjects?: RelatedProject[]
+  relatedEvents?: RelatedEvent[]
+  relatedPublications?: RelatedPublications[]
   people?: People[]
   files?: File[]
 }
