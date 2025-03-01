@@ -13,7 +13,7 @@ import defaultConfigEvents from "./events"
 import defaultConfigRelatedPeople from "./relatedPeople"
 import defaultConfigEventSlot, { EventSlotForm } from "./eventSlot"
 import defaultConfigFellow from "./fellows"
-import defaultConfigFellowship from "./fellowship"
+import defaultConfigFellowships from "./fellowships"
 import defaultConfigPublications from "./publications"
 import defaultConfigFellowshipDetails, {
   FellowshipDetailsForm,
@@ -30,7 +30,7 @@ import defaultConfigOrganizers from "./organizers"
 import defaultConfigPartner from "./partner"
 import defaultConfigPeople from "./people"
 import defaultConfigPosition, { PositionForm } from "./position"
-import defaultConfigProject from "./project"
+import defaultConfigProjects from "./projects"
 import defaultConfigRelatedEvents from "./relatedEvents"
 import defaultConfigRelatedPublications from "./relatedPublications"
 import defaultConfigRelatedNews from "./relatedNews"
@@ -63,7 +63,7 @@ const configData: Record<string, ConfigValue> = {
   events: defaultConfigEvents,
   eventSlot: defaultConfigEventSlot,
   fellow: defaultConfigFellow,
-  fellowship: defaultConfigFellowship,
+  fellowships: defaultConfigFellowships,
   fellowshipDetails: defaultConfigFellowshipDetails,
   files: defaultConfigFiles,
   gallery: defaultConfigGallery,
@@ -77,7 +77,7 @@ const configData: Record<string, ConfigValue> = {
   partner: defaultConfigPartner,
   people: defaultConfigPeople,
   position: defaultConfigPosition,
-  project: defaultConfigProject,
+  projects: defaultConfigProjects,
   publications: defaultConfigPublications,
   relatedEvents: defaultConfigRelatedEvents,
   relatedNews: defaultConfigRelatedNews,

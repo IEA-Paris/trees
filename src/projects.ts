@@ -8,7 +8,7 @@ import { RelatedNews } from "./relatedNews"
 import { RelatedPublications } from "./relatedPublications"
 import { Tag } from "./tags"
 
-export interface Project {
+export interface Projects {
   name: string
   subtitle?: string
   description?: string

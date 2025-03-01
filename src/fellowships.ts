@@ -7,7 +7,7 @@ import Model from "./model"
 import { Video } from "./video"
 import { Disciplines } from "./disciplines"
 import { RelatedPeople } from "./relatedPeople"
-export interface Fellowship {
+export interface Fellowships {
   action?: string
   affiliations?: Affiliation[] // AKA members behind the fellowships
   applicationStart?: Date

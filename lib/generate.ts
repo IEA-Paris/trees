@@ -222,7 +222,6 @@ const createModule = (type: string): any => {
       sortDesc: defaultSort && [defaultSort.value[1]],
     },
     loading: true,
-    current: null,
     resetFilters: true,
   }
 
@@ -230,8 +229,8 @@ const createModule = (type: string): any => {
 }
 
 const typeName = [
-  "fellowship",
-  "project",
+  "fellowships",
+  "projects",
   "events",
   "news",
   "people",
