@@ -12,6 +12,7 @@ export interface Publications {
   name: string
   subtitle?: string
   description?: string
+  summary?: string
   url?: URL
   affiliations?: Affiliation[]
   relatedEvents?: RelatedEvent[]
@@ -143,6 +144,25 @@ const defaultConfig: Model = {
         disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "description", // item type on schema.org
+    },
+    summary: {
+      label: "summary",
+      component: "TextArea",
+      type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      i18n: true,
+      default: "",
+      description: "",
+      rules: {
+        required: true,
+        min: 5,
+        max: 2000,
+      },
+      visibility: {
+        default: true, // same as hidden = true
+        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
+        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
+      },
+      meta: "summary", // item type on schema.org
     },
     url: {
       label: "url",

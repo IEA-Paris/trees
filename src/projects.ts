@@ -136,18 +136,18 @@ const defaultConfig: Model = {
       },
       meta: "description", // item type on schema.org
     },
-      summary: {
-        label: "summary",
-        component: "TextArea",
-        type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
-        i18n: true,
-        default: "",
-        description: "",
-        rules: {
-          required: true,
-          min: 5,
-          max: 2000,
-        },
+    summary: {
+      label: "summary",
+      component: "TextArea",
+      type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      i18n: true,
+      default: "",
+      description: "",
+      rules: {
+        required: true,
+        min: 5,
+        max: 2000,
+      },
       visibility: {
         default: true, // same as hidden = true
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean

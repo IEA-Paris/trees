@@ -9,6 +9,7 @@ import { RelatedProject } from "./relatedProject"
 import { RelatedPublications } from "./relatedPublications"
 import { RelatedNews } from "./relatedNews"
 import { File } from "./files"
+import { Related } from "./related"
 import Model from "./model"
 
 export interface Event {
@@ -35,9 +36,7 @@ export interface Event {
   location: Location // 0 - Server & Client -
   organiserType: number // server & client - 0 = IAS, 1 = member, 2 = fellow, 3 = external
   program: String // 0 - Server & Client -
-  relatedProjects?: RelatedProject[] // 0 - Server & Client -
-  relatedPublications?: RelatedPublications[] // 0 - Server & Client -
-  relatedNews?: RelatedNews[] // 0 - Server & Client -
+  related: Related
   // slots?: EventSlot[]; //// 3 - Server
   speakers?: People[] // 3 - Server & Client -
   start: string // 0 - Server & Client -   A verifier string ? string[]
@@ -445,10 +444,9 @@ const defaultConfig: Model = {
       },
       meta: "program",
     },
-    relatedNews: {
-      label: "relatedNews",
-      component: "DocumentPicker",
-      type: 4, //
+    related: {
+      label: "relatedPicker",
+      type: 2, //
       default: "",
       description: "",
       rules: {
@@ -456,33 +454,7 @@ const defaultConfig: Model = {
         min: 5,
         max: 200,
       },
-      meta: "relatedNews",
-    },
-    relatedPublications: {
-      label: "relatedPublications",
-      component: "DocumentPicker",
-      type: 4, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
-      meta: "relatedPublications",
-    },
-    relatedProjects: {
-      label: "relatedProjects",
-      component: "DocumentPicker",
-      type: 4, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
-      meta: "relatedProjects",
+      meta: "related",
     },
     speakers: {
       label: "speakers",

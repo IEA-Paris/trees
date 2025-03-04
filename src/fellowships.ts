@@ -15,6 +15,7 @@ export interface Fellowships {
   fellowshipStart?: Date
   contact?: string
   description: string
+  subtitle: string
   fellowshipDetails: FellowshipDetails
   fellows?: RelatedPeople[]
   url?: URL
@@ -339,6 +340,20 @@ const defaultConfig: Model = {
         max: 200,
       },
       meta: "name",
+    },
+    subtitle: {
+      label: "subtitle",
+      component: "TextField",
+      i18n: true,
+      type: 0, //
+      default: "",
+      description: "",
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      meta: "subtitle",
     },
     video: {
       label: "video",
