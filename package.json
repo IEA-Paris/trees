@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "index.ts",
-    "generate": "npx tsx lib/generate.ts"
+    "generate": "npx tsx lib/generate.ts",
+    "draw": "npx depcruise src --include-only \"^src\" --output-type dot | dot -T svg > dependency-graph.svg"
   },
   "files": [
     "index.ts",
