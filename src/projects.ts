@@ -177,8 +177,9 @@ const defaultConfig: Model = {
       meta: "affiliations",
     },
     related: {
-      label: "relatedPicker",
-      type: 2, //
+      label: "related",
+      component: "ObjectContainerPanel",
+      type: 3, //
       default: "",
       description: "",
       rules: {

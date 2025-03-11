@@ -223,10 +223,10 @@ const defaultConfig: Model = {
       },
       meta: "details",
     },
-    //!\TODO: fix the related people
     fellows: {
       label: "fellows",
-      type: 2, //
+      component: "ObjectContainerPanel",
+      type: 3, //
       default: "",
       description: "",
       rules: {
@@ -234,7 +234,7 @@ const defaultConfig: Model = {
         min: 5,
         max: 200,
       },
-      meta: "related",
+      meta: "fellows",
     },
     gallery: {
       label: "gallery",

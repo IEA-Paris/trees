@@ -187,8 +187,9 @@ const defaultConfig: Model = {
     },
 
     related: {
-      label: "relatedPicker",
-      type: 2, //
+      label: "related",
+      component: "ObjectContainerPanel",
+      type: 3, //
       default: "",
       description: "",
       rules: {
