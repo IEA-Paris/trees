@@ -3,9 +3,7 @@ import { Affiliation } from "./affiliations"
 import { File } from "./files"
 import { Video } from "./video"
 import Model from "./model"
-import { RelatedEvent } from "./relatedEvents"
-import { RelatedNews } from "./relatedNews"
-import { RelatedProject } from "./relatedProject"
+import { Related } from "./related"
 import { Tag } from "./tags"
 
 export interface Publications {
@@ -15,9 +13,7 @@ export interface Publications {
   summary?: string
   url?: URL
   affiliations?: Affiliation[]
-  relatedEvents?: RelatedEvent[]
-  relatedNews?: RelatedNews[]
-  relatedProjects?: RelatedProject[]
+  related?: Related[]
   gallery?: Image[]
   image?: Image
   video?: Video
@@ -189,18 +185,10 @@ const defaultConfig: Model = {
       description: "",
       meta: "affiliations",
     },
-    relatedEvents: {
-      label: "relatedEvents",
-      component: "DocumentPicker",
-      type: 4, //
-      default: "",
-      description: "",
-      meta: "relatedEvents",
-    },
-    relatedNews: {
-      label: "relatedNews",
-      component: "DocumentPicker",
-      type: 4, //
+
+    related: {
+      label: "relatedPicker",
+      type: 2, //
       default: "",
       description: "",
       rules: {
@@ -208,16 +196,9 @@ const defaultConfig: Model = {
         min: 5,
         max: 200,
       },
-      meta: "relatedNews",
+      meta: "related",
     },
-    relatedProjects: {
-      label: "relatedProject",
-      component: "DocumentPicker",
-      type: 4, //
-      default: "",
-      description: "",
-      meta: "relatedProject",
-    },
+
     image: {
       label: "image",
       component: "ObjectContainerPanel",

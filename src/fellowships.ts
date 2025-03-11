@@ -6,7 +6,7 @@ import { File } from "./files"
 import Model from "./model"
 import { Video } from "./video"
 import { Disciplines } from "./disciplines"
-import { RelatedPeople } from "./relatedPeople"
+import { Related } from "./related"
 export interface Fellowships {
   action?: string
   affiliations?: Affiliation[] // AKA members behind the fellowships
@@ -17,7 +17,7 @@ export interface Fellowships {
   description: string
   subtitle: string
   fellowshipDetails: FellowshipDetails
-  fellows?: RelatedPeople[]
+  related?: Related[]
   url?: URL
   applicationStop?: Date
   fellowshipStop?: Date
@@ -224,16 +224,17 @@ const defaultConfig: Model = {
       },
       meta: "details",
     },
-    fellows: {
-      label: "fellows",
-      component: "CollectionContainerPanel",
-      type: 3, //
+    related: {
+      label: "relatedPicker",
+      type: 2, //
       default: "",
       description: "",
       rules: {
         required: true,
+        min: 5,
+        max: 200,
       },
-      meta: "fellows",
+      meta: "related",
     },
     gallery: {
       label: "gallery",

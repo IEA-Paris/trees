@@ -1,9 +1,7 @@
 import { Image } from "./image"
 import Model from "./model"
 import { People } from "./people"
-import { RelatedEvent } from "./relatedEvents"
-import { RelatedProject } from "./relatedProject"
-import { RelatedPublications } from "./relatedPublications"
+import { Related } from "./related"
 import { Tag } from "./tags"
 
 export interface News {
@@ -19,9 +17,7 @@ export interface News {
   url?: URL
   date?: Date
   featured?: Date
-  relatedProjects?: RelatedProject[]
-  relatedEvents?: RelatedEvent[]
-  relatedPublications?: RelatedPublications[]
+  related?: Related[]
   people?: People[]
   files?: File[]
 }
@@ -239,22 +235,9 @@ const defaultConfig: Model = {
       },
       meta: "tags",
     },
-    relatedProjects: {
-      label: "relatedProject",
-      component: "DocumentPicker",
-      type: 4, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-        min: 1,
-      },
-      meta: "relatedProject",
-    },
-    relatedPublications: {
-      label: "relatedPublications",
-      component: "DocumentPicker",
-      type: 4, //
+    related: {
+      label: "relatedPicker",
+      type: 2, //
       default: "",
       description: "",
       rules: {
@@ -262,15 +245,7 @@ const defaultConfig: Model = {
         min: 5,
         max: 200,
       },
-      meta: "relatedPublications",
-    },
-    relatedEvents: {
-      label: "relatedEvent",
-      component: "DocumentPicker",
-      type: 4, //
-      default: "",
-      description: "",
-      meta: "event",
+      meta: "related",
     },
     people: {
       label: "people",

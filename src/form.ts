@@ -20,7 +20,7 @@ export interface Visibility {
 
 export interface Form {
   type: number
-  component: string | boolean
+  component?: string | boolean
   label: string
   i18n?: boolean
   default?: any
