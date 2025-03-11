@@ -1,12 +1,11 @@
 import { Image } from "./image"
 import { Affiliation } from "./affiliations"
-import { People } from "./people"
 import { FellowshipDetails } from "./fellowshipDetails"
 import { File } from "./files"
 import Model from "./model"
 import { Video } from "./video"
 import { Disciplines } from "./disciplines"
-import { Related } from "./related"
+import { RelatedPeople } from "./relatedPeople"
 export interface Fellowships {
   action?: string
   affiliations?: Affiliation[] // AKA members behind the fellowships
@@ -17,7 +16,7 @@ export interface Fellowships {
   description: string
   subtitle: string
   fellowshipDetails: FellowshipDetails
-  related?: Related[]
+  fellows?: RelatedPeople[]
   url?: URL
   applicationStop?: Date
   fellowshipStop?: Date
@@ -224,8 +223,9 @@ const defaultConfig: Model = {
       },
       meta: "details",
     },
-    related: {
-      label: "relatedPicker",
+    //!\TODO: fix the related people
+    fellows: {
+      label: "fellows",
       type: 2, //
       default: "",
       description: "",

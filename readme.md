@@ -8,6 +8,7 @@ This project provides type definitions and utilities for various modules in the 
   - [Table of Contents](#table-of-contents)
   - [Installation](#installation)
   - [Usage](#usage)
+  - [Structure](#structure)
   - [Modules](#modules)
     - [Projects](#projects)
     - [News](#news)
@@ -30,16 +31,18 @@ yarn add @paris-ias/data
 
 ## Usage
 
-A precompiled version of the common objects is produced during CI. It is available in the `dist` folder. I can be imported to produce lists and forms using the related packages produced by Paris IAS.
+A precompiled version of the common objects is produced during CI. It is available in the `dist` folder. It can be imported to produce lists and forms using the related packages produced by Paris IAS.
 
 You can also import and use the types and utilities provided by this project in your code as follows:
 
 ```ts
-import { projects, news, people } from 'types';
+import { projects, news, people } from '@paris-ias/data';
 
 // Example usage
 
 ```
+## Structure
+
 
 ## Modules
 
