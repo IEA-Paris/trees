@@ -13,7 +13,7 @@ import defaultConfigEvents from "./events"
 import defaultConfigRelatedPeople from "./relatedPeople"
 import defaultConfigEventSlot, { EventSlotForm } from "./eventSlot"
 import defaultConfigFellow from "./fellows"
-import defaultConfigFellowships from "./fellowships"
+import defaultConfigFellowship from "./fellowships"
 import defaultConfigPublications from "./publications"
 import defaultConfigFellowshipDetails, {
   FellowshipDetailsForm,
@@ -30,11 +30,12 @@ import defaultConfigOrganizers from "./organizers"
 import defaultConfigPartner from "./partner"
 import defaultConfigPeople from "./people"
 import defaultConfigPosition, { PositionForm } from "./position"
-import defaultConfigProjects from "./projects"
+import defaultConfigProject from "./projects"
 import defaultConfigRelatedEvents from "./relatedEvents"
 import defaultConfigRelatedPublications from "./relatedPublications"
 import defaultConfigRelatedNews from "./relatedNews"
 import defaultConfigRelatedProject from "./relatedProject"
+import defaultConfigRelated from "./related"
 import defaultConfigSocials, { SocialsForm } from "./socials"
 import defaultConfigSpeakers from "./speakers"
 import defaultConfigSponsor from "./sponsor"
@@ -63,7 +64,7 @@ const configData: Record<string, ConfigValue> = {
   events: defaultConfigEvents,
   eventSlot: defaultConfigEventSlot,
   fellow: defaultConfigFellow,
-  fellowships: defaultConfigFellowships,
+  fellowship: defaultConfigFellowship,
   fellowshipDetails: defaultConfigFellowshipDetails,
   files: defaultConfigFiles,
   gallery: defaultConfigGallery,
@@ -77,19 +78,20 @@ const configData: Record<string, ConfigValue> = {
   partner: defaultConfigPartner,
   people: defaultConfigPeople,
   position: defaultConfigPosition,
-  projects: defaultConfigProjects,
+  project: defaultConfigProject,
   publications: defaultConfigPublications,
   relatedEvents: defaultConfigRelatedEvents,
   relatedNews: defaultConfigRelatedNews,
   relatedProjects: defaultConfigRelatedProject,
   relatedPublications: defaultConfigRelatedPublications,
+  relatedPeople: defaultConfigRelatedPeople,
+  related: defaultConfigRelated,
   socials: defaultConfigSocials,
   speakers: defaultConfigSpeakers,
   sponsor: defaultConfigSponsor,
   tags: defaultConfigTags,
   video: defaultConfigVideo,
   vintage: defaultConfigVintage,
-  relatedPeople: defaultConfigRelatedPeople,
 }
 
 export { configData }

@@ -7,10 +7,7 @@ import { Groups } from "./groups"
 import { Disciplines } from "./disciplines"
 import { Video } from "./video"
 import Model from "./model"
-import { RelatedProject } from "./relatedProject"
-import { RelatedEvent } from "./relatedEvents"
-import { RelatedPublications } from "./relatedPublications"
-import { RelatedNews } from "./relatedNews"
+import { Related } from "./related"
 
 export interface People {
   name: string
@@ -24,10 +21,8 @@ export interface People {
   groups: Groups
   lang: string
   disciplines?: Disciplines[]
-  relatedProjects?: RelatedProject[]
-  relatedEvents?: RelatedEvent[]
-  relatedPublications?: RelatedPublications[]
-  relatedNews?: RelatedNews[]
+  related?: Related[]
+
   video?: Video[]
 }
 
@@ -228,22 +223,11 @@ const defaultConfig: Model = {
       },
       meta: "biography",
     },
-    relatedProjects: {
-      label: "relatedProject",
-      component: "DocumentPicker",
-      type: 4, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-        min: 1,
-      },
-      meta: "relatedProject",
-    },
-    relatedPublications: {
-      label: "relatedPublications",
-      component: "DocumentPicker",
-      type: 4, //
+
+    related: {
+      label: "related",
+      component: "ObjectContainerPanel",
+      type: 3, //
       default: "",
       description: "",
       rules: {
@@ -251,29 +235,9 @@ const defaultConfig: Model = {
         min: 5,
         max: 200,
       },
-      meta: "relatedPublications",
+      meta: "related",
     },
-    relatedEvents: {
-      label: "relatedEvent",
-      component: "DocumentPicker",
-      type: 4, //
-      default: "",
-      description: "",
-      meta: "event",
-    },
-    relatedNews: {
-      label: "relatedNews",
-      component: "DocumentPicker",
-      type: 4, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
-      meta: "relatedNews",
-    },
+
     consent: {
       label: "consent",
       component: "ObjectContainerPanel",

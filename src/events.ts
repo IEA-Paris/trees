@@ -5,9 +5,6 @@ import { Disciplines } from "./disciplines"
 import { Tag } from "./tags"
 import { People } from "./people"
 import { Affiliation } from "./affiliations"
-import { RelatedProject } from "./relatedProject"
-import { RelatedPublications } from "./relatedPublications"
-import { RelatedNews } from "./relatedNews"
 import { File } from "./files"
 import { Related } from "./related"
 import Model from "./model"
@@ -445,8 +442,9 @@ const defaultConfig: Model = {
       meta: "program",
     },
     related: {
-      label: "relatedPicker",
-      type: 2, //
+      label: "related",
+      component: "ObjectContainerPanel",
+      type: 3, //
       default: "",
       description: "",
       rules: {

@@ -1,6 +1,5 @@
 import { Image } from "./image"
 import { Affiliation } from "./affiliations"
-import { People } from "./people"
 import { FellowshipDetails } from "./fellowshipDetails"
 import { File } from "./files"
 import Model from "./model"
@@ -226,12 +225,14 @@ const defaultConfig: Model = {
     },
     fellows: {
       label: "fellows",
-      component: "CollectionContainerPanel",
+      component: "ObjectContainerPanel",
       type: 3, //
       default: "",
       description: "",
       rules: {
         required: true,
+        min: 5,
+        max: 200,
       },
       meta: "fellows",
     },
