@@ -22,7 +22,6 @@ export interface People {
   lang: string
   disciplines?: Disciplines[]
   related?: Related[]
-
   video?: Video[]
 }
 

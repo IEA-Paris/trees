@@ -13,8 +13,8 @@ export interface Event {
   affiliations?: Affiliation[] // 3 - Server & Client - //Bottom left Document
   appId: string // 0 - Server & Client -
   availableSlots: number // 0 - Server & Client - ? => Claire
-  bookingState: number // 0 - Server & Client -
-  category: number // 0 - Server & Client -
+  bookingState: bookingState // 0 - Server & Client -
+  category: categories // 0 - Server & Client -
   createdAt?: Date // 0 - Server & Client -
   dateText: string // 0 - Server & Client -
   delay?: number // 0 - Server & Client -
@@ -31,7 +31,7 @@ export interface Event {
   organizers: People[] | Affiliation[] // 3 - Server & Client -
   outside: boolean // 0 - Server & Client -  // Near inscription
   location: Location // 0 - Server & Client -
-  organiserType: number // server & client - 0 = IAS, 1 = member, 2 = fellow, 3 = external
+  organiserType: organiserType // server & client - 0 = IAS, 1 = member, 2 = fellow, 3 = external
   program: String // 0 - Server & Client -
   related: Related
   // slots?: EventSlot[]; //// 3 - Server
@@ -44,11 +44,46 @@ export interface Event {
   summary?: string // 0 - Server & Client -
   tags?: Tag[] // 3 - Server & Client - Inside=> Presentation
   totalSlots: number // 0 - Server & Client
-  eventType: number // 0 : online, 1: physical, 2: hybrid// 0 - Server & Client -
+  eventType: eventType // 0 : online, 1: physical, 2: hybrid// 0 - Server & Client -
   updatedAt: Date // 0 - Server & Client -
   url?: URL // 0 - Server & Client -
 }
+enum state {
+  DRAFT,
+  PUBLISHED,
+  REMOVED,
+}
+enum bookingState {
+  OPEN,
+  FULL,
+  CLOSED,
+}
+enum eventType {
+  ONLINE,
+  PHYSICAL,
+  HYBRID,
+}
+enum organiserType {
+  IAS,
+  MEMBER,
+  FELLOW,
+  EXTERNAL,
+}
 
+enum categories {
+  SEMINAR,
+  WORKSHOP,
+  CONFERENCE,
+  LECTURE,
+  SYMPOSIUM,
+  MEETING,
+  COLLOQUIUM,
+  FORUM,
+  ROUND_TABLE,
+  PANEL,
+  WEBINAR,
+  OTHER,
+}
 const defaultConfig: Model = {
   source: "gql",
   // markdown related keys
@@ -66,17 +101,17 @@ const defaultConfig: Model = {
     filters: {
       category: {
         type: "Select",
-        items: [],
+        items: categories,
         multiple: true,
       },
 
       status: {
         type: "Select",
-        items: [],
+        items: bookingState,
       },
       organiserCategory: {
         type: "Select",
-        items: [],
+        items: organiserType,
         multiple: true,
       },
 
@@ -92,15 +127,15 @@ const defaultConfig: Model = {
       },
       online: {
         type: "Checkbox",
-        items: [],
+        items: false,
       },
       outside: {
         type: "Checkbox",
-        items: [],
+        items: false,
       },
       past: {
         type: "Checkbox",
-        items: [],
+        items: false,
       },
     },
     sort: {
@@ -207,6 +242,7 @@ const defaultConfig: Model = {
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
         disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
+      items: categories,
       meta: "category", // item type on schema.org
     },
     createdAt: {
@@ -306,10 +342,21 @@ const defaultConfig: Model = {
       description: "",
       rules: {
         required: true,
-        min: 5,
-        max: 200,
       },
+      items: eventType,
       meta: "eventType",
+    },
+    organiserType: {
+      label: "organiserType",
+      component: "Select",
+      type: 0, //
+      default: "",
+      description: "",
+      rules: {
+        required: true,
+      },
+      items: organiserType,
+      meta: "organiserType",
     },
     lang: {
       label: "lang",

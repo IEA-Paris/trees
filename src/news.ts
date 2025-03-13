@@ -1,12 +1,13 @@
 import { Image } from "./image"
 import Model from "./model"
-import { People } from "./people"
+import { RelatedPeople } from "./relatedPeople"
 import { Related } from "./related"
 import { Tag } from "./tags"
 
 export interface News {
   name: string
-  category?: number
+  authors: [RelatedPeople]
+  category?: category
   description?: string
   summary?: string
   subtitle?: string
@@ -18,10 +19,30 @@ export interface News {
   date?: Date
   featured?: Date
   related?: Related[]
-  people?: People[]
   files?: File[]
 }
-
+enum category {
+  PRESS_RELEASE,
+  INTERVIEW,
+  ARTICLE,
+  OPINION,
+  REPORT,
+  BLOG,
+  LIFE_AT_THE_INSTITUTE,
+  EVENT,
+  ANNOUNCEMENT,
+  JOB,
+  FELLOWSHIP,
+  GRANT,
+  AWARD,
+  PROJECT,
+  TOOL,
+  SOFTWARE,
+  DATA,
+  PUBLICATION,
+  VIDEO,
+  AUDIO,
+}
 const defaultConfig: Model = {
   source: "gql",
   type: "", // 'directory' | 'file'
@@ -40,6 +61,7 @@ const defaultConfig: Model = {
       category: {
         type: "Select",
         multiple: true,
+        items: category,
       },
     },
     sort: {
@@ -248,18 +270,6 @@ const defaultConfig: Model = {
       },
       meta: "related",
     },
-    people: {
-      label: "people",
-      component: "CollectionContainerPanel",
-      type: 3, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-        min: 1,
-      },
-      meta: "people",
-    },
 
     category: {
       label: "category",
@@ -270,6 +280,7 @@ const defaultConfig: Model = {
       rules: {
         required: true,
       },
+      items: category,
       visibility: {
         default: true, // same as hidden = true
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean

@@ -22,8 +22,15 @@ export interface Projects {
   color?: string
   date?: Date
   featured?: Date
+  status: status
 }
 
+enum status {
+  PLANNED,
+  IN_PROGRESS,
+  FINISHED,
+  CANCELED,
+}
 const defaultConfig: Model = {
   source: "md",
   type: "", // 'directory' | 'file'
@@ -37,7 +44,7 @@ const defaultConfig: Model = {
     filters: {
       status: {
         type: "Select",
-        items: "",
+        items: status,
       },
     },
     sort: {
@@ -167,6 +174,18 @@ const defaultConfig: Model = {
         disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "url", // item type on schema.org
+    },
+    status: {
+      label: "status",
+      component: "Select",
+      type: 0, //
+      default: "",
+      description: "",
+      rules: {
+        required: true,
+      },
+      items: status,
+      meta: "status",
     },
     affiliations: {
       label: "affiliations",

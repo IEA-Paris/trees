@@ -25,10 +25,22 @@ export interface Fellowships {
   publicationDate?: Date
   summary?: string
   files?: File[]
-  fellowshipType: Number
+  fellowshipType: FellowshipType
   gallery?: Image[]
   name: string
   video?: Video[]
+}
+
+enum FellowshipType {
+  SHORT_STAY,
+  LONG_STAY,
+  IN_GROUP,
+}
+enum FellowshipStatus {
+  OPEN,
+  CLOSED,
+  IN_PROGRESS,
+  UPCOMING,
 }
 
 const defaultConfig: Model = {
@@ -44,14 +56,17 @@ const defaultConfig: Model = {
     filters: {
       status: {
         type: "Select",
+        items: FellowshipStatus,
       },
       duration: {
         type: "Select",
         multiple: true,
+        items: FellowshipType,
       },
       affiliation: {
         type: "Select",
         multiple: true,
+        items: [],
       },
       discipline: {
         type: "Select",
@@ -210,6 +225,7 @@ const defaultConfig: Model = {
         min: 5,
         max: 200,
       },
+      items: FellowshipType,
       meta: "fellowshipType",
     },
     fellowshipDetails: {
