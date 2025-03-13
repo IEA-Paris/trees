@@ -8,6 +8,7 @@ import { Disciplines } from "./disciplines"
 import { Video } from "./video"
 import Model from "./model"
 import { Related } from "./related"
+import { mapEnum } from "../lib/utils"
 
 export interface People {
   name: string

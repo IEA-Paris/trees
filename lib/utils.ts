@@ -14,3 +14,7 @@ export function createJsonFile(type: string, module: any): void {
     `export default ${JSON.stringify(module, null, 2)}`
   )
 }
+export const mapEnum = (arg) =>
+  Object.keys(arg)
+    .filter((key) => isNaN(Number(key))) // Filter out numeric keys
+    .map((key) => key) // Cast to string array

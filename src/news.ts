@@ -3,6 +3,7 @@ import Model from "./model"
 import { RelatedPeople } from "./relatedPeople"
 import { Related } from "./related"
 import { Tag } from "./tags"
+import { mapEnum } from "../lib/utils"
 
 export interface News {
   name: string
@@ -61,7 +62,7 @@ const defaultConfig: Model = {
       category: {
         type: "Select",
         multiple: true,
-        items: newsCategories,
+        items: mapEnum(newsCategories),
       },
     },
     sort: {
@@ -280,7 +281,7 @@ const defaultConfig: Model = {
       rules: {
         required: true,
       },
-      items: newsCategories,
+      items: mapEnum(newsCategories),
       visibility: {
         default: true, // same as hidden = true
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean

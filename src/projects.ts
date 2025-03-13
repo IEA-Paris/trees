@@ -5,6 +5,7 @@ import { Video } from "./video"
 import Model from "./model"
 import { Related } from "./related"
 import { Tag } from "./tags"
+import { mapEnum } from "../lib/utils"
 
 export interface Projects {
   name: string
@@ -44,7 +45,7 @@ const defaultConfig: Model = {
     filters: {
       status: {
         type: "Select",
-        items: projectStatus,
+        items: mapEnum(projectStatus),
       },
     },
     sort: {
@@ -184,7 +185,7 @@ const defaultConfig: Model = {
       rules: {
         required: true,
       },
-      items: projectStatus,
+      items: mapEnum(projectStatus),
       meta: "status",
     },
     affiliations: {

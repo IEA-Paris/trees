@@ -5,6 +5,7 @@ import { Video } from "./video"
 import Model from "./model"
 import { Related } from "./related"
 import { Tag } from "./tags"
+import { mapEnum } from "../lib/utils"
 
 export interface Publications {
   name: string

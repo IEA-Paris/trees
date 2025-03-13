@@ -8,6 +8,7 @@ import { Affiliation } from "./affiliations"
 import { File } from "./files"
 import { Related } from "./related"
 import Model from "./model"
+import { mapEnum } from "../lib/utils"
 
 export interface Event {
   affiliations?: Affiliation[] // 3 - Server & Client - //Bottom left Document
@@ -101,17 +102,17 @@ const defaultConfig: Model = {
     filters: {
       category: {
         type: "Select",
-        items: eventCategories,
+        items: mapEnum(eventCategories),
         multiple: true,
       },
 
       status: {
         type: "Select",
-        items: bookingState,
+        items: mapEnum(bookingState),
       },
       organiserCategory: {
         type: "Select",
-        items: organiserType,
+        items: mapEnum(organiserType),
         multiple: true,
       },
 
@@ -242,7 +243,7 @@ const defaultConfig: Model = {
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
         disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
-      items: eventCategories,
+      items: mapEnum(eventCategories),
       meta: "category", // item type on schema.org
     },
     createdAt: {
@@ -343,7 +344,7 @@ const defaultConfig: Model = {
       rules: {
         required: true,
       },
-      items: eventType,
+      items: mapEnum(eventType),
       meta: "eventType",
     },
     organiserType: {
@@ -355,7 +356,7 @@ const defaultConfig: Model = {
       rules: {
         required: true,
       },
-      items: organiserType,
+      items: mapEnum(organiserType),
       meta: "organiserType",
     },
     lang: {

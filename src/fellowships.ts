@@ -6,6 +6,7 @@ import Model from "./model"
 import { Video } from "./video"
 import { Disciplines } from "./disciplines"
 import { RelatedPeople } from "./relatedPeople"
+import { mapEnum } from "../lib/utils"
 export interface Fellowships {
   action?: string
   affiliations?: Affiliation[] // AKA members behind the fellowships
@@ -56,12 +57,12 @@ const defaultConfig: Model = {
     filters: {
       status: {
         type: "Select",
-        items: FellowshipStatus,
+        items: mapEnum(FellowshipStatus),
       },
       duration: {
         type: "Select",
         multiple: true,
-        items: FellowshipType,
+        items: mapEnum(FellowshipType),
       },
       affiliation: {
         type: "Select",
@@ -225,7 +226,7 @@ const defaultConfig: Model = {
         min: 5,
         max: 200,
       },
-      items: FellowshipType,
+      items: mapEnum(FellowshipType),
       meta: "fellowshipType",
     },
     fellowshipDetails: {
