@@ -38,10 +38,10 @@ export enum FellowshipType {
   IN_GROUP,
 }
 export enum FellowshipStatus {
-  OPEN,
-  CLOSED,
-  IN_PROGRESS,
-  UPCOMING,
+  PLANNED,
+  ONGOING,
+  FINISHED,
+  CANCELLED,
 }
 
 const defaultConfig: Model = {

@@ -25,17 +25,17 @@ export interface Publications {
 }
 
 export enum publicationType {
-  JOURNAL_ARTICLE,
+  ARTICLE,
   CONFERENCE_PAPER,
   BOOK,
   BOOK_CHAPTER,
   THESIS,
   REPORT,
-  PATENT,
   SOFTWARE,
   DATA,
   VIDEO,
   AUDIO,
+  PODCAST,
 }
 const defaultConfig: Model = {
   source: "md",
@@ -55,6 +55,11 @@ const defaultConfig: Model = {
       },
       tags: {
         type: "Select",
+        multiple: true,
+      },
+      type: {
+        type: "Select",
+        items: mapEnum(publicationType),
         multiple: true,
       },
     },

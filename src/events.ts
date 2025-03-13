@@ -53,6 +53,9 @@ export enum eventState {
   DRAFT,
   PUBLISHED,
   REMOVED,
+  CANCELLED,
+  POSTPONED,
+  RESCHEDULED,
 }
 export enum bookingState {
   OPEN,
@@ -83,6 +86,7 @@ export enum eventCategories {
   ROUND_TABLE,
   PANEL,
   WEBINAR,
+  FELLOW_PRESENTATION,
   OTHER,
 }
 const defaultConfig: Model = {
