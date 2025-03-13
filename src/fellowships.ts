@@ -31,12 +31,12 @@ export interface Fellowships {
   video?: Video[]
 }
 
-enum FellowshipType {
+export enum FellowshipType {
   SHORT_STAY,
   LONG_STAY,
   IN_GROUP,
 }
-enum FellowshipStatus {
+export enum FellowshipStatus {
   OPEN,
   CLOSED,
   IN_PROGRESS,

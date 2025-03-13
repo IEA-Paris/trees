@@ -48,29 +48,29 @@ export interface Event {
   updatedAt: Date // 0 - Server & Client -
   url?: URL // 0 - Server & Client -
 }
-enum state {
+export enum state {
   DRAFT,
   PUBLISHED,
   REMOVED,
 }
-enum bookingState {
+export enum bookingState {
   OPEN,
   FULL,
   CLOSED,
 }
-enum eventType {
+export enum eventType {
   ONLINE,
   PHYSICAL,
   HYBRID,
 }
-enum organiserType {
+export enum organiserType {
   IAS,
   MEMBER,
   FELLOW,
   EXTERNAL,
 }
 
-enum categories {
+export enum categories {
   SEMINAR,
   WORKSHOP,
   CONFERENCE,

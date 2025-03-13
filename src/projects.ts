@@ -25,7 +25,7 @@ export interface Projects {
   status: status
 }
 
-enum status {
+export enum status {
   PLANNED,
   IN_PROGRESS,
   FINISHED,

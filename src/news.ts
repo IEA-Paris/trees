@@ -21,7 +21,7 @@ export interface News {
   related?: Related[]
   files?: File[]
 }
-enum category {
+export enum category {
   PRESS_RELEASE,
   INTERVIEW,
   ARTICLE,
