@@ -23,6 +23,19 @@ export interface Publications {
   date?: Date
 }
 
+export enum publicationType {
+  JOURNAL_ARTICLE,
+  CONFERENCE_PAPER,
+  BOOK,
+  BOOK_CHAPTER,
+  THESIS,
+  REPORT,
+  PATENT,
+  SOFTWARE,
+  DATA,
+  VIDEO,
+  AUDIO,
+}
 const defaultConfig: Model = {
   source: "md",
   type: "", // 'directory' | 'file'

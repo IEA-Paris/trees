@@ -22,10 +22,10 @@ export interface Projects {
   color?: string
   date?: Date
   featured?: Date
-  status: status
+  status: projectStatus
 }
 
-export enum status {
+export enum projectStatus {
   PLANNED,
   IN_PROGRESS,
   FINISHED,
@@ -44,7 +44,7 @@ const defaultConfig: Model = {
     filters: {
       status: {
         type: "Select",
-        items: status,
+        items: projectStatus,
       },
     },
     sort: {
@@ -184,7 +184,7 @@ const defaultConfig: Model = {
       rules: {
         required: true,
       },
-      items: status,
+      items: projectStatus,
       meta: "status",
     },
     affiliations: {

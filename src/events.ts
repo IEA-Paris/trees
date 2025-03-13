@@ -14,7 +14,7 @@ export interface Event {
   appId: string // 0 - Server & Client -
   availableSlots: number // 0 - Server & Client - ? => Claire
   bookingState: bookingState // 0 - Server & Client -
-  category: categories // 0 - Server & Client -
+  category: eventCategories // 0 - Server & Client -
   createdAt?: Date // 0 - Server & Client -
   dateText: string // 0 - Server & Client -
   delay?: number // 0 - Server & Client -
@@ -37,7 +37,7 @@ export interface Event {
   // slots?: EventSlot[]; //// 3 - Server
   speakers?: People[] // 3 - Server & Client -
   start: string // 0 - Server & Client -   A verifier string ? string[]
-  state: number // 0 - Server & Client -
+  state: eventState // 0 - Server & Client -
   stop: string // 0 - Server & Client - A verifier string ? string[]
   stream?: string // 0 - Server & Client -
   subtitle?: string // 0 - Server &
@@ -48,7 +48,7 @@ export interface Event {
   updatedAt: Date // 0 - Server & Client -
   url?: URL // 0 - Server & Client -
 }
-export enum state {
+export enum eventState {
   DRAFT,
   PUBLISHED,
   REMOVED,
@@ -70,7 +70,7 @@ export enum organiserType {
   EXTERNAL,
 }
 
-export enum categories {
+export enum eventCategories {
   SEMINAR,
   WORKSHOP,
   CONFERENCE,
@@ -101,7 +101,7 @@ const defaultConfig: Model = {
     filters: {
       category: {
         type: "Select",
-        items: categories,
+        items: eventCategories,
         multiple: true,
       },
 
@@ -242,7 +242,7 @@ const defaultConfig: Model = {
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
         disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
-      items: categories,
+      items: eventCategories,
       meta: "category", // item type on schema.org
     },
     createdAt: {

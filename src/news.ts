@@ -7,7 +7,7 @@ import { Tag } from "./tags"
 export interface News {
   name: string
   authors: [RelatedPeople]
-  category?: category
+  category?: newsCategories
   description?: string
   summary?: string
   subtitle?: string
@@ -21,7 +21,7 @@ export interface News {
   related?: Related[]
   files?: File[]
 }
-export enum category {
+export enum newsCategories {
   PRESS_RELEASE,
   INTERVIEW,
   ARTICLE,
@@ -61,7 +61,7 @@ const defaultConfig: Model = {
       category: {
         type: "Select",
         multiple: true,
-        items: category,
+        items: newsCategories,
       },
     },
     sort: {
@@ -280,7 +280,7 @@ const defaultConfig: Model = {
       rules: {
         required: true,
       },
-      items: category,
+      items: newsCategories,
       visibility: {
         default: true, // same as hidden = true
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
