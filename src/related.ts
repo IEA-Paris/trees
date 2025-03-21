@@ -4,13 +4,14 @@ import { RelatedNews } from "./relatedNews"
 import { RelatedProject } from "./relatedProject"
 import { RelatedPeople } from "./relatedPeople"
 import { RelatedPublications } from "./relatedPublications"
-
+import { RelatedFellowships } from "./relatedFellowships"
 export interface Related {
   events: RelatedEvent[]
   news: RelatedNews[]
   projects: RelatedProject[]
   people: RelatedPeople[]
-  publication: RelatedPublications[]
+  publications: RelatedPublications[]
+  fellowships: RelatedFellowships[]
 }
 
 const defaultConfig: Model = {
@@ -108,6 +109,14 @@ const defaultConfig: Model = {
       default: "",
       description: "",
       meta: "project",
+    },
+    fellowships: {
+      label: "relatedFellowships",
+      component: "DocumentPicker",
+      type: 4, //
+      default: "",
+      description: "",
+      meta: "fellowship",
     },
   },
 }

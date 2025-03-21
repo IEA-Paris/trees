@@ -47,6 +47,11 @@ const defaultConfig: Model = {
         type: "Select",
         items: mapEnum(projectStatus),
       },
+      tags: {
+        type: "AutoComplete",
+        items: [],
+        multiple: true,
+      },
     },
     sort: {
       // sort options

@@ -35,6 +35,7 @@ import defaultConfigRelatedEvents from "./relatedEvents"
 import defaultConfigRelatedPublications from "./relatedPublications"
 import defaultConfigRelatedNews from "./relatedNews"
 import defaultConfigRelatedProject from "./relatedProject"
+import defaultConfigRelatedFellowships from "./relatedFellowships"
 import defaultConfigRelated from "./related"
 import defaultConfigSocials, { SocialsForm } from "./socials"
 import defaultConfigSpeakers from "./speakers"
@@ -85,6 +86,7 @@ const configData: Record<string, ConfigValue> = {
   relatedProjects: defaultConfigRelatedProject,
   relatedPublications: defaultConfigRelatedPublications,
   relatedPeople: defaultConfigRelatedPeople,
+  relatedFellowships: defaultConfigRelatedFellowships,
   related: defaultConfigRelated,
   socials: defaultConfigSocials,
   speakers: defaultConfigSpeakers,

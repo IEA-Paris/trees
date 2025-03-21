@@ -5,7 +5,7 @@ export interface Groups {
   team?: boolean
   sab?: boolean
   board?: boolean
-  fellow?: boolean
+  fellows?: boolean
   sponsor?: boolean
   vintage?: Vintage[]
 }
@@ -40,8 +40,8 @@ const defaultConfig: GroupsForm = {
       description: "",
       meta: "board",
     },
-    fellow: {
-      label: "fellow",
+    fellows: {
+      label: "fellows",
       component: "BooleanCheckbox",
       type: 0, //
       default: "",

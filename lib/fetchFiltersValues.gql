@@ -1,0 +1,30 @@
+query FetchFiltersValues($appId: ID = "iea") {
+  fetchFiltersValues(appId: $appId) {
+    events {
+      disciplines
+      fellowships
+      tags
+    }
+    fellowships {
+      affiliations
+      disciplines
+      tags
+    }
+    news {
+      tags
+    }
+    people {
+      disciplines
+      member
+      programs
+      vintage
+    }
+    projects {
+      tags
+    }
+    publications {
+      affiliations
+      tags
+    }
+  }
+}

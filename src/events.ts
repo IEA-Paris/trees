@@ -119,7 +119,11 @@ const defaultConfig: Model = {
         items: mapEnum(organiserType),
         multiple: true,
       },
-
+      tags: {
+        type: "AutoComplete",
+        items: [],
+        multiple: true,
+      },
       disciplines: {
         type: "AutoComplete",
         items: [],
