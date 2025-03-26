@@ -12,7 +12,7 @@ import defaultConfigDiscussants from "./discussants"
 import defaultConfigEvents from "./events"
 import defaultConfigRelatedPeople from "./relatedPeople"
 import defaultConfigEventSlot, { EventSlotForm } from "./eventSlot"
-import defaultConfigFellow from "./fellows"
+import defaultConfigFellows from "./fellows"
 import defaultConfigFellowship from "./fellowships"
 import defaultConfigPublications from "./publications"
 import defaultConfigFellowshipDetails, {
@@ -64,7 +64,7 @@ const configData: Record<string, ConfigValue> = {
   discussants: defaultConfigDiscussants,
   events: defaultConfigEvents,
   eventSlot: defaultConfigEventSlot,
-  fellow: defaultConfigFellow,
+  fellows: defaultConfigFellows,
   fellowships: defaultConfigFellowship,
   fellowshipDetails: defaultConfigFellowshipDetails,
   files: defaultConfigFiles,

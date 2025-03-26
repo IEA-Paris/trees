@@ -369,8 +369,8 @@ const defaultConfig: Model = {
     },
     lang: {
       label: "lang",
-      component: "CollectionContainerPanel",
-      type: 3, //
+      component: "Select",
+      type: 0, //
       default: "",
       description: "",
       rules: {

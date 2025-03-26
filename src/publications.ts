@@ -6,7 +6,8 @@ import Model from "./model"
 import { Related } from "./related"
 import { Tag } from "./tags"
 import { mapEnum } from "../lib/utils"
-
+import { eventCategories } from "./events"
+import { Disciplines } from "./disciplines"
 export interface Publications {
   name: string
   subtitle?: string
@@ -19,9 +20,12 @@ export interface Publications {
   image?: Image
   video?: Video
   tags?: Tag[]
+  disciplines?: Disciplines[]
   files?: File[]
   color?: string
   date?: Date
+  type: publicationType
+  eventCategories: eventCategories
 }
 
 export enum publicationType {
@@ -57,9 +61,19 @@ const defaultConfig: Model = {
         type: "Select",
         multiple: true,
       },
+      disciplines: {
+        type: "AutoComplete",
+        items: [],
+        multiple: true,
+      },
       type: {
         type: "Select",
         items: mapEnum(publicationType),
+        multiple: true,
+      },
+      eventCategories: {
+        type: "Select",
+        items: mapEnum(eventCategories),
         multiple: true,
       },
     },
@@ -204,7 +218,28 @@ const defaultConfig: Model = {
       description: "",
       meta: "affiliations",
     },
-
+    eventCategories: {
+      label: "eventCategories",
+      component: "ListSelect",
+      type: 0, //
+      default: "",
+      description: "",
+      rules: {
+        required: true,
+      },
+      meta: "eventCategories",
+    },
+    type: {
+      label: "type",
+      component: "ListSelect",
+      type: 0, //
+      default: "",
+      description: "",
+      rules: {
+        required: true,
+      },
+      meta: "type",
+    },
     related: {
       label: "related",
       component: "ObjectContainerPanel",
@@ -218,7 +253,19 @@ const defaultConfig: Model = {
       },
       meta: "related",
     },
-
+    disciplines: {
+      label: "disciplines",
+      component: "CollectionContainerPanel",
+      type: 3, //
+      default: "",
+      description: "",
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      meta: "disciplines",
+    },
     image: {
       label: "image",
       component: "ObjectContainerPanel",
@@ -281,7 +328,7 @@ const defaultConfig: Model = {
     },
     date: {
       label: "date",
-      component: "FiDatePicker",
+      component: "DatePicker",
       type: 0, //
       default: "",
       description: "",
