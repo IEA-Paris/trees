@@ -6,6 +6,7 @@ export interface Socials {
   orcid?: string
   linkedin?: URL
   twitter?: URL
+  bluesky?: URL
   instagram?: URL
   scholar?: URL
   researchgate?: URL
@@ -97,6 +98,22 @@ const defaultConfig: SocialsForm = {
         disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "linkedin", // item type on schema.org
+    },
+    bluesky: {
+      label: "bluesky",
+      type: 0,
+      component: "TextField",
+      default: "",
+      description: "",
+      rules: {
+        url: true,
+      },
+      visibility: {
+        default: true, // same as hidden = true
+        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
+        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
+      },
+      meta: "bluesky", // item type on schema.org
     },
     instagram: {
       label: "instagram",
