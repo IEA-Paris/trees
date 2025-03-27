@@ -59,7 +59,7 @@ const defaultConfig: Model = {
         type: "Select",
         items: mapEnum(FellowshipStatus),
       },
-      duration: {
+      fellowshipType: {
         type: "Select",
         multiple: true,
         items: mapEnum(FellowshipType),

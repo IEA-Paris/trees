@@ -108,6 +108,7 @@ const defaultConfig: Model = {
       component: "TextField",
       default: "",
       description: "",
+      i18n: true,
       rules: {
         required: true,
         min: 2,
