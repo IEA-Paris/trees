@@ -26,10 +26,11 @@ export interface Fellowships {
   publicationDate?: Date
   summary?: string
   files?: File[]
-  fellowshipType: FellowshipType[]
+  fellowshipType: FellowshipType
   gallery?: Image[]
   name: string
   video?: Video[]
+  status: FellowshipStatus
 }
 
 export enum FellowshipType {
