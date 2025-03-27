@@ -26,7 +26,7 @@ export interface Fellowships {
   publicationDate?: Date
   summary?: string
   files?: File[]
-  fellowshipType: FellowshipType
+  fellowshipType: FellowshipType[]
   gallery?: Image[]
   name: string
   video?: Video[]
@@ -57,6 +57,7 @@ const defaultConfig: Model = {
     filters: {
       status: {
         type: "Select",
+        multiple: true,
         items: mapEnum(FellowshipStatus),
       },
       fellowshipType: {
