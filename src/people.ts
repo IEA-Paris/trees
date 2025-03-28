@@ -114,10 +114,10 @@ const defaultConfig: Model = {
         name: "dense",
         icon: "land-rows-horizontal",
       },
-      expanded: {
+      /*     expanded: {
         name: "expanded",
         icon: "arrow-expand-vertical",
-      },
+      }, */
     },
   },
   form: {

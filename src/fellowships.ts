@@ -22,7 +22,6 @@ export interface Fellowships {
   applicationStop?: Date
   fellowshipStop?: Date
   image?: Image
-  member?: Affiliation[]
   publicationDate?: Date
   summary?: string
   files?: File[]
@@ -71,7 +70,7 @@ const defaultConfig: Model = {
         multiple: true,
         items: [],
       },
-      discipline: {
+      disciplines: {
         type: "Select",
         multiple: true,
       },
