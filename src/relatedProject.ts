@@ -11,6 +11,7 @@ export interface RelatedProject {
   video?: Video
   color?: string
   date?: Date
+  slug: string
 }
 
 const defaultConfig: Model = {

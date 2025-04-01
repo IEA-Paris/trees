@@ -10,6 +10,7 @@ export interface RelatedNews {
   date?: Date
   // authors: People[];
   featured?: Date
+  slug: string
 }
 
 const defaultConfig: Model = {

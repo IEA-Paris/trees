@@ -6,6 +6,7 @@ export interface relatedFellowships {
   description?: string
   url: URL
   date?: Date
+  slug: string
 }
 
 const defaultConfig: Model = {

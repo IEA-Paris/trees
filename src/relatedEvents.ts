@@ -13,6 +13,7 @@ export interface RelatedEvent {
   summary?: string // 0 - Server & Client -
   eventType: number // 0 : online, 1: physical, 2: hybrid// 0 - Server & Client -
   url: URL // 0 - Server & Client -
+  slug: string
 }
 
 const defaultConfig: Model = {

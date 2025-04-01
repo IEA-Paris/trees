@@ -6,6 +6,7 @@ export interface Tag {
   icon?: string
   createdAt?: Date
   updatedAt?: Date
+  slug: string
 }
 
 const defaultConfig: Model = {
