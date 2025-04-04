@@ -1,11 +1,25 @@
 import { Image } from "./image"
-import { Article } from "./article"
 import Model from "./model"
-export interface App {
+import { mapEnum } from "../lib/utils"
+import { Tag } from "./tags"
+
+export interface Apps {
   name: string
   logo?: Image
+  description?: string
+  summary?: string
+  url?: URL
+  tags?: Tag[]
+  subtitle?: string
+  color?: string
+  date?: Date
+  state?: appState
 }
-
+export enum appState {
+  ACTIVE,
+  SUSPENDED,
+  INACTIVE,
+}
 const defaultConfig: Model = {
   // fitlers used in the query by default (e.g. only published articles)
   queryFilters: {},
@@ -97,6 +111,95 @@ const defaultConfig: Model = {
         required: true,
       },
       default: { url: "", licence: "" }, // default value
+    },
+    description: {
+      label: "description",
+      component: "TextArea",
+      type: 0, //
+      i18n: true,
+      default: "",
+      description: "",
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      meta: "description",
+    },
+    summary: {
+      label: "summary",
+      component: "TextArea",
+      type: 0, //
+      default: "",
+      i18n: true,
+      description: "",
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      meta: "summary",
+    },
+    subtitle: {
+      label: "subtitle",
+      component: "TextArea",
+      type: 0, //
+      default: "",
+      i18n: true,
+      description: "",
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      meta: "subtitle",
+    },
+    url: {
+      label: "url",
+      component: "TextField",
+      type: 0, //
+      default: "",
+      description: "",
+      rules: {
+        required: true,
+        url: true,
+      },
+      meta: "url",
+    },
+    tags: {
+      label: "tags",
+      component: "CollectionContainerPanel",
+      type: 3, //
+      default: "",
+      description: "",
+      rules: {
+        required: true,
+      },
+      meta: "tags",
+    },
+    state: {
+      label: "appState",
+      component: "Select",
+      type: 0, //
+      default: "",
+      description: "",
+      rules: {
+        required: true,
+      },
+      items: mapEnum(appState),
+      meta: "appState",
+    },
+    date: {
+      label: "date",
+      component: "DatePicker",
+      type: 0, //
+      default: "",
+      description: "",
+      rules: {
+        required: true,
+        date: true,
+      },
+      meta: "date",
     },
   },
 }

@@ -4,7 +4,7 @@ import { Sort, Views } from "./list"
 import { Form } from "./form"
 import defaultConfigAction from "./action"
 import defaultConfigAffliation from "./affiliations"
-import defautConfigApp from "./app"
+import defautConfigApp from "./apps"
 import defaultConfigArticle from "./article"
 import defaultConfigConsent, { ConsentForm } from "./consent"
 import defaultConfigDisciplines from "./disciplines"
@@ -57,7 +57,7 @@ type ConfigValue =
 const configData: Record<string, ConfigValue> = {
   action: defaultConfigAction,
   affiliations: defaultConfigAffliation,
-  app: defautConfigApp,
+  apps: defautConfigApp,
   article: defaultConfigArticle,
   consent: defaultConfigConsent,
   disciplines: defaultConfigDisciplines,

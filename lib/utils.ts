@@ -1,8 +1,12 @@
 import fs from "fs"
 import path from "path"
 
-export function createJsonFile(type: string, module: any): void {
-  const distPath = path.resolve("./dist")
+export function createJsonFile(
+  type: string,
+  module: any,
+  append: string = ""
+): void {
+  const distPath = path.resolve("./dist" + append)
 
   if (!fs.existsSync(distPath)) {
     fs.mkdirSync(distPath, { recursive: true })

@@ -190,45 +190,48 @@ const createModule = (type: string): any => {
   }
 
   const defaultForm = buildForm(defaultState)
-
+  const formModule = {
+    _defaults: defaultForm,
+    schema: defaultState,
+  }
+  const listModule = {
+    items: [{}, {}, {}, {}, {}, {}, {}, {}, {}],
+    ...(baseType?.list?.perPage?.default && {
+      itemsPerPage: baseType.list?.perPage.default,
+    }),
+    ...(baseType?.list?.perPage?.options && {
+      itemsPerPageArray: baseType.list?.perPage.options,
+    }),
+    filtersCount: 0,
+    ...(baseType?.list?.views && {
+      views: baseType.list?.views,
+    }),
+    ...(baseType?.list?.sort && {
+      sort: baseType.list?.sort,
+    }),
+    view: defaultView,
+    filters: baseType?.list?.filters,
+    ...(baseType?.list?.perPage?.default && {
+      limit: baseType.list?.perPage.default,
+    }),
+    sortBy: defaultSort && [defaultSort.value[0]],
+    sortDesc: defaultSort && [defaultSort.value[1]],
+  }
   const module = {
     source: baseType?.source,
-    form: {
-      values: defaultForm,
-      _defaults: defaultForm,
-      schema: defaultState,
-    },
-    list: {
-      items: [{}, {}, {}, {}, {}, {}, {}, {}, {}],
-      ...(baseType?.list?.perPage?.default && {
-        itemsPerPage: baseType.list?.perPage.default,
-      }),
-      ...(baseType?.list?.perPage?.options && {
-        itemsPerPageArray: baseType.list?.perPage.options,
-      }),
-      filtersCount: 0,
-      ...(baseType?.list?.views && {
-        views: baseType.list?.views,
-      }),
-      ...(baseType?.list?.sort && {
-        sort: baseType.list?.sort,
-      }),
-      view: defaultView,
-      filters: baseType?.list?.filters,
-      ...(baseType?.list?.perPage?.default && {
-        limit: baseType.list?.perPage.default,
-      }),
-      sortBy: defaultSort && [defaultSort.value[0]],
-      sortDesc: defaultSort && [defaultSort.value[1]],
-    },
-    loading: true,
-    resetFilters: true,
+    form: formModule,
+    list: listModule,
   }
-
+  // create the regular file
   createJsonFile(type, module)
+  // create the list version
+  createJsonFile(type, listModule, "/list")
+  // create the form version
+  createJsonFile(type, formModule, "/form")
 }
 
 const typeName = [
+  "apps",
   "fellowships",
   "projects",
   "events",
