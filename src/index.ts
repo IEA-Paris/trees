@@ -43,6 +43,7 @@ import defaultConfigSponsor from "./sponsor"
 import defaultConfigTags from "./tags"
 import defaultConfigVideo from "./video"
 import defaultConfigVintage from "./vintage"
+import defaultConfigUsers from "./users"
 
 type ConfigValue =
   | Model
@@ -92,6 +93,7 @@ const configData: Record<string, ConfigValue> = {
   speakers: defaultConfigSpeakers,
   sponsor: defaultConfigSponsor,
   tags: defaultConfigTags,
+  users: defaultConfigUsers,
   video: defaultConfigVideo,
   vintage: defaultConfigVintage,
 }

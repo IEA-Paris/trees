@@ -2,8 +2,8 @@ import { Image } from "./image"
 import Model from "./model"
 import { mapEnum } from "../lib/utils"
 import { Tag } from "./tags"
-
 export interface Apps {
+  appId: string
   name: string
   logo?: Image
   description?: string

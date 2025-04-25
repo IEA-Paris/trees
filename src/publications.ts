@@ -13,7 +13,6 @@ export interface Publications {
   subtitle?: string
   description?: string
   summary?: string
-
   url?: URL
   affiliations?: Affiliation[]
   related?: Related[]
