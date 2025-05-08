@@ -150,7 +150,7 @@ const defaultConfig: Model = {
     slots: {
       label: "slots",
       component: "TextField",
-      type: 2, //
+      type: 0, //
       default: "",
       description: "",
       rules: {

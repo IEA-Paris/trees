@@ -238,6 +238,14 @@ const typeName = [
   "news",
   "people",
   "publications",
+  "action",
+  "affiliations",
+  "apps",
+  "disciplines",
+  "files",
+  "mailing",
+  "tags",
+  // "taxonomy", //TODO: à definir
 ]
 typeName.map((type) => {
   createModule(type)

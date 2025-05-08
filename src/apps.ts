@@ -5,7 +5,7 @@ import { Tag } from "./tags"
 export interface Apps {
   appId: string
   name: string
-  logo?: Image
+  image?: Image
   description?: string
   summary?: string
   url?: URL
@@ -102,8 +102,8 @@ const defaultConfig: Model = {
       },
       meta: "name", // item type on schema.org
     },
-    logo: {
-      label: "logo",
+    image: {
+      label: "image",
       type: 3,
       component: "ObjectContainerPanel",
       description: "The logo of the app",
