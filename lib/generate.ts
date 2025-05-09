@@ -240,7 +240,6 @@ const typeName = [
   "publications",
   "action",
   "affiliations",
-  "apps",
   "disciplines",
   "files",
   "mailing",
