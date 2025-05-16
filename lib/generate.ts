@@ -244,6 +244,12 @@ const typeName = [
   "files",
   "mailing",
   "tags",
+  "actions",
+  "affiliations",
+  "disciplines",
+  "files",
+  "mailing",
+  "tags",
   // "taxonomy", //TODO: à definir
 ]
 typeName.map((type) => {
