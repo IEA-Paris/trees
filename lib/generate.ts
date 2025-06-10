@@ -250,6 +250,7 @@ const typeName = [
   "files",
   "mailing",
   "tags",
+  "users",
   // "taxonomy", //TODO: à definir
 ]
 typeName.map((type) => {

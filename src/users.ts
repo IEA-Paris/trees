@@ -9,24 +9,38 @@ import { Video } from "./video"
 import Model from "./model"
 import { Related } from "./related"
 import { mapEnum } from "../lib/utils"
+import configPeople, { People } from "./people"
 
-export interface User {
-  name: string
-  firstname: string
-  lastname: string
-  affiliations?: [{ affiliation: Affiliation; positions: [Position] }]
-  image?: Image
-  socials?: Socials
-  biography?: string
-  consent: Consent
-  groups: Groups
-  lang: string
-  disciplines?: Disciplines[]
-  related?: Related[]
-  video?: Video[]
+type Settings = {
+  lang: String
 }
-
-const defaultConfig: Model = {
+export enum UserStatus {
+  ACTIVE,
+  PENDING,
+  BLOCKED,
+  DELETED,
+}
+export enum UserRole {
+  ADMIN,
+  EDITOR,
+  CONTRIBUTOR,
+  VIEWER,
+  FELLOW,
+  MEMBER,
+  GUEST,
+}
+export interface User extends People {
+  admin: Boolean
+  apps: [AppRole]
+  email: String
+  settings: Settings
+  status: UserStatus
+}
+type AppRole = {
+  appId: String
+  roles: UserRole[]
+}
+const userConfig: Model = {
   source: "gql",
   type: "", // 'directory' | 'file'
   path: "", // path to the folder where the content is stored
@@ -285,5 +299,10 @@ const defaultConfig: Model = {
     },
   },
 }
+const defaultConfig: Model = {
+  aliases: ["people"],
 
+  ...configPeople,
+  ...userConfig,
+}
 export default defaultConfig
