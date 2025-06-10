@@ -244,7 +244,7 @@ const typeName = [
   "files",
   "mailing",
   "tags",
-  "actions",
+  // "actions",
   "affiliations",
   "disciplines",
   "files",
