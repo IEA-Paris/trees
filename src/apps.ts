@@ -2,6 +2,7 @@ import { Image } from "./image"
 import Model from "./model"
 import { mapEnum } from "../lib/utils"
 import { Tag } from "./tags"
+import { FormType } from "./form"
 export interface Apps {
   appId: string
   name: string
@@ -85,7 +86,7 @@ const defaultConfig: Model = {
   form: {
     name: {
       label: "name",
-      type: 0,
+      type: FormType.PRIMITIVE,
       component: "TextField",
       default: "",
       description:
@@ -104,7 +105,7 @@ const defaultConfig: Model = {
     },
     image: {
       label: "image",
-      type: 3,
+      type: FormType.ARRAY,
       component: "ObjectContainerPanel",
       description: "The logo of the app",
       rules: {
@@ -115,7 +116,7 @@ const defaultConfig: Model = {
     description: {
       label: "description",
       component: "TextArea",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       i18n: true,
       default: "",
       description: "",
@@ -129,7 +130,7 @@ const defaultConfig: Model = {
     summary: {
       label: "summary",
       component: "TextArea",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       i18n: true,
       description: "",
@@ -143,7 +144,7 @@ const defaultConfig: Model = {
     subtitle: {
       label: "subtitle",
       component: "TextArea",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       i18n: true,
       description: "",
@@ -157,7 +158,7 @@ const defaultConfig: Model = {
     url: {
       label: "url",
       component: "TextField",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -169,7 +170,7 @@ const defaultConfig: Model = {
     tags: {
       label: "tags",
       component: "CollectionContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       rules: {
@@ -180,7 +181,7 @@ const defaultConfig: Model = {
     state: {
       label: "appState",
       component: "Select",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -192,7 +193,7 @@ const defaultConfig: Model = {
     date: {
       label: "date",
       component: "DatePicker",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {

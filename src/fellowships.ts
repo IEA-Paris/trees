@@ -7,6 +7,7 @@ import { Video } from "./video"
 import { Disciplines } from "./disciplines"
 import { RelatedPeople } from "./relatedPeople"
 import { mapEnum } from "../lib/utils"
+import { FormType } from "./form"
 export interface Fellowships {
   action?: string
   affiliations?: Affiliation[] // AKA members behind the fellowships
@@ -122,7 +123,7 @@ const defaultConfig: Model = {
     action: {
       label: "action",
       component: "TextField",
-      type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",
       description: "",
       rules: {
@@ -138,7 +139,7 @@ const defaultConfig: Model = {
     affiliations: {
       label: "affiliations",
       component: "CollectionContainerPanel",
-      type: 3, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: FormType.ARRAY, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",
       description: "",
       rules: {
@@ -155,7 +156,7 @@ const defaultConfig: Model = {
     applicationStart: {
       label: "applicationStart",
       component: "DatePicker", //TODO
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -167,7 +168,7 @@ const defaultConfig: Model = {
     fellowshipStart: {
       label: "fellowshipStart",
       component: "DatePicker", //TODO
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -179,7 +180,7 @@ const defaultConfig: Model = {
     contact: {
       label: "contact",
       component: "TextField",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -191,7 +192,7 @@ const defaultConfig: Model = {
     description: {
       label: "description",
       component: "TextArea",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       i18n: true,
       description: "",
@@ -206,7 +207,7 @@ const defaultConfig: Model = {
     disciplines: {
       label: "disciplines",
       component: "CollectionContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       rules: {
@@ -219,7 +220,7 @@ const defaultConfig: Model = {
     fellowshipType: {
       label: "fellowshipType",
       component: "Select",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -233,7 +234,7 @@ const defaultConfig: Model = {
     fellowshipDetails: {
       label: "details",
       component: "ObjectContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       rules: {
@@ -244,7 +245,7 @@ const defaultConfig: Model = {
     fellows: {
       label: "fellows",
       component: "ObjectContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       rules: {
@@ -257,7 +258,7 @@ const defaultConfig: Model = {
     gallery: {
       label: "gallery",
       component: "CollectionContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       meta: "gallery",
@@ -265,7 +266,7 @@ const defaultConfig: Model = {
     url: {
       label: "url",
       component: "TextField",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -277,7 +278,7 @@ const defaultConfig: Model = {
     fellowshipStop: {
       label: "fellowshipStop",
       component: "DatePicker",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -289,7 +290,7 @@ const defaultConfig: Model = {
     applicationStop: {
       label: "applicationStop",
       component: "DatePicker",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -301,7 +302,7 @@ const defaultConfig: Model = {
     image: {
       label: "image",
       component: "ObjectContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       rules: {
@@ -312,7 +313,7 @@ const defaultConfig: Model = {
     publicationDate: {
       label: "publicationDate",
       component: "DatePicker",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -324,7 +325,7 @@ const defaultConfig: Model = {
     summary: {
       label: "summary",
       component: "TextArea",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       i18n: true,
@@ -338,7 +339,7 @@ const defaultConfig: Model = {
     files: {
       label: "files",
       component: "CollectionContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       rules: {
@@ -350,7 +351,7 @@ const defaultConfig: Model = {
       label: "name",
       component: "TextField",
       i18n: true,
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -364,7 +365,7 @@ const defaultConfig: Model = {
       label: "subtitle",
       component: "TextField",
       i18n: true,
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -377,7 +378,7 @@ const defaultConfig: Model = {
     video: {
       label: "video",
       component: "CollectionContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       rules: {

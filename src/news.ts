@@ -4,6 +4,7 @@ import { RelatedPeople } from "./relatedPeople"
 import { Related } from "./related"
 import { Tag } from "./tags"
 import { mapEnum } from "../lib/utils"
+import { FormType } from "./form"
 
 export interface News {
   name: string
@@ -100,7 +101,7 @@ const defaultConfig: Model = {
     name: {
       label: "name",
       component: "TextField",
-      type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
       i18n: true,
       default: "",
       description: "",
@@ -119,7 +120,7 @@ const defaultConfig: Model = {
     summary: {
       label: "summary",
       component: "TextArea",
-      type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
       i18n: true,
       default: "",
       description: "",
@@ -138,7 +139,7 @@ const defaultConfig: Model = {
     subtitle: {
       label: "subtitle",
       component: "TextField",
-      type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
       i18n: true,
       default: "",
       description: "",
@@ -158,7 +159,7 @@ const defaultConfig: Model = {
       label: "description",
       component: "TextArea",
       i18n: true,
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -171,7 +172,7 @@ const defaultConfig: Model = {
     image: {
       label: "image",
       component: "ObjectContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       rules: {
@@ -182,7 +183,7 @@ const defaultConfig: Model = {
     color: {
       label: "color",
       component: "TextColorPicker",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -194,7 +195,7 @@ const defaultConfig: Model = {
     url: {
       label: "url",
       component: "TextField",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -206,7 +207,7 @@ const defaultConfig: Model = {
     files: {
       label: "files",
       component: "CollectionContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       rules: {
@@ -217,7 +218,7 @@ const defaultConfig: Model = {
     gallery: {
       label: "gallery",
       component: "CollectionContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       meta: "gallery",
@@ -225,7 +226,7 @@ const defaultConfig: Model = {
     date: {
       label: "date",
       component: "DatePicker",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -237,7 +238,7 @@ const defaultConfig: Model = {
     featured: {
       label: "featured",
       component: "DatePicker",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -249,7 +250,7 @@ const defaultConfig: Model = {
     tags: {
       label: "tags",
       component: "CollectionContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       rules: {
@@ -261,7 +262,7 @@ const defaultConfig: Model = {
     related: {
       label: "related",
       component: "ObjectContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       rules: {
@@ -275,7 +276,7 @@ const defaultConfig: Model = {
     category: {
       label: "category",
       component: "Select",
-      type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",
       description: "",
       rules: {

@@ -5,6 +5,7 @@ import { RelatedProject } from "./relatedProject"
 import { RelatedPeople } from "./relatedPeople"
 import { RelatedPublications } from "./relatedPublications"
 import { RelatedFellowships } from "./relatedFellowships"
+import { FormType } from "./form"
 export interface Related {
   events: RelatedEvent[]
   news: RelatedNews[]
@@ -81,7 +82,7 @@ const defaultConfig: Model = {
     events: {
       label: "relatedEvent",
       component: "DocumentPicker",
-      type: 4, //
+      type: FormType.TEMPLATE, //
       default: "",
       description: "",
       meta: "event",
@@ -89,7 +90,7 @@ const defaultConfig: Model = {
     news: {
       label: "relatedNews",
       component: "DocumentPicker",
-      type: 4, //
+      type: FormType.TEMPLATE, //
       default: "",
       description: "",
       meta: "news",
@@ -97,7 +98,7 @@ const defaultConfig: Model = {
     publications: {
       label: "relatedPublication",
       component: "DocumentPicker",
-      type: 4, //
+      type: FormType.TEMPLATE, //
       default: "",
       description: "",
       meta: "publication",
@@ -105,7 +106,7 @@ const defaultConfig: Model = {
     projects: {
       label: "relatedProject",
       component: "DocumentPicker",
-      type: 4, //
+      type: FormType.TEMPLATE, //
       default: "",
       description: "",
       meta: "project",
@@ -113,7 +114,7 @@ const defaultConfig: Model = {
     fellowships: {
       label: "relatedFellowships",
       component: "DocumentPicker",
-      type: 4, //
+      type: FormType.TEMPLATE, //
       default: "",
       description: "",
       meta: "fellowship",

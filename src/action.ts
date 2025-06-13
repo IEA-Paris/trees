@@ -1,6 +1,6 @@
 import { Image } from "./image"
 import Model from "./model"
-
+import { FormType } from "./form"
 export interface Action {
   color?: string
   link: string
@@ -8,6 +8,8 @@ export interface Action {
   name: string
   video?: URL
   slots: string[]
+  start: Date
+  stop: Date
 }
 
 const defaultConfig: Model = {
@@ -76,7 +78,7 @@ const defaultConfig: Model = {
   form: {
     name: {
       label: "name",
-      type: 0,
+      type: FormType.PRIMITIVE,
       component: "TextField",
       default: "",
       description: "The name of the ad",
@@ -94,7 +96,7 @@ const defaultConfig: Model = {
     },
     image: {
       label: "image",
-      type: 3,
+      type: FormType.ARRAY,
       component: "ObjectContainerPanel",
       description: "The logo of the app",
       rules: {
@@ -104,7 +106,7 @@ const defaultConfig: Model = {
     },
     link: {
       label: "url",
-      type: 0,
+      type: FormType.PRIMITIVE,
       component: "TextField",
       default: "",
       description: "The url of the app",
@@ -121,7 +123,7 @@ const defaultConfig: Model = {
     },
     color: {
       label: "background_color",
-      type: 0,
+      type: FormType.PRIMITIVE,
       component: "TextField",
       default: "#FFFFFF",
       description: "The background color of the content",
@@ -138,7 +140,7 @@ const defaultConfig: Model = {
     video: {
       label: "video",
       component: "TextField",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -150,7 +152,7 @@ const defaultConfig: Model = {
     slots: {
       label: "slots",
       component: "TextField",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {

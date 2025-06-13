@@ -1,4 +1,5 @@
 import Model from "./model"
+import { FormType } from "./form"
 
 export interface Disciplines {
   createdAt: Date
@@ -70,7 +71,7 @@ const configDefault: Model = {
     createdAt: {
       label: "createdAt",
       component: "TextField",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -83,7 +84,7 @@ const configDefault: Model = {
     description: {
       label: "description",
       component: "TextField",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -96,7 +97,7 @@ const configDefault: Model = {
     icon: {
       label: "icon",
       component: "TextField",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -109,7 +110,7 @@ const configDefault: Model = {
     name: {
       label: "name",
       component: "TextField",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -122,7 +123,7 @@ const configDefault: Model = {
     updatedAt: {
       label: "updatedAt",
       component: "TextField",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {

@@ -1,6 +1,6 @@
 import { configData, Form, Model, Sort, Views } from "../src/index.ts"
 import { createJsonFile } from "./utils.ts"
-
+import { FormType } from "../src/form.ts"
 interface List {
   items: any[]
   itemsPerPage?: number
@@ -135,13 +135,17 @@ const createModule = (type: string): any => {
       // else it's an object
     } else {
       console.log("else case", key)
+      console.log("items: ", items)
       if (!form[key]) form[key] = {}
-
-      for (const subkey of Object.keys(items)) {
-        form[key] = {
-          ...form[key],
-          ...buildForm({ [subkey]: items[subkey] }),
+      if (items && Object.keys(items).length) {
+        for (const subkey of Object.keys(items)) {
+          form[key] = {
+            ...form[key],
+            ...buildForm({ [subkey]: items[subkey] }),
+          }
         }
+      } else {
+        console.log("no items found for key: ", key)
       }
     }
   }
@@ -152,29 +156,29 @@ const createModule = (type: string): any => {
       if (!schema) return {}
       let form: { [key: string]: any } = {}
       for (const key of Object.keys(schema)) {
-        switch (schema[key]?.type) {
+        switch (schema[key]?.type as FormType) {
           // document picker
-          case 4:
+          case FormType.DOCUMENT:
             form[key] = schema[key]?.default ?? []
             break
 
           // template import
-          case 3:
+          case FormType.TEMPLATE:
             form[key] = processTemplate(key)
             break
 
           // object
-          case 2:
+          case FormType.OBJECT:
             processItems(key, schema[key].items, form)
             break
 
           // collection
-          case 1:
+          case FormType.ARRAY:
             processItems(key, schema[key].items, form)
             break
 
           // primitive
-          case 0:
+          case FormType.PRIMITIVE:
             form[key] = schema[key]?.default ?? ""
             break
 
@@ -238,13 +242,12 @@ const typeName = [
   "news",
   "people",
   "publications",
-  "action",
   "affiliations",
   "disciplines",
   "files",
   "mailing",
   "tags",
-  "actions",
+  "action",
   "affiliations",
   "disciplines",
   "files",

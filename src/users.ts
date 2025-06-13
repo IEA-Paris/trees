@@ -10,6 +10,7 @@ import Model from "./model"
 import { Related } from "./related"
 import { mapEnum } from "../lib/utils"
 import configPeople, { People } from "./people"
+import { FormType } from "./form"
 
 type Settings = {
   lang: String
@@ -138,7 +139,7 @@ const userConfig: Model = {
     name: {
       label: "name",
       component: "TextField",
-      type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",
       description: "",
       rules: {
@@ -156,7 +157,7 @@ const userConfig: Model = {
     firstname: {
       label: "firstname",
       component: "TextField",
-      type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",
       description: "",
       rules: {
@@ -174,7 +175,7 @@ const userConfig: Model = {
     lastname: {
       label: "lastname",
       component: "TextField",
-      type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",
       description: "",
       rules: {
@@ -192,7 +193,7 @@ const userConfig: Model = {
     affiliations: {
       label: "affiliations",
       component: "CollectionContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       rules: {
@@ -203,7 +204,7 @@ const userConfig: Model = {
     image: {
       label: "image",
       component: "ObjectContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       rules: {
@@ -214,7 +215,7 @@ const userConfig: Model = {
     socials: {
       label: "socials",
       component: "ObjectContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       meta: "socials",
@@ -222,7 +223,7 @@ const userConfig: Model = {
     disciplines: {
       label: "disciplines",
       component: "CollectionContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       meta: "disciplines",
@@ -230,7 +231,7 @@ const userConfig: Model = {
     video: {
       label: "video",
       component: "CollectionContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       meta: "video",
@@ -239,7 +240,7 @@ const userConfig: Model = {
       label: "biography",
       component: "TextArea",
       i18n: true,
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -253,7 +254,7 @@ const userConfig: Model = {
     related: {
       label: "related",
       component: "ObjectContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       rules: {
@@ -267,7 +268,7 @@ const userConfig: Model = {
     consent: {
       label: "consent",
       component: "ObjectContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       rules: {
@@ -278,7 +279,7 @@ const userConfig: Model = {
     groups: {
       label: "groups",
       component: "ObjectContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       rules: {
@@ -289,7 +290,7 @@ const userConfig: Model = {
     lang: {
       label: "lang",
       component: "ListAutoComplete",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {

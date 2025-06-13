@@ -1,6 +1,6 @@
 import { Image } from "./image"
 import Model from "./model"
-
+import { FormType } from "./form"
 export interface RelatedEvent {
   bookingState: number // 0 - Server & Client -
   createdAt: Date // 0 - Server & Client -
@@ -83,7 +83,7 @@ const defaultConfig: Model = {
     bookingState: {
       label: "bookingState",
       component: false,
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: 0,
       description: "",
       meta: "bookingState",
@@ -92,7 +92,7 @@ const defaultConfig: Model = {
     createdAt: {
       label: "createdAt",
       component: false,
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
 
@@ -102,7 +102,7 @@ const defaultConfig: Model = {
     description: {
       label: "description",
       component: "TextArea",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       i18n: true,
       description: "",
@@ -117,7 +117,7 @@ const defaultConfig: Model = {
     eventType: {
       label: "eventType",
       component: "Select",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -130,7 +130,7 @@ const defaultConfig: Model = {
     image: {
       label: "image",
       component: "ObjectContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       rules: {
@@ -142,7 +142,7 @@ const defaultConfig: Model = {
       label: "name",
       component: "TextField",
       i18n: true,
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -155,7 +155,7 @@ const defaultConfig: Model = {
     outside: {
       label: "outside",
       component: "BooleanCheckbox",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -168,7 +168,7 @@ const defaultConfig: Model = {
     start: {
       label: "start",
       component: "DatePicker",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -180,7 +180,7 @@ const defaultConfig: Model = {
     state: {
       label: "state",
       component: "ListRadio",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -191,7 +191,7 @@ const defaultConfig: Model = {
     summary: {
       label: "summary",
       component: "TextArea",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       i18n: true,
       default: "",
       description: "",
@@ -205,7 +205,7 @@ const defaultConfig: Model = {
     url: {
       label: "url",
       component: "TextField",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {

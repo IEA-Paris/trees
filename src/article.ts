@@ -4,7 +4,8 @@ import { Disciplines } from "./disciplines"
 import { Video } from "./video"
 import { Tag } from "./tags"
 import Model from "./model"
-// define format from set of articles formats offered by PIAS (i.e. Zenodo api)
+// define format from set of articles formats offered by PIAS (i.e. Zenodo api)import { FormType } from "./form"
+import { FormType } from "./form"
 export interface Article {
   name: string
   abstract: string
@@ -87,7 +88,7 @@ const defautConfig: Model = {
     name: {
       label: "name",
       component: "TextField",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -100,7 +101,7 @@ const defautConfig: Model = {
     abstract: {
       label: "abstract",
       component: "TextArea",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -113,7 +114,7 @@ const defautConfig: Model = {
     image: {
       label: "image",
       component: "ObjectContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       rules: {
@@ -124,7 +125,7 @@ const defautConfig: Model = {
     video: {
       label: "video",
       component: "ObjectContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       rules: {
@@ -135,7 +136,7 @@ const defautConfig: Model = {
     needDOI: {
       label: "needDOI",
       component: "BooleanCheckbox",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -147,7 +148,7 @@ const defautConfig: Model = {
     DOI: {
       label: "DOI",
       component: "TextField",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -160,7 +161,7 @@ const defautConfig: Model = {
     Zid: {
       label: "Zid",
       component: "TextField",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -172,7 +173,7 @@ const defautConfig: Model = {
     highlight: {
       label: "highlight",
       component: "BooleanCheckbox",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -184,7 +185,7 @@ const defautConfig: Model = {
     date: {
       label: "date",
       component: "DatePicker", // TODO create the date picker
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -197,7 +198,7 @@ const defautConfig: Model = {
     authors: {
       label: "authors",
       component: "CollectionContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       rules: {
@@ -209,7 +210,7 @@ const defautConfig: Model = {
     issue: {
       label: "issue",
       component: "TextField",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -220,7 +221,7 @@ const defautConfig: Model = {
     lang: {
       label: "lang",
       component: "TextField",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -231,7 +232,7 @@ const defautConfig: Model = {
     disciplines: {
       label: "disciplines",
       component: "CollectionContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       rules: {
@@ -243,7 +244,7 @@ const defautConfig: Model = {
     //   // TODO define inline @Antoine
     //   label: "format",
     //   component: "CollectionContainerPanel",
-    //   type: 3, //
+    //   type: FormType.ARRAY, //
     //   default: "",
     //   description: "",
     //   hint: false,
@@ -260,7 +261,7 @@ const defautConfig: Model = {
     tag: {
       label: "tag",
       component: "CollectionContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       rules: {

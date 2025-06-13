@@ -1,4 +1,5 @@
 import { Form } from "./form"
+import { FormType } from "./form"
 
 export interface EventSlot {
   email: string
@@ -18,7 +19,7 @@ const defautConfig: EventSlotForm = {
     email: {
       label: "email",
       component: "TextField",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -30,7 +31,7 @@ const defautConfig: EventSlotForm = {
     firstname: {
       label: "firstname",
       component: "TextField",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -43,7 +44,7 @@ const defautConfig: EventSlotForm = {
     institution: {
       label: "institution",
       component: "TextField",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -54,7 +55,7 @@ const defautConfig: EventSlotForm = {
     lang: {
       label: "lang",
       component: "ListSelect",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -65,7 +66,7 @@ const defautConfig: EventSlotForm = {
     lastname: {
       label: "lastname",
       component: "TextField",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {

@@ -1,5 +1,6 @@
 import { Image } from "./image"
 import Model from "./model"
+import { FormType } from "./form"
 
 export interface RelatedPeople {
   firstname: string
@@ -71,7 +72,7 @@ const defaultConfig: Model = {
     firstname: {
       label: "firstname",
       component: "TextField",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -84,7 +85,7 @@ const defaultConfig: Model = {
     lastname: {
       label: "lastname",
       component: "TextField",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -98,7 +99,7 @@ const defaultConfig: Model = {
     image: {
       label: "image",
       component: "ObjectContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       rules: {

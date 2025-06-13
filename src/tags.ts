@@ -1,4 +1,5 @@
 import Model from "./model"
+import { FormType } from "./form"
 
 export interface Tag {
   name: string
@@ -72,7 +73,7 @@ const defaultConfig: Model = {
     name: {
       label: "name",
       component: "TextField",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -85,7 +86,7 @@ const defaultConfig: Model = {
     description: {
       label: "description",
       component: "TextArea",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -98,7 +99,7 @@ const defaultConfig: Model = {
     icon: {
       label: "icon",
       component: "TextField",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description:
         "Select your icon from material design icons https://pictogrammers.com/library/mdi/",
@@ -107,7 +108,7 @@ const defaultConfig: Model = {
     createdAt: {
       label: "createdAt",
       component: false,
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       meta: "createdAt",
@@ -115,7 +116,7 @@ const defaultConfig: Model = {
     updatedAt: {
       label: "updatedAt",
       component: false,
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       meta: "updatedAt",

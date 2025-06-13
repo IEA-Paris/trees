@@ -8,7 +8,7 @@ import { Disciplines } from "./disciplines"
 import { Video } from "./video"
 import Model from "./model"
 import { Related } from "./related"
-import { mapEnum } from "../lib/utils"
+import { FormType } from "./form"
 
 export interface People {
   name: string
@@ -124,7 +124,7 @@ const defaultConfig: Model = {
     name: {
       label: "name",
       component: "TextField",
-      type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",
       description: "",
       rules: {
@@ -142,7 +142,7 @@ const defaultConfig: Model = {
     firstname: {
       label: "firstname",
       component: "TextField",
-      type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",
       description: "",
       rules: {
@@ -160,7 +160,7 @@ const defaultConfig: Model = {
     lastname: {
       label: "lastname",
       component: "TextField",
-      type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",
       description: "",
       rules: {
@@ -178,7 +178,7 @@ const defaultConfig: Model = {
     affiliations: {
       label: "affiliations",
       component: "CollectionContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       rules: {
@@ -189,7 +189,7 @@ const defaultConfig: Model = {
     image: {
       label: "image",
       component: "ObjectContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       rules: {
@@ -200,7 +200,7 @@ const defaultConfig: Model = {
     socials: {
       label: "socials",
       component: "ObjectContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       meta: "socials",
@@ -208,7 +208,7 @@ const defaultConfig: Model = {
     disciplines: {
       label: "disciplines",
       component: "CollectionContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       meta: "disciplines",
@@ -216,7 +216,7 @@ const defaultConfig: Model = {
     video: {
       label: "video",
       component: "CollectionContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       meta: "video",
@@ -225,7 +225,7 @@ const defaultConfig: Model = {
       label: "biography",
       component: "TextArea",
       i18n: true,
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -239,7 +239,7 @@ const defaultConfig: Model = {
     related: {
       label: "related",
       component: "ObjectContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       rules: {
@@ -253,7 +253,7 @@ const defaultConfig: Model = {
     consent: {
       label: "consent",
       component: "ObjectContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       rules: {
@@ -264,7 +264,7 @@ const defaultConfig: Model = {
     groups: {
       label: "groups",
       component: "ObjectContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       rules: {
@@ -275,7 +275,7 @@ const defaultConfig: Model = {
     lang: {
       label: "lang",
       component: "ListAutoComplete",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {

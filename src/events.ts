@@ -9,6 +9,7 @@ import { File } from "./files"
 import { Related } from "./related"
 import Model from "./model"
 import { mapEnum } from "../lib/utils"
+import { FormType } from "./form"
 
 export interface Event {
   affiliations?: Affiliation[] // 3 - Server & Client - //Bottom left Document
@@ -197,7 +198,7 @@ const defaultConfig: Model = {
     affiliations: {
       label: "affiliations",
       component: "CollectionContainerPanel",
-      type: 3, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: FormType.ARRAY, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",
       description: "",
       rules: {
@@ -213,7 +214,7 @@ const defaultConfig: Model = {
     appId: {
       label: "appId",
       component: false,
-      type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",
       description: "",
       visibility: {
@@ -226,7 +227,7 @@ const defaultConfig: Model = {
     availableSlots: {
       label: "availableSlots",
       component: false,
-      type: 0,
+      type: FormType.PRIMITIVE,
       default: 0,
       description: "",
       meta: "availableSlots",
@@ -234,7 +235,7 @@ const defaultConfig: Model = {
     bookingState: {
       label: "bookingState",
       component: false,
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: 0,
       description: "",
       meta: "bookingState",
@@ -242,7 +243,7 @@ const defaultConfig: Model = {
     category: {
       label: "category",
       component: "Select",
-      type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",
       description: "",
       rules: {
@@ -259,7 +260,7 @@ const defaultConfig: Model = {
     createdAt: {
       label: "createdAt",
       component: false,
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
 
@@ -269,7 +270,7 @@ const defaultConfig: Model = {
     delay: {
       label: "delay",
       component: false,
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: 0,
       description: "",
       rules: {
@@ -281,7 +282,7 @@ const defaultConfig: Model = {
     description: {
       label: "description",
       component: "TextArea",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       i18n: true,
       default: "",
       description: "",
@@ -295,7 +296,7 @@ const defaultConfig: Model = {
     dateText: {
       label: "dateText",
       component: "TextArea",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       i18n: true,
       description: "",
@@ -309,7 +310,7 @@ const defaultConfig: Model = {
     details: {
       label: "details",
       component: "TextArea",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       i18n: true,
       description: "",
@@ -323,7 +324,7 @@ const defaultConfig: Model = {
     disciplines: {
       label: "disciplines",
       component: "CollectionContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       rules: {
@@ -337,7 +338,7 @@ const defaultConfig: Model = {
     discussants: {
       label: "discussants",
       component: "CollectionContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       rules: {
@@ -348,7 +349,7 @@ const defaultConfig: Model = {
     eventType: {
       label: "eventType",
       component: "Select",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -360,7 +361,7 @@ const defaultConfig: Model = {
     organiserType: {
       label: "organiserType",
       component: "Select",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -372,7 +373,7 @@ const defaultConfig: Model = {
     lang: {
       label: "lang",
       component: "Select",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -383,7 +384,7 @@ const defaultConfig: Model = {
     files: {
       label: "files",
       component: "CollectionContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       rules: {
@@ -394,7 +395,7 @@ const defaultConfig: Model = {
     image: {
       label: "image",
       component: "ObjectContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       rules: {
@@ -405,7 +406,7 @@ const defaultConfig: Model = {
     gallery: {
       label: "gallery",
       component: "CollectionContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       meta: "gallery",
@@ -413,7 +414,7 @@ const defaultConfig: Model = {
     name: {
       label: "name",
       component: "TextField",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       i18n: true,
       description: "",
@@ -427,7 +428,7 @@ const defaultConfig: Model = {
     eventSlot: {
       label: "eventSlot",
       component: "CollectionContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       rules: {
@@ -440,7 +441,7 @@ const defaultConfig: Model = {
     organizers: {
       label: "organizers",
       component: "CollectionContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       rules: {
@@ -453,7 +454,7 @@ const defaultConfig: Model = {
     organizerState: {
       label: "organizerState",
       component: "ListRadio",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -464,7 +465,7 @@ const defaultConfig: Model = {
     outside: {
       label: "outside",
       component: "BooleanCheckbox",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -477,7 +478,7 @@ const defaultConfig: Model = {
     location: {
       label: "place",
       component: "ObjectContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       rules: {
@@ -488,7 +489,7 @@ const defaultConfig: Model = {
     program: {
       label: "program",
       component: "TextArea",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       i18n: true,
@@ -502,7 +503,7 @@ const defaultConfig: Model = {
     related: {
       label: "related",
       component: "ObjectContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       rules: {
@@ -515,7 +516,7 @@ const defaultConfig: Model = {
     speakers: {
       label: "speakers",
       component: "CollectionContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       rules: {
@@ -526,7 +527,7 @@ const defaultConfig: Model = {
     start: {
       label: "start",
       component: "DatePicker",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -538,7 +539,7 @@ const defaultConfig: Model = {
     state: {
       label: "state",
       component: "ListRadio",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -549,7 +550,7 @@ const defaultConfig: Model = {
     stop: {
       label: "stop",
       component: "DatePicker",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -562,7 +563,7 @@ const defaultConfig: Model = {
       label: "subtitle",
       component: "TextArea",
       i18n: true,
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -575,7 +576,7 @@ const defaultConfig: Model = {
     summary: {
       label: "summary",
       component: "TextArea",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       i18n: true,
       default: "",
       description: "",
@@ -589,7 +590,7 @@ const defaultConfig: Model = {
     tags: {
       label: "tags",
       component: "CollectionContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       rules: {
@@ -600,7 +601,7 @@ const defaultConfig: Model = {
     totalSlots: {
       label: "totalSlots",
       component: false,
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -613,7 +614,7 @@ const defaultConfig: Model = {
     updatedAt: {
       label: "updatedAt",
       component: false,
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -624,7 +625,7 @@ const defaultConfig: Model = {
     stream: {
       label: "stream",
       component: "TextField",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -636,7 +637,7 @@ const defaultConfig: Model = {
     url: {
       label: "url",
       component: "TextField",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {

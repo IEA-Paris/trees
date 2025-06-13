@@ -1,4 +1,5 @@
 import Model from "./model"
+import { FormType } from "./form"
 
 export interface Video {
   url: URL
@@ -69,7 +70,7 @@ const defaultConfig: Model = {
   },
   form: {
     url: {
-      type: 0,
+      type: FormType.PRIMITIVE,
       component: "TextField",
       label: "url",
       default: "",
@@ -88,7 +89,7 @@ const defaultConfig: Model = {
     },
     alt: {
       label: "alt",
-      type: 0,
+      type: FormType.PRIMITIVE,
       component: "TextField",
       default: "",
       description: "Displayed if the image cannot be loaded",
@@ -106,7 +107,7 @@ const defaultConfig: Model = {
     },
     caption: {
       label: "caption",
-      type: 0,
+      type: FormType.PRIMITIVE,
       component: "TextField",
       default: "",
       description: "",
@@ -124,7 +125,7 @@ const defaultConfig: Model = {
     },
     copyright: {
       label: "copyright",
-      type: 0,
+      type: FormType.PRIMITIVE,
       component: "TextField",
       default: "Free of rights",
       description: "Owner of the image copyright",
@@ -142,7 +143,7 @@ const defaultConfig: Model = {
     },
     licence: {
       label: "licence",
-      type: 0,
+      type: FormType.PRIMITIVE,
       component: "TextField", // TODO change for an autocomplete
       default: null,
       description: "The licence of the video",
@@ -160,7 +161,7 @@ const defaultConfig: Model = {
     },
     licenseUrl: {
       label: "licenseUrl",
-      type: 0,
+      type: FormType.PRIMITIVE,
       component: "TextField", // TODO change for an autocomplete
       default: null,
       description: "The caption of the video",
@@ -177,7 +178,7 @@ const defaultConfig: Model = {
     },
     backgroundColor: {
       label: "backgroundColor",
-      type: 0,
+      type: FormType.PRIMITIVE,
       component: "TextColorPicker", // TODO change for an autocomplete
       default: null,
       description: "",

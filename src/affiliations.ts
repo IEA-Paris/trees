@@ -1,6 +1,7 @@
 import { Image } from "./image"
 import { Location } from "./location"
 import Model from "./model"
+import { FormType } from "./form"
 
 export interface Affiliation {
   location?: Location
@@ -73,7 +74,7 @@ const defaultConfig: Model = {
     location: {
       label: "location",
       component: "ObjectContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       rules: {
@@ -85,7 +86,7 @@ const defaultConfig: Model = {
     image: {
       label: "image",
       component: "ObjectContainerPanel",
-      type: 3, //
+      type: FormType.ARRAY, //
       default: "",
       description: "",
       rules: {
@@ -96,7 +97,7 @@ const defaultConfig: Model = {
     name: {
       label: "name",
       component: "TextField",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       i18n: true,
       default: "",
       description: "",
@@ -110,7 +111,7 @@ const defaultConfig: Model = {
     ror: {
       label: "ror",
       component: "TextField",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -122,7 +123,7 @@ const defaultConfig: Model = {
     url: {
       label: "url",
       component: "TextField",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {

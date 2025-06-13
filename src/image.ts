@@ -1,4 +1,5 @@
 import Model from "./model"
+import { FormType } from "./form"
 
 export interface Image {
   url: URL
@@ -74,7 +75,7 @@ const defaultConfig: Model = {
 
   form: {
     url: {
-      type: 0,
+      type: FormType.PRIMITIVE,
       component: "TextField",
       label: "url",
       default: "",
@@ -94,7 +95,7 @@ const defaultConfig: Model = {
     caption: {
       label: "caption",
       component: "TextArea",
-      type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
       i18n: true,
       default: "",
       description: "",
@@ -110,7 +111,7 @@ const defaultConfig: Model = {
     },
     alt: {
       label: "alt",
-      type: 0,
+      type: FormType.PRIMITIVE,
       component: "TextArea",
       default: "",
       description: "Displayed if the image cannot be loaded",
@@ -128,7 +129,7 @@ const defaultConfig: Model = {
     },
     copyright: {
       label: "copyright",
-      type: 0,
+      type: FormType.PRIMITIVE,
       component: "TextField",
       default: "Free of rights",
       description: "Owner of the image copyright",
@@ -146,7 +147,7 @@ const defaultConfig: Model = {
     },
     licence: {
       label: "licence",
-      type: 0,
+      type: FormType.PRIMITIVE,
       component: "ListAutoComplete", // TODO change for an autocomplete
       default: null,
       description: "The licence of the image",
@@ -164,7 +165,7 @@ const defaultConfig: Model = {
     },
     licenseUrl: {
       label: "licenseUrl",
-      type: 0,
+      type: FormType.PRIMITIVE,
       component: "TextField", // TODO change for an autocomplete
       default: null,
       description: "The caption of the image",
@@ -182,7 +183,7 @@ const defaultConfig: Model = {
     backgroundColor: {
       label: "backgroundColor",
       component: "TextColorPicker", // TODO create component
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {

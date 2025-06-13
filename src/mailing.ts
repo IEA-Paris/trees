@@ -1,5 +1,6 @@
 import { Form } from "./form"
 import Model from "./model"
+import { FormType } from "./form"
 
 export interface Mailing {
   name: string
@@ -76,7 +77,7 @@ const defaultConfig: Model = {
     name: {
       label: "name",
       component: "TextField",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -89,7 +90,7 @@ const defaultConfig: Model = {
     description: {
       label: "description",
       component: "TextField",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -103,7 +104,7 @@ const defaultConfig: Model = {
     createdAt: {
       label: "createdAt",
       component: "TextField",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -117,7 +118,7 @@ const defaultConfig: Model = {
     updatedAt: {
       label: "updatedAt",
       component: "TextField",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {
@@ -130,7 +131,7 @@ const defaultConfig: Model = {
     date: {
       label: "date",
       component: "TextField",
-      type: 0, //
+      type: FormType.PRIMITIVE, //
       default: "",
       description: "",
       rules: {

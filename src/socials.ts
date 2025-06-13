@@ -1,3 +1,4 @@
+import { FormType } from "./form"
 import { Form } from "./form"
 
 export interface Socials {
@@ -21,7 +22,7 @@ const defaultConfig: SocialsForm = {
   form: {
     website: {
       label: "website",
-      type: 0, // 0 = primitive, 1 = object, 2 = array, 3 = template 4 = readonly
+      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template 4 = readonly
       component: "TextField",
       default: "",
       description: "",
@@ -37,7 +38,7 @@ const defaultConfig: SocialsForm = {
     },
     wikipedia: {
       label: "wikipedia",
-      type: 0,
+      type: FormType.PRIMITIVE,
       component: "TextField",
       default: "",
       description: "",
@@ -53,7 +54,7 @@ const defaultConfig: SocialsForm = {
     },
     orcid: {
       label: "orcid",
-      type: 0,
+      type: FormType.PRIMITIVE,
       component: "TextField",
       default: "",
       description: "",
@@ -69,7 +70,7 @@ const defaultConfig: SocialsForm = {
     },
     twitter: {
       label: "twitter",
-      type: 0,
+      type: FormType.PRIMITIVE,
       component: "TextField",
       default: "",
       description: "",
@@ -85,7 +86,7 @@ const defaultConfig: SocialsForm = {
     },
     linkedin: {
       label: "linkedin",
-      type: 0,
+      type: FormType.PRIMITIVE,
       component: "TextField",
       default: "",
       description: "",
@@ -101,7 +102,7 @@ const defaultConfig: SocialsForm = {
     },
     bluesky: {
       label: "bluesky",
-      type: 0,
+      type: FormType.PRIMITIVE,
       component: "TextField",
       default: "",
       description: "",
@@ -117,7 +118,7 @@ const defaultConfig: SocialsForm = {
     },
     instagram: {
       label: "instagram",
-      type: 0,
+      type: FormType.PRIMITIVE,
       component: "TextField",
       default: "",
       description: "",
@@ -133,7 +134,7 @@ const defaultConfig: SocialsForm = {
     },
     scholar: {
       label: "scholar",
-      type: 0,
+      type: FormType.PRIMITIVE,
       component: "TextField",
       default: "",
       description: "",
@@ -149,7 +150,7 @@ const defaultConfig: SocialsForm = {
     },
     researchgate: {
       label: "researchgate",
-      type: 0,
+      type: FormType.PRIMITIVE,
       component: "TextField",
       default: "",
       description: "",
@@ -165,7 +166,7 @@ const defaultConfig: SocialsForm = {
     },
     mendeley: {
       label: "mendeley",
-      type: 0,
+      type: FormType.PRIMITIVE,
       component: "TextField",
       default: "",
       description: "",
@@ -181,7 +182,7 @@ const defaultConfig: SocialsForm = {
     },
     idRef: {
       label: "idRef",
-      type: 0,
+      type: FormType.PRIMITIVE,
       component: "TextField",
       default: "",
       description: "",

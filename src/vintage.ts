@@ -1,3 +1,4 @@
+import { FormType } from "./form"
 import Model from "./model"
 
 export interface Vintage {
@@ -69,7 +70,7 @@ const defaultConfig: Model = {
   form: {
     name: {
       label: "name",
-      type: 0,
+      type: FormType.PRIMITIVE,
       component: "TextField",
       default: "",
       description: "",
@@ -87,7 +88,7 @@ const defaultConfig: Model = {
     },
     year: {
       label: "year",
-      type: 0,
+      type: FormType.PRIMITIVE,
       component: "TextField",
       default: "",
       description: "",
@@ -105,7 +106,7 @@ const defaultConfig: Model = {
     },
     theme: {
       label: "theme",
-      type: 0,
+      type: FormType.PRIMITIVE,
       component: "TextField",
       default: "",
       description: "",
@@ -123,7 +124,7 @@ const defaultConfig: Model = {
       meta: "theme",
     },
     url: {
-      type: 0,
+      type: FormType.PRIMITIVE,
       component: "TextField",
       label: "url",
       default: "",
