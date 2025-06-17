@@ -121,24 +121,6 @@ const defaultConfig: Model = {
     },
   },
   form: {
-    name: {
-      label: "name",
-      component: "TextField",
-      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-        min: 1,
-        max: 200,
-      },
-      visibility: {
-        default: true, // same as hidden = true
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
-      },
-      meta: "name", // item type on schema.org
-    },
     firstname: {
       label: "firstname",
       component: "TextField",
