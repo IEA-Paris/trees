@@ -298,7 +298,7 @@ const defaultConfig: Model = {
     },
     tags: {
       label: "tags",
-      component: "ListAutoComplete",
+      component: "AutoComplete",
       type: FormType.ARRAY, //
       default: "",
       description: "",
@@ -317,7 +317,7 @@ const defaultConfig: Model = {
     },
     color: {
       label: "color",
-      component: "TextColorPicker",
+      component: "ColorPicker",
       type: FormType.PRIMITIVE, //
       default: "",
       description: "",

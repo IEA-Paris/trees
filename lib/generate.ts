@@ -247,10 +247,6 @@ const typeName = [
   "files",
   "mailing",
   "tags",
-<<<<<<< HEAD
-  "action",
-=======
->>>>>>> f350d968409ff06ff39862a9d10d5b345c759d42
   "affiliations",
   "disciplines",
   "files",

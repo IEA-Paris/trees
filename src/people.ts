@@ -274,7 +274,7 @@ const defaultConfig: Model = {
     },
     lang: {
       label: "lang",
-      component: "ListAutoComplete",
+      component: "AutoComplete",
       type: FormType.PRIMITIVE, //
       default: "",
       description: "",

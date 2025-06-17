@@ -85,7 +85,7 @@ const defaultConfig: LocationForm = {
     },
     country: {
       label: "country",
-      component: "ListAutoComplete",
+      component: "AutoComplete",
       type: FormType.PRIMITIVE, //
       default: "",
       description: "",

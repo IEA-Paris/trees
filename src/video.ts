@@ -179,7 +179,7 @@ const defaultConfig: Model = {
     backgroundColor: {
       label: "backgroundColor",
       type: FormType.PRIMITIVE,
-      component: "TextColorPicker", // TODO change for an autocomplete
+      component: "ColorPicker", // TODO change for an autocomplete
       default: null,
       description: "",
       rules: {

@@ -121,7 +121,7 @@ const defaultConfig: Model = {
     },
     color: {
       label: "color",
-      component: "TextColorPicker",
+      component: "ColorPicker",
       type: FormType.PRIMITIVE, //
       default: "",
       description: "",

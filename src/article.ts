@@ -135,7 +135,7 @@ const defautConfig: Model = {
     },
     needDOI: {
       label: "needDOI",
-      component: "BooleanCheckbox",
+      component: "Checkbox",
       type: FormType.PRIMITIVE, //
       default: "",
       description: "",
@@ -172,7 +172,7 @@ const defautConfig: Model = {
     },
     highlight: {
       label: "highlight",
-      component: "BooleanCheckbox",
+      component: "Checkbox",
       type: FormType.PRIMITIVE, //
       default: "",
       description: "",

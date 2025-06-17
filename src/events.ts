@@ -464,7 +464,7 @@ const defaultConfig: Model = {
     },
     outside: {
       label: "outside",
-      component: "BooleanCheckbox",
+      component: "Checkbox",
       type: FormType.PRIMITIVE, //
       default: "",
       description: "",

@@ -19,7 +19,7 @@ const defaultConfig: GroupsForm = {
   form: {
     team: {
       label: "team",
-      component: "BooleanCheckbox",
+      component: "Checkbox",
       type: FormType.PRIMITIVE, //
       default: "",
       description: "",
@@ -27,7 +27,7 @@ const defaultConfig: GroupsForm = {
     },
     sab: {
       label: "sab",
-      component: "BooleanCheckbox",
+      component: "Checkbox",
       type: FormType.PRIMITIVE, //
       default: "",
       description: "",
@@ -35,7 +35,7 @@ const defaultConfig: GroupsForm = {
     },
     board: {
       label: "board",
-      component: "BooleanCheckbox",
+      component: "Checkbox",
       type: FormType.PRIMITIVE, //
       default: "",
       description: "",
@@ -43,7 +43,7 @@ const defaultConfig: GroupsForm = {
     },
     fellows: {
       label: "fellows",
-      component: "BooleanCheckbox",
+      component: "Checkbox",
       type: FormType.PRIMITIVE, //
       default: "",
       description: "",
@@ -51,7 +51,7 @@ const defaultConfig: GroupsForm = {
     },
     sponsor: {
       label: "sponsor",
-      component: "BooleanCheckbox",
+      component: "Checkbox",
       type: FormType.PRIMITIVE, //
       default: "",
       description: "",

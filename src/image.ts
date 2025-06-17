@@ -148,7 +148,7 @@ const defaultConfig: Model = {
     licence: {
       label: "licence",
       type: FormType.PRIMITIVE,
-      component: "ListAutoComplete", // TODO change for an autocomplete
+      component: "AutoComplete", // TODO change for an autocomplete
       default: null,
       description: "The licence of the image",
       rules: {
@@ -182,7 +182,7 @@ const defaultConfig: Model = {
     },
     backgroundColor: {
       label: "backgroundColor",
-      component: "TextColorPicker", // TODO create component
+      component: "ColorPicker", // TODO create component
       type: FormType.PRIMITIVE, //
       default: "",
       description: "",

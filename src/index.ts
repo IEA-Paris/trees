@@ -1,7 +1,7 @@
 import { ModuleType } from "../lib/generate"
 import Model from "./model"
 import { Sort, Views } from "./list"
-import { Form } from "./form"
+import { Form, FormType } from "./form"
 import defaultConfigAction from "./action"
 import defaultConfigAffliation from "./affiliations"
 import defautConfigApp from "./apps"
@@ -44,7 +44,6 @@ import defaultConfigTags from "./tags"
 import defaultConfigVideo from "./video"
 import defaultConfigVintage from "./vintage"
 import defaultConfigUsers from "./users"
-
 type ConfigValue =
   | Model
   | ConsentForm
@@ -100,4 +99,4 @@ const configData: Record<string, ConfigValue> = {
 
 export { configData }
 
-export type { Form, Sort, Views, ConfigValue, Model, ModuleType }
+export type { Form, Sort, Views, ConfigValue, Model, ModuleType, FormType }

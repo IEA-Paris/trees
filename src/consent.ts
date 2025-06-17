@@ -25,7 +25,7 @@ const defaultConfig: ConsentForm = {
   form: {
     data: {
       label: "data",
-      component: "BooleanCheckbox",
+      component: "Checkbox",
       type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: false,
       description: "data consent (display info about me)",
@@ -41,7 +41,7 @@ const defaultConfig: ConsentForm = {
     },
     record: {
       label: "record",
-      component: "BooleanCheckbox",
+      component: "Checkbox",
       type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: false,
       description: "record consent (record my activity, droit à l'image)",
@@ -57,7 +57,7 @@ const defaultConfig: ConsentForm = {
     },
     diffusion: {
       label: "diffusion",
-      component: "BooleanCheckbox",
+      component: "Checkbox",
       type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: false,
       description:
@@ -74,7 +74,7 @@ const defaultConfig: ConsentForm = {
     },
     publication: {
       label: "publication",
-      component: "BooleanCheckbox",
+      component: "Checkbox",
       type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: false,
       description: "publication consent (publish my content, generate DOIs)",
@@ -90,7 +90,7 @@ const defaultConfig: ConsentForm = {
     },
     email: {
       label: "email",
-      component: "BooleanCheckbox",
+      component: "Checkbox",
       type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: false,
       description: "email communications (including newsletter)",
@@ -106,7 +106,7 @@ const defaultConfig: ConsentForm = {
     },
     newsletter: {
       label: "newsletter",
-      component: "BooleanCheckbox",
+      component: "Checkbox",
       type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: false,
       description: "",
@@ -122,7 +122,7 @@ const defaultConfig: ConsentForm = {
     },
     fellowshipnewsletter: {
       label: "fellowshipnewsletter",
-      component: "BooleanCheckbox",
+      component: "Checkbox",
       type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: false,
       description: "",
