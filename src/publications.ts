@@ -5,10 +5,9 @@ import { Video } from "./video"
 import Model from "./model"
 import { Related } from "./related"
 import { Tag } from "./tags"
-import { mapEnum } from "../lib/utils"
 import { eventCategories } from "./events"
 import { Disciplines } from "./disciplines"
-import { FormType } from "./form"
+import { formType } from "./form"
 export interface Publications {
   name: string
   subtitle?: string
@@ -30,17 +29,17 @@ export interface Publications {
 }
 
 export enum publicationType {
-  ARTICLE,
-  CONFERENCE_PAPER,
-  BOOK,
-  BOOK_CHAPTER,
-  THESIS,
-  REPORT,
-  SOFTWARE,
-  DATA,
-  VIDEO,
-  AUDIO,
-  PODCAST,
+  Article = "ARTICLE",
+  ConferencePaper = "CONFERENCE_PAPER",
+  Book = "BOOK",
+  BookChapter = "BOOK_CHAPTER",
+  Thesis = "THESIS",
+  Report = "REPORT",
+  Software = "SOFTWARE",
+  Data = "DATA",
+  Video = "VIDEO",
+  Audio = "AUDIO",
+  Podcast = "PODCAST",
 }
 const defaultConfig: Model = {
   source: "md",
@@ -69,12 +68,12 @@ const defaultConfig: Model = {
       },
       type: {
         type: "Select",
-        items: mapEnum(publicationType),
+        items: publicationType,
         multiple: true,
       },
       eventCategories: {
         type: "Select",
-        items: mapEnum(eventCategories),
+        items: eventCategories,
         multiple: true,
       },
     },
@@ -121,7 +120,7 @@ const defaultConfig: Model = {
     name: {
       label: "name",
       component: "TextField",
-      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",
       i18n: true,
       description: "",
@@ -140,7 +139,7 @@ const defaultConfig: Model = {
     subtitle: {
       label: "subtitle",
       component: "TextArea",
-      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
       i18n: true,
       default: "",
       description: "",
@@ -159,7 +158,7 @@ const defaultConfig: Model = {
     description: {
       label: "description",
       component: "TextArea",
-      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
       i18n: true,
       default: "",
       description: "",
@@ -178,7 +177,7 @@ const defaultConfig: Model = {
     summary: {
       label: "summary",
       component: "TextArea",
-      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
       i18n: true,
       default: "",
       description: "",
@@ -197,7 +196,7 @@ const defaultConfig: Model = {
     url: {
       label: "url",
       component: "TextField",
-      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",
       description: "",
       rules: {
@@ -214,7 +213,7 @@ const defaultConfig: Model = {
     affiliations: {
       label: "affiliations",
       component: "CollectionContainerPanel",
-      type: FormType.ARRAY, //
+      type: formType.Template, //
       default: "",
       description: "",
       meta: "affiliations",
@@ -222,7 +221,7 @@ const defaultConfig: Model = {
     eventCategories: {
       label: "eventCategories",
       component: "ListSelect",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -233,7 +232,7 @@ const defaultConfig: Model = {
     type: {
       label: "type",
       component: "ListSelect",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -244,7 +243,7 @@ const defaultConfig: Model = {
     related: {
       label: "related",
       component: "ObjectContainerPanel",
-      type: FormType.ARRAY, //
+      type: formType.Template, //
       default: "",
       description: "",
       rules: {
@@ -257,7 +256,7 @@ const defaultConfig: Model = {
     disciplines: {
       label: "disciplines",
       component: "CollectionContainerPanel",
-      type: FormType.ARRAY, //
+      type: formType.Template, //
       default: "",
       description: "",
       rules: {
@@ -270,7 +269,7 @@ const defaultConfig: Model = {
     image: {
       label: "image",
       component: "ObjectContainerPanel",
-      type: FormType.ARRAY, //
+      type: formType.Template, //
       default: "",
       description: "",
       rules: {
@@ -283,7 +282,7 @@ const defaultConfig: Model = {
     gallery: {
       label: "gallery",
       component: "CollectionContainerPanel",
-      type: FormType.ARRAY, //
+      type: formType.Template, //
       default: "",
       description: "",
       meta: "gallery",
@@ -291,7 +290,7 @@ const defaultConfig: Model = {
     video: {
       label: "video",
       component: "ObjectContainerPanel",
-      type: FormType.ARRAY, //
+      type: formType.Template, //
       default: "",
       description: "",
       meta: "video",
@@ -299,7 +298,7 @@ const defaultConfig: Model = {
     tags: {
       label: "tags",
       component: "AutoComplete",
-      type: FormType.ARRAY, //
+      type: formType.Template, //
       default: "",
       description: "",
       rules: {
@@ -310,7 +309,7 @@ const defaultConfig: Model = {
     files: {
       label: "files",
       component: "CollectionContainerPanel",
-      type: FormType.ARRAY, //
+      type: formType.Template, //
       default: "",
       description: "",
       meta: "files",
@@ -318,7 +317,7 @@ const defaultConfig: Model = {
     color: {
       label: "color",
       component: "ColorPicker",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -330,7 +329,7 @@ const defaultConfig: Model = {
     date: {
       label: "date",
       component: "DatePicker",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -342,7 +341,7 @@ const defaultConfig: Model = {
     featured: {
       label: "featured",
       component: "DatePicker",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {

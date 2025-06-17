@@ -5,8 +5,7 @@ import { Video } from "./video"
 import Model from "./model"
 import { Related } from "./related"
 import { Tag } from "./tags"
-import { mapEnum } from "../lib/utils"
-import { FormType } from "./form"
+import { formType } from "./form"
 
 export interface Projects {
   name: string
@@ -28,10 +27,10 @@ export interface Projects {
 }
 
 export enum projectStatus {
-  PLANNED,
-  IN_PROGRESS,
-  FINISHED,
-  CANCELED,
+  Planned = "PLANNED",
+  InProgress = "IN_PROGRESS",
+  Finished = "FINISHED",
+  Canceled = "CANCELED",
 }
 const defaultConfig: Model = {
   source: "md",
@@ -46,7 +45,7 @@ const defaultConfig: Model = {
     filters: {
       status: {
         type: "Select",
-        items: mapEnum(projectStatus),
+        items: projectStatus,
       },
       tags: {
         type: "AutoComplete",
@@ -97,7 +96,7 @@ const defaultConfig: Model = {
     name: {
       label: "name",
       component: "TextField",
-      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
       i18n: true,
       default: "",
       description: "",
@@ -116,7 +115,7 @@ const defaultConfig: Model = {
     subtitle: {
       label: "subtitle",
       component: "TextArea",
-      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
       i18n: true,
       default: "",
       description: "",
@@ -135,7 +134,7 @@ const defaultConfig: Model = {
     description: {
       label: "description",
       component: "TextArea",
-      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
       i18n: true,
       default: "",
       description: "",
@@ -149,7 +148,7 @@ const defaultConfig: Model = {
     summary: {
       label: "summary",
       component: "TextArea",
-      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
       i18n: true,
       default: "",
       description: "",
@@ -168,7 +167,7 @@ const defaultConfig: Model = {
     url: {
       label: "url",
       component: "TextField",
-      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",
       description: "",
       rules: {
@@ -185,19 +184,19 @@ const defaultConfig: Model = {
     status: {
       label: "status",
       component: "Select",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
         required: true,
       },
-      items: mapEnum(projectStatus),
+      items: projectStatus,
       meta: "status",
     },
     affiliations: {
       label: "affiliations",
       component: "CollectionContainerPanel",
-      type: FormType.ARRAY, //
+      type: formType.Template, //
       default: "",
       description: "",
       meta: "affiliations",
@@ -205,7 +204,7 @@ const defaultConfig: Model = {
     related: {
       label: "related",
       component: "ObjectContainerPanel",
-      type: FormType.ARRAY, //
+      type: formType.Template, //
       default: "",
       description: "",
       rules: {
@@ -218,7 +217,7 @@ const defaultConfig: Model = {
     image: {
       label: "image",
       component: "ObjectContainerPanel",
-      type: FormType.ARRAY, //
+      type: formType.Template, //
       default: "",
       description: "",
       rules: {
@@ -231,7 +230,7 @@ const defaultConfig: Model = {
     gallery: {
       label: "gallery",
       component: "CollectionContainerPanel",
-      type: FormType.ARRAY, //
+      type: formType.Template, //
       default: "",
       description: "",
       meta: "gallery",
@@ -239,7 +238,7 @@ const defaultConfig: Model = {
     video: {
       label: "video",
       component: "ObjectContainerPanel",
-      type: FormType.ARRAY, //
+      type: formType.Template, //
       default: "",
       description: "",
       meta: "video",
@@ -247,7 +246,7 @@ const defaultConfig: Model = {
     tags: {
       label: "tags",
       component: "AutoComplete",
-      type: FormType.ARRAY, //
+      type: formType.Template, //
       default: "",
       description: "",
       rules: {
@@ -258,7 +257,7 @@ const defaultConfig: Model = {
     files: {
       label: "files",
       component: "CollectionContainerPanel",
-      type: FormType.ARRAY, //
+      type: formType.Template, //
       default: "",
       description: "",
       meta: "files",
@@ -266,7 +265,7 @@ const defaultConfig: Model = {
     color: {
       label: "color",
       component: "ColorPicker",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -278,7 +277,7 @@ const defaultConfig: Model = {
     date: {
       label: "date",
       component: "FiDatePicker",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -290,7 +289,7 @@ const defaultConfig: Model = {
     featured: {
       label: "featured",
       component: "DatePicker",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {

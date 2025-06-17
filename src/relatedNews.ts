@@ -1,6 +1,6 @@
 import { Image } from "./image"
 import Model from "./model"
-import { FormType } from "./form"
+import { formType } from "./form"
 
 export interface RelatedNews {
   name: string
@@ -77,7 +77,7 @@ const defaultConfig: Model = {
     name: {
       label: "name",
       component: "TextField",
-      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
       i18n: true,
       default: "",
       description: "",
@@ -97,7 +97,7 @@ const defaultConfig: Model = {
     description: {
       label: "description",
       component: "TextArea",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       i18n: true,
       default: "",
       description: "",
@@ -111,7 +111,7 @@ const defaultConfig: Model = {
     image: {
       label: "image",
       component: "ObjectContainerPanel",
-      type: FormType.ARRAY, //
+      type: formType.Template, //
       default: "",
       description: "",
       rules: {
@@ -122,7 +122,7 @@ const defaultConfig: Model = {
     color: {
       label: "color",
       component: "ColorPicker",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -134,7 +134,7 @@ const defaultConfig: Model = {
     url: {
       label: "url",
       component: "TextField",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -146,7 +146,7 @@ const defaultConfig: Model = {
     date: {
       label: "date",
       component: "DatePicker",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -158,7 +158,7 @@ const defaultConfig: Model = {
     featured: {
       label: "featured",
       component: "DatePicker",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {

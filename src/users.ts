@@ -8,38 +8,37 @@ import { Disciplines } from "./disciplines"
 import { Video } from "./video"
 import Model from "./model"
 import { Related } from "./related"
-import { mapEnum } from "../lib/utils"
 import configPeople, { People } from "./people"
-import { FormType } from "./form"
+import { formType } from "./form"
 
 type Settings = {
   lang: String
 }
-export enum UserStatus {
-  ACTIVE,
-  PENDING,
-  BLOCKED,
-  DELETED,
+export enum userStatus {
+  Active = "ACTIVE",
+  Pending = "PENDING",
+  Blocked = "BLOCKED",
+  Deleted = "DELETED",
 }
-export enum UserRole {
-  ADMIN,
-  EDITOR,
-  CONTRIBUTOR,
-  VIEWER,
-  FELLOW,
-  MEMBER,
-  GUEST,
+export enum userRole {
+  Admin = "ADMIN",
+  Editor = "EDITOR",
+  Contributor = "CONTRIBUTOR",
+  Viewer = "VIEWER",
+  Fellow = "FELLOW",
+  Member = "MEMBER",
+  Guest = "GUEST",
 }
 export interface User extends People {
   admin: Boolean
   apps: [AppRole]
   email: String
   settings: Settings
-  status: UserStatus
+  status: userStatus
 }
 type AppRole = {
   appId: String
-  roles: UserRole[]
+  roles: userRole[]
 }
 const userConfig: Model = {
   source: "gql",
@@ -139,7 +138,7 @@ const userConfig: Model = {
     name: {
       label: "name",
       component: "TextField",
-      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",
       description: "",
       rules: {
@@ -157,7 +156,7 @@ const userConfig: Model = {
     firstname: {
       label: "firstname",
       component: "TextField",
-      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",
       description: "",
       rules: {
@@ -175,7 +174,7 @@ const userConfig: Model = {
     lastname: {
       label: "lastname",
       component: "TextField",
-      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",
       description: "",
       rules: {
@@ -193,7 +192,7 @@ const userConfig: Model = {
     affiliations: {
       label: "affiliations",
       component: "CollectionContainerPanel",
-      type: FormType.ARRAY, //
+      type: formType.Template, //
       default: "",
       description: "",
       rules: {
@@ -204,7 +203,7 @@ const userConfig: Model = {
     image: {
       label: "image",
       component: "ObjectContainerPanel",
-      type: FormType.ARRAY, //
+      type: formType.Template, //
       default: "",
       description: "",
       rules: {
@@ -215,7 +214,7 @@ const userConfig: Model = {
     socials: {
       label: "socials",
       component: "ObjectContainerPanel",
-      type: FormType.ARRAY, //
+      type: formType.Template, //
       default: "",
       description: "",
       meta: "socials",
@@ -223,7 +222,7 @@ const userConfig: Model = {
     disciplines: {
       label: "disciplines",
       component: "CollectionContainerPanel",
-      type: FormType.ARRAY, //
+      type: formType.Template, //
       default: "",
       description: "",
       meta: "disciplines",
@@ -231,7 +230,7 @@ const userConfig: Model = {
     video: {
       label: "video",
       component: "CollectionContainerPanel",
-      type: FormType.ARRAY, //
+      type: formType.Template, //
       default: "",
       description: "",
       meta: "video",
@@ -240,7 +239,7 @@ const userConfig: Model = {
       label: "biography",
       component: "TextArea",
       i18n: true,
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -254,7 +253,7 @@ const userConfig: Model = {
     related: {
       label: "related",
       component: "ObjectContainerPanel",
-      type: FormType.ARRAY, //
+      type: formType.Template, //
       default: "",
       description: "",
       rules: {
@@ -268,7 +267,7 @@ const userConfig: Model = {
     consent: {
       label: "consent",
       component: "ObjectContainerPanel",
-      type: FormType.ARRAY, //
+      type: formType.Template, //
       default: "",
       description: "",
       rules: {
@@ -279,7 +278,7 @@ const userConfig: Model = {
     groups: {
       label: "groups",
       component: "ObjectContainerPanel",
-      type: FormType.ARRAY, //
+      type: formType.Template, //
       default: "",
       description: "",
       rules: {
@@ -290,7 +289,7 @@ const userConfig: Model = {
     lang: {
       label: "lang",
       component: "AutoComplete",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {

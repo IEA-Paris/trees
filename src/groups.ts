@@ -1,6 +1,6 @@
 import { Form } from "./form"
 import { Vintage } from "./vintage"
-import { FormType } from "./form"
+import { formType } from "./form"
 
 export interface Groups {
   team?: boolean
@@ -20,7 +20,7 @@ const defaultConfig: GroupsForm = {
     team: {
       label: "team",
       component: "Checkbox",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       meta: "team",
@@ -28,7 +28,7 @@ const defaultConfig: GroupsForm = {
     sab: {
       label: "sab",
       component: "Checkbox",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       meta: "sab",
@@ -36,7 +36,7 @@ const defaultConfig: GroupsForm = {
     board: {
       label: "board",
       component: "Checkbox",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       meta: "board",
@@ -44,7 +44,7 @@ const defaultConfig: GroupsForm = {
     fellows: {
       label: "fellows",
       component: "Checkbox",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       meta: "fellow",
@@ -52,7 +52,7 @@ const defaultConfig: GroupsForm = {
     sponsor: {
       label: "sponsor",
       component: "Checkbox",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       meta: "sponsor",
@@ -60,7 +60,7 @@ const defaultConfig: GroupsForm = {
     vintage: {
       label: "vintage",
       component: "CollectionContainerPanel",
-      type: FormType.ARRAY, //
+      type: formType.Template, //
       default: "",
       description: "",
       meta: "vintage",

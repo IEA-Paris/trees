@@ -1,8 +1,7 @@
 import { Image } from "./image"
 import Model from "./model"
-import { mapEnum } from "../lib/utils"
 import { Tag } from "./tags"
-import { FormType } from "./form"
+import { formType } from "./form"
 export interface Apps {
   appId: string
   name: string
@@ -17,9 +16,9 @@ export interface Apps {
   state?: appState
 }
 export enum appState {
-  ACTIVE,
-  SUSPENDED,
-  INACTIVE,
+  Active = "ACTIVE",
+  Suspended = "SUSPENDED",
+  Inactive = "INACTIVE",
 }
 const defaultConfig: Model = {
   // fitlers used in the query by default (e.g. only published articles)
@@ -86,7 +85,7 @@ const defaultConfig: Model = {
   form: {
     name: {
       label: "name",
-      type: FormType.PRIMITIVE,
+      type: formType.Primitive,
       component: "TextField",
       default: "",
       description:
@@ -105,7 +104,7 @@ const defaultConfig: Model = {
     },
     image: {
       label: "image",
-      type: FormType.ARRAY,
+      type: formType.Template,
       component: "ObjectContainerPanel",
       description: "The logo of the app",
       rules: {
@@ -116,7 +115,7 @@ const defaultConfig: Model = {
     description: {
       label: "description",
       component: "TextArea",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       i18n: true,
       default: "",
       description: "",
@@ -130,7 +129,7 @@ const defaultConfig: Model = {
     summary: {
       label: "summary",
       component: "TextArea",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       i18n: true,
       description: "",
@@ -144,7 +143,7 @@ const defaultConfig: Model = {
     subtitle: {
       label: "subtitle",
       component: "TextArea",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       i18n: true,
       description: "",
@@ -158,7 +157,7 @@ const defaultConfig: Model = {
     url: {
       label: "url",
       component: "TextField",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -170,7 +169,7 @@ const defaultConfig: Model = {
     tags: {
       label: "tags",
       component: "CollectionContainerPanel",
-      type: FormType.ARRAY, //
+      type: formType.Template, //
       default: "",
       description: "",
       rules: {
@@ -181,19 +180,19 @@ const defaultConfig: Model = {
     state: {
       label: "appState",
       component: "Select",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
         required: true,
       },
-      items: mapEnum(appState),
+      items: appState,
       meta: "appState",
     },
     date: {
       label: "date",
       component: "DatePicker",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {

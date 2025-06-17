@@ -3,8 +3,7 @@ import Model from "./model"
 import { RelatedPeople } from "./relatedPeople"
 import { Related } from "./related"
 import { Tag } from "./tags"
-import { mapEnum } from "../lib/utils"
-import { FormType } from "./form"
+import { formType } from "./form"
 
 export interface News {
   name: string
@@ -24,26 +23,26 @@ export interface News {
   files?: File[]
 }
 export enum newsCategories {
-  PRESS_RELEASE,
-  INTERVIEW,
-  ARTICLE,
-  OPINION,
-  REPORT,
-  BLOG,
-  LIFE_AT_THE_INSTITUTE,
-  EVENT,
-  ANNOUNCEMENT,
-  JOB,
-  FELLOWSHIP,
-  GRANT,
-  AWARD,
-  PROJECT,
-  TOOL,
-  SOFTWARE,
-  DATA,
-  PUBLICATION,
-  VIDEO,
-  AUDIO,
+  PressRelease = "PRESS_RELEASE",
+  Interview = "INTERVIEW",
+  Article = "ARTICLE",
+  Opinion = "OPINION",
+  Report = "REPORT",
+  Blog = "BLOG",
+  LifeAtTheInstitute = "LIFE_AT_THE_INSTITUTE",
+  Event = "EVENT",
+  Announcement = "ANNOUNCEMENT",
+  Job = "JOB",
+  Fellowship = "FELLOWSHIP",
+  Grant = "GRANT",
+  Award = "AWARD",
+  Project = "PROJECT",
+  Tool = "TOOL",
+  Software = "SOFTWARE",
+  Data = "DATA",
+  Publication = "PUBLICATION",
+  Video = "VIDEO",
+  Audio = "AUDIO",
 }
 const defaultConfig: Model = {
   source: "gql",
@@ -63,7 +62,7 @@ const defaultConfig: Model = {
       category: {
         type: "Select",
         multiple: true,
-        items: mapEnum(newsCategories),
+        items: newsCategories,
       },
     },
     sort: {
@@ -101,7 +100,7 @@ const defaultConfig: Model = {
     name: {
       label: "name",
       component: "TextField",
-      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
       i18n: true,
       default: "",
       description: "",
@@ -120,7 +119,7 @@ const defaultConfig: Model = {
     summary: {
       label: "summary",
       component: "TextArea",
-      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
       i18n: true,
       default: "",
       description: "",
@@ -139,7 +138,7 @@ const defaultConfig: Model = {
     subtitle: {
       label: "subtitle",
       component: "TextField",
-      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
       i18n: true,
       default: "",
       description: "",
@@ -159,7 +158,7 @@ const defaultConfig: Model = {
       label: "description",
       component: "TextArea",
       i18n: true,
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -172,7 +171,7 @@ const defaultConfig: Model = {
     image: {
       label: "image",
       component: "ObjectContainerPanel",
-      type: FormType.ARRAY, //
+      type: formType.Template, //
       default: "",
       description: "",
       rules: {
@@ -183,7 +182,7 @@ const defaultConfig: Model = {
     color: {
       label: "color",
       component: "ColorPicker",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -195,7 +194,7 @@ const defaultConfig: Model = {
     url: {
       label: "url",
       component: "TextField",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -207,7 +206,7 @@ const defaultConfig: Model = {
     files: {
       label: "files",
       component: "CollectionContainerPanel",
-      type: FormType.ARRAY, //
+      type: formType.Template, //
       default: "",
       description: "",
       rules: {
@@ -218,7 +217,7 @@ const defaultConfig: Model = {
     gallery: {
       label: "gallery",
       component: "CollectionContainerPanel",
-      type: FormType.ARRAY, //
+      type: formType.Template, //
       default: "",
       description: "",
       meta: "gallery",
@@ -226,7 +225,7 @@ const defaultConfig: Model = {
     date: {
       label: "date",
       component: "DatePicker",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -238,7 +237,7 @@ const defaultConfig: Model = {
     featured: {
       label: "featured",
       component: "DatePicker",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -250,7 +249,7 @@ const defaultConfig: Model = {
     tags: {
       label: "tags",
       component: "CollectionContainerPanel",
-      type: FormType.ARRAY, //
+      type: formType.Template, //
       default: "",
       description: "",
       rules: {
@@ -262,7 +261,7 @@ const defaultConfig: Model = {
     related: {
       label: "related",
       component: "ObjectContainerPanel",
-      type: FormType.ARRAY, //
+      type: formType.Template, //
       default: "",
       description: "",
       rules: {
@@ -276,13 +275,13 @@ const defaultConfig: Model = {
     category: {
       label: "category",
       component: "Select",
-      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",
       description: "",
       rules: {
         required: true,
       },
-      items: mapEnum(newsCategories),
+      items: newsCategories,
       visibility: {
         default: true, // same as hidden = true
         switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean

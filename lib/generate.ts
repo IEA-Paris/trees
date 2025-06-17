@@ -1,6 +1,6 @@
 import { configData, Form, Model, Sort, Views } from "../src/index.ts"
 import { createJsonFile } from "./utils.ts"
-import { FormType } from "../src/form.ts"
+import { formType } from "../src/form.ts"
 interface List {
   items: any[]
   itemsPerPage?: number
@@ -35,7 +35,7 @@ const completeSchema = (schema: Record<string, Form>): Record<string, Form> => {
     for (const key of Object.keys(schema)) {
       bkey = key
       // is it a template?
-      if (schema[key] && schema[key]?.type === 3) {
+      if (schema[key] && schema[key]?.type === formType.Template) {
         console.log("importing template: ", key)
         const templateState = configData[key].form
         schema[key].items = templateState
@@ -81,6 +81,9 @@ const createModule = (type: string): any => {
       ? baseType?.list.sort[defaultSortKey]
       : undefined
 
+  // Create a Set to track visited templates and prevent circular dependencies
+  const visitedTemplates = new Set<string>()
+
   // Helper function to handle aliases
   const processAliases = (aliases: string[]): Record<string, Form> => {
     console.log("aliases: ", aliases)
@@ -100,28 +103,40 @@ const createModule = (type: string): any => {
 
   // Helper function to handle template types
   const processTemplate = (key: string): Promise<any> => {
-    console.log("procesing template for key: ", key)
+    // Check for circular dependencies
+    if (visitedTemplates.has(key)) {
+      console.warn(`Circular dependency detected for template: ${key}`)
+      return Promise.resolve({}) // Return empty object to break the cycle
+    }
+
+    // Add current template to visited set
+    visitedTemplates.add(key)
+
     const template = configData[key] as Model
-    // is it an implementation of another template?
-    if (template.aliases?.length) {
-      const aliasTemplatesForms: Record<string, Form> = processAliases(
-        template.aliases
-      )
-      return buildForm(aliasTemplatesForms)
-      // build based on aliases
-    } else {
-      console.log("template found:", key)
-      return buildForm(template.form as Record<string, Form>)
+    try {
+      // is it an implementation of another template?
+      if (template.aliases?.length) {
+        const aliasTemplatesForms: Record<string, Form> = processAliases(
+          template.aliases
+        )
+        const result = buildForm(aliasTemplatesForms)
+        // build based on aliases
+        return result
+      } else {
+        return buildForm(template.form as Record<string, Form>)
+      }
+    } finally {
+      // Remove the template from visited set after processing
+      visitedTemplates.delete(key)
     }
   }
 
   // Helper function to process items within the schema
   const processItems = (key: string, items: any[], form: any): any => {
-    console.log("processing items for key: ", key)
+    /*     console.log("processing items for key: ", key) */
 
     // only collection have items with an array type
-    if (Array.isArray(items)) {
-      console.log("array case", key)
+    if (form[key] && form[key].type === formType.Array) {
       // if (!form[key]) form[key] = [{}];
       if (!form[key]) {
         form[key] = [{}]
@@ -134,8 +149,6 @@ const createModule = (type: string): any => {
       } */
       // else it's an object
     } else {
-      console.log("else case", key)
-      console.log("items: ", items)
       if (!form[key]) form[key] = {}
       if (items && Object.keys(items).length) {
         for (const subkey of Object.keys(items)) {
@@ -146,6 +159,9 @@ const createModule = (type: string): any => {
         }
       } else {
         console.log("no items found for key: ", key)
+        if (["location", "image"].includes(key)) {
+          console.log(form)
+        }
       }
     }
   }
@@ -156,29 +172,43 @@ const createModule = (type: string): any => {
       if (!schema) return {}
       let form: { [key: string]: any } = {}
       for (const key of Object.keys(schema)) {
-        switch (schema[key]?.type as FormType) {
+        switch (schema[key]?.type as formType) {
           // document picker
-          case FormType.DOCUMENT:
+          case formType.Document:
+            /*  console.log("document picker for key: ", key) */
             form[key] = schema[key]?.default ?? []
             break
 
           // template import
-          case FormType.TEMPLATE:
-            form[key] = processTemplate(key)
+          case formType.Template:
+            /*  console.log("template import for key: ", key) */
+
+            // Check if this is a template we're already processing (to avoid circular dependencies)
+            if (visitedTemplates.has(key)) {
+              console.warn(
+                `Avoiding circular dependency for template key: ${key}`
+              )
+              form[key] = {} // Use empty object to break the cycle
+            } else {
+              form[key] = processTemplate(key)
+            }
             break
 
           // object
-          case FormType.OBJECT:
+          case formType.Object:
+            /*  console.log("object for key: ", key) */
             processItems(key, schema[key].items, form)
             break
 
           // collection
-          case FormType.ARRAY:
+          case formType.Array:
+            /*  console.log("collection for key: ", key) */
             processItems(key, schema[key].items, form)
             break
 
           // primitive
-          case FormType.PRIMITIVE:
+          case formType.Primitive:
+            /*  console.log("primitive for key: ", key) */
             form[key] = schema[key]?.default ?? ""
             break
 

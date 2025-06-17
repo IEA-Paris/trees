@@ -1,5 +1,5 @@
 import { Form } from "./form"
-import { FormType } from "./form"
+import { formType } from "./form"
 
 export interface Location {
   name: string
@@ -23,7 +23,7 @@ const defaultConfig: LocationForm = {
     name: {
       label: "name",
       component: "TextField",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -36,7 +36,7 @@ const defaultConfig: LocationForm = {
     details: {
       label: "details",
       component: "TextArea",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -49,7 +49,7 @@ const defaultConfig: LocationForm = {
     alt: {
       label: "alt",
       component: "TextArea",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -62,7 +62,7 @@ const defaultConfig: LocationForm = {
     street: {
       label: "street",
       component: "TextField",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -74,7 +74,7 @@ const defaultConfig: LocationForm = {
     city: {
       label: "city",
       component: "TextField",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -86,7 +86,7 @@ const defaultConfig: LocationForm = {
     country: {
       label: "country",
       component: "AutoComplete",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       meta: "country",
@@ -95,7 +95,7 @@ const defaultConfig: LocationForm = {
     zip: {
       label: "zip",
       component: "TextField",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -108,7 +108,7 @@ const defaultConfig: LocationForm = {
     geocode: {
       label: "geocode",
       component: "LocationPicker",
-      type: 1, //
+      type: formType.Object, //
       default: "",
       description: "",
       rules: {
@@ -120,7 +120,7 @@ const defaultConfig: LocationForm = {
         lat: {
           label: "latitude",
           component: "TextField",
-          type: FormType.PRIMITIVE, //
+          type: formType.Primitive, //
           default: "",
           description: "",
           hint: false,
@@ -139,7 +139,7 @@ const defaultConfig: LocationForm = {
         lng: {
           label: "longitude",
           component: "TextField",
-          type: FormType.PRIMITIVE, //
+          type: formType.Primitive, //
           default: "",
           description: "",
           hint: false,

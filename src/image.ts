@@ -1,5 +1,5 @@
 import Model from "./model"
-import { FormType } from "./form"
+import { formType } from "./form"
 
 export interface Image {
   url: URL
@@ -75,7 +75,7 @@ const defaultConfig: Model = {
 
   form: {
     url: {
-      type: FormType.PRIMITIVE,
+      type: formType.Primitive,
       component: "TextField",
       label: "url",
       default: "",
@@ -95,7 +95,7 @@ const defaultConfig: Model = {
     caption: {
       label: "caption",
       component: "TextArea",
-      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
       i18n: true,
       default: "",
       description: "",
@@ -111,7 +111,7 @@ const defaultConfig: Model = {
     },
     alt: {
       label: "alt",
-      type: FormType.PRIMITIVE,
+      type: formType.Primitive,
       component: "TextArea",
       default: "",
       description: "Displayed if the image cannot be loaded",
@@ -129,7 +129,7 @@ const defaultConfig: Model = {
     },
     copyright: {
       label: "copyright",
-      type: FormType.PRIMITIVE,
+      type: formType.Primitive,
       component: "TextField",
       default: "Free of rights",
       description: "Owner of the image copyright",
@@ -147,7 +147,7 @@ const defaultConfig: Model = {
     },
     licence: {
       label: "licence",
-      type: FormType.PRIMITIVE,
+      type: formType.Primitive,
       component: "AutoComplete", // TODO change for an autocomplete
       default: null,
       description: "The licence of the image",
@@ -165,7 +165,7 @@ const defaultConfig: Model = {
     },
     licenseUrl: {
       label: "licenseUrl",
-      type: FormType.PRIMITIVE,
+      type: formType.Primitive,
       component: "TextField", // TODO change for an autocomplete
       default: null,
       description: "The caption of the image",
@@ -183,7 +183,7 @@ const defaultConfig: Model = {
     backgroundColor: {
       label: "backgroundColor",
       component: "ColorPicker", // TODO create component
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {

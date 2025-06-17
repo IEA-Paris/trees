@@ -30,6 +30,7 @@ import {
   ModuleType,
   Sort,
   Views,
+  formType,
 } from "./src"
 
 export {
@@ -59,4 +60,4 @@ export {
   formApps,
   formAffiliations,
 }
-export type { Form, Sort, Views, ConfigValue, Model, ModuleType }
+export type { Form, Sort, Views, ConfigValue, Model, ModuleType, formType }

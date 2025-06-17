@@ -1,5 +1,5 @@
 import Model from "./model"
-import { FormType } from "./form"
+import { formType } from "./form"
 
 export interface Video {
   url: URL
@@ -70,7 +70,7 @@ const defaultConfig: Model = {
   },
   form: {
     url: {
-      type: FormType.PRIMITIVE,
+      type: formType.Primitive,
       component: "TextField",
       label: "url",
       default: "",
@@ -89,7 +89,7 @@ const defaultConfig: Model = {
     },
     alt: {
       label: "alt",
-      type: FormType.PRIMITIVE,
+      type: formType.Primitive,
       component: "TextField",
       default: "",
       description: "Displayed if the image cannot be loaded",
@@ -107,7 +107,7 @@ const defaultConfig: Model = {
     },
     caption: {
       label: "caption",
-      type: FormType.PRIMITIVE,
+      type: formType.Primitive,
       component: "TextField",
       default: "",
       description: "",
@@ -125,7 +125,7 @@ const defaultConfig: Model = {
     },
     copyright: {
       label: "copyright",
-      type: FormType.PRIMITIVE,
+      type: formType.Primitive,
       component: "TextField",
       default: "Free of rights",
       description: "Owner of the image copyright",
@@ -143,7 +143,7 @@ const defaultConfig: Model = {
     },
     licence: {
       label: "licence",
-      type: FormType.PRIMITIVE,
+      type: formType.Primitive,
       component: "TextField", // TODO change for an autocomplete
       default: null,
       description: "The licence of the video",
@@ -161,7 +161,7 @@ const defaultConfig: Model = {
     },
     licenseUrl: {
       label: "licenseUrl",
-      type: FormType.PRIMITIVE,
+      type: formType.Primitive,
       component: "TextField", // TODO change for an autocomplete
       default: null,
       description: "The caption of the video",
@@ -178,7 +178,7 @@ const defaultConfig: Model = {
     },
     backgroundColor: {
       label: "backgroundColor",
-      type: FormType.PRIMITIVE,
+      type: formType.Primitive,
       component: "ColorPicker", // TODO change for an autocomplete
       default: null,
       description: "",

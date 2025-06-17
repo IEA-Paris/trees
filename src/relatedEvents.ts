@@ -1,6 +1,6 @@
 import { Image } from "./image"
 import Model from "./model"
-import { FormType } from "./form"
+import { formType } from "./form"
 export interface RelatedEvent {
   bookingState: number // 0 - Server & Client -
   createdAt: Date // 0 - Server & Client -
@@ -83,7 +83,7 @@ const defaultConfig: Model = {
     bookingState: {
       label: "bookingState",
       component: false,
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: 0,
       description: "",
       meta: "bookingState",
@@ -92,7 +92,7 @@ const defaultConfig: Model = {
     createdAt: {
       label: "createdAt",
       component: false,
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
 
@@ -102,7 +102,7 @@ const defaultConfig: Model = {
     description: {
       label: "description",
       component: "TextArea",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       i18n: true,
       description: "",
@@ -117,7 +117,7 @@ const defaultConfig: Model = {
     eventType: {
       label: "eventType",
       component: "Select",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -130,7 +130,7 @@ const defaultConfig: Model = {
     image: {
       label: "image",
       component: "ObjectContainerPanel",
-      type: FormType.ARRAY, //
+      type: formType.Template, //
       default: "",
       description: "",
       rules: {
@@ -142,7 +142,7 @@ const defaultConfig: Model = {
       label: "name",
       component: "TextField",
       i18n: true,
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -155,7 +155,7 @@ const defaultConfig: Model = {
     outside: {
       label: "outside",
       component: "Checkbox",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -168,7 +168,7 @@ const defaultConfig: Model = {
     start: {
       label: "start",
       component: "DatePicker",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -180,7 +180,7 @@ const defaultConfig: Model = {
     state: {
       label: "state",
       component: "ListRadio",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -191,7 +191,7 @@ const defaultConfig: Model = {
     summary: {
       label: "summary",
       component: "TextArea",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       i18n: true,
       default: "",
       description: "",
@@ -205,7 +205,7 @@ const defaultConfig: Model = {
     url: {
       label: "url",
       component: "TextField",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {

@@ -4,8 +4,8 @@ import { Disciplines } from "./disciplines"
 import { Video } from "./video"
 import { Tag } from "./tags"
 import Model from "./model"
-// define format from set of articles formats offered by PIAS (i.e. Zenodo api)import { FormType } from "./form"
-import { FormType } from "./form"
+// define format from set of articles formats offered by PIAS (i.e. Zenodo api)import { formType } from "./form"
+import { formType } from "./form"
 export interface Article {
   name: string
   abstract: string
@@ -21,7 +21,7 @@ export interface Article {
   lang: string
   disciplines?: Disciplines[]
   //format: Format[]
-  tag?: Tag[]
+  tags?: Tag[]
 }
 
 const defautConfig: Model = {
@@ -88,7 +88,7 @@ const defautConfig: Model = {
     name: {
       label: "name",
       component: "TextField",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -101,7 +101,7 @@ const defautConfig: Model = {
     abstract: {
       label: "abstract",
       component: "TextArea",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -114,7 +114,7 @@ const defautConfig: Model = {
     image: {
       label: "image",
       component: "ObjectContainerPanel",
-      type: FormType.ARRAY, //
+      type: formType.Template, //
       default: "",
       description: "",
       rules: {
@@ -125,7 +125,7 @@ const defautConfig: Model = {
     video: {
       label: "video",
       component: "ObjectContainerPanel",
-      type: FormType.ARRAY, //
+      type: formType.Template, //
       default: "",
       description: "",
       rules: {
@@ -136,7 +136,7 @@ const defautConfig: Model = {
     needDOI: {
       label: "needDOI",
       component: "Checkbox",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -148,7 +148,7 @@ const defautConfig: Model = {
     DOI: {
       label: "DOI",
       component: "TextField",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -161,7 +161,7 @@ const defautConfig: Model = {
     Zid: {
       label: "Zid",
       component: "TextField",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -173,7 +173,7 @@ const defautConfig: Model = {
     highlight: {
       label: "highlight",
       component: "Checkbox",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -185,7 +185,7 @@ const defautConfig: Model = {
     date: {
       label: "date",
       component: "DatePicker", // TODO create the date picker
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -198,7 +198,7 @@ const defautConfig: Model = {
     authors: {
       label: "authors",
       component: "CollectionContainerPanel",
-      type: FormType.ARRAY, //
+      type: formType.Template, //
       default: "",
       description: "",
       rules: {
@@ -210,7 +210,7 @@ const defautConfig: Model = {
     issue: {
       label: "issue",
       component: "TextField",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -221,7 +221,7 @@ const defautConfig: Model = {
     lang: {
       label: "lang",
       component: "TextField",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -232,7 +232,7 @@ const defautConfig: Model = {
     disciplines: {
       label: "disciplines",
       component: "CollectionContainerPanel",
-      type: FormType.ARRAY, //
+      type: formType.Template, //
       default: "",
       description: "",
       rules: {
@@ -244,7 +244,7 @@ const defautConfig: Model = {
     //   // TODO define inline @Antoine
     //   label: "format",
     //   component: "CollectionContainerPanel",
-    //   type: FormType.ARRAY, //
+    //   type: formType.Array, //
     //   default: "",
     //   description: "",
     //   hint: false,
@@ -258,10 +258,10 @@ const defautConfig: Model = {
     //   },
     //   meta: "format",
     // },
-    tag: {
+    tags: {
       label: "tag",
       component: "CollectionContainerPanel",
-      type: FormType.ARRAY, //
+      type: formType.Template, //
       default: "",
       description: "",
       rules: {

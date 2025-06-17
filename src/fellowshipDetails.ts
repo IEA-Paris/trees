@@ -1,5 +1,5 @@
 import { Form } from "./form"
-import { FormType } from "./form"
+import { formType } from "./form"
 
 export interface FellowshipDetails {
   type?: string //en groupe, durée courte ou longue, etc.
@@ -23,7 +23,7 @@ const configDefault: FellowshipDetailsForm = {
     type: {
       label: "type",
       component: "TextArea",
-      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
       i18n: true,
       default: false,
       description: "",
@@ -40,7 +40,7 @@ const configDefault: FellowshipDetailsForm = {
     fundingPeriod: {
       label: "fundingPeriod",
       component: "TextArea",
-      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
       i18n: true,
       default: false,
       description: "",
@@ -57,7 +57,7 @@ const configDefault: FellowshipDetailsForm = {
     profile: {
       label: "profile",
       component: "Checkbox",
-      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: false,
       i18n: true,
       description: "",
@@ -74,7 +74,7 @@ const configDefault: FellowshipDetailsForm = {
     tasks: {
       label: "tasks",
       component: "TextArea",
-      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: false,
       i18n: true,
       description: "",
@@ -91,7 +91,7 @@ const configDefault: FellowshipDetailsForm = {
     location: {
       label: "location",
       component: "TextArea",
-      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: formType.Template, // 0 = primitive, 1 = object, 2 = array, 3 = template
       i18n: true,
       default: false,
       description: "",
@@ -108,7 +108,7 @@ const configDefault: FellowshipDetailsForm = {
     funding: {
       label: "funding",
       component: "TextArea",
-      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: false,
       description: "",
       i18n: true,
@@ -126,7 +126,7 @@ const configDefault: FellowshipDetailsForm = {
     housing: {
       label: "housing",
       component: "TextArea",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       i18n: true,
@@ -140,7 +140,7 @@ const configDefault: FellowshipDetailsForm = {
     meals: {
       label: "meals",
       component: "TextArea",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       i18n: true,
       description: "",
@@ -154,7 +154,7 @@ const configDefault: FellowshipDetailsForm = {
     applicationMaterials: {
       label: "applicationMaterials",
       component: "TextArea",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       i18n: true,
       description: "",
@@ -168,7 +168,7 @@ const configDefault: FellowshipDetailsForm = {
     selectionProcess: {
       label: "selectionProcess",
       component: "TextArea",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       i18n: true,
       description: "",
@@ -182,7 +182,7 @@ const configDefault: FellowshipDetailsForm = {
     researchSupport: {
       label: "researchSupport",
       component: "TextArea",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       i18n: true,
       description: "",

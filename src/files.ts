@@ -1,6 +1,6 @@
 import Model from "./model"
 import { Image } from "./image"
-import { FormType } from "./form"
+import { formType } from "./form"
 
 export interface File {
   name: string
@@ -80,7 +80,7 @@ const defautConfig: Model = {
     name: {
       label: "name",
       component: "TextField",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -93,7 +93,7 @@ const defautConfig: Model = {
     url: {
       label: "url",
       component: "TextField",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -105,7 +105,7 @@ const defautConfig: Model = {
     size: {
       label: "size",
       component: false,
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -118,7 +118,7 @@ const defautConfig: Model = {
     fileType: {
       label: "type",
       component: "ListSelect",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -131,7 +131,7 @@ const defautConfig: Model = {
     hash: {
       label: "hash",
       component: false,
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -144,7 +144,7 @@ const defautConfig: Model = {
     path: {
       label: "path",
       component: "TextField",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -157,7 +157,7 @@ const defautConfig: Model = {
     file: {
       label: "file",
       component: "TextField",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -170,7 +170,7 @@ const defautConfig: Model = {
     image: {
       label: "image",
       component: "ObjectContainerPanel",
-      type: FormType.ARRAY, //
+      type: formType.Template, //
       default: "",
       description: "",
       rules: {
@@ -181,7 +181,7 @@ const defautConfig: Model = {
     thumb: {
       label: "thumb",
       component: "TextField",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -194,7 +194,7 @@ const defautConfig: Model = {
     createdAt: {
       label: "createdAt",
       component: false,
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -206,7 +206,7 @@ const defautConfig: Model = {
     updatedAt: {
       label: "updatedAt",
       component: false,
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -218,7 +218,7 @@ const defautConfig: Model = {
     id: {
       label: "id",
       component: "TextField",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {

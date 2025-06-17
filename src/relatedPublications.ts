@@ -1,7 +1,7 @@
 import { Image } from "./image"
 import { Video } from "./video"
 import Model from "./model"
-import { FormType } from "./form"
+import { formType } from "./form"
 
 export interface RelatedPublications {
   name: string
@@ -78,7 +78,7 @@ const defaultConfig: Model = {
     name: {
       label: "name",
       component: "TextField",
-      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",
       i18n: true,
       description: "",
@@ -97,7 +97,7 @@ const defaultConfig: Model = {
     shortDescription: {
       label: "shortDescription",
       component: "TextArea",
-      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
       i18n: true,
       default: "",
       description: "",
@@ -117,7 +117,7 @@ const defaultConfig: Model = {
       label: "description",
       i18n: true,
       component: "TextArea",
-      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",
       description: "",
       rules: {
@@ -135,7 +135,7 @@ const defaultConfig: Model = {
     url: {
       label: "url",
       component: "TextField",
-      type: FormType.PRIMITIVE, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
       default: "",
       description: "",
       rules: {
@@ -153,7 +153,7 @@ const defaultConfig: Model = {
     image: {
       label: "image",
       component: "ObjectContainerPanel",
-      type: FormType.ARRAY, //
+      type: formType.Template, //
       default: "",
       description: "",
       rules: {
@@ -166,7 +166,7 @@ const defaultConfig: Model = {
     video: {
       label: "video",
       component: "ObjectContainerPanel",
-      type: FormType.ARRAY, //
+      type: formType.Template, //
       default: "",
       description: "",
       meta: "video",
@@ -174,7 +174,7 @@ const defaultConfig: Model = {
     color: {
       label: "color",
       component: "ColorPicker",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -186,7 +186,7 @@ const defaultConfig: Model = {
     date: {
       label: "date",
       component: "FiDatePicker",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {

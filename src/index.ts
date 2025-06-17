@@ -1,7 +1,7 @@
 import { ModuleType } from "../lib/generate"
 import Model from "./model"
 import { Sort, Views } from "./list"
-import { Form, FormType } from "./form"
+import { Form, formType } from "./form"
 import defaultConfigAction from "./action"
 import defaultConfigAffliation from "./affiliations"
 import defautConfigApp from "./apps"
@@ -99,4 +99,4 @@ const configData: Record<string, ConfigValue> = {
 
 export { configData }
 
-export type { Form, Sort, Views, ConfigValue, Model, ModuleType, FormType }
+export type { Form, Sort, Views, ConfigValue, Model, ModuleType, formType }

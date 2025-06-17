@@ -1,5 +1,5 @@
 import { Form } from "./form"
-import { FormType } from "./form"
+import { formType } from "./form"
 
 export interface Position {
   role: string
@@ -16,7 +16,7 @@ const defaultConfig: PositionForm = {
     role: {
       label: "role",
       component: "TextField",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -29,7 +29,7 @@ const defaultConfig: PositionForm = {
     department: {
       label: "department",
       component: "TextField",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -42,7 +42,7 @@ const defaultConfig: PositionForm = {
     start: {
       label: "start",
       component: "DatePicker",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {
@@ -54,7 +54,7 @@ const defaultConfig: PositionForm = {
     stop: {
       label: "stop",
       component: "DatePicker",
-      type: FormType.PRIMITIVE, //
+      type: formType.Primitive, //
       default: "",
       description: "",
       rules: {

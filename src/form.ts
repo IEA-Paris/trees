@@ -1,4 +1,3 @@
-import { mapEnum } from "./utils"
 interface Rules {
   required?: boolean
   min?: number
@@ -12,12 +11,12 @@ interface Rules {
   digit?: boolean
   orcid?: boolean
 }
-export enum FormType {
-  PRIMITIVE,
-  OBJECT,
-  ARRAY,
-  TEMPLATE,
-  DOCUMENT,
+export enum formType {
+  Primitive = "PRIMITIVE",
+  Object = "OBJECT",
+  Array = "ARRAY",
+  Template = "TEMPLATE",
+  Document = "DOCUMENT",
 }
 export interface Visibility {
   default?: boolean
@@ -26,7 +25,7 @@ export interface Visibility {
 }
 
 export interface Form {
-  type: FormType
+  type: formType
   component?: string | boolean
   label: string
   i18n?: boolean
