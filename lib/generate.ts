@@ -39,47 +39,69 @@ const completeSchema = (
 
     for (const key of Object.keys(schema)) {
       bkey = key
-      // Create a copy of the current schema item
-      completedSchema[key] = { ...schema[key] }
-
-      // is it a template?
-      if (schema[key] && schema[key]?.type === formType.Template) {
-        // Check for circular dependencies
-        if (visitedTemplates.has(key)) {
-          console.warn(`Circular dependency detected for template: ${key}`)
-          completedSchema[key] = { ...schema[key], items: {} } // Use empty object to break the cycle
-          continue
-        }
-
-        console.log("importing template: ", key)
-
-        // Add current template to visited set
-        visitedTemplates.add(key)
-
-        try {
+      switch (schema[key]?.type) {
+        case formType.Primitive:
+          completedSchema[key] = schema[key]
+          break
+        case formType.Object:
+          // Recursively process nested schemas in objects and arrays
           completedSchema[key] = {
             ...schema[key],
-            items: completeSchema(configData[key].form ?? {}, visitedTemplates),
+            items: completeSchema(
+              schema[key].items as Record<string, Form>,
+              visitedTemplates
+            ),
           }
-        } finally {
-          // Remove the template from visited set after processing
-          visitedTemplates.delete(key)
-        }
-      }
-      // check if it is an object or a collection with nested items
-      else if (
-        schema[key] &&
-        schema[key].items &&
-        typeof schema[key].items === "object"
-      ) {
-        // Recursively process nested schemas in objects and arrays
-        completedSchema[key] = {
-          ...schema[key],
-          items: completeSchema(
-            schema[key].items as Record<string, Form>,
-            visitedTemplates
-          ),
-        }
+        case formType.Array:
+          // Recursively process nested schemas in objects and arrays
+          completedSchema[key] = {
+            ...schema[key],
+            items: [
+              completeSchema(
+                schema[key].items as Record<string, Form>,
+                visitedTemplates
+              ),
+            ],
+          }
+          break
+        case formType.Document:
+          // For document types, we can just keep the default value or an empty array
+          completedSchema[key] = {
+            ...schema[key],
+            default: schema[key].default ?? [],
+          }
+          break
+        case formType.Template:
+          // Check for circular dependencies
+          if (visitedTemplates.has(key)) {
+            console.warn(`Circular dependency detected for template: ${key}`)
+            completedSchema[key] = { ...schema[key], items: {} } // Use empty object to break the cycle
+            continue
+          }
+
+          console.log("importing template: ", key)
+
+          // Add current template to visited set
+          visitedTemplates.add(key)
+          try {
+            completedSchema[key] = {
+              ...schema[key],
+              items: schema[key].component.startsWith("Object")
+                ? completeSchema(configData[key].form ?? {}, visitedTemplates)
+                : [
+                    completeSchema(
+                      configData[key].form ?? {},
+                      visitedTemplates
+                    ),
+                  ],
+            }
+          } finally {
+            // Remove the template from visited set after processing
+            visitedTemplates.delete(key)
+          }
+        default:
+          console.log("missing type in form builder for key: ", key)
+          break
       }
     }
     return completedSchema
