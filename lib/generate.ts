@@ -29,20 +29,60 @@ export interface ModuleType {
   resetFilters: boolean
 }
 
-const completeSchema = (schema: Record<string, Form>): Record<string, Form> => {
+const completeSchema = (
+  schema: Record<string, Form>,
+  visitedTemplates: Set<string> = new Set()
+): Record<string, Form> => {
   let bkey = ""
   try {
+    const completedSchema: Record<string, Form> = {}
+
     for (const key of Object.keys(schema)) {
       bkey = key
+      // Create a copy of the current schema item
+      completedSchema[key] = { ...schema[key] }
+
       // is it a template?
       if (schema[key] && schema[key]?.type === formType.Template) {
+        // Check for circular dependencies
+        if (visitedTemplates.has(key)) {
+          console.warn(`Circular dependency detected for template: ${key}`)
+          completedSchema[key] = { ...schema[key], items: {} } // Use empty object to break the cycle
+          continue
+        }
+
         console.log("importing template: ", key)
-        const templateState = configData[key].form
-        schema[key].items = templateState
+
+        // Add current template to visited set
+        visitedTemplates.add(key)
+
+        try {
+          completedSchema[key] = {
+            ...schema[key],
+            items: completeSchema(configData[key].form ?? {}, visitedTemplates),
+          }
+        } finally {
+          // Remove the template from visited set after processing
+          visitedTemplates.delete(key)
+        }
       }
-      // check if it is an object or a collection?
+      // check if it is an object or a collection with nested items
+      else if (
+        schema[key] &&
+        schema[key].items &&
+        typeof schema[key].items === "object"
+      ) {
+        // Recursively process nested schemas in objects and arrays
+        completedSchema[key] = {
+          ...schema[key],
+          items: completeSchema(
+            schema[key].items as Record<string, Form>,
+            visitedTemplates
+          ),
+        }
+      }
     }
-    return schema
+    return completedSchema
   } catch (error) {
     /*  console.log("missing error", Object.keys(configData)) */
     console.log("error: ", error)

@@ -71,11 +71,6 @@ const defaultConfig: Model = {
         items: publicationType,
         multiple: true,
       },
-      eventCategories: {
-        type: "Select",
-        items: eventCategories,
-        multiple: true,
-      },
     },
     sort: {
       // sort options
