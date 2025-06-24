@@ -20,8 +20,7 @@ const defautConfig: EventSlotForm = {
       label: "email",
       component: "TextField",
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
         email: true,
@@ -32,8 +31,7 @@ const defautConfig: EventSlotForm = {
       label: "firstname",
       component: "TextField",
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
         min: 1,
@@ -41,12 +39,23 @@ const defautConfig: EventSlotForm = {
       },
       meta: "firstname",
     },
+    lastname: {
+      label: "lastname",
+      component: "TextField",
+      type: formType.Primitive, //
+
+      rules: {
+        required: true,
+        min: 1,
+        max: 200,
+      },
+      meta: "lastname",
+    },
     institution: {
       label: "institution",
       component: "TextField",
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: false,
       },
@@ -56,25 +65,11 @@ const defautConfig: EventSlotForm = {
       label: "lang",
       component: "ListSelect",
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
       },
       meta: "lang",
-    },
-    lastname: {
-      label: "lastname",
-      component: "TextField",
-      type: formType.Primitive, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-        min: 1,
-        max: 200,
-      },
-      meta: "lastname",
     },
   },
 }

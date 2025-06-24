@@ -87,7 +87,6 @@ const defaultConfig: Model = {
       label: "name",
       type: formType.Primitive,
       component: "TextField",
-      default: "",
       description:
         "The name of the app as displayed on google or the header of the app",
       rules: {
@@ -95,17 +94,12 @@ const defaultConfig: Model = {
         min: 2,
         max: 4,
       },
-      visibility: {
-        default: true, // same as hidden = true
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
-      },
       meta: "name", // item type on schema.org
     },
     image: {
       label: "image",
-      type: formType.Template,
-      component: "ObjectContainerPanel",
+      component: "ImagePicker",
+      type: formType.Document,
       description: "The logo of the app",
       rules: {
         required: true,
@@ -117,8 +111,6 @@ const defaultConfig: Model = {
       component: "TextArea",
       type: formType.Primitive, //
       i18n: true,
-      default: "",
-      description: "",
       rules: {
         required: true,
         min: 5,
@@ -130,9 +122,8 @@ const defaultConfig: Model = {
       label: "summary",
       component: "TextArea",
       type: formType.Primitive, //
-      default: "",
+
       i18n: true,
-      description: "",
       rules: {
         required: true,
         min: 5,
@@ -144,9 +135,8 @@ const defaultConfig: Model = {
       label: "subtitle",
       component: "TextArea",
       type: formType.Primitive, //
-      default: "",
+
       i18n: true,
-      description: "",
       rules: {
         required: true,
         min: 5,
@@ -158,8 +148,7 @@ const defaultConfig: Model = {
       label: "url",
       component: "TextField",
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
         url: true,
@@ -168,10 +157,8 @@ const defaultConfig: Model = {
     },
     tags: {
       label: "tags",
-      component: "CollectionContainerPanel",
-      type: formType.Template, //
-      default: "",
-      description: "",
+      component: "TagPicker",
+      type: formType.Document, //
       rules: {
         required: true,
       },
@@ -181,8 +168,7 @@ const defaultConfig: Model = {
       label: "appState",
       component: "Select",
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
       },
@@ -193,8 +179,7 @@ const defaultConfig: Model = {
       label: "date",
       component: "DatePicker",
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
         date: true,

@@ -72,17 +72,10 @@ const defaultConfig: Model = {
       label: "name",
       type: formType.Primitive,
       component: "TextField",
-      default: "",
-      description: "",
       rules: {
         required: true,
         min: 2,
         max: 100,
-      },
-      visibility: {
-        default: true, // socials"default: true" is the same than "hidden = false"
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "name", // item type on schema.org
     },
@@ -90,17 +83,10 @@ const defaultConfig: Model = {
       label: "year",
       type: formType.Primitive,
       component: "TextField",
-      default: "",
-      description: "",
       rules: {
         required: true,
         min: 2,
         max: 100,
-      },
-      visibility: {
-        default: true, // socials"default: true" is the same than "hidden = false"
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "year",
     },
@@ -108,18 +94,11 @@ const defaultConfig: Model = {
       label: "theme",
       type: formType.Primitive,
       component: "TextField",
-      default: "",
-      description: "",
       i18n: true,
       rules: {
         required: true,
         min: 2,
         max: 100,
-      },
-      visibility: {
-        default: true, // socials"default: true" is the same than "hidden = false"
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "theme",
     },
@@ -127,17 +106,10 @@ const defaultConfig: Model = {
       type: formType.Primitive,
       component: "TextField",
       label: "url",
-      default: "",
-      description: "",
       rules: {
         required: true,
         url: true,
         max: 2048,
-      },
-      visibility: {
-        default: true, // socials"default: true" is the same than "hidden = false"
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "url", // item type on schema.org
     },

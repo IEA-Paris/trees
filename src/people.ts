@@ -124,45 +124,31 @@ const defaultConfig: Model = {
     firstname: {
       label: "firstname",
       component: "TextField",
-      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
-      default: "",
-      description: "",
+      type: formType.Primitive,
+
       rules: {
         required: true,
         min: 1,
         max: 200,
-      },
-      visibility: {
-        default: true, // same as hidden = true
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "firstname", // item type on schema.org
     },
     lastname: {
       label: "lastname",
       component: "TextField",
-      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
-      default: "",
-      description: "",
+      type: formType.Primitive,
+
       rules: {
         required: true,
         min: 1,
         max: 200,
       },
-      visibility: {
-        default: true, // same as hidden = true
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
-      },
       meta: "lastname", // item type on schema.org
     },
     affiliations: {
       label: "affiliations",
-      component: "CollectionContainerPanel",
-      type: formType.Template, //
-      default: "",
-      description: "",
+      component: "AffiliationPicker",
+      type: formType.Document, //
       rules: {
         required: false,
       },
@@ -170,10 +156,9 @@ const defaultConfig: Model = {
     },
     image: {
       label: "image",
-      component: "ObjectContainerPanel",
-      type: formType.Template, //
-      default: "",
-      description: "",
+      component: "ImagePicker",
+      type: formType.Document, //
+
       rules: {
         required: false,
       },
@@ -183,24 +168,21 @@ const defaultConfig: Model = {
       label: "socials",
       component: "ObjectContainerPanel",
       type: formType.Template, //
-      default: "",
-      description: "",
+
       meta: "socials",
     },
     disciplines: {
       label: "disciplines",
-      component: "CollectionContainerPanel",
-      type: formType.Template, //
-      default: "",
-      description: "",
+      component: "DisciplinePicker",
+      type: formType.Document, //
+
       meta: "disciplines",
     },
     video: {
       label: "video",
       component: "CollectionContainerPanel",
       type: formType.Template, //
-      default: "",
-      description: "",
+
       meta: "video",
     },
     biography: {
@@ -208,8 +190,7 @@ const defaultConfig: Model = {
       component: "TextArea",
       i18n: true,
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
         min: 5,
@@ -217,13 +198,11 @@ const defaultConfig: Model = {
       },
       meta: "biography",
     },
-
     related: {
       label: "related",
       component: "ObjectContainerPanel",
       type: formType.Template, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
         min: 5,
@@ -231,13 +210,10 @@ const defaultConfig: Model = {
       },
       meta: "related",
     },
-
     consent: {
       label: "consent",
       component: "ObjectContainerPanel",
       type: formType.Template, //
-      default: "",
-      description: "",
       rules: {
         required: true,
       },
@@ -247,8 +223,6 @@ const defaultConfig: Model = {
       label: "groups",
       component: "ObjectContainerPanel",
       type: formType.Template, //
-      default: "",
-      description: "",
       rules: {
         required: true,
       },
@@ -258,11 +232,10 @@ const defaultConfig: Model = {
       label: "lang",
       component: "AutoComplete",
       type: formType.Primitive, //
-      default: "",
-      description: "",
       rules: {
         required: true,
       },
+      // items: langs, // TODO add language enum
       meta: "lang",
     },
   },

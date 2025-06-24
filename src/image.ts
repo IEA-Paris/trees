@@ -72,40 +72,14 @@ const defaultConfig: Model = {
       },
     },
   },
-
   form: {
-    url: {
-      type: formType.Primitive,
-      component: "TextField",
-      label: "url",
-      default: "",
-      description: "The url where the image is fetched from",
-      meta: "logo", // item type on schema.org
-      rules: {
-        required: true,
-        url: true,
-        max: 2048,
-      },
-      visibility: {
-        default: true, // socials"default: true" is the same than "hidden = false"
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
-      },
-    },
     caption: {
       label: "caption",
       component: "TextArea",
-      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: formType.Primitive,
       i18n: true,
-      default: "",
-      description: "",
       rules: {
         required: true,
-      },
-      visibility: {
-        default: true, // same as hidden = true
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "caption", // item type on schema.org
     },
@@ -113,17 +87,11 @@ const defaultConfig: Model = {
       label: "alt",
       type: formType.Primitive,
       component: "TextArea",
-      default: "",
       description: "Displayed if the image cannot be loaded",
       rules: {
         required: true,
         min: 2,
         max: 100,
-      },
-      visibility: {
-        default: true, // socials"default: true" is the same than "hidden = false"
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "alt", // item type on schema.org
     },
@@ -138,11 +106,6 @@ const defaultConfig: Model = {
         min: 2,
         max: 100,
       },
-      visibility: {
-        default: true, // socials"default: true" is the same than "hidden = false"
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
-      },
       meta: "copyright", // item type on schema.org
     },
     licence: {
@@ -155,13 +118,7 @@ const defaultConfig: Model = {
         required: true,
         min: 2,
         max: 100,
-      },
-      visibility: {
-        default: true, // socials"default: true" is the same than "hidden = false"
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
-      },
-      // meta: 'name', // item type on schema.org
+      }, // meta: 'name', // item type on schema.org
     },
     licenseUrl: {
       label: "licenseUrl",
@@ -184,8 +141,6 @@ const defaultConfig: Model = {
       label: "backgroundColor",
       component: "ColorPicker", // TODO create component
       type: formType.Primitive, //
-      default: "",
-      description: "",
       rules: {
         required: true,
         color: true,

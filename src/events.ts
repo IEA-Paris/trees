@@ -111,7 +111,6 @@ const defaultConfig: Model = {
         items: eventCategories,
         multiple: true,
       },
-
       status: {
         type: "Select",
         items: bookingState,
@@ -192,232 +191,13 @@ const defaultConfig: Model = {
       },
     },
   },
-
   form: {
-    affiliations: {
-      label: "affiliations",
-      component: "CollectionContainerPanel",
-      type: formType.Template, // 0 = primitive, 1 = object, 2 = array, 3 = template
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-      },
-      visibility: {
-        default: true, // same as hidden = true
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
-      },
-      meta: "affiliations", // item type on schema.org
-    },
-    appId: {
-      label: "appId",
-      component: false,
-      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
-      default: "",
-      description: "",
-      visibility: {
-        default: true, // same as hidden = true
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
-      },
-      meta: "appId", // item type on schema.org
-    },
-    availableSlots: {
-      label: "availableSlots",
-      component: false,
-      type: formType.Primitive,
-      default: 0,
-      description: "",
-      meta: "availableSlots",
-    },
-    bookingState: {
-      label: "bookingState",
-      component: false,
-      type: formType.Primitive, //
-      default: 0,
-      description: "",
-      meta: "bookingState",
-    },
-    category: {
-      label: "category",
-      component: "Select",
-      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-      },
-      visibility: {
-        default: true, // same as hidden = true
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
-      },
-      items: eventCategories,
-      meta: "category", // item type on schema.org
-    },
-    createdAt: {
-      label: "createdAt",
-      component: false,
-      type: formType.Primitive, //
-      default: "",
-      description: "",
-
-      meta: "createdAt",
-    },
-
-    delay: {
-      label: "delay",
-      component: false,
-      type: formType.Primitive, //
-      default: 0,
-      description: "",
-      rules: {
-        required: true,
-      },
-      meta: "delay",
-    },
-
-    description: {
-      label: "description",
-      component: "TextArea",
-      type: formType.Primitive, //
-      i18n: true,
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
-      meta: "description",
-    },
-    dateText: {
-      label: "dateText",
-      component: "TextArea",
-      type: formType.Primitive, //
-      default: "",
-      i18n: true,
-      description: "",
-      rules: {
-        required: false,
-        min: 5,
-        max: 200,
-      },
-      meta: "dateText",
-    },
-    details: {
-      label: "details",
-      component: "TextArea",
-      type: formType.Primitive, //
-      default: "",
-      i18n: true,
-      description: "",
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
-      meta: "details",
-    },
-    disciplines: {
-      label: "disciplines",
-      component: "CollectionContainerPanel",
-      type: formType.Template, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
-      meta: "disciplines",
-    },
-
-    /*  TODO fix circular reference   
-    discussants: {
-      label: "discussants",
-      component: "CollectionContainerPanel",
-      type: formType.Template, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-      },
-      meta: "discussants",
-    }, */
-    eventType: {
-      label: "eventType",
-      component: "Select",
-      type: formType.Primitive, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-      },
-      items: eventType,
-      meta: "eventType",
-    },
-    organiserType: {
-      label: "organiserType",
-      component: "Select",
-      type: formType.Primitive, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-      },
-      items: organiserType,
-      meta: "organiserType",
-    },
-    lang: {
-      label: "lang",
-      component: "Select",
-      type: formType.Primitive, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-      },
-      meta: "lang",
-    },
-    files: {
-      label: "files",
-      component: "CollectionContainerPanel",
-      type: formType.Template, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-      },
-      meta: "files",
-    },
-    image: {
-      label: "image",
-      component: "ObjectContainerPanel",
-      type: formType.Template, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-      },
-      meta: "image",
-    },
-    gallery: {
-      label: "gallery",
-      component: "CollectionContainerPanel",
-      type: formType.Template, //
-      default: "",
-      description: "",
-      meta: "gallery",
-    },
     name: {
       label: "name",
       component: "TextField",
       type: formType.Primitive, //
-      default: "",
+
       i18n: true,
-      description: "",
       rules: {
         required: true,
         min: 5,
@@ -425,134 +205,24 @@ const defaultConfig: Model = {
       },
       meta: "name",
     },
-    eventSlot: {
-      label: "eventSlot",
-      component: "CollectionContainerPanel",
-      type: formType.Template, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
-      meta: "eventSlot",
-    },
-    organizers: {
-      label: "organizers",
-      component: "CollectionContainerPanel",
-      type: formType.Template, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
-      meta: "organizers",
-    },
-    organizerState: {
-      label: "organizerState",
-      component: "ListRadio",
-      type: formType.Primitive, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-      },
-      meta: "organizerState",
-    },
-    outside: {
-      label: "outside",
-      component: "Checkbox",
-      type: formType.Primitive, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
-      meta: "outside",
-    },
-    location: {
-      label: "place",
-      component: "ObjectContainerPanel",
-      type: formType.Template, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-      },
-      meta: "place",
-    },
-    program: {
-      label: "program",
-      component: "TextArea",
-      type: formType.Primitive, //
-      default: "",
-      description: "",
-      i18n: true,
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
-      meta: "program",
-    },
-    related: {
-      label: "related",
-      component: "ObjectContainerPanel",
-      type: formType.Template, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
-      meta: "related",
-    },
-    speakers: {
-      label: "speakers",
-      component: "CollectionContainerPanel",
-      type: formType.Template, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-      },
-      meta: "speakers",
-    },
+
     start: {
       label: "start",
       component: "DatePicker",
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
         date: true,
       },
       meta: "start",
     },
-    state: {
-      label: "state",
-      component: "ListRadio",
-      type: formType.Primitive, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-      },
-      meta: "state",
-    },
+
     stop: {
       label: "stop",
       component: "DatePicker",
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
         date: true,
@@ -564,8 +234,7 @@ const defaultConfig: Model = {
       component: "TextArea",
       i18n: true,
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
         min: 5,
@@ -578,8 +247,6 @@ const defaultConfig: Model = {
       component: "TextArea",
       type: formType.Primitive, //
       i18n: true,
-      default: "",
-      description: "",
       rules: {
         required: true,
         min: 5,
@@ -587,12 +254,275 @@ const defaultConfig: Model = {
       },
       meta: "summary",
     },
-    tags: {
-      label: "tags",
+    category: {
+      label: "category",
+      component: "Select",
+      type: formType.Primitive,
+      rules: {
+        required: true,
+      },
+      items: eventCategories,
+      meta: "category", // item type on schema.org
+    },
+    eventType: {
+      label: "eventType",
+      component: "Select",
+      type: formType.Primitive, //
+
+      rules: {
+        required: true,
+      },
+      items: eventType,
+      meta: "eventType",
+    },
+    description: {
+      label: "description",
+      component: "TextArea",
+      type: formType.Primitive, //
+      i18n: true,
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      meta: "description",
+    },
+    details: {
+      label: "details",
+      component: "TextArea",
+      type: formType.Primitive, //
+
+      i18n: true,
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      meta: "details",
+    },
+    program: {
+      label: "program",
+      component: "TextArea",
+      type: formType.Primitive, //
+
+      i18n: true,
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      meta: "program",
+    },
+    affiliations: {
+      label: "affiliations",
+      component: "AffiliationPicker",
+      type: formType.Document,
+      rules: {
+        required: true,
+      },
+      meta: "affiliations", // item type on schema.org
+    },
+    appId: {
+      label: "appId",
+      component: false, // TODO maybe consider multiple appids for a single event
+      type: formType.Primitive,
+      meta: "appId", // item type on schema.org
+    },
+    bookingState: {
+      label: "bookingState",
+      component: false,
+      type: formType.Primitive, //
+      default: 0,
+      meta: "bookingState",
+    },
+
+    delay: {
+      label: "delay",
+      component: false,
+      type: formType.Primitive, //
+      default: 0,
+      rules: {
+        required: true,
+      },
+      meta: "delay",
+    },
+
+    dateText: {
+      label: "dateText",
+      component: "TextArea",
+      type: formType.Primitive, //
+      i18n: true,
+      rules: {
+        required: false,
+        min: 5,
+        max: 200,
+      },
+      meta: "dateText",
+    },
+
+    disciplines: {
+      label: "disciplines",
+      component: "DisciplinePicker",
+      type: formType.Document, //
+
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      meta: "disciplines",
+    },
+    discussants: {
+      label: "discussants",
       component: "CollectionContainerPanel",
       type: formType.Template, //
-      default: "",
-      description: "",
+
+      rules: {
+        required: true,
+      },
+      meta: "discussants",
+    },
+
+    organiserType: {
+      label: "organiserType",
+      component: "Select",
+      type: formType.Primitive, //
+
+      rules: {
+        required: true,
+      },
+      items: organiserType,
+      meta: "organiserType",
+    },
+    lang: {
+      label: "lang",
+      component: "Select",
+      type: formType.Primitive, //
+
+      rules: {
+        required: true,
+      },
+      meta: "lang",
+    },
+    files: {
+      label: "files",
+      component: "FilePicker",
+      type: formType.Document, //
+
+      rules: {
+        required: true,
+      },
+      meta: "files",
+    },
+    image: {
+      label: "image",
+      component: "ImagePicker",
+      type: formType.Document, //
+
+      rules: {
+        required: true,
+      },
+      meta: "image",
+    },
+    gallery: {
+      label: "gallery",
+      component: "ImagePicker",
+      type: formType.Document,
+      multiple: true,
+      meta: "gallery",
+    },
+    eventSlot: {
+      label: "eventSlot",
+      component: "CollectionContainerPanel",
+      type: formType.Template, //TODO, create an eventSlot dedicated form to manually add participants from back office
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      meta: "eventSlot",
+    },
+    organizers: {
+      label: "organizers",
+      component: "CollectionContainerPanel",
+      type: formType.Template, //
+
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      meta: "organizers",
+    },
+    organizerState: {
+      label: "organizerState",
+      component: "ListRadio",
+      type: formType.Primitive, //
+
+      rules: {
+        required: true,
+      },
+      meta: "organizerState",
+    },
+    outside: {
+      label: "outside",
+      component: "Checkbox",
+      type: formType.Primitive, //
+
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      meta: "outside",
+    },
+    location: {
+      label: "place",
+      component: "ObjectContainerPanel",
+      type: formType.Template, //
+
+      rules: {
+        required: true,
+      },
+      meta: "place",
+    },
+
+    related: {
+      label: "related",
+      component: "ObjectContainerPanel",
+      type: formType.Template, //
+
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      meta: "related",
+    },
+    speakers: {
+      label: "speakers",
+      component: "CollectionContainerPanel",
+      type: formType.Template, //
+
+      rules: {
+        required: true,
+      },
+      meta: "speakers",
+    },
+    state: {
+      label: "state",
+      component: "ListRadio",
+      type: formType.Primitive, //
+
+      rules: {
+        required: true,
+      },
+      meta: "state",
+    },
+    tags: {
+      label: "tags",
+      component: "TagPicker",
+      type: formType.Document, //
       rules: {
         required: true,
       },
@@ -602,8 +532,7 @@ const defaultConfig: Model = {
       label: "totalSlots",
       component: false,
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
         min: 5,
@@ -611,23 +540,11 @@ const defaultConfig: Model = {
       },
       meta: "totalSlots",
     },
-    updatedAt: {
-      label: "updatedAt",
-      component: false,
-      type: formType.Primitive, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-      },
-      meta: "updatedAt",
-    },
     stream: {
       label: "stream",
       component: "TextField",
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
         url: true,
@@ -638,8 +555,7 @@ const defaultConfig: Model = {
       label: "url",
       component: "TextField",
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
         url: true,

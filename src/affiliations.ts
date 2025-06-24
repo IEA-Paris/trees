@@ -69,38 +69,12 @@ const defaultConfig: Model = {
       },
     },
   },
-
   form: {
-    location: {
-      label: "location",
-      component: "ObjectContainerPanel",
-      type: formType.Template, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-      },
-      meta: "location",
-    },
-
-    image: {
-      label: "image",
-      component: "ObjectContainerPanel",
-      type: formType.Template, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-      },
-      meta: "image",
-    },
     name: {
       label: "name",
       component: "TextField",
       type: formType.Primitive, //
       i18n: true,
-      default: "",
-      description: "",
       rules: {
         required: true,
         min: 5,
@@ -108,12 +82,25 @@ const defaultConfig: Model = {
       },
       meta: "name",
     },
+
+    image: {
+      label: "image",
+      component: "ImagePicker",
+      type: formType.Document, //
+
+      meta: "image",
+    },
+    location: {
+      label: "location",
+      component: "ObjectContainerPanel",
+      type: formType.Template, //
+      meta: "location",
+    },
     ror: {
       label: "ror",
-      component: "TextField",
+      component: "TextField", // TODO, ROR picker
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
         ror: true,
@@ -124,8 +111,7 @@ const defaultConfig: Model = {
       label: "url",
       component: "TextField",
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
         url: true,

@@ -24,8 +24,7 @@ const defaultConfig: LocationForm = {
       label: "name",
       component: "TextField",
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
         min: 5,
@@ -37,8 +36,7 @@ const defaultConfig: LocationForm = {
       label: "details",
       component: "TextArea",
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
         min: 5,
@@ -50,8 +48,7 @@ const defaultConfig: LocationForm = {
       label: "alt",
       component: "TextArea",
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
         min: 5,
@@ -63,8 +60,7 @@ const defaultConfig: LocationForm = {
       label: "street",
       component: "TextField",
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
         max: 200,
@@ -75,8 +71,7 @@ const defaultConfig: LocationForm = {
       label: "city",
       component: "TextField",
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
         max: 200,
@@ -87,17 +82,14 @@ const defaultConfig: LocationForm = {
       label: "country",
       component: "AutoComplete",
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       meta: "country",
     },
-
     zip: {
       label: "zip",
       component: "TextField",
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
         min: 5,
@@ -109,8 +101,7 @@ const defaultConfig: LocationForm = {
       label: "geocode",
       component: "LocationPicker",
       type: formType.Object, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
         min: 5,
@@ -121,18 +112,12 @@ const defaultConfig: LocationForm = {
           label: "latitude",
           component: "TextField",
           type: formType.Primitive, //
-          default: "",
-          description: "",
+
           hint: false,
           rules: {
             required: true,
             min: 5,
             max: 200,
-          },
-          visibility: {
-            default: true,
-            switchIf: [],
-            disjonctive: false,
           },
           meta: "latitude",
         },
@@ -140,23 +125,16 @@ const defaultConfig: LocationForm = {
           label: "longitude",
           component: "TextField",
           type: formType.Primitive, //
-          default: "",
-          description: "",
+
           hint: false,
           rules: {
             required: true,
             min: 5,
             max: 200,
           },
-          visibility: {
-            default: true,
-            switchIf: [],
-            disjonctive: false,
-          },
           meta: "longitude",
         },
       },
-
       meta: "geocode",
     },
   },

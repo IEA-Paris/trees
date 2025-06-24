@@ -77,46 +77,39 @@ const defaultConfig: Model = {
       },
     },
   },
-
   form: {
     events: {
       label: "relatedEvent",
       component: "DocumentPicker",
-      type: formType.Template, //
-      default: "",
-      description: "",
+      type: formType.Document,
+
       meta: "event",
     },
     news: {
       label: "relatedNews",
       component: "DocumentPicker",
-      type: formType.Template, //
-      default: "",
-      description: "",
+      type: formType.Document,
       meta: "news",
     },
     publications: {
       label: "relatedPublication",
       component: "DocumentPicker",
-      type: formType.Template, //
-      default: "",
-      description: "",
+      type: formType.Document,
+
       meta: "publication",
     },
     projects: {
       label: "relatedProject",
       component: "DocumentPicker",
-      type: formType.Template, //
-      default: "",
-      description: "",
+      type: formType.Document,
+
       meta: "project",
     },
     fellowships: {
       label: "relatedFellowships",
       component: "DocumentPicker",
-      type: formType.Template, //
-      default: "",
-      description: "",
+      type: formType.Document,
+
       meta: "fellowship",
     },
   },

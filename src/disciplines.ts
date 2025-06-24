@@ -68,51 +68,11 @@ const configDefault: Model = {
     },
   },
   form: {
-    createdAt: {
-      label: "createdAt",
-      component: "TextField",
-      type: formType.Primitive, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
-      meta: "createdAt",
-    },
-    description: {
-      label: "description",
-      component: "TextField",
-      type: formType.Primitive, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
-      meta: "description",
-    },
-    icon: {
-      label: "icon",
-      component: "TextField",
-      type: formType.Primitive, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
-      meta: "icon",
-    },
     name: {
       label: "name",
       component: "TextField",
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
         min: 5,
@@ -120,19 +80,30 @@ const configDefault: Model = {
       },
       meta: "name",
     },
-    updatedAt: {
-      label: "updatedAt",
+    description: {
+      label: "description",
       component: "TextField",
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
         min: 5,
         max: 200,
       },
-      meta: "updatedAt",
+      meta: "description",
     },
+    // TODO: add discipline picker based on the complete list of disciplines
+    /*     icon: {
+      label: "icon",
+      component: "TextField",
+      type: formType.Primitive, //
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      meta: "icon",
+    }, */
   },
 }
 

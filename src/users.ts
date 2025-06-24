@@ -135,66 +135,34 @@ const userConfig: Model = {
     },
   },
   form: {
-    name: {
-      label: "name",
-      component: "TextField",
-      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-        min: 1,
-        max: 200,
-      },
-      visibility: {
-        default: true, // same as hidden = true
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
-      },
-      meta: "name", // item type on schema.org
-    },
     firstname: {
       label: "firstname",
       component: "TextField",
-      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
-      default: "",
-      description: "",
+      type: formType.Primitive,
+
       rules: {
         required: true,
         min: 1,
         max: 200,
-      },
-      visibility: {
-        default: true, // same as hidden = true
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "firstname", // item type on schema.org
     },
     lastname: {
       label: "lastname",
       component: "TextField",
-      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
-      default: "",
-      description: "",
+      type: formType.Primitive,
+
       rules: {
         required: true,
         min: 1,
         max: 200,
       },
-      visibility: {
-        default: true, // same as hidden = true
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
-      },
       meta: "lastname", // item type on schema.org
     },
     affiliations: {
       label: "affiliations",
-      component: "CollectionContainerPanel",
-      type: formType.Template, //
-      default: "",
-      description: "",
+      component: "AffiliationPicker",
+      type: formType.Document,
       rules: {
         required: false,
       },
@@ -202,10 +170,8 @@ const userConfig: Model = {
     },
     image: {
       label: "image",
-      component: "ObjectContainerPanel",
-      type: formType.Template, //
-      default: "",
-      description: "",
+      component: "ImagePicker",
+      type: formType.Document,
       rules: {
         required: false,
       },
@@ -214,34 +180,26 @@ const userConfig: Model = {
     socials: {
       label: "socials",
       component: "ObjectContainerPanel",
-      type: formType.Template, //
-      default: "",
-      description: "",
+      type: formType.Template,
       meta: "socials",
     },
     disciplines: {
       label: "disciplines",
-      component: "CollectionContainerPanel",
-      type: formType.Template, //
-      default: "",
-      description: "",
+      component: "DisciplinePicker",
+      type: formType.Document,
       meta: "disciplines",
     },
     video: {
       label: "video",
       component: "CollectionContainerPanel",
-      type: formType.Template, //
-      default: "",
-      description: "",
+      type: formType.Template,
       meta: "video",
     },
     biography: {
       label: "biography",
       component: "TextArea",
       i18n: true,
-      type: formType.Primitive, //
-      default: "",
-      description: "",
+      type: formType.Primitive,
       rules: {
         required: true,
         min: 5,
@@ -249,13 +207,10 @@ const userConfig: Model = {
       },
       meta: "biography",
     },
-
     related: {
       label: "related",
       component: "ObjectContainerPanel",
-      type: formType.Template, //
-      default: "",
-      description: "",
+      type: formType.Template,
       rules: {
         required: true,
         min: 5,
@@ -263,13 +218,10 @@ const userConfig: Model = {
       },
       meta: "related",
     },
-
     consent: {
       label: "consent",
       component: "ObjectContainerPanel",
-      type: formType.Template, //
-      default: "",
-      description: "",
+      type: formType.Template,
       rules: {
         required: true,
       },
@@ -278,20 +230,17 @@ const userConfig: Model = {
     groups: {
       label: "groups",
       component: "ObjectContainerPanel",
-      type: formType.Template, //
-      default: "",
-      description: "",
+      type: formType.Template,
       rules: {
         required: true,
       },
+      //  items: Groups // TODO: make groups enum
       meta: "groups",
     },
     lang: {
       label: "lang",
       component: "AutoComplete",
-      type: formType.Primitive, //
-      default: "",
-      description: "",
+      type: formType.Primitive,
       rules: {
         required: true,
       },
@@ -301,7 +250,6 @@ const userConfig: Model = {
 }
 const defaultConfig: Model = {
   aliases: ["people"],
-
   ...configPeople,
   ...userConfig,
 }

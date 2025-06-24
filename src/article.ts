@@ -89,8 +89,7 @@ const defautConfig: Model = {
       label: "name",
       component: "TextField",
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
         min: 5,
@@ -102,8 +101,7 @@ const defautConfig: Model = {
       label: "abstract",
       component: "TextArea",
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
         min: 5,
@@ -113,10 +111,9 @@ const defautConfig: Model = {
     },
     image: {
       label: "image",
-      component: "ObjectContainerPanel",
-      type: formType.Template, //
-      default: "",
-      description: "",
+      component: "ImagePicker",
+      type: formType.Document, //
+
       rules: {
         required: true,
       },
@@ -126,8 +123,7 @@ const defautConfig: Model = {
       label: "video",
       component: "ObjectContainerPanel",
       type: formType.Template, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
       },
@@ -137,33 +133,28 @@ const defautConfig: Model = {
       label: "needDOI",
       component: "Checkbox",
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
       },
       meta: "needDOI",
     },
-
     DOI: {
       label: "DOI",
       component: "TextField",
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
         DOI: true,
       },
       meta: "DOI",
     },
-
     Zid: {
       label: "Zid",
       component: "TextField",
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
         // TODO add a Zenodo Id validation regex
@@ -174,45 +165,38 @@ const defautConfig: Model = {
       label: "highlight",
       component: "Checkbox",
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
       },
       meta: "highlight",
     },
-
     date: {
       label: "date",
       component: "DatePicker", // TODO create the date picker
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
         date: true,
       },
       meta: "date",
     },
-
     authors: {
       label: "authors",
       component: "CollectionContainerPanel",
       type: formType.Template, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
       },
       meta: "authors",
     },
-
     issue: {
       label: "issue",
       component: "TextField",
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
       },
@@ -222,8 +206,7 @@ const defautConfig: Model = {
       label: "lang",
       component: "TextField",
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
       },
@@ -231,10 +214,9 @@ const defautConfig: Model = {
     },
     disciplines: {
       label: "disciplines",
-      component: "CollectionContainerPanel",
-      type: formType.Template, //
-      default: "",
-      description: "",
+      component: "DisciplinePicker",
+      type: formType.Document, //
+
       rules: {
         required: true,
       },
@@ -245,9 +227,8 @@ const defautConfig: Model = {
     //   label: "format",
     //   component: "CollectionContainerPanel",
     //   type: formType.Array, //
-    //   default: "",
-    //   description: "",
-    //   hint: false,
+    //
+    //       //   hint: false,
     //   rules: {
     //     required: true,
     //   },
@@ -260,10 +241,8 @@ const defautConfig: Model = {
     // },
     tags: {
       label: "tag",
-      component: "CollectionContainerPanel",
-      type: formType.Template, //
-      default: "",
-      description: "",
+      component: "TagPicker",
+      type: formType.Document, //
       rules: {
         required: true,
         min: 5,

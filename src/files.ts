@@ -75,14 +75,12 @@ const defautConfig: Model = {
       },
     },
   },
-
   form: {
     name: {
       label: "name",
       component: "TextField",
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
         min: 5,
@@ -90,143 +88,17 @@ const defautConfig: Model = {
       },
       meta: "name",
     },
-    url: {
-      label: "url",
-      component: "TextField",
-      type: formType.Primitive, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-        url: true,
-      },
-      meta: "url",
-    },
-    size: {
-      label: "size",
-      component: false,
-      type: formType.Primitive, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
-      meta: "size",
-    },
-    fileType: {
-      label: "type",
-      component: "ListSelect",
-      type: formType.Primitive, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
-      meta: "type",
-    },
-    hash: {
-      label: "hash",
-      component: false,
-      type: formType.Primitive, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
-      meta: "hash",
-    },
-    path: {
-      label: "path",
-      component: "TextField",
-      type: formType.Primitive, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
-      meta: "path",
-    },
     file: {
       label: "file",
       component: "TextField",
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
         min: 5,
         max: 200,
       },
       meta: "file",
-    },
-    image: {
-      label: "image",
-      component: "ObjectContainerPanel",
-      type: formType.Template, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-      },
-      meta: "image",
-    },
-    thumb: {
-      label: "thumb",
-      component: "TextField",
-      type: formType.Primitive, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
-      meta: "thumb",
-    },
-    createdAt: {
-      label: "createdAt",
-      component: false,
-      type: formType.Primitive, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-        date: true,
-      },
-      meta: "createdAt",
-    },
-    updatedAt: {
-      label: "updatedAt",
-      component: false,
-      type: formType.Primitive, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-        date: true,
-      },
-      meta: "updatedAt",
-    },
-    id: {
-      label: "id",
-      component: "TextField",
-      type: formType.Primitive, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
-      meta: "id",
     },
   },
 }

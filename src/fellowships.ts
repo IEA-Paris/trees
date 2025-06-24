@@ -119,240 +119,12 @@ const defaultConfig: Model = {
     },
   },
   form: {
-    action: {
-      label: "action",
-      component: "TextField",
-      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-      },
-      visibility: {
-        default: true, // same as hidden = true
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
-      },
-      meta: "action", // item type on schema.org
-    },
-    affiliations: {
-      label: "affiliations",
-      component: "CollectionContainerPanel",
-      type: formType.Template, // 0 = primitive, 1 = object, 2 = array, 3 = template
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-      },
-      visibility: {
-        default: true, // same as hidden = true
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
-      },
-      meta: "affiliations", // item type on schema.org
-    },
-
-    applicationStart: {
-      label: "applicationStart",
-      component: "DatePicker", //TODO
-      type: formType.Primitive, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-        date: true,
-      },
-      meta: "applicationStart",
-    },
-    fellowshipStart: {
-      label: "fellowshipStart",
-      component: "DatePicker", //TODO
-      type: formType.Primitive, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-        date: true,
-      },
-      meta: "fellowshipStart",
-    },
-    contact: {
-      label: "contact",
-      component: "TextField",
-      type: formType.Primitive, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-        email: true,
-      },
-      meta: "contact",
-    },
-    description: {
-      label: "description",
-      component: "TextArea",
-      type: formType.Primitive, //
-      default: "",
-      i18n: true,
-      description: "",
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
-      meta: "description",
-    },
-
-    disciplines: {
-      label: "disciplines",
-      component: "CollectionContainerPanel",
-      type: formType.Template, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
-      meta: "disciplines",
-    },
-    fellowshipType: {
-      label: "fellowshipType",
-      component: "Select",
-      type: formType.Primitive, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
-      items: FellowshipType,
-      meta: "fellowshipType",
-    },
-    fellowshipDetails: {
-      label: "details",
-      component: "ObjectContainerPanel",
-      type: formType.Template, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-      },
-      meta: "details",
-    },
-    fellows: {
-      label: "fellows",
-      component: "ObjectContainerPanel",
-      type: formType.Template, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
-      meta: "fellows",
-    },
-    gallery: {
-      label: "gallery",
-      component: "CollectionContainerPanel",
-      type: formType.Template, //
-      default: "",
-      description: "",
-      meta: "gallery",
-    },
-    url: {
-      label: "url",
-      component: "TextField",
-      type: formType.Primitive, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-        url: true,
-      },
-      meta: "url",
-    },
-    fellowshipStop: {
-      label: "fellowshipStop",
-      component: "DatePicker",
-      type: formType.Primitive, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-        date: true,
-      },
-      meta: "fellowshipStop",
-    },
-    applicationStop: {
-      label: "applicationStop",
-      component: "DatePicker",
-      type: formType.Primitive, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-        date: true,
-      },
-      meta: "applicationStop",
-    },
-    image: {
-      label: "image",
-      component: "ObjectContainerPanel",
-      type: formType.Template, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-      },
-      meta: "image",
-    },
-    publicationDate: {
-      label: "publicationDate",
-      component: "DatePicker",
-      type: formType.Primitive, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-        date: true,
-      },
-      meta: "publicationDate",
-    },
-    summary: {
-      label: "summary",
-      component: "TextArea",
-      type: formType.Primitive, //
-      default: "",
-      description: "",
-      i18n: true,
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
-      meta: "summary",
-    },
-    files: {
-      label: "files",
-      component: "CollectionContainerPanel",
-      type: formType.Template, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-      },
-      meta: "files",
-    },
     name: {
       label: "name",
       component: "TextField",
       i18n: true,
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
         min: 5,
@@ -365,8 +137,7 @@ const defaultConfig: Model = {
       component: "TextField",
       i18n: true,
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
         min: 5,
@@ -374,12 +145,208 @@ const defaultConfig: Model = {
       },
       meta: "subtitle",
     },
+    summary: {
+      label: "summary",
+      component: "TextArea",
+      type: formType.Primitive, //
+
+      i18n: true,
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      meta: "summary",
+    },
+    action: {
+      label: "action",
+      component: "TextField",
+      type: formType.Primitive,
+
+      rules: {
+        required: true,
+      },
+      meta: "action", // item type on schema.org
+    },
+    affiliations: {
+      label: "affiliations",
+      component: "AffiliationPicker",
+      type: formType.Document,
+
+      rules: {
+        required: true,
+      },
+      meta: "affiliations", // item type on schema.org
+    },
+    applicationStart: {
+      label: "applicationStart",
+      component: "DatePicker", //TODO
+      type: formType.Primitive, //
+
+      rules: {
+        required: true,
+        date: true,
+      },
+      meta: "applicationStart",
+    },
+    fellowshipStart: {
+      label: "fellowshipStart",
+      component: "DatePicker", //TODO
+      type: formType.Primitive, //
+
+      rules: {
+        required: true,
+        date: true,
+      },
+      meta: "fellowshipStart",
+    },
+    contact: {
+      label: "contact",
+      component: "TextField",
+      type: formType.Primitive, //
+
+      rules: {
+        required: true,
+        email: true,
+      },
+      meta: "contact",
+    },
+    description: {
+      label: "description",
+      component: "TextArea",
+      type: formType.Primitive, //
+
+      i18n: true,
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      meta: "description",
+    },
+    disciplines: {
+      label: "disciplines",
+      component: "DisciplinePicker",
+      type: formType.Document, //
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      meta: "disciplines",
+    },
+    fellowshipType: {
+      label: "fellowshipType",
+      component: "Select",
+      type: formType.Primitive, //
+
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      items: FellowshipType,
+      meta: "fellowshipType",
+    },
+    fellowshipDetails: {
+      label: "details",
+      component: "ObjectContainerPanel",
+      type: formType.Template, //
+
+      rules: {
+        required: true,
+      },
+      meta: "details",
+    },
+    fellows: {
+      label: "fellows",
+      component: "ObjectContainerPanel",
+      type: formType.Template, //
+
+      rules: {
+        required: true,
+        min: 5,
+        max: 200,
+      },
+      meta: "fellows",
+    },
+    gallery: {
+      label: "gallery",
+      component: "ImagePicker",
+      type: formType.Document,
+      multiple: true,
+      meta: "gallery",
+    },
+    url: {
+      label: "url",
+      component: "TextField",
+      type: formType.Primitive, //
+
+      rules: {
+        required: true,
+        url: true,
+      },
+      meta: "url",
+    },
+    fellowshipStop: {
+      label: "fellowshipStop",
+      component: "DatePicker",
+      type: formType.Primitive, //
+
+      rules: {
+        required: true,
+        date: true,
+      },
+      meta: "fellowshipStop",
+    },
+    applicationStop: {
+      label: "applicationStop",
+      component: "DatePicker",
+      type: formType.Primitive, //
+
+      rules: {
+        required: true,
+        date: true,
+      },
+      meta: "applicationStop",
+    },
+    image: {
+      label: "image",
+      component: "ImagePicker",
+      type: formType.Document, //
+
+      rules: {
+        required: true,
+      },
+      meta: "image",
+    },
+    publicationDate: {
+      label: "publicationDate",
+      component: "DatePicker",
+      type: formType.Primitive, //
+
+      rules: {
+        required: true,
+        date: true,
+      },
+      meta: "publicationDate",
+    },
+
+    files: {
+      label: "files",
+      component: "FilePicker",
+      type: formType.Document, //
+      rules: {
+        required: true,
+      },
+      meta: "files",
+    },
+
     video: {
       label: "video",
       component: "CollectionContainerPanel",
       type: formType.Template, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
       },

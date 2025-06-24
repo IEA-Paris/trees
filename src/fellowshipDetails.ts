@@ -23,112 +23,73 @@ const configDefault: FellowshipDetailsForm = {
     type: {
       label: "type",
       component: "TextArea",
-      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: formType.Primitive,
       i18n: true,
       default: false,
-      description: "",
       rules: {
         required: true,
-      },
-      visibility: {
-        default: true, // same as hidden = true
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "type", // item type on schema.org
     },
     fundingPeriod: {
       label: "fundingPeriod",
       component: "TextArea",
-      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: formType.Primitive,
       i18n: true,
       default: false,
-      description: "",
       rules: {
         required: true,
-      },
-      visibility: {
-        default: true, // same as hidden = true
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "fundingPeriod", // item type on schema.org
     },
     profile: {
       label: "profile",
       component: "Checkbox",
-      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: formType.Primitive,
       default: false,
       i18n: true,
-      description: "",
       rules: {
         required: true,
-      },
-      visibility: {
-        default: true, // same as hidden = true
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "profile", // item type on schema.org
     },
     tasks: {
       label: "tasks",
       component: "TextArea",
-      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: formType.Primitive,
       default: false,
       i18n: true,
-      description: "",
       rules: {
         required: true,
-      },
-      visibility: {
-        default: true, // same as hidden = true
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "tasks", // item type on schema.org
     },
     location: {
       label: "location",
       component: "TextArea",
-      type: formType.Template, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: formType.Template,
       i18n: true,
       default: false,
-      description: "",
       rules: {
         required: true,
-      },
-      visibility: {
-        default: true, // same as hidden = true
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "location", // item type on schema.org
     },
     funding: {
       label: "funding",
       component: "TextArea",
-      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: formType.Primitive,
       default: false,
-      description: "",
       i18n: true,
       rules: {
         required: true,
       },
-      visibility: {
-        default: true, // same as hidden = true
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
-      },
       meta: "funding", // item type on schema.org
     },
-
     housing: {
       label: "housing",
       component: "TextArea",
       type: formType.Primitive, //
-      default: "",
-      description: "",
       i18n: true,
       rules: {
         required: true,
@@ -141,9 +102,7 @@ const configDefault: FellowshipDetailsForm = {
       label: "meals",
       component: "TextArea",
       type: formType.Primitive, //
-      default: "",
       i18n: true,
-      description: "",
       rules: {
         required: true,
         min: 5,
@@ -155,9 +114,7 @@ const configDefault: FellowshipDetailsForm = {
       label: "applicationMaterials",
       component: "TextArea",
       type: formType.Primitive, //
-      default: "",
       i18n: true,
-      description: "",
       rules: {
         required: true,
         min: 5,
@@ -169,9 +126,7 @@ const configDefault: FellowshipDetailsForm = {
       label: "selectionProcess",
       component: "TextArea",
       type: formType.Primitive, //
-      default: "",
       i18n: true,
-      description: "",
       rules: {
         required: true,
         min: 5,
@@ -183,9 +138,7 @@ const configDefault: FellowshipDetailsForm = {
       label: "researchSupport",
       component: "TextArea",
       type: formType.Primitive, //
-      default: "",
       i18n: true,
-      description: "",
       rules: {
         required: true,
         min: 5,

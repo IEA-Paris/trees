@@ -74,30 +74,23 @@ const defaultConfig: Model = {
       },
     },
   },
-
   form: {
     name: {
       label: "name",
       type: formType.Primitive,
       component: "TextField",
-      default: "",
       description: "The name of the ad",
       rules: {
         required: true,
         min: 2,
         max: 4,
       },
-      visibility: {
-        default: true, // same as hidden = true
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
-      },
       meta: "name", // item type on schema.org
     },
     image: {
       label: "image",
-      type: formType.Template,
-      component: "ObjectContainerPanel",
+      type: formType.Document,
+      component: "ImagePicker",
       description: "The logo of the app",
       rules: {
         required: true,
@@ -108,43 +101,30 @@ const defaultConfig: Model = {
       label: "url",
       type: formType.Primitive,
       component: "TextField",
-      default: "",
       description: "The url of the app",
       rules: {
         required: true,
         url: true,
-      },
-      visibility: {
-        default: true, // same as hidden = true
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "link", // item type on schema.org
     },
     color: {
       label: "background_color",
       type: formType.Primitive,
-      component: "TextField",
+      component: "ColorPicker",
       default: "#FFFFFF",
       description: "The background color of the content",
       rules: {
         color: true,
-      },
-      visibility: {
-        default: true, // same as hidden = true
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "color", // item type on schema.org
     },
     video: {
       label: "video",
       component: "TextField",
-      type: formType.Template, //
-      default: "",
-      description: "",
+      type: formType.Document, //
       rules: {
-        required: true,
+        required: false,
         url: true,
       },
       meta: "video",
@@ -153,8 +133,6 @@ const defaultConfig: Model = {
       label: "slots",
       component: "TextField",
       type: formType.Primitive, //
-      default: "",
-      description: "",
       rules: {
         required: true,
         min: 5,

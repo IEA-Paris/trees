@@ -17,8 +17,7 @@ const defaultConfig: PositionForm = {
       label: "role",
       component: "TextField",
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
         min: 5,
@@ -30,8 +29,7 @@ const defaultConfig: PositionForm = {
       label: "department",
       component: "TextField",
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
         min: 5,
@@ -43,8 +41,7 @@ const defaultConfig: PositionForm = {
       label: "start",
       component: "DatePicker",
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
         date: true,
@@ -55,8 +52,7 @@ const defaultConfig: PositionForm = {
       label: "stop",
       component: "DatePicker",
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
         date: true,

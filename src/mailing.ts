@@ -4,7 +4,7 @@ import { formType } from "./form"
 
 export interface Mailing {
   name: string
-  description?: string
+  content?: string
   createdAt: string
   updatedAt: string
   date: Date
@@ -72,14 +72,12 @@ const defaultConfig: Model = {
       },
     },
   },
-
   form: {
     name: {
       label: "name",
       component: "TextField",
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
         min: 5,
@@ -87,53 +85,23 @@ const defaultConfig: Model = {
       },
       meta: "name",
     },
-    description: {
-      label: "description",
+    content: {
+      label: "content",
       component: "TextField",
       type: formType.Primitive, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
-      meta: "description",
-    },
 
-    createdAt: {
-      label: "createdAt",
-      component: "TextField",
-      type: formType.Primitive, //
-      default: "",
-      description: "",
       rules: {
         required: true,
         min: 5,
         max: 200,
       },
-      meta: "createdAt",
-    },
-
-    updatedAt: {
-      label: "updatedAt",
-      component: "TextField",
-      type: formType.Primitive, //
-      default: "",
-      description: "",
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
-      meta: "updatedAt",
+      meta: "content",
     },
     date: {
       label: "date",
       component: "TextField",
-      type: formType.Primitive, //
-      default: "",
-      description: "",
+      description: "The date when the mailing will be sent",
+      type: formType.Primitive,
       rules: {
         required: true,
         min: 5,

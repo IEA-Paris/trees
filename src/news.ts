@@ -95,62 +95,40 @@ const defaultConfig: Model = {
       },
     },
   },
-
   form: {
     name: {
       label: "name",
       component: "TextField",
-      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: formType.Primitive,
       i18n: true,
-      default: "",
-      description: "",
       rules: {
         required: true,
         min: 5,
         max: 200,
-      },
-      visibility: {
-        default: true, // same as hidden = true
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "name", // item type on schema.org
     },
     summary: {
       label: "summary",
       component: "TextArea",
-      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: formType.Primitive,
       i18n: true,
-      default: "",
-      description: "",
       rules: {
         required: true,
         min: 5,
         max: 200,
-      },
-      visibility: {
-        default: true, // same as hidden = true
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "summary", // item type on schema.org
     },
     subtitle: {
       label: "subtitle",
       component: "TextField",
-      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
+      type: formType.Primitive,
       i18n: true,
-      default: "",
-      description: "",
       rules: {
         required: true,
         min: 5,
         max: 200,
-      },
-      visibility: {
-        default: true, // same as hidden = true
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "subtitle", // item type on schema.org
     },
@@ -159,8 +137,7 @@ const defaultConfig: Model = {
       component: "TextArea",
       i18n: true,
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
         min: 5,
@@ -170,10 +147,9 @@ const defaultConfig: Model = {
     },
     image: {
       label: "image",
-      component: "ObjectContainerPanel",
-      type: formType.Template, //
-      default: "",
-      description: "",
+      component: "ImagePicker",
+      type: formType.Document, //
+
       rules: {
         required: true,
       },
@@ -183,8 +159,7 @@ const defaultConfig: Model = {
       label: "color",
       component: "ColorPicker",
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
         color: true,
@@ -195,8 +170,7 @@ const defaultConfig: Model = {
       label: "url",
       component: "TextField",
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
         url: true,
@@ -205,10 +179,9 @@ const defaultConfig: Model = {
     },
     files: {
       label: "files",
-      component: "CollectionContainerPanel",
-      type: formType.Template, //
-      default: "",
-      description: "",
+      component: "FilePicker",
+      type: formType.Document, //
+
       rules: {
         required: true,
       },
@@ -216,18 +189,16 @@ const defaultConfig: Model = {
     },
     gallery: {
       label: "gallery",
-      component: "CollectionContainerPanel",
-      type: formType.Template, //
-      default: "",
-      description: "",
+      component: "ImagePicker",
+      type: formType.Document,
+      multiple: true,
       meta: "gallery",
     },
     date: {
       label: "date",
       component: "DatePicker",
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
         date: true,
@@ -238,8 +209,6 @@ const defaultConfig: Model = {
       label: "featured",
       component: "DatePicker",
       type: formType.Primitive, //
-      default: "",
-      description: "",
       rules: {
         required: true,
         date: true,
@@ -248,10 +217,8 @@ const defaultConfig: Model = {
     },
     tags: {
       label: "tags",
-      component: "CollectionContainerPanel",
-      type: formType.Template, //
-      default: "",
-      description: "",
+      component: "TagPicker",
+      type: formType.Document, //
       rules: {
         required: true,
         min: 1,
@@ -262,8 +229,6 @@ const defaultConfig: Model = {
       label: "related",
       component: "ObjectContainerPanel",
       type: formType.Template, //
-      default: "",
-      description: "",
       rules: {
         required: true,
         min: 5,
@@ -271,22 +236,14 @@ const defaultConfig: Model = {
       },
       meta: "related",
     },
-
     category: {
       label: "category",
       component: "Select",
-      type: formType.Primitive, // 0 = primitive, 1 = object, 2 = array, 3 = template
-      default: "",
-      description: "",
+      type: formType.Primitive,
       rules: {
         required: true,
       },
       items: newsCategories,
-      visibility: {
-        default: true, // same as hidden = true
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
-        disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
-      },
       meta: "category", // item type on schema.org
     },
   },

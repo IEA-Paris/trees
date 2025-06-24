@@ -10,7 +10,6 @@ import defaultConfigConsent, { ConsentForm } from "./consent"
 import defaultConfigDisciplines from "./disciplines"
 import defaultConfigDiscussants from "./discussants"
 import defaultConfigEvents from "./events"
-import defaultConfigRelatedPeople from "./relatedPeople"
 import defaultConfigEventSlot, { EventSlotForm } from "./eventSlot"
 import defaultConfigFellows from "./fellows"
 import defaultConfigFellowship from "./fellowships"
@@ -31,11 +30,6 @@ import defaultConfigPartner from "./partner"
 import defaultConfigPeople from "./people"
 import defaultConfigPosition, { PositionForm } from "./position"
 import defaultConfigProject from "./projects"
-import defaultConfigRelatedEvents from "./relatedEvents"
-import defaultConfigRelatedPublications from "./relatedPublications"
-import defaultConfigRelatedNews from "./relatedNews"
-import defaultConfigRelatedProject from "./relatedProject"
-import defaultConfigRelatedFellowships from "./relatedFellowships"
 import defaultConfigRelated from "./related"
 import defaultConfigSocials, { SocialsForm } from "./socials"
 import defaultConfigSpeakers from "./speakers"
@@ -81,12 +75,6 @@ const configData: Record<string, ConfigValue> = {
   position: defaultConfigPosition,
   projects: defaultConfigProject,
   publications: defaultConfigPublications,
-  relatedEvents: defaultConfigRelatedEvents,
-  relatedNews: defaultConfigRelatedNews,
-  relatedProjects: defaultConfigRelatedProject,
-  relatedPublications: defaultConfigRelatedPublications,
-  relatedPeople: defaultConfigRelatedPeople,
-  relatedFellowships: defaultConfigRelatedFellowships,
   related: defaultConfigRelated,
   socials: defaultConfigSocials,
   speakers: defaultConfigSpeakers,

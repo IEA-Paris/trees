@@ -74,8 +74,7 @@ const defaultConfig: Model = {
       label: "name",
       component: "TextField",
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
         min: 5,
@@ -87,8 +86,7 @@ const defaultConfig: Model = {
       label: "description",
       component: "TextArea",
       type: formType.Primitive, //
-      default: "",
-      description: "",
+
       rules: {
         required: true,
         min: 5,
@@ -98,28 +96,14 @@ const defaultConfig: Model = {
     },
     icon: {
       label: "icon",
-      component: "TextField",
-      type: formType.Primitive, //
-      default: "",
+      component: "IconPicker",
+      type: formType.Primitive,
       description:
         "Select your icon from material design icons https://pictogrammers.com/library/mdi/",
       meta: "icon",
-    },
-    createdAt: {
-      label: "createdAt",
-      component: false,
-      type: formType.Primitive, //
-      default: "",
-      description: "",
-      meta: "createdAt",
-    },
-    updatedAt: {
-      label: "updatedAt",
-      component: false,
-      type: formType.Primitive, //
-      default: "",
-      description: "",
-      meta: "updatedAt",
+      /*  rules: {
+        icon: false, // regex "mdi" TODO
+      }, */
     },
   },
 }
