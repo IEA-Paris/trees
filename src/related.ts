@@ -82,7 +82,6 @@ const defaultConfig: Model = {
       label: "relatedEvent",
       component: "DocumentPicker",
       type: formType.Document,
-
       meta: "event",
     },
     news: {
@@ -91,25 +90,28 @@ const defaultConfig: Model = {
       type: formType.Document,
       meta: "news",
     },
+    people: {
+      label: "relatedPeople",
+      component: "DocumentPicker",
+      type: formType.Document,
+      meta: "people",
+    },
     publications: {
       label: "relatedPublication",
       component: "DocumentPicker",
       type: formType.Document,
-
       meta: "publication",
     },
     projects: {
       label: "relatedProject",
       component: "DocumentPicker",
       type: formType.Document,
-
       meta: "project",
     },
     fellowships: {
       label: "relatedFellowships",
       component: "DocumentPicker",
       type: formType.Document,
-
       meta: "fellowship",
     },
   },

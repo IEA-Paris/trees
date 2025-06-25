@@ -125,7 +125,6 @@ const defaultConfig: Model = {
       label: "firstname",
       component: "TextField",
       type: formType.Primitive,
-
       rules: {
         required: true,
         min: 1,
@@ -213,7 +212,6 @@ const defaultConfig: Model = {
       component: "TextArea",
       i18n: true,
       type: formType.Primitive,
-
       rules: {
         required: true,
         min: 5,
