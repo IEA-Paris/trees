@@ -156,7 +156,7 @@ const defaultConfig: Model = {
         {
           label: "affiliation",
           component: "ObjectContainerPanel",
-          type: formType.Document,
+          type: formType.Object,
           items: [
             {
               affiliation: {
