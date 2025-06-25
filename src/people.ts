@@ -162,7 +162,6 @@ const defaultConfig: Model = {
       label: "image",
       component: "ImagePicker",
       type: formType.Document,
-
       meta: "image",
     },
     socials: {

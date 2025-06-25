@@ -71,7 +71,7 @@ const completeSchema = (
           // For document types, we can just keep the default value or an empty array
           completedSchema[key] = {
             ...schema[key],
-            default: schema[key].default ?? [],
+            default: schema[key].default ?? "",
           }
           break
         case formType.Template:
