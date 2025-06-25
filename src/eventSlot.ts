@@ -56,9 +56,6 @@ const defautConfig: EventSlotForm = {
       component: "TextField",
       type: formType.Primitive,
 
-      rules: {
-        required: false,
-      },
       meta: "institution",
     },
     lang: {

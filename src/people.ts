@@ -149,43 +149,33 @@ const defaultConfig: Model = {
       label: "affiliations",
       component: "CollectionContainerPanel",
       type: formType.Array,
-      rules: {
-        required: false,
-      },
       items: [
         {
           label: "affiliation",
           component: "ObjectContainerPanel",
           type: formType.Object,
-          items: [
-            {
-              affiliation: {
-                label: "affiliation",
-                component: "AffiliationPicker",
-                type: formType.Document,
-                rules: {
-                  required: false,
-                },
-                meta: "affiliation",
-              },
-              positions: {
-                label: "positions",
-                component: "ObjectContainerPanel",
-                type: formType.Array,
-                items: [
-                  {
-                    label: "position",
-                    component: "ObjectContainerPanel",
-                    type: formType.Template,
-                    rules: {
-                      required: false,
-                    },
-                    meta: "positions",
-                  },
-                ],
-              },
+          items: {
+            affiliation: {
+              label: "affiliation",
+              component: "AffiliationPicker",
+              type: formType.Document,
+
+              meta: "affiliation",
             },
-          ],
+            position: {
+              label: "positions",
+              component: "CollectionContainerPanel",
+              type: formType.Array,
+              items: [
+                {
+                  label: "position",
+                  component: "ObjectContainerPanel",
+                  type: formType.Template,
+                  meta: "positions",
+                },
+              ],
+            },
+          },
         },
       ],
       meta: "affiliations",
@@ -195,9 +185,6 @@ const defaultConfig: Model = {
       component: "ImagePicker",
       type: formType.Document,
 
-      rules: {
-        required: false,
-      },
       meta: "image",
     },
     socials: {

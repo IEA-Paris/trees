@@ -172,7 +172,6 @@ const defaultConfig: Model = {
       label: "affiliations",
       component: "AffiliationPicker",
       type: formType.Document,
-
       rules: {
         required: true,
       },
@@ -259,14 +258,21 @@ const defaultConfig: Model = {
     },
     fellows: {
       label: "fellows",
-      component: "ObjectContainerPanel",
-      type: formType.Template,
-
+      component: "CollectionContainerPanel",
+      type: formType.Array,
       rules: {
         required: true,
         min: 5,
         max: 200,
       },
+      items: [
+        {
+          label: "fellow",
+          component: "DocumentPicker",
+          type: formType.Document,
+          meta: "fellow",
+        },
+      ],
       meta: "fellows",
     },
     gallery: {

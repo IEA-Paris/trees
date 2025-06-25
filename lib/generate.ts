@@ -39,12 +39,15 @@ const completeSchema = (
 
     for (const key of Object.keys(schema)) {
       bkey = key
+      /*       console.log("key: ", key)
+      console.log("schema[key]?.type: ", schema[key]?.type) */
       switch (schema[key]?.type) {
         case formType.Primitive:
           completedSchema[key] = schema[key]
           break
         case formType.Object:
           // Recursively process nested schemas in objects and arrays
+          /*     console.log("schema[key].items: ", schema[key].items) */
           completedSchema[key] = {
             ...schema[key],
             items: completeSchema(
@@ -52,16 +55,16 @@ const completeSchema = (
               visitedTemplates
             ),
           }
+          break
         case formType.Array:
           // Recursively process nested schemas in objects and arrays
+          /*    console.log("schema[key].items: ", schema[key].items) */
           completedSchema[key] = {
             ...schema[key],
-            items: [
-              completeSchema(
-                schema[key].items as Record<string, Form>,
-                visitedTemplates
-              ),
-            ],
+            items: completeSchema(
+              { [key]: schema[key].items[0] } as Record<string, Form>,
+              visitedTemplates
+            ),
           }
           break
         case formType.Document:
@@ -166,6 +169,7 @@ const createModule = (type: string): any => {
 
   // Helper function to handle template types
   const processTemplate = (key: string): Promise<any> => {
+    /*    console.log("key2: ", key) */
     // Check for circular dependencies
     if (visitedTemplates.has(key)) {
       console.warn(`Circular dependency detected for template: ${key}`)
@@ -178,7 +182,7 @@ const createModule = (type: string): any => {
     const template = configData[key] as Model
     try {
       // is it an implementation of another template?
-      if (template.aliases?.length) {
+      if (template?.aliases?.length) {
         const aliasTemplatesForms: Record<string, Form> = processAliases(
           template.aliases
         )
@@ -319,8 +323,8 @@ const createModule = (type: string): any => {
     form: formModule,
     list: listModule,
   }
-  // create the regular file
-  createJsonFile(type, module)
+  // create the regular file NOT NEEDED ANYMORE
+  /*   createJsonFile(type, module) */
   // create the list version
   createJsonFile(type, listModule, "/list")
   // create the form version

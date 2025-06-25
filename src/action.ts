@@ -124,7 +124,6 @@ const defaultConfig: Model = {
       component: "TextField",
       type: formType.Document,
       rules: {
-        required: false,
         url: true,
       },
       meta: "video",

@@ -89,7 +89,6 @@ const defaultConfig: LocationForm = {
       label: "zip",
       component: "TextField",
       type: formType.Primitive,
-
       rules: {
         required: true,
         min: 5,
@@ -101,7 +100,6 @@ const defaultConfig: LocationForm = {
       label: "geocode",
       component: "LocationPicker",
       type: formType.Object,
-
       rules: {
         required: true,
         min: 5,
@@ -112,8 +110,6 @@ const defaultConfig: LocationForm = {
           label: "latitude",
           component: "TextField",
           type: formType.Primitive,
-
-          hint: false,
           rules: {
             required: true,
             min: 5,
@@ -125,8 +121,6 @@ const defaultConfig: LocationForm = {
           label: "longitude",
           component: "TextField",
           type: formType.Primitive,
-
-          hint: false,
           rules: {
             required: true,
             min: 5,

@@ -25,7 +25,6 @@ const configDefault: FellowshipDetailsForm = {
       component: "TextArea",
       type: formType.Primitive,
       i18n: true,
-      default: false,
       rules: {
         required: true,
       },
@@ -36,7 +35,6 @@ const configDefault: FellowshipDetailsForm = {
       component: "TextArea",
       type: formType.Primitive,
       i18n: true,
-      default: false,
       rules: {
         required: true,
       },
@@ -46,7 +44,6 @@ const configDefault: FellowshipDetailsForm = {
       label: "profile",
       component: "Checkbox",
       type: formType.Primitive,
-      default: false,
       i18n: true,
       rules: {
         required: true,
@@ -57,7 +54,6 @@ const configDefault: FellowshipDetailsForm = {
       label: "tasks",
       component: "TextArea",
       type: formType.Primitive,
-      default: false,
       i18n: true,
       rules: {
         required: true,
@@ -69,7 +65,6 @@ const configDefault: FellowshipDetailsForm = {
       component: "TextArea",
       type: formType.Template,
       i18n: true,
-      default: false,
       rules: {
         required: true,
       },
@@ -79,7 +74,6 @@ const configDefault: FellowshipDetailsForm = {
       label: "funding",
       component: "TextArea",
       type: formType.Primitive,
-      default: false,
       i18n: true,
       rules: {
         required: true,

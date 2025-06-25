@@ -353,7 +353,6 @@ const defaultConfig: Model = {
       type: formType.Primitive,
       i18n: true,
       rules: {
-        required: false,
         min: 5,
         max: 200,
       },
@@ -445,13 +444,20 @@ const defaultConfig: Model = {
     organizers: {
       label: "organizers",
       component: "CollectionContainerPanel",
-      type: formType.Template,
-
+      type: formType.Array,
       rules: {
         required: true,
         min: 5,
         max: 200,
       },
+      items: [
+        {
+          label: "organizer",
+          component: "DocumentPicker",
+          type: formType.Document,
+          meta: "organizers",
+        },
+      ],
       meta: "organizers",
     },
     organizerState: {

@@ -163,18 +163,14 @@ const userConfig: Model = {
       label: "affiliations",
       component: "AffiliationPicker",
       type: formType.Document,
-      rules: {
-        required: false,
-      },
+
       meta: "affiliations",
     },
     image: {
       label: "image",
       component: "ImagePicker",
       type: formType.Document,
-      rules: {
-        required: false,
-      },
+
       meta: "image",
     },
     socials: {

@@ -228,7 +228,7 @@ const defautConfig: Model = {
     //   component: "CollectionContainerPanel",
     //   type: formType.Array,
 
-    //       //   hint: false,
+    //       //
     //   rules: {
     //     required: true,
     //   },
