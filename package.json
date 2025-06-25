@@ -1,6 +1,6 @@
 {
   "name": "@paris-ias/data",
-  "version": "1.8.19",
+  "version": "1.8.20",
   "type": "module",
   "main": "index.js",
   "scripts": {
