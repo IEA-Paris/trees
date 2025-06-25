@@ -4,6 +4,7 @@ import { Sort, Views } from "./list"
 import { Form, formType } from "./form"
 import defaultConfigAction from "./action"
 import defaultConfigAffliation from "./affiliations"
+import defaultConfigExperience, { ExperienceForm } from "./experience"
 import defautConfigApp from "./apps"
 import defaultConfigArticle from "./article"
 import defaultConfigConsent, { ConsentForm } from "./consent"
@@ -40,6 +41,7 @@ import defaultConfigVintage from "./vintage"
 import defaultConfigUsers from "./users"
 type ConfigValue =
   | Model
+  | ExperienceForm
   | ConsentForm
   | EventSlotForm
   | FellowshipDetailsForm
@@ -50,6 +52,7 @@ type ConfigValue =
 
 const configData: Record<string, ConfigValue> = {
   action: defaultConfigAction,
+  experience: defaultConfigExperience,
   affiliations: defaultConfigAffliation,
   apps: defautConfigApp,
   article: defaultConfigArticle,

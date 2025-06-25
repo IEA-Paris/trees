@@ -149,32 +149,13 @@ const defaultConfig: Model = {
       component: "CollectionContainerPanel",
       type: formType.Array,
       items: {
-        label: "affiliations",
-        component: "ObjectContainerPanel",
-        type: formType.Object,
-        items: {
-          affiliation: {
-            label: "affiliation",
-            component: "AffiliationPicker",
-            type: formType.Document,
-            meta: "affiliation",
-          },
-          position: {
-            label: "positions",
-            component: "CollectionContainerPanel",
-            type: formType.Array,
-            items: [
-              {
-                label: "position",
-                component: "ObjectContainerPanel",
-                type: formType.Template,
-                meta: "positions",
-              },
-            ],
-          },
+        experience: {
+          label: "experience",
+          component: "ObjectContainerPanel",
+          type: formType.Template,
+          meta: "experience",
         },
       },
-
       meta: "affiliations",
     },
     image: {
