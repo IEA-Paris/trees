@@ -195,7 +195,7 @@ const defaultConfig: Model = {
     name: {
       label: "name",
       component: "TextField",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       i18n: true,
       rules: {
@@ -209,7 +209,7 @@ const defaultConfig: Model = {
     start: {
       label: "start",
       component: "DatePicker",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -221,7 +221,7 @@ const defaultConfig: Model = {
     stop: {
       label: "stop",
       component: "DatePicker",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -233,7 +233,7 @@ const defaultConfig: Model = {
       label: "subtitle",
       component: "TextArea",
       i18n: true,
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -245,7 +245,7 @@ const defaultConfig: Model = {
     summary: {
       label: "summary",
       component: "TextArea",
-      type: formType.Primitive, //
+      type: formType.Primitive,
       i18n: true,
       rules: {
         required: true,
@@ -267,7 +267,7 @@ const defaultConfig: Model = {
     eventType: {
       label: "eventType",
       component: "Select",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -278,7 +278,7 @@ const defaultConfig: Model = {
     description: {
       label: "description",
       component: "TextArea",
-      type: formType.Primitive, //
+      type: formType.Primitive,
       i18n: true,
       rules: {
         required: true,
@@ -290,7 +290,7 @@ const defaultConfig: Model = {
     details: {
       label: "details",
       component: "TextArea",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       i18n: true,
       rules: {
@@ -303,7 +303,7 @@ const defaultConfig: Model = {
     program: {
       label: "program",
       component: "TextArea",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       i18n: true,
       rules: {
@@ -331,7 +331,7 @@ const defaultConfig: Model = {
     bookingState: {
       label: "bookingState",
       component: false,
-      type: formType.Primitive, //
+      type: formType.Primitive,
       default: 0,
       meta: "bookingState",
     },
@@ -339,7 +339,7 @@ const defaultConfig: Model = {
     delay: {
       label: "delay",
       component: false,
-      type: formType.Primitive, //
+      type: formType.Primitive,
       default: 0,
       rules: {
         required: true,
@@ -350,7 +350,7 @@ const defaultConfig: Model = {
     dateText: {
       label: "dateText",
       component: "TextArea",
-      type: formType.Primitive, //
+      type: formType.Primitive,
       i18n: true,
       rules: {
         required: false,
@@ -363,7 +363,7 @@ const defaultConfig: Model = {
     disciplines: {
       label: "disciplines",
       component: "DisciplinePicker",
-      type: formType.Document, //
+      type: formType.Document,
 
       rules: {
         required: true,
@@ -375,7 +375,7 @@ const defaultConfig: Model = {
     discussants: {
       label: "discussants",
       component: "CollectionContainerPanel",
-      type: formType.Template, //
+      type: formType.Document,
 
       rules: {
         required: true,
@@ -386,7 +386,7 @@ const defaultConfig: Model = {
     organiserType: {
       label: "organiserType",
       component: "Select",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -397,7 +397,7 @@ const defaultConfig: Model = {
     lang: {
       label: "lang",
       component: "Select",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -407,7 +407,7 @@ const defaultConfig: Model = {
     files: {
       label: "files",
       component: "FilePicker",
-      type: formType.Document, //
+      type: formType.Document,
 
       rules: {
         required: true,
@@ -417,7 +417,7 @@ const defaultConfig: Model = {
     image: {
       label: "image",
       component: "ImagePicker",
-      type: formType.Document, //
+      type: formType.Document,
 
       rules: {
         required: true,
@@ -445,7 +445,7 @@ const defaultConfig: Model = {
     organizers: {
       label: "organizers",
       component: "CollectionContainerPanel",
-      type: formType.Template, //
+      type: formType.Template,
 
       rules: {
         required: true,
@@ -457,7 +457,7 @@ const defaultConfig: Model = {
     organizerState: {
       label: "organizerState",
       component: "ListRadio",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -467,7 +467,7 @@ const defaultConfig: Model = {
     outside: {
       label: "outside",
       component: "Checkbox",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -479,7 +479,7 @@ const defaultConfig: Model = {
     location: {
       label: "place",
       component: "ObjectContainerPanel",
-      type: formType.Template, //
+      type: formType.Template,
 
       rules: {
         required: true,
@@ -490,7 +490,7 @@ const defaultConfig: Model = {
     related: {
       label: "related",
       component: "ObjectContainerPanel",
-      type: formType.Template, //
+      type: formType.Template,
 
       rules: {
         required: true,
@@ -502,7 +502,7 @@ const defaultConfig: Model = {
     speakers: {
       label: "speakers",
       component: "CollectionContainerPanel",
-      type: formType.Template, //
+      type: formType.Document,
 
       rules: {
         required: true,
@@ -512,7 +512,7 @@ const defaultConfig: Model = {
     state: {
       label: "state",
       component: "ListRadio",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -522,7 +522,7 @@ const defaultConfig: Model = {
     tags: {
       label: "tags",
       component: "TagPicker",
-      type: formType.Document, //
+      type: formType.Document,
       rules: {
         required: true,
       },
@@ -531,7 +531,7 @@ const defaultConfig: Model = {
     totalSlots: {
       label: "totalSlots",
       component: false,
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -543,7 +543,7 @@ const defaultConfig: Model = {
     stream: {
       label: "stream",
       component: "TextField",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -554,7 +554,7 @@ const defaultConfig: Model = {
     url: {
       label: "url",
       component: "TextField",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -566,5 +566,3 @@ const defaultConfig: Model = {
 }
 
 export default defaultConfig
-
-//

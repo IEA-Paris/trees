@@ -123,7 +123,7 @@ const defaultConfig: Model = {
       label: "name",
       component: "TextField",
       i18n: true,
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -136,7 +136,7 @@ const defaultConfig: Model = {
       label: "subtitle",
       component: "TextField",
       i18n: true,
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -148,7 +148,7 @@ const defaultConfig: Model = {
     summary: {
       label: "summary",
       component: "TextArea",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       i18n: true,
       rules: {
@@ -181,7 +181,7 @@ const defaultConfig: Model = {
     applicationStart: {
       label: "applicationStart",
       component: "DatePicker", //TODO
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -192,7 +192,7 @@ const defaultConfig: Model = {
     fellowshipStart: {
       label: "fellowshipStart",
       component: "DatePicker", //TODO
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -203,7 +203,7 @@ const defaultConfig: Model = {
     contact: {
       label: "contact",
       component: "TextField",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -214,7 +214,7 @@ const defaultConfig: Model = {
     description: {
       label: "description",
       component: "TextArea",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       i18n: true,
       rules: {
@@ -227,7 +227,7 @@ const defaultConfig: Model = {
     disciplines: {
       label: "disciplines",
       component: "DisciplinePicker",
-      type: formType.Document, //
+      type: formType.Document,
       rules: {
         required: true,
         min: 5,
@@ -238,7 +238,7 @@ const defaultConfig: Model = {
     fellowshipType: {
       label: "fellowshipType",
       component: "Select",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -251,8 +251,7 @@ const defaultConfig: Model = {
     fellowshipDetails: {
       label: "details",
       component: "ObjectContainerPanel",
-      type: formType.Template, //
-
+      type: formType.Template,
       rules: {
         required: true,
       },
@@ -261,7 +260,7 @@ const defaultConfig: Model = {
     fellows: {
       label: "fellows",
       component: "ObjectContainerPanel",
-      type: formType.Template, //
+      type: formType.Template,
 
       rules: {
         required: true,
@@ -280,7 +279,7 @@ const defaultConfig: Model = {
     url: {
       label: "url",
       component: "TextField",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -291,7 +290,7 @@ const defaultConfig: Model = {
     fellowshipStop: {
       label: "fellowshipStop",
       component: "DatePicker",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -302,7 +301,7 @@ const defaultConfig: Model = {
     applicationStop: {
       label: "applicationStop",
       component: "DatePicker",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -313,7 +312,7 @@ const defaultConfig: Model = {
     image: {
       label: "image",
       component: "ImagePicker",
-      type: formType.Document, //
+      type: formType.Document,
 
       rules: {
         required: true,
@@ -323,7 +322,7 @@ const defaultConfig: Model = {
     publicationDate: {
       label: "publicationDate",
       component: "DatePicker",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -335,7 +334,7 @@ const defaultConfig: Model = {
     files: {
       label: "files",
       component: "FilePicker",
-      type: formType.Document, //
+      type: formType.Document,
       rules: {
         required: true,
       },
@@ -345,7 +344,7 @@ const defaultConfig: Model = {
     video: {
       label: "video",
       component: "CollectionContainerPanel",
-      type: formType.Template, //
+      type: formType.Template,
 
       rules: {
         required: true,

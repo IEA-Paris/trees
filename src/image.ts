@@ -140,7 +140,7 @@ const defaultConfig: Model = {
     backgroundColor: {
       label: "backgroundColor",
       component: "ColorPicker", // TODO create component
-      type: formType.Primitive, //
+      type: formType.Primitive,
       rules: {
         required: true,
         color: true,

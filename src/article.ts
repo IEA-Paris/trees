@@ -88,7 +88,7 @@ const defautConfig: Model = {
     name: {
       label: "name",
       component: "TextField",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -100,7 +100,7 @@ const defautConfig: Model = {
     abstract: {
       label: "abstract",
       component: "TextArea",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -112,7 +112,7 @@ const defautConfig: Model = {
     image: {
       label: "image",
       component: "ImagePicker",
-      type: formType.Document, //
+      type: formType.Document,
 
       rules: {
         required: true,
@@ -122,7 +122,7 @@ const defautConfig: Model = {
     video: {
       label: "video",
       component: "ObjectContainerPanel",
-      type: formType.Template, //
+      type: formType.Template,
 
       rules: {
         required: true,
@@ -132,7 +132,7 @@ const defautConfig: Model = {
     needDOI: {
       label: "needDOI",
       component: "Checkbox",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -142,7 +142,7 @@ const defautConfig: Model = {
     DOI: {
       label: "DOI",
       component: "TextField",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -153,7 +153,7 @@ const defautConfig: Model = {
     Zid: {
       label: "Zid",
       component: "TextField",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -164,7 +164,7 @@ const defautConfig: Model = {
     highlight: {
       label: "highlight",
       component: "Checkbox",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -174,7 +174,7 @@ const defautConfig: Model = {
     date: {
       label: "date",
       component: "DatePicker", // TODO create the date picker
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -185,7 +185,7 @@ const defautConfig: Model = {
     authors: {
       label: "authors",
       component: "CollectionContainerPanel",
-      type: formType.Template, //
+      type: formType.Template,
 
       rules: {
         required: true,
@@ -195,7 +195,7 @@ const defautConfig: Model = {
     issue: {
       label: "issue",
       component: "TextField",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -205,7 +205,7 @@ const defautConfig: Model = {
     lang: {
       label: "lang",
       component: "TextField",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -215,7 +215,7 @@ const defautConfig: Model = {
     disciplines: {
       label: "disciplines",
       component: "DisciplinePicker",
-      type: formType.Document, //
+      type: formType.Document,
 
       rules: {
         required: true,
@@ -226,8 +226,8 @@ const defautConfig: Model = {
     //   // TODO define inline @Antoine
     //   label: "format",
     //   component: "CollectionContainerPanel",
-    //   type: formType.Array, //
-    //
+    //   type: formType.Array,
+
     //       //   hint: false,
     //   rules: {
     //     required: true,
@@ -242,7 +242,7 @@ const defautConfig: Model = {
     tags: {
       label: "tag",
       component: "TagPicker",
-      type: formType.Document, //
+      type: formType.Document,
       rules: {
         required: true,
         min: 5,

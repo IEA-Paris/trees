@@ -148,7 +148,7 @@ const defaultConfig: Model = {
     affiliations: {
       label: "affiliations",
       component: "AffiliationPicker",
-      type: formType.Document, //
+      type: formType.Document,
       rules: {
         required: false,
       },
@@ -157,7 +157,7 @@ const defaultConfig: Model = {
     image: {
       label: "image",
       component: "ImagePicker",
-      type: formType.Document, //
+      type: formType.Document,
 
       rules: {
         required: false,
@@ -167,21 +167,21 @@ const defaultConfig: Model = {
     socials: {
       label: "socials",
       component: "ObjectContainerPanel",
-      type: formType.Template, //
+      type: formType.Template,
 
       meta: "socials",
     },
     disciplines: {
       label: "disciplines",
       component: "DisciplinePicker",
-      type: formType.Document, //
+      type: formType.Document,
 
       meta: "disciplines",
     },
     video: {
       label: "video",
       component: "CollectionContainerPanel",
-      type: formType.Template, //
+      type: formType.Template,
 
       meta: "video",
     },
@@ -189,7 +189,7 @@ const defaultConfig: Model = {
       label: "biography",
       component: "TextArea",
       i18n: true,
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -201,7 +201,7 @@ const defaultConfig: Model = {
     related: {
       label: "related",
       component: "ObjectContainerPanel",
-      type: formType.Template, //
+      type: formType.Template,
 
       rules: {
         required: true,
@@ -213,7 +213,7 @@ const defaultConfig: Model = {
     consent: {
       label: "consent",
       component: "ObjectContainerPanel",
-      type: formType.Template, //
+      type: formType.Template,
       rules: {
         required: true,
       },
@@ -222,7 +222,7 @@ const defaultConfig: Model = {
     groups: {
       label: "groups",
       component: "ObjectContainerPanel",
-      type: formType.Template, //
+      type: formType.Template,
       rules: {
         required: true,
       },
@@ -231,7 +231,7 @@ const defaultConfig: Model = {
     lang: {
       label: "lang",
       component: "AutoComplete",
-      type: formType.Primitive, //
+      type: formType.Primitive,
       rules: {
         required: true,
       },

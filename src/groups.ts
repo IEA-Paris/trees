@@ -20,42 +20,42 @@ const defaultConfig: GroupsForm = {
     team: {
       label: "team",
       component: "Checkbox",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       meta: "team",
     },
     sab: {
       label: "sab",
       component: "Checkbox",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       meta: "sab",
     },
     board: {
       label: "board",
       component: "Checkbox",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       meta: "board",
     },
     fellows: {
       label: "fellows",
       component: "Checkbox",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       meta: "fellow",
     },
     sponsor: {
       label: "sponsor",
       component: "Checkbox",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       meta: "sponsor",
     },
     vintage: {
       label: "vintage",
       component: "CollectionContainerPanel",
-      type: formType.Template, //
+      type: formType.Template,
 
       meta: "vintage",
     },

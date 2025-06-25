@@ -109,7 +109,7 @@ const defaultConfig: Model = {
     description: {
       label: "description",
       component: "TextArea",
-      type: formType.Primitive, //
+      type: formType.Primitive,
       i18n: true,
       rules: {
         required: true,
@@ -121,7 +121,7 @@ const defaultConfig: Model = {
     summary: {
       label: "summary",
       component: "TextArea",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       i18n: true,
       rules: {
@@ -134,7 +134,7 @@ const defaultConfig: Model = {
     subtitle: {
       label: "subtitle",
       component: "TextArea",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       i18n: true,
       rules: {
@@ -147,7 +147,7 @@ const defaultConfig: Model = {
     url: {
       label: "url",
       component: "TextField",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -158,7 +158,7 @@ const defaultConfig: Model = {
     tags: {
       label: "tags",
       component: "TagPicker",
-      type: formType.Document, //
+      type: formType.Document,
       rules: {
         required: true,
       },
@@ -167,7 +167,7 @@ const defaultConfig: Model = {
     state: {
       label: "appState",
       component: "Select",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -178,7 +178,7 @@ const defaultConfig: Model = {
     date: {
       label: "date",
       component: "DatePicker",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,

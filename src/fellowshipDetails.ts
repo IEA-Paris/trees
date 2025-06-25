@@ -89,7 +89,7 @@ const configDefault: FellowshipDetailsForm = {
     housing: {
       label: "housing",
       component: "TextArea",
-      type: formType.Primitive, //
+      type: formType.Primitive,
       i18n: true,
       rules: {
         required: true,
@@ -101,7 +101,7 @@ const configDefault: FellowshipDetailsForm = {
     meals: {
       label: "meals",
       component: "TextArea",
-      type: formType.Primitive, //
+      type: formType.Primitive,
       i18n: true,
       rules: {
         required: true,
@@ -113,7 +113,7 @@ const configDefault: FellowshipDetailsForm = {
     applicationMaterials: {
       label: "applicationMaterials",
       component: "TextArea",
-      type: formType.Primitive, //
+      type: formType.Primitive,
       i18n: true,
       rules: {
         required: true,
@@ -125,7 +125,7 @@ const configDefault: FellowshipDetailsForm = {
     selectionProcess: {
       label: "selectionProcess",
       component: "TextArea",
-      type: formType.Primitive, //
+      type: formType.Primitive,
       i18n: true,
       rules: {
         required: true,
@@ -137,7 +137,7 @@ const configDefault: FellowshipDetailsForm = {
     researchSupport: {
       label: "researchSupport",
       component: "TextArea",
-      type: formType.Primitive, //
+      type: formType.Primitive,
       i18n: true,
       rules: {
         required: true,

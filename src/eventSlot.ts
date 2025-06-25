@@ -19,7 +19,7 @@ const defautConfig: EventSlotForm = {
     email: {
       label: "email",
       component: "TextField",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -30,7 +30,7 @@ const defautConfig: EventSlotForm = {
     firstname: {
       label: "firstname",
       component: "TextField",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -42,7 +42,7 @@ const defautConfig: EventSlotForm = {
     lastname: {
       label: "lastname",
       component: "TextField",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -54,7 +54,7 @@ const defautConfig: EventSlotForm = {
     institution: {
       label: "institution",
       component: "TextField",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: false,
@@ -64,7 +64,7 @@ const defautConfig: EventSlotForm = {
     lang: {
       label: "lang",
       component: "ListSelect",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,

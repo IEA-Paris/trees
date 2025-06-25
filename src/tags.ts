@@ -73,7 +73,7 @@ const defaultConfig: Model = {
     name: {
       label: "name",
       component: "TextField",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -85,7 +85,7 @@ const defaultConfig: Model = {
     description: {
       label: "description",
       component: "TextArea",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,

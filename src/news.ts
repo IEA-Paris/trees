@@ -136,7 +136,7 @@ const defaultConfig: Model = {
       label: "description",
       component: "TextArea",
       i18n: true,
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -148,7 +148,7 @@ const defaultConfig: Model = {
     image: {
       label: "image",
       component: "ImagePicker",
-      type: formType.Document, //
+      type: formType.Document,
 
       rules: {
         required: true,
@@ -158,7 +158,7 @@ const defaultConfig: Model = {
     color: {
       label: "color",
       component: "ColorPicker",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -169,7 +169,7 @@ const defaultConfig: Model = {
     url: {
       label: "url",
       component: "TextField",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -180,7 +180,7 @@ const defaultConfig: Model = {
     files: {
       label: "files",
       component: "FilePicker",
-      type: formType.Document, //
+      type: formType.Document,
 
       rules: {
         required: true,
@@ -197,7 +197,7 @@ const defaultConfig: Model = {
     date: {
       label: "date",
       component: "DatePicker",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -208,7 +208,7 @@ const defaultConfig: Model = {
     featured: {
       label: "featured",
       component: "DatePicker",
-      type: formType.Primitive, //
+      type: formType.Primitive,
       rules: {
         required: true,
         date: true,
@@ -218,7 +218,7 @@ const defaultConfig: Model = {
     tags: {
       label: "tags",
       component: "TagPicker",
-      type: formType.Document, //
+      type: formType.Document,
       rules: {
         required: true,
         min: 1,
@@ -228,7 +228,7 @@ const defaultConfig: Model = {
     related: {
       label: "related",
       component: "ObjectContainerPanel",
-      type: formType.Template, //
+      type: formType.Template,
       rules: {
         required: true,
         min: 5,

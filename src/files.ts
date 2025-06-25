@@ -79,7 +79,7 @@ const defautConfig: Model = {
     name: {
       label: "name",
       component: "TextField",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -91,7 +91,7 @@ const defautConfig: Model = {
     file: {
       label: "file",
       component: "TextField",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,

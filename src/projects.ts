@@ -155,7 +155,7 @@ const defaultConfig: Model = {
     status: {
       label: "status",
       component: "Select",
-      type: formType.Primitive, //
+      type: formType.Primitive,
       rules: {
         required: true,
       },
@@ -165,13 +165,13 @@ const defaultConfig: Model = {
     affiliations: {
       label: "affiliations",
       component: "AffiliationPicker",
-      type: formType.Document, //
+      type: formType.Document,
       meta: "affiliations",
     },
     related: {
       label: "related",
       component: "ObjectContainerPanel",
-      type: formType.Template, //
+      type: formType.Template,
 
       rules: {
         required: true,
@@ -183,7 +183,7 @@ const defaultConfig: Model = {
     image: {
       label: "image",
       component: "ImagePicker",
-      type: formType.Document, //
+      type: formType.Document,
       rules: {
         required: true,
         min: 5,
@@ -201,14 +201,14 @@ const defaultConfig: Model = {
     video: {
       label: "video",
       component: "ObjectContainerPanel",
-      type: formType.Template, //
+      type: formType.Template,
 
       meta: "video",
     },
     tags: {
       label: "tags",
       component: "TagPicker",
-      type: formType.Document, //
+      type: formType.Document,
       rules: {
         required: true,
       },
@@ -217,13 +217,13 @@ const defaultConfig: Model = {
     files: {
       label: "files",
       component: "FilePicker",
-      type: formType.Document, //
+      type: formType.Document,
       meta: "files",
     },
     color: {
       label: "color",
       component: "ColorPicker",
-      type: formType.Primitive, //
+      type: formType.Primitive,
       rules: {
         required: true,
         color: true,
@@ -233,7 +233,7 @@ const defaultConfig: Model = {
     date: {
       label: "date",
       component: "FiDatePicker",
-      type: formType.Primitive, //
+      type: formType.Primitive,
       rules: {
         required: true,
         date: true,
@@ -243,7 +243,7 @@ const defaultConfig: Model = {
     featured: {
       label: "featured",
       component: "DatePicker",
-      type: formType.Primitive, //
+      type: formType.Primitive,
       rules: {
         required: true,
         date: true,

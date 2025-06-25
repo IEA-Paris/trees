@@ -71,7 +71,7 @@ const configDefault: Model = {
     name: {
       label: "name",
       component: "TextField",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -83,7 +83,7 @@ const configDefault: Model = {
     description: {
       label: "description",
       component: "TextField",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -96,7 +96,7 @@ const configDefault: Model = {
     /*     icon: {
       label: "icon",
       component: "TextField",
-      type: formType.Primitive, //
+      type: formType.Primitive, 
       rules: {
         required: true,
         min: 5,

@@ -122,7 +122,7 @@ const defaultConfig: Model = {
     video: {
       label: "video",
       component: "TextField",
-      type: formType.Document, //
+      type: formType.Document,
       rules: {
         required: false,
         url: true,
@@ -132,7 +132,7 @@ const defaultConfig: Model = {
     slots: {
       label: "slots",
       component: "TextField",
-      type: formType.Primitive, //
+      type: formType.Primitive,
       rules: {
         required: true,
         min: 5,

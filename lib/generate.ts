@@ -99,6 +99,7 @@ const completeSchema = (
             // Remove the template from visited set after processing
             visitedTemplates.delete(key)
           }
+          break
         default:
           console.log("missing type in form builder for key: ", key)
           break

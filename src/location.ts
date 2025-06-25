@@ -23,7 +23,7 @@ const defaultConfig: LocationForm = {
     name: {
       label: "name",
       component: "TextField",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -35,7 +35,7 @@ const defaultConfig: LocationForm = {
     details: {
       label: "details",
       component: "TextArea",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -47,7 +47,7 @@ const defaultConfig: LocationForm = {
     alt: {
       label: "alt",
       component: "TextArea",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -59,7 +59,7 @@ const defaultConfig: LocationForm = {
     street: {
       label: "street",
       component: "TextField",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -70,7 +70,7 @@ const defaultConfig: LocationForm = {
     city: {
       label: "city",
       component: "TextField",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -81,14 +81,14 @@ const defaultConfig: LocationForm = {
     country: {
       label: "country",
       component: "AutoComplete",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       meta: "country",
     },
     zip: {
       label: "zip",
       component: "TextField",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -100,7 +100,7 @@ const defaultConfig: LocationForm = {
     geocode: {
       label: "geocode",
       component: "LocationPicker",
-      type: formType.Object, //
+      type: formType.Object,
 
       rules: {
         required: true,
@@ -111,7 +111,7 @@ const defaultConfig: LocationForm = {
         lat: {
           label: "latitude",
           component: "TextField",
-          type: formType.Primitive, //
+          type: formType.Primitive,
 
           hint: false,
           rules: {
@@ -124,7 +124,7 @@ const defaultConfig: LocationForm = {
         lng: {
           label: "longitude",
           component: "TextField",
-          type: formType.Primitive, //
+          type: formType.Primitive,
 
           hint: false,
           rules: {

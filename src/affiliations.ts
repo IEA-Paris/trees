@@ -73,7 +73,7 @@ const defaultConfig: Model = {
     name: {
       label: "name",
       component: "TextField",
-      type: formType.Primitive, //
+      type: formType.Primitive,
       i18n: true,
       rules: {
         required: true,
@@ -86,20 +86,20 @@ const defaultConfig: Model = {
     image: {
       label: "image",
       component: "ImagePicker",
-      type: formType.Document, //
+      type: formType.Document,
 
       meta: "image",
     },
     location: {
       label: "location",
       component: "ObjectContainerPanel",
-      type: formType.Template, //
+      type: formType.Template,
       meta: "location",
     },
     ror: {
       label: "ror",
       component: "TextField", // TODO, ROR picker
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
@@ -110,7 +110,7 @@ const defaultConfig: Model = {
     url: {
       label: "url",
       component: "TextField",
-      type: formType.Primitive, //
+      type: formType.Primitive,
 
       rules: {
         required: true,
