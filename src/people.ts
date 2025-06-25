@@ -157,35 +157,35 @@ const defaultConfig: Model = {
           label: "affiliation",
           component: "ObjectContainerPanel",
           type: formType.Document,
-          items: {
-            affiliation: {
-              label: "affiliation",
-              component: "AffiliationPicker",
-              type: formType.Document,
-
-              rules: {
-                required: false,
-              },
-              meta: "affiliation",
-            },
-            positions: {
-              label: "positions",
-              component: "ObjectContainerPanel",
-              type: formType.Array,
-              items: [
-                {
-                  label: "position",
-                  component: "PositionPicker",
-                  type: formType.Array,
-
-                  rules: {
-                    required: false,
-                  },
-                  meta: "positions",
+          items: [
+            {
+              affiliation: {
+                label: "affiliation",
+                component: "AffiliationPicker",
+                type: formType.Document,
+                rules: {
+                  required: false,
                 },
-              ],
+                meta: "affiliation",
+              },
+              positions: {
+                label: "positions",
+                component: "ObjectContainerPanel",
+                type: formType.Array,
+                items: [
+                  {
+                    label: "position",
+                    component: "ObjectContainerPanel",
+                    type: formType.Template,
+                    rules: {
+                      required: false,
+                    },
+                    meta: "positions",
+                  },
+                ],
+              },
             },
-          },
+          ],
         },
       ],
       meta: "affiliations",
