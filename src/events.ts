@@ -450,14 +450,13 @@ const defaultConfig: Model = {
         min: 5,
         max: 200,
       },
-      items: [
-        {
-          label: "organizer",
-          component: "DocumentPicker",
-          type: formType.Document,
-          meta: "organizers",
-        },
-      ],
+      items: {
+        label: "organizer",
+        component: "DocumentPicker",
+        type: formType.Document,
+        meta: "organizers",
+      },
+
       meta: "organizers",
     },
     organizerState: {

@@ -265,14 +265,13 @@ const defaultConfig: Model = {
         min: 5,
         max: 200,
       },
-      items: [
-        {
-          label: "fellow",
-          component: "DocumentPicker",
-          type: formType.Document,
-          meta: "fellow",
-        },
-      ],
+      items: {
+        label: "fellow",
+        component: "DocumentPicker",
+        type: formType.Document,
+        meta: "fellow",
+      },
+
       meta: "fellows",
     },
     gallery: {

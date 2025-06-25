@@ -62,7 +62,7 @@ const completeSchema = (
           completedSchema[key] = {
             ...schema[key],
             items: completeSchema(
-              { [key]: schema[key].items[0] } as Record<string, Form>,
+              schema[key].items as Record<string, Form>,
               visitedTemplates
             ),
           }
