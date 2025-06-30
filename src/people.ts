@@ -107,11 +107,12 @@ const defaultConfig: Model = {
     },
     views: {
       rows: {
+        name: "rows",
         icon: "view-list",
-        default: true,
       },
       dense: {
         name: "dense",
+        default: true,
         icon: "land-rows-horizontal",
       },
       /*     expanded: {
