@@ -142,6 +142,9 @@ const createModule = (type: string): any => {
       return baseType.list.sort[item].default === true
     })
 
+  const defaultPerPage = defaultView?.perPage?.default
+  const perPageOptions = defaultView?.perPage?.options
+
   const defaultSort: Sort | undefined =
     defaultSortKey !== undefined
       ? baseType?.list.sort[defaultSortKey]
@@ -296,12 +299,12 @@ const createModule = (type: string): any => {
     schema: defaultState,
   }
   const listModule = {
-    items: [{}, {}, {}, {}, {}, {}, {}, {}, {}],
-    ...(baseType?.list?.perPage?.default && {
-      itemsPerPage: baseType.list?.perPage.default,
+    items: Array(defaultPerPage || 9).fill({}),
+    ...(defaultPerPage && {
+      itemsPerPage: defaultPerPage,
     }),
-    ...(baseType?.list?.perPage?.options && {
-      itemsPerPageArray: baseType.list?.perPage.options,
+    ...(perPageOptions && {
+      itemsPerPageArray: perPageOptions,
     }),
     filtersCount: 0,
     ...(baseType?.list?.views && {
@@ -312,12 +315,13 @@ const createModule = (type: string): any => {
     }),
     view: defaultView,
     filters: baseType?.list?.filters,
-    ...(baseType?.list?.perPage?.default && {
-      limit: baseType.list?.perPage.default,
+    ...(defaultPerPage && {
+      limit: defaultPerPage,
     }),
     sortBy: defaultSort && [defaultSort.value[0]],
     sortDesc: defaultSort && [defaultSort.value[1]],
   }
+
   const module = {
     source: baseType?.source,
     form: formModule,
