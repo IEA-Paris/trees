@@ -29,10 +29,6 @@ const defautConfig: Model = {
   path: "content/article", // path to the folder where the content is stored
   type: "directory", // 'directory' | 'file
   list: {
-    perPage: {
-      options: [9, 12, 16],
-      default: 9,
-    },
     create: true, // allow to create new items
     filters: {
       year: {
@@ -72,7 +68,19 @@ const defautConfig: Model = {
       rows: {
         name: "rows",
         icon: "view-list",
+        perPage: {
+          options: [9, 12, 16],
+          default: 9,
+        },
+      },
+      dense: {
         default: true,
+        name: "dense",
+        icon: "land-rows-horizontal",
+        perPage: {
+          options: [20, 60, 80],
+          default: 20,
+        },
       },
       tiles: {
         name: "tiles",

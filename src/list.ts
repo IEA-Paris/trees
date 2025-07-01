@@ -22,11 +22,12 @@ export interface Views {
   icon: string
   default?: boolean
   name?: string
+  perPage?: PerPage
 }
 
 export interface List {
   create: boolean
-  perPage: PerPage
+  // perPage: PerPage
   filters: Record<string, Filters>
   sort: Record<string, Sort>
   views: Record<string, Views>

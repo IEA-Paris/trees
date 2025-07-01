@@ -32,10 +32,7 @@ const defaultConfig: Model = {
   path: "", // path to the folder where the content is stored
   list: {
     create: true, // allow to create new items
-    perPage: {
-      options: [9, 12, 16],
-      default: 9,
-    },
+
     filters: {
       groups: {
         type: "Select",
@@ -109,11 +106,19 @@ const defaultConfig: Model = {
       rows: {
         name: "rows",
         icon: "view-list",
+        perPage: {
+          options: [9, 12, 16],
+          default: 9,
+        },
       },
       dense: {
-        name: "dense",
         default: true,
+        name: "dense",
         icon: "land-rows-horizontal",
+        perPage: {
+          options: [20, 60, 80],
+          default: 20,
+        },
       },
       /*     expanded: {
         name: "expanded",

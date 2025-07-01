@@ -15,10 +15,7 @@ const configDefault: Model = {
   path: null, // path to the folder where the content is stored
   list: {
     create: true, // allow to create new items
-    perPage: {
-      options: [9, 12, 16],
-      default: 9,
-    },
+
     filters: {
       year: {
         type: "Select",
@@ -54,8 +51,21 @@ const configDefault: Model = {
     },
     views: {
       rows: {
+        name: "rows",
         icon: "view-list",
+        perPage: {
+          options: [9, 12, 16],
+          default: 9,
+        },
+      },
+      dense: {
         default: true,
+        name: "dense",
+        icon: "land-rows-horizontal",
+        perPage: {
+          options: [20, 60, 80],
+          default: 20,
+        },
       },
       tiles: {
         name: "tiles",
