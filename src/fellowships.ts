@@ -117,11 +117,11 @@ const defaultConfig: Model = {
           options: [20, 60, 80],
           default: 20,
         },
-      },
+      } /* /* 
       expanded: {
         name: "expanded",
         icon: "arrow-expand-vertical",
-      },
+      }, */,
     },
   },
   form: {
