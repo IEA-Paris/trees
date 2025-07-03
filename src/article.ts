@@ -78,7 +78,7 @@ const defautConfig: Model = {
         name: "dense",
         icon: "land-rows-horizontal",
         perPage: {
-          options: [20, 60, 80],
+          options: [20, 40, 60, 80, 100],
           default: 20,
         },
       },
