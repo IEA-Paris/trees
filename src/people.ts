@@ -37,7 +37,7 @@ const defaultConfig: Model = {
       groups: {
         type: "Select",
       },
-      vintage: {
+      "groups.vintage": {
         type: "Select",
         visibility: {
           default: false, // same as hidden = true
