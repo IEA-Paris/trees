@@ -172,7 +172,7 @@ const defaultConfig: Model = {
     },
     socials: {
       label: "socials",
-      component: "ObjectContainerPanel",
+      component: "ObjectKeyPairContainer",
       type: formType.Template,
 
       meta: "socials",
