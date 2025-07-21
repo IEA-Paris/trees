@@ -87,9 +87,15 @@ const completeSchema = (
           // Add current template to visited set
           visitedTemplates.add(key)
           try {
+            // Determine the actual type based on component type
+            const component = schema[key].component
+            const isObjectComponent = typeof component === 'string' && component.startsWith("Object")
+            const actualType = isObjectComponent ? formType.Object : formType.Array
+            
             completedSchema[key] = {
               ...schema[key],
-              items: schema[key].component.startsWith("Object")
+              type: actualType, // Replace Template type with actual type
+              items: isObjectComponent
                 ? completeSchema(configData[key].form ?? {}, visitedTemplates)
                 : [
                     completeSchema(
