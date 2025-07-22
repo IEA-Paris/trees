@@ -47,6 +47,43 @@ const defaultConfig: SocialsForm = {
       },
       meta: "orcid", // item type on schema.org
     },
+
+    scholar: {
+      label: "scholar",
+      type: formType.Primitive,
+      component: "TextField",
+      rules: {
+        url: true,
+      },
+      meta: "scholar", // item type on schema.org
+    },
+    researchgate: {
+      label: "researchgate",
+      type: formType.Primitive,
+      component: "TextField",
+      rules: {
+        url: true,
+      },
+      meta: "researchgate", // item type on schema.org
+    },
+    mendeley: {
+      label: "mendeley",
+      type: formType.Primitive,
+      component: "TextField",
+      rules: {
+        url: true,
+      },
+      meta: "mendeley", // item type on schema.org
+    },
+    idRef: {
+      label: "idRef",
+      type: formType.Primitive,
+      component: "TextField",
+      rules: {
+        url: true,
+      },
+      meta: "idRef", // item type on schema.org
+    },
     twitter: {
       label: "twitter",
       type: formType.Primitive,
@@ -83,41 +120,14 @@ const defaultConfig: SocialsForm = {
       },
       meta: "instagram", // item type on schema.org
     },
-    scholar: {
-      label: "scholar",
+    youtube: {
+      label: "youtube",
       type: formType.Primitive,
       component: "TextField",
       rules: {
         url: true,
       },
-      meta: "scholar", // item type on schema.org
-    },
-    researchgate: {
-      label: "researchgate",
-      type: formType.Primitive,
-      component: "TextField",
-      rules: {
-        url: true,
-      },
-      meta: "researchgate", // item type on schema.org
-    },
-    mendeley: {
-      label: "mendeley",
-      type: formType.Primitive,
-      component: "TextField",
-      rules: {
-        url: true,
-      },
-      meta: "mendeley", // item type on schema.org
-    },
-    idRef: {
-      label: "idRef",
-      type: formType.Primitive,
-      component: "TextField",
-      rules: {
-        url: true,
-      },
-      meta: "idRef", // item type on schema.org
+      meta: "youtube", // item type on schema.org
     },
   },
 }

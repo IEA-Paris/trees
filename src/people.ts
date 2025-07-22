@@ -150,6 +150,30 @@ const defaultConfig: Model = {
       },
       meta: "lastname", // item type on schema.org
     },
+    summary: {
+      label: "summary",
+      component: "TextArea",
+      i18n: true,
+      type: formType.Primitive,
+      rules: {
+        required: true,
+        min: 5,
+        max: 500,
+      },
+      meta: "biography",
+    },
+    biography: {
+      label: "biography",
+      component: "TextArea",
+      i18n: true,
+      type: formType.Primitive,
+      rules: {
+        required: true,
+        min: 5,
+        max: 2000,
+      },
+      meta: "biography",
+    },
     affiliations: {
       label: "affiliations",
       component: "CollectionContainerPanel",
@@ -191,18 +215,7 @@ const defaultConfig: Model = {
 
       meta: "video",
     },
-    biography: {
-      label: "biography",
-      component: "TextArea",
-      i18n: true,
-      type: formType.Primitive,
-      rules: {
-        required: true,
-        min: 5,
-        max: 2000,
-      },
-      meta: "biography",
-    },
+
     related: {
       label: "related",
       component: "ObjectContainerPanel",
