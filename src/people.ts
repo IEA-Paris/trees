@@ -162,22 +162,16 @@ const defaultConfig: Model = {
       },
       meta: "biography",
     },
-    biography: {
-      label: "biography",
-      component: "TextArea",
-      i18n: true,
-      type: formType.Primitive,
-      rules: {
-        required: true,
-        min: 5,
-        max: 2000,
-      },
-      meta: "biography",
+    image: {
+      label: "image",
+      component: "ImagePicker",
+      type: formType.Document,
+      meta: "image",
     },
     affiliations: {
       label: "affiliations",
       component: "CollectionContainerPanel",
-      type: formType.Array,
+      type: formType.Array, 
       items: {
         experience: {
           label: "experience",
@@ -188,12 +182,7 @@ const defaultConfig: Model = {
       },
       meta: "affiliations",
     },
-    image: {
-      label: "image",
-      component: "ImagePicker",
-      type: formType.Document,
-      meta: "image",
-    },
+
     socials: {
       label: "socials",
       component: "ObjectKeyPairContainer",
