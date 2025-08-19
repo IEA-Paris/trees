@@ -19,6 +19,38 @@ interface List {
   sortDesc?: Sort | number[] | string[] | string | undefined
 }
 
+const buildInitialValues = (
+  schema: Record<string, any>
+): Record<string, any> => {
+  const result: Record<string, any> = {}
+  for (const [key, field] of Object.entries(schema || {})) {
+    switch (field.type) {
+      case "PRIMITIVE": {
+        if ("default" in field) result[key] = field.default
+        else if (field.component === "Checkbox") result[key] = false
+        else result[key] = ""
+        break
+      }
+      case "DOCUMENT": {
+        result[key] = "default" in field ? field.default : ""
+        break
+      }
+      case "OBJECT": {
+        result[key] = buildInitialValues(field.items || {})
+        break
+      }
+      case "ARRAY": {
+        result[key] = []
+        break
+      }
+      default: {
+        result[key] = null
+      }
+    }
+  }
+  return result
+}
+
 /**
  * Custom form interface for generated modules
  */
@@ -388,6 +420,7 @@ const createModule = (type: string): void => {
     const formModule = {
       _defaults: defaultForm,
       schema: defaultState,
+      values: buildInitialValues(defaultState),
     }
     const listModule = {
       items: Array(defaultPerPage || 9).fill({}),
