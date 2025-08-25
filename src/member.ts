@@ -1,4 +1,4 @@
-import config, { Affiliation } from "./affiliations"
+import config, { Affiliation } from "./affiliation"
 import Model from "./model"
 
 export interface Member extends Affiliation {}

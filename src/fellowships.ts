@@ -1,5 +1,5 @@
 import { Image } from "./image"
-import { Affiliation } from "./affiliations"
+import { Affiliation } from "./affiliation"
 import { FellowshipDetails } from "./fellowshipDetails"
 import { File } from "./files"
 import Model from "./model"

@@ -3,8 +3,8 @@ import Model from "./model"
 import { Sort, Views } from "./list"
 import { Form, formType } from "./form"
 import defaultConfigAction from "./action"
-import defaultConfigAffliation from "./affiliations"
-import defaultConfigExperience, { ExperienceForm } from "./experience"
+import defaultConfigAffliation from "./affiliation"
+import defaultConfigAffiliations, { AffiliationsForm } from "./affiliations"
 import defautConfigApp from "./apps"
 import defaultConfigArticle from "./article"
 import defaultConfigConsent, { ConsentForm } from "./consent"
@@ -41,7 +41,7 @@ import defaultConfigVintage from "./vintage"
 import defaultConfigUsers from "./users"
 type ConfigValue =
   | Model
-  | ExperienceForm
+  | AffiliationsForm
   | ConsentForm
   | EventSlotForm
   | FellowshipDetailsForm
@@ -50,10 +50,10 @@ type ConfigValue =
   | PositionForm
   | SocialsForm
 
-const configData: Record<string, ConfigValue> = {
+const templates: Record<string, ConfigValue> = {
   action: defaultConfigAction,
-  experience: defaultConfigExperience,
-  affiliations: defaultConfigAffliation,
+  affiliations: defaultConfigAffiliations,
+  affiliation: defaultConfigAffliation,
   apps: defautConfigApp,
   article: defaultConfigArticle,
   consent: defaultConfigConsent,
@@ -88,6 +88,6 @@ const configData: Record<string, ConfigValue> = {
   vintage: defaultConfigVintage,
 }
 
-export { configData }
+export { templates }
 
 export type { Form, Sort, Views, ConfigValue, Model, ModuleType, formType }

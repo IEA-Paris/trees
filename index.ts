@@ -23,7 +23,7 @@ import formApps from "./dist/form/apps"
 import formAffiliations from "./dist/form/affiliations"
 import apps from "./dist/apps"
 import {
-  configData,
+  templates,
   ConfigValue,
   Form,
   Model,
@@ -34,7 +34,7 @@ import {
 } from "./src"
 
 export {
-  configData,
+  templates,
   apps,
   events,
   news,

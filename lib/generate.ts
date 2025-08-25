@@ -1,4 +1,4 @@
-import { configData, Form, Model, Sort, Views } from "../src/index.ts"
+import { templates, Form, Model, Sort, Views } from "../src/index.ts"
 import { createJsonFile } from "./utils.ts"
 import { formType } from "../src/form.ts"
 
@@ -25,26 +25,37 @@ const buildInitialValues = (
   const result: Record<string, any> = {}
   for (const [key, field] of Object.entries(schema || {})) {
     switch (field.type) {
-      case "PRIMITIVE": {
+      case formType.Primitive: {
         if ("default" in field) result[key] = field.default
         else if (field.component === "Checkbox") result[key] = false
         else result[key] = ""
         break
       }
-      case "DOCUMENT": {
+      case formType.Document: {
         result[key] = "default" in field ? field.default : ""
         break
       }
-      case "OBJECT": {
+      case formType.Object: {
         result[key] = buildInitialValues(field.items || {})
         break
       }
-      case "ARRAY": {
-        result[key] = []
+      case formType.Array: {
+        /*     if (key === "affiliations") {
+          console.log("key: ", key)
+          console.log("key: ", schema[key])
+          console.log("field.items : ", field.items)
+        } */
+        result[key] =
+          field &&
+          field.items &&
+          field.items.map((el: any) => buildInitialValues(el))
         break
       }
       default: {
-        result[key] = null
+        result[key] =
+          field &&
+          field.items &&
+          field.items.map((el: any) => buildInitialValues(el))
       }
     }
   }
@@ -151,31 +162,35 @@ const completeSchema = (
               const component = schema[key].component
               const isObjectComponent =
                 typeof component === "string" && component.startsWith("Object")
-              const actualType = isObjectComponent
+              const componentType = isObjectComponent
                 ? formType.Object
                 : formType.Array
 
-              if (!configData[key]) {
+              if (!templates[key]) {
                 const error: GenerationError = {
                   type: "MISSING_TEMPLATE",
-                  message: `Template '${key}' not found in configData`,
+                  message: `Template '${key}' not found in templates`,
                   context: { key, template: key },
                 }
                 console.error(`❌ ${error.message}`)
                 completedSchema[key] = { ...schema[key], items: {} }
                 continue
               }
-
+              if (key === "affiliations") {
+                console.log("debug", templates[key].form)
+              }
               completedSchema[key] = {
                 ...schema[key],
-                type: actualType,
+                type: componentType,
                 items: isObjectComponent
-                  ? completeSchema(configData[key].form ?? {}, visitedTemplates)
+                  ? completeSchema(templates[key].form ?? {}, visitedTemplates)
                   : [
-                      completeSchema(
-                        configData[key].form ?? {},
-                        visitedTemplates
-                      ),
+                      {
+                        ...completeSchema(
+                          templates[key].form ?? {},
+                          visitedTemplates
+                        ),
+                      },
                     ],
               }
             } finally {
@@ -220,7 +235,7 @@ const createModule = (type: string): void => {
   console.log(`\n🔨 Creating module for: ${type.toUpperCase()}`)
 
   try {
-    const baseType = configData[type] as Model
+    const baseType = templates[type] as Model
 
     if (!baseType) {
       console.error(`❌ No configuration found for type: ${type}`)
@@ -281,7 +296,7 @@ const createModule = (type: string): void => {
       let aliasTemplatesForms: Record<string, Form> = {}
 
       aliases.map((alias) => {
-        const aliasTemplate = configData[alias]
+        const aliasTemplate = templates[alias]
         aliasTemplatesForms = {
           ...aliasTemplatesForms,
           ...aliasTemplate.form,
@@ -304,7 +319,7 @@ const createModule = (type: string): void => {
       // Add current template to visited set
       visitedTemplates.add(key)
 
-      const template = configData[key] as Model
+      const template = templates[key] as Model
       try {
         // is it an implementation of another template?
         if (template?.aliases?.length) {
@@ -469,7 +484,7 @@ const typeName = [
   "news",
   "people",
   "publications",
-  "affiliations",
+  "affiliation",
   "disciplines",
   "mailing",
   "files",
