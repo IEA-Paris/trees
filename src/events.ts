@@ -450,17 +450,11 @@ const defaultConfig: Model = {
     organizers: {
       label: "organizers",
       component: "CollectionContainerPanel",
-      type: formType.Array,
+      type: formType.Template,
       rules: {
         required: true,
         min: 5,
         max: 200,
-      },
-      items: {
-        label: "organizer",
-        component: "DocumentPicker",
-        type: formType.Document,
-        meta: "organizers",
       },
 
       meta: "organizers",

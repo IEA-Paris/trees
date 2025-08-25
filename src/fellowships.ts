@@ -265,17 +265,11 @@ const defaultConfig: Model = {
     fellows: {
       label: "fellows",
       component: "CollectionContainerPanel",
-      type: formType.Array,
+      type: formType.Template,
       rules: {
         required: true,
         min: 5,
         max: 200,
-      },
-      items: {
-        label: "fellow",
-        component: "DocumentPicker",
-        type: formType.Document,
-        meta: "fellow",
       },
 
       meta: "fellows",
