@@ -55,7 +55,6 @@ const buildInitialValues = (
  * Custom form interface for generated modules
  */
 interface CustomForm {
-  values: Record<string, Form>
   _defaults: Record<string, Form> | string
   schema: Record<string, Form>
 }
@@ -416,11 +415,9 @@ const createModule = (type: string): void => {
       }
     }
 
-    const defaultForm = buildForm(defaultState)
     const formModule = {
-      _defaults: defaultForm,
+      _defaults: buildInitialValues(defaultState),
       schema: defaultState,
-      values: buildInitialValues(defaultState),
     }
     const listModule = {
       items: Array(defaultPerPage || 9).fill({}),
