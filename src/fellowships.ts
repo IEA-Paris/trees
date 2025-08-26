@@ -130,7 +130,6 @@ const defaultConfig: Model = {
       component: "TextField",
       i18n: true,
       type: formType.Primitive,
-
       rules: {
         required: true,
         min: 5,
@@ -143,7 +142,6 @@ const defaultConfig: Model = {
       component: "TextField",
       i18n: true,
       type: formType.Primitive,
-
       rules: {
         required: true,
         min: 5,
@@ -155,7 +153,6 @@ const defaultConfig: Model = {
       label: "summary",
       component: "TextArea",
       type: formType.Primitive,
-
       i18n: true,
       rules: {
         required: true,
@@ -168,13 +165,12 @@ const defaultConfig: Model = {
       label: "action",
       component: "TextField",
       type: formType.Primitive,
-
       rules: {
         required: true,
       },
       meta: "action", // item type on schema.org
     },
-    affiliations: {
+    affiliation: {
       label: "affiliations",
       component: "AffiliationPicker",
       type: formType.Document,
@@ -187,7 +183,6 @@ const defaultConfig: Model = {
       label: "applicationStart",
       component: "DatePicker", //TODO
       type: formType.Primitive,
-
       rules: {
         required: true,
         date: true,
@@ -198,7 +193,6 @@ const defaultConfig: Model = {
       label: "fellowshipStart",
       component: "DatePicker", //TODO
       type: formType.Primitive,
-
       rules: {
         required: true,
         date: true,
@@ -209,7 +203,6 @@ const defaultConfig: Model = {
       label: "contact",
       component: "TextField",
       type: formType.Primitive,
-
       rules: {
         required: true,
         email: true,
@@ -220,7 +213,6 @@ const defaultConfig: Model = {
       label: "description",
       component: "TextArea",
       type: formType.Primitive,
-
       i18n: true,
       rules: {
         required: true,
@@ -244,7 +236,6 @@ const defaultConfig: Model = {
       label: "fellowshipType",
       component: "Select",
       type: formType.Primitive,
-
       rules: {
         required: true,
         min: 5,
@@ -271,7 +262,6 @@ const defaultConfig: Model = {
         min: 5,
         max: 200,
       },
-
       meta: "fellows",
     },
     gallery: {
@@ -285,7 +275,6 @@ const defaultConfig: Model = {
       label: "url",
       component: "TextField",
       type: formType.Primitive,
-
       rules: {
         required: true,
         url: true,
@@ -296,7 +285,6 @@ const defaultConfig: Model = {
       label: "fellowshipStop",
       component: "DatePicker",
       type: formType.Primitive,
-
       rules: {
         required: true,
         date: true,
@@ -307,7 +295,6 @@ const defaultConfig: Model = {
       label: "applicationStop",
       component: "DatePicker",
       type: formType.Primitive,
-
       rules: {
         required: true,
         date: true,
@@ -318,7 +305,6 @@ const defaultConfig: Model = {
       label: "image",
       component: "ImagePicker",
       type: formType.Document,
-
       rules: {
         required: true,
       },
@@ -328,7 +314,6 @@ const defaultConfig: Model = {
       label: "publicationDate",
       component: "DatePicker",
       type: formType.Primitive,
-
       rules: {
         required: true,
         date: true,
@@ -340,9 +325,6 @@ const defaultConfig: Model = {
       label: "files",
       component: "FilePicker",
       type: formType.Document,
-      rules: {
-        required: true,
-      },
       meta: "files",
     },
 
@@ -350,10 +332,6 @@ const defaultConfig: Model = {
       label: "video",
       component: "CollectionContainerPanel",
       type: formType.Template,
-
-      rules: {
-        required: true,
-      },
       meta: "video",
     },
   },

@@ -1,16 +1,16 @@
 import { Form } from "./form"
 import { formType } from "./form"
 
-export interface Affiliations {
+export interface Experiences {
   affiliation: any // Document reference
   positions: any[] // Array of Position templates
 }
 
-export interface AffiliationsForm {
+export interface ExperiencesForm {
   form: Record<string, Form>
 }
 
-const defaultConfig: AffiliationsForm = {
+const defaultConfig: ExperiencesForm = {
   form: {
     affiliation: {
       label: "affiliation",
@@ -18,7 +18,7 @@ const defaultConfig: AffiliationsForm = {
       type: formType.Document,
       meta: "affiliation",
     },
-    position: {
+    positions: {
       label: "positions",
       component: "CollectionContainerPanel",
       type: formType.Template,

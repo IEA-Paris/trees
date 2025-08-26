@@ -3,8 +3,8 @@ import Model from "./model"
 import { Sort, Views } from "./list"
 import { Form, formType } from "./form"
 import defaultConfigAction from "./action"
-import defaultConfigAffliation from "./affiliation"
-import defaultConfigAffiliations, { AffiliationsForm } from "./affiliations"
+import defaultConfigAffilation from "./affiliation"
+import defaultConfigExperiences, { ExperiencesForm } from "./experiences"
 import defautConfigApp from "./apps"
 import defaultConfigArticle from "./article"
 import defaultConfigConsent, { ConsentForm } from "./consent"
@@ -41,7 +41,7 @@ import defaultConfigVintage from "./vintage"
 import defaultConfigUsers from "./users"
 type ConfigValue =
   | Model
-  | AffiliationsForm
+  | ExperiencesForm
   | ConsentForm
   | EventSlotForm
   | FellowshipDetailsForm
@@ -52,8 +52,8 @@ type ConfigValue =
 
 const templates: Record<string, ConfigValue> = {
   action: defaultConfigAction,
-  affiliations: defaultConfigAffiliations,
-  affiliation: defaultConfigAffliation,
+  workExperience: defaultConfigExperiences,
+  affiliation: defaultConfigAffilation,
   apps: defautConfigApp,
   article: defaultConfigArticle,
   consent: defaultConfigConsent,
@@ -61,6 +61,7 @@ const templates: Record<string, ConfigValue> = {
   discussants: defaultConfigDiscussants,
   events: defaultConfigEvents,
   eventSlot: defaultConfigEventSlot,
+  experiences: defaultConfigExperiences,
   fellows: defaultConfigFellows,
   fellowships: defaultConfigFellowship,
   fellowshipDetails: defaultConfigFellowshipDetails,
@@ -75,7 +76,7 @@ const templates: Record<string, ConfigValue> = {
   organizers: defaultConfigOrganizers,
   partner: defaultConfigPartner,
   people: defaultConfigPeople,
-  position: defaultConfigPosition,
+  positions: defaultConfigPosition,
   projects: defaultConfigProject,
   publications: defaultConfigPublications,
   related: defaultConfigRelated,

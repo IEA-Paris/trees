@@ -1,4 +1,4 @@
-import { Affiliations } from "./affiliations"
+import { Experiences } from "./experiences"
 import { Image } from "./image"
 import { Socials } from "./socials"
 import { Position } from "./position"
@@ -14,7 +14,7 @@ export interface People {
   name: string
   firstname: string
   lastname: string
-  affiliations?: Affiliations[]
+  experiences?: Experiences[]
   image?: Image
   socials?: Socials
   biography?: string
@@ -168,11 +168,11 @@ const defaultConfig: Model = {
       type: formType.Document,
       meta: "image",
     },
-    affiliations: {
-      label: "affiliations",
+    experiences: {
+      label: "experiences",
       component: "CollectionContainerPanel",
       type: formType.Template,
-      meta: "affiliations",
+      meta: "experiences",
     },
 
     socials: {

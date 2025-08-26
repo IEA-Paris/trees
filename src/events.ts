@@ -319,7 +319,7 @@ const defaultConfig: Model = {
       },
       meta: "program",
     },
-    affiliations: {
+    affiliation: {
       label: "affiliations",
       component: "AffiliationPicker",
       type: formType.Document,
