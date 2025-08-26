@@ -12,6 +12,8 @@ export interface ExperiencesForm {
 
 const defaultConfig: ExperiencesForm = {
   form: {
+    type: formType.Object,
+    component: "ObjectContainerPanel",
     affiliation: {
       label: "affiliation",
       component: "AffiliationPicker",

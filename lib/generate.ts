@@ -40,7 +40,7 @@ const buildInitialValues = (
         break
       }
       case formType.Array: {
-        /*     if (key === "workExperience") {
+        /*     if (key === "affiliations") {
           console.log("key: ", key)
           console.log("key: ", schema[key])
           console.log("field.items : ", field.items)
@@ -176,7 +176,7 @@ const completeSchema = (
                 completedSchema[key] = { ...schema[key], items: {} }
                 continue
               }
-              if (key === "workExperience") {
+              if (key === "affiliations") {
                 console.log("debug", templates[key].form)
               }
               completedSchema[key] = {
