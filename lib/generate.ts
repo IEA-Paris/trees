@@ -176,7 +176,7 @@ const completeSchema = (
                 completedSchema[key] = { ...schema[key], items: {} }
                 continue
               }
-              if (key === "affiliations") {
+              if (key === "experiences") {
                 console.log("debug", templates[key].form)
               }
               completedSchema[key] = {
