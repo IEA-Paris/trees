@@ -11,23 +11,22 @@ export interface ExperiencesForm {
 
 const defaultConfig: ExperiencesForm = {
   form: {
-    experience: {
-      label: "experience",
-      type: formType.Object,
-      component: "ObjectContainerPanel",
+    affiliation: {
+      label: "affiliation",
+      component: "AffiliationPicker",
+      type: formType.Document,
+      meta: "affiliation",
+    },
+    positions: {
+      label: "positions",
+      component: "CollectionContainerPanel",
+      type: formType.Array,
+      meta: "positions",
       items: {
-        affiliation: {
-          label: "affiliation",
-          component: "AffiliationPicker",
-          type: formType.Document,
-          meta: "affiliation",
-        },
-        positions: {
-          label: "positions",
-          component: "CollectionContainerPanel",
-          type: formType.Template,
-          meta: "positions",
-        },
+        label: "position",
+        component: "ObjectContainerPanel",
+        type: formType.Template,
+        meta: "position",
       },
     },
   },

@@ -193,8 +193,14 @@ const userConfig: Model = {
     video: {
       label: "video",
       component: "CollectionContainerPanel",
-      type: formType.Template,
+      type: formType.Array,
       meta: "video",
+      items: {
+        label: "video",
+        component: "ObjectContainerPanel",
+        type: formType.Template,
+        meta: "video",
+      },
     },
     biography: {
       label: "biography",

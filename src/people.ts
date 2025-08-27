@@ -171,15 +171,20 @@ const defaultConfig: Model = {
     experiences: {
       label: "experiences",
       component: "CollectionContainerPanel",
-      type: formType.Template,
+      type: formType.Array,
       meta: "experiences",
+      items: {
+        label: "experiences",
+        component: "ObjectContainerPanel",
+        type: formType.Template,
+        meta: "experiences",
+      },
     },
 
     socials: {
       label: "socials",
       component: "ObjectKeyPairContainer",
       type: formType.Template,
-
       meta: "socials",
     },
     disciplines: {
@@ -192,15 +197,20 @@ const defaultConfig: Model = {
     video: {
       label: "video",
       component: "CollectionContainerPanel",
-      type: formType.Template,
+      type: formType.Array,
       meta: "video",
+      items: {
+        label: "video",
+        component: "ObjectContainerPanel",
+        type: formType.Template,
+        meta: "video",
+      },
     },
 
     related: {
       label: "related",
       component: "ObjectContainerPanel",
       type: formType.Template,
-
       rules: {
         required: true,
         min: 5,

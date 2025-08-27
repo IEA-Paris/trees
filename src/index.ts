@@ -91,4 +91,4 @@ const templates: Record<string, ConfigValue> = {
 
 export { templates }
 
-export type { Form, FormWithMeta, Sort, Views, ConfigValue, Model, ModuleType, formType }
+export type { Form, Sort, Views, ConfigValue, Model, ModuleType, formType }
