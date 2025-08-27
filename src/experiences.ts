@@ -1,7 +1,8 @@
-import { Form } from "./form"
-import { formType } from "./form"
+import { Form, formType } from "./form"
 
 export interface Experiences {
+  type?: formType
+  component?: string
   affiliation: any // Document reference
   positions: any[] // Array of Position templates
 }

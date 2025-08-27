@@ -1,7 +1,7 @@
 import { ModuleType } from "../lib/generate"
 import Model from "./model"
 import { Sort, Views } from "./list"
-import { Form, formType } from "./form"
+import { Form, formType, FormWithMeta } from "./form"
 import defaultConfigAction from "./action"
 import defaultConfigAffilation from "./affiliation"
 import defaultConfigExperiences, { ExperiencesForm } from "./experiences"
@@ -91,4 +91,4 @@ const templates: Record<string, ConfigValue> = {
 
 export { templates }
 
-export type { Form, Sort, Views, ConfigValue, Model, ModuleType, formType }
+export type { Form, FormWithMeta, Sort, Views, ConfigValue, Model, ModuleType, formType }

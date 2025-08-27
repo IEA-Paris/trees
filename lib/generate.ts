@@ -103,11 +103,13 @@ interface GenerationError {
  */
 const completeSchema = (
   schema: Record<string, Form>,
-  visitedTemplates: Set<string> = new Set()
+  visitedTemplates: Set<string> = new Set(),
+  debug = false
 ): Record<string, Form> => {
   const completedSchema: Record<string, Form> = {}
 
   try {
+    if (debug) console.log("Completing array schema: ", schema)
     for (const key of Object.keys(schema)) {
       try {
         switch (schema[key]?.type) {
@@ -186,9 +188,16 @@ const completeSchema = (
                   ? completeSchema(templates[key].form ?? {}, visitedTemplates)
                   : [
                       {
+                        ...(templates[key].form.component && {
+                          component: templates[key].form.component,
+                        }),
+                        ...(templates[key].form.type && {
+                          type: templates[key].form.type,
+                        }),
                         ...completeSchema(
                           templates[key].form ?? {},
-                          visitedTemplates
+                          visitedTemplates,
+                          true
                         ),
                       },
                     ],
