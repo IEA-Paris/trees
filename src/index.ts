@@ -1,10 +1,10 @@
 import { ModuleType } from "../lib/generate"
 import Model from "./model"
 import { Sort, Views } from "./list"
-import { Form, formType } from "./form"
+import { Form, formType, FormWithMeta } from "./form"
 import defaultConfigAction from "./action"
-import defaultConfigAffliation from "./affiliations"
-import defaultConfigExperience, { ExperienceForm } from "./experience"
+import defaultConfigAffilation from "./affiliation"
+import defaultConfigExperiences, { ExperiencesForm } from "./experiences"
 import defautConfigApp from "./apps"
 import defaultConfigArticle from "./article"
 import defaultConfigConsent, { ConsentForm } from "./consent"
@@ -41,7 +41,7 @@ import defaultConfigVintage from "./vintage"
 import defaultConfigUsers from "./users"
 type ConfigValue =
   | Model
-  | ExperienceForm
+  | ExperiencesForm
   | ConsentForm
   | EventSlotForm
   | FellowshipDetailsForm
@@ -50,10 +50,10 @@ type ConfigValue =
   | PositionForm
   | SocialsForm
 
-const configData: Record<string, ConfigValue> = {
+const templates: Record<string, ConfigValue> = {
   action: defaultConfigAction,
-  experience: defaultConfigExperience,
-  affiliations: defaultConfigAffliation,
+  workExperience: defaultConfigExperiences,
+  affiliation: defaultConfigAffilation,
   apps: defautConfigApp,
   article: defaultConfigArticle,
   consent: defaultConfigConsent,
@@ -61,6 +61,7 @@ const configData: Record<string, ConfigValue> = {
   discussants: defaultConfigDiscussants,
   events: defaultConfigEvents,
   eventSlot: defaultConfigEventSlot,
+  experiences: defaultConfigExperiences,
   fellows: defaultConfigFellows,
   fellowships: defaultConfigFellowship,
   fellowshipDetails: defaultConfigFellowshipDetails,
@@ -75,7 +76,7 @@ const configData: Record<string, ConfigValue> = {
   organizers: defaultConfigOrganizers,
   partner: defaultConfigPartner,
   people: defaultConfigPeople,
-  position: defaultConfigPosition,
+  positions: defaultConfigPosition,
   projects: defaultConfigProject,
   publications: defaultConfigPublications,
   related: defaultConfigRelated,
@@ -88,6 +89,6 @@ const configData: Record<string, ConfigValue> = {
   vintage: defaultConfigVintage,
 }
 
-export { configData }
+export { templates }
 
 export type { Form, Sort, Views, ConfigValue, Model, ModuleType, formType }

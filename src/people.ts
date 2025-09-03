@@ -1,4 +1,4 @@
-import { Affiliation } from "./affiliations";
+import { Affiliation } from "./affiliation";
 import { Image } from "./image";
 import { Socials } from "./socials";
 import { Position } from "./position";
@@ -167,26 +167,22 @@ const defaultConfig: Model = {
       type: formType.Document,
       meta: "image",
     },
-    affiliations: {
-      label: "affiliations",
+    experiences: {
+      label: "experiences",
       component: "CollectionContainerPanel",
       type: formType.Array,
       items: {
-        experience: {
-          label: "experience",
-          component: "ObjectContainerPanel",
-          type: formType.Template,
-          meta: "experience",
-        },
+        label: "experiences",
+        component: "ObjectContainerPanel",
+        type: formType.Template,
+        meta: "experiences",
       },
-      meta: "affiliations",
     },
 
     socials: {
       label: "socials",
       component: "ObjectKeyPairContainer",
       type: formType.Template,
-
       meta: "socials",
     },
     disciplines: {
@@ -201,13 +197,18 @@ const defaultConfig: Model = {
       component: "ObjectCollapsiblePanel",
       type: formType.Template,
       meta: "video",
+      items: {
+        label: "video",
+        component: "ObjectContainerPanel",
+        type: formType.Template,
+        meta: "video",
+      },
     },
 
     related: {
       label: "related",
       component: "ObjectContainerPanel",
       type: formType.Template,
-
       rules: {
         required: true,
         min: 5,

@@ -4,7 +4,7 @@ import { EventSlot } from "./eventSlot"
 import { Disciplines } from "./disciplines"
 import { Tag } from "./tags"
 import { People } from "./people"
-import { Affiliation } from "./affiliations"
+import { Affiliation } from "./affiliation"
 import { File } from "./files"
 import { Related } from "./related"
 import Model from "./model"
@@ -319,7 +319,7 @@ const defaultConfig: Model = {
       },
       meta: "program",
     },
-    affiliations: {
+    affiliation: {
       label: "affiliations",
       component: "AffiliationPicker",
       type: formType.Document,
@@ -450,17 +450,11 @@ const defaultConfig: Model = {
     organizers: {
       label: "organizers",
       component: "CollectionContainerPanel",
-      type: formType.Array,
+      type: formType.Template,
       rules: {
         required: true,
         min: 5,
         max: 200,
-      },
-      items: {
-        label: "organizer",
-        component: "DocumentPicker",
-        type: formType.Document,
-        meta: "organizers",
       },
 
       meta: "organizers",

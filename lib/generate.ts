@@ -1,4 +1,4 @@
-import { configData, Form, Model, Sort, Views } from "../src/index.ts"
+import { templates, Form, Model, Sort, Views } from "../src/index.ts"
 import { createJsonFile } from "./utils.ts"
 import { formType } from "../src/form.ts"
 
@@ -19,43 +19,10 @@ interface List {
   sortDesc?: Sort | number[] | string[] | string | undefined
 }
 
-const buildInitialValues = (
-  schema: Record<string, any>
-): Record<string, any> => {
-  const result: Record<string, any> = {}
-  for (const [key, field] of Object.entries(schema || {})) {
-    switch (field.type) {
-      case "PRIMITIVE": {
-        if ("default" in field) result[key] = field.default
-        else if (field.component === "Checkbox") result[key] = false
-        else result[key] = ""
-        break
-      }
-      case "DOCUMENT": {
-        result[key] = "default" in field ? field.default : ""
-        break
-      }
-      case "OBJECT": {
-        result[key] = buildInitialValues(field.items || {})
-        break
-      }
-      case "ARRAY": {
-        result[key] = []
-        break
-      }
-      default: {
-        result[key] = null
-      }
-    }
-  }
-  return result
-}
-
 /**
  * Custom form interface for generated modules
  */
 interface CustomForm {
-  values: Record<string, Form>
   _defaults: Record<string, Form> | string
   schema: Record<string, Form>
 }
@@ -83,6 +50,47 @@ interface GenerationError {
     | "BUILD_ERROR"
   message: string
   context: { key?: string; template?: string; error?: any }
+}
+
+const buildDefaults = (schema: Record<string, any>): Record<string, any> => {
+  const result: Record<string, any> = {}
+  for (const [key, field] of Object.entries(schema || {})) {
+    if (key === "experiences" && field.type === formType.Template) {
+      console.log(
+        "XXXfield.items: ",
+        field.items[Object.keys(field.items || {})[0]]
+      )
+      console.log("field.items: ", field.items)
+    }
+    switch (field.type) {
+      case formType.Primitive: {
+        if ("default" in field) result[key] = field.default
+        else if (field.component === "Checkbox") result[key] = false
+        else result[key] = ""
+        break
+      }
+      case formType.Document: {
+        result[key] = "default" in field ? field.default : ""
+        break
+      }
+      case formType.Object: {
+        result[key] = buildDefaults(field.items || {})
+        break
+      }
+      case formType.Array: {
+        result[key] = field && field.items && [buildDefaults(field.items)]
+        break
+      }
+      case formType.Template: {
+        result[key] = field && field.items && buildDefaults(field.items)
+        break
+      }
+      default: {
+        result[key] = field && field.items && buildDefaults(field.items)
+      }
+    }
+  }
+  return result
 }
 
 /**
@@ -119,7 +127,7 @@ const completeSchema = (
             completedSchema[key] = {
               ...schema[key],
               items: completeSchema(
-                schema[key].items as Record<string, Form>,
+                { [key]: schema[key].items } as Record<string, Form>,
                 visitedTemplates
               ),
             }
@@ -149,17 +157,10 @@ const completeSchema = (
 
             visitedTemplates.add(key)
             try {
-              const component = schema[key].component
-              const isObjectComponent =
-                typeof component === "string" && component.startsWith("Object")
-              const actualType = isObjectComponent
-                ? formType.Object
-                : formType.Array
-
-              if (!configData[key]) {
+              if (!templates[key]) {
                 const error: GenerationError = {
                   type: "MISSING_TEMPLATE",
-                  message: `Template '${key}' not found in configData`,
+                  message: `Template '${key}' not found in templates`,
                   context: { key, template: key },
                 }
                 console.error(`❌ ${error.message}`)
@@ -169,15 +170,11 @@ const completeSchema = (
 
               completedSchema[key] = {
                 ...schema[key],
-                type: actualType,
-                items: isObjectComponent
-                  ? completeSchema(configData[key].form ?? {}, visitedTemplates)
-                  : [
-                      completeSchema(
-                        configData[key].form ?? {},
-                        visitedTemplates
-                      ),
-                    ],
+                type: formType.Object,
+                items: completeSchema(
+                  templates[key].form as Record<string, Form>,
+                  visitedTemplates
+                ),
               }
             } finally {
               visitedTemplates.delete(key)
@@ -221,7 +218,7 @@ const createModule = (type: string): void => {
   console.log(`\n🔨 Creating module for: ${type.toUpperCase()}`)
 
   try {
-    const baseType = configData[type] as Model
+    const baseType = templates[type] as Model
 
     if (!baseType) {
       console.error(`❌ No configuration found for type: ${type}`)
@@ -282,7 +279,7 @@ const createModule = (type: string): void => {
       let aliasTemplatesForms: Record<string, Form> = {}
 
       aliases.map((alias) => {
-        const aliasTemplate = configData[alias]
+        const aliasTemplate = templates[alias]
         aliasTemplatesForms = {
           ...aliasTemplatesForms,
           ...aliasTemplate.form,
@@ -305,7 +302,7 @@ const createModule = (type: string): void => {
       // Add current template to visited set
       visitedTemplates.add(key)
 
-      const template = configData[key] as Model
+      const template = templates[key] as Model
       try {
         // is it an implementation of another template?
         if (template?.aliases?.length) {
@@ -416,11 +413,9 @@ const createModule = (type: string): void => {
       }
     }
 
-    const defaultForm = buildForm(defaultState)
     const formModule = {
-      _defaults: defaultForm,
+      _defaults: buildDefaults(defaultState),
       schema: defaultState,
-      values: buildInitialValues(defaultState),
     }
     const listModule = {
       items: Array(defaultPerPage || 9).fill({}),
@@ -464,7 +459,7 @@ const createModule = (type: string): void => {
 /**
  * Array of type names to generate modules for
  */
-const typeName = [
+const Modules = [
   "apps",
   "fellowships",
   "projects",
@@ -472,7 +467,7 @@ const typeName = [
   "news",
   "people",
   "publications",
-  "affiliations",
+  "affiliation",
   "disciplines",
   "mailing",
   "files",
@@ -483,13 +478,13 @@ const typeName = [
 ]
 
 console.log("🚀 Starting module generation...")
-console.log(`📊 Generating ${typeName.length} modules: ${typeName.join(", ")}`)
+console.log(`📊 Generating ${Modules.length} modules: ${Modules.join(", ")}`)
 
 const startTime = Date.now()
 let successCount = 0
 let errorCount = 0
 
-typeName.forEach((type) => {
+Modules.forEach((type) => {
   try {
     createModule(type)
     successCount++
@@ -504,7 +499,7 @@ const duration = endTime - startTime
 
 console.log("\n📋 Generation Summary:")
 console.log(
-  `✅ Successfully generated: ${successCount}/${typeName.length} modules`
+  `✅ Successfully generated: ${successCount}/${Modules.length} modules`
 )
 if (errorCount > 0) {
   console.log(`❌ Failed: ${errorCount} modules`)
