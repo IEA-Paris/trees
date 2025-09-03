@@ -1,15 +1,15 @@
-import { Form } from "./form"
-import { formType } from "./form"
+import { Form } from "./form";
+import { formType } from "./form";
 
 export interface Position {
-  role: string
-  department?: string
-  start?: Date
-  stop?: Date
+  role: string;
+  department?: string;
+  start?: Date;
+  stop?: Date;
 }
 
 export interface PositionForm {
-  form: Record<string, Form>
+  form: Record<string, Form>;
 }
 const defaultConfig: PositionForm = {
   form: {
@@ -17,10 +17,9 @@ const defaultConfig: PositionForm = {
       label: "role",
       component: "TextField",
       type: formType.Primitive,
-
       rules: {
         required: true,
-        min: 5,
+        min: 2,
         max: 200,
       },
       meta: "role",
@@ -32,7 +31,7 @@ const defaultConfig: PositionForm = {
 
       rules: {
         required: true,
-        min: 5,
+        min: 3,
         max: 200,
       },
       meta: "department",
@@ -52,14 +51,13 @@ const defaultConfig: PositionForm = {
       label: "stop",
       component: "DatePicker",
       type: formType.Primitive,
-
+      hint: "Leave empty if this is an ongoing position",
       rules: {
-        required: true,
         date: true,
       },
       meta: "stop",
     },
   },
-}
+};
 
-export default defaultConfig
+export default defaultConfig;

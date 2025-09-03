@@ -1,29 +1,29 @@
-import { Affiliation } from "./affiliations"
-import { Image } from "./image"
-import { Socials } from "./socials"
-import { Position } from "./position"
-import { Consent } from "./consent"
-import { Groups } from "./groups"
-import { Disciplines } from "./disciplines"
-import { Video } from "./video"
-import Model from "./model"
-import { Related } from "./related"
-import { formType } from "./form"
+import { Affiliation } from "./affiliations";
+import { Image } from "./image";
+import { Socials } from "./socials";
+import { Position } from "./position";
+import { Consent } from "./consent";
+import { Groups } from "./groups";
+import { Disciplines } from "./disciplines";
+import { Video } from "./video";
+import Model from "./model";
+import { Related } from "./related";
+import { formType } from "./form";
 
 export interface People {
-  name: string
-  firstname: string
-  lastname: string
-  affiliations?: [{ affiliation: Affiliation; positions: [Position] }]
-  image?: Image
-  socials?: Socials
-  biography?: string
-  consent: Consent
-  groups: Groups
-  lang: string
-  disciplines?: Disciplines[]
-  related?: Related[]
-  video?: Video[]
+  name: string;
+  firstname: string;
+  lastname: string;
+  affiliations?: [{ affiliation: Affiliation; positions: [Position] }];
+  image?: Image;
+  socials?: Socials;
+  biography?: string;
+  consent: Consent;
+  groups: Groups;
+  lang: string;
+  disciplines?: Disciplines[];
+  related?: Related[];
+  video?: Video[];
 }
 
 const defaultConfig: Model = {
@@ -142,7 +142,6 @@ const defaultConfig: Model = {
       label: "lastname",
       component: "TextField",
       type: formType.Primitive,
-
       rules: {
         required: true,
         min: 1,
@@ -171,7 +170,7 @@ const defaultConfig: Model = {
     affiliations: {
       label: "affiliations",
       component: "CollectionContainerPanel",
-      type: formType.Array, 
+      type: formType.Array,
       items: {
         experience: {
           label: "experience",
@@ -199,9 +198,8 @@ const defaultConfig: Model = {
     },
     video: {
       label: "video",
-      component: "CollectionContainerPanel",
+      component: "ObjectCollapsiblePanel",
       type: formType.Template,
-
       meta: "video",
     },
 
@@ -221,31 +219,25 @@ const defaultConfig: Model = {
       label: "consent",
       component: "ObjectContainerPanel",
       type: formType.Template,
-      rules: {
-        required: true,
-      },
       meta: "consent",
     },
     groups: {
       label: "groups",
       component: "ObjectContainerPanel",
       type: formType.Template,
-      rules: {
-        required: true,
-      },
       meta: "groups",
     },
-    lang: {
+    /*     lang: {
       label: "lang",
-      component: "AutoComplete",
+      component: "Select",
       type: formType.Primitive,
       rules: {
         required: true,
       },
       // items: langs, // TODO add language enum
       meta: "lang",
-    },
+    }, */
   },
-}
+};
 
-export default defaultConfig
+export default defaultConfig;

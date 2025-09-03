@@ -14,9 +14,12 @@ const defaultConfig: ExperienceForm = {
   form: {
     affiliation: {
       label: "affiliation",
-      component: "AffiliationPicker",
+      component: "DocumentPicker",
       type: formType.Document,
       meta: "affiliation",
+      rules: {
+        required: true
+      }
     },
     positions: {
       label: "positions",

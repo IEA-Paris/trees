@@ -1,14 +1,14 @@
-import Model from "./model"
-import { formType } from "./form"
+import Model from "./model";
+import { formType } from "./form";
 
 export interface Video {
-  url: URL
-  alt?: string
-  caption?: string
-  copyright?: string
-  license?: string
-  licenseUrl?: string
-  backgroundColor?: string
+  url: URL;
+  alt?: string;
+  caption?: string;
+  copyright?: string;
+  license?: string;
+  licenseUrl?: string;
+  backgroundColor?: string;
 }
 const defaultConfig: Model = {
   source: "md",
@@ -92,69 +92,51 @@ const defaultConfig: Model = {
 
       meta: "url", // item type on schema.org
     },
-    alt: {
-      label: "alt",
-      type: formType.Primitive,
-      component: "TextField",
-
-      description: "Displayed if the image cannot be loaded",
-      rules: {
-        required: true,
-        min: 2,
-        max: 100,
-      },
-
-      meta: "alt", // item type on schema.org
-    },
     caption: {
       label: "caption",
       type: formType.Primitive,
       component: "TextField",
-
       rules: {
         required: true,
         min: 2,
         max: 100,
       },
-
       meta: "caption", // item type on schema.org
     },
+    alt: {
+      label: "alt",
+      type: formType.Primitive,
+      component: "TextField",
+      description: "Displayed if the image cannot be loaded",
+      rules: {
+        max: 200,
+      },
+      meta: "alt", // item type on schema.org
+    },
+
     copyright: {
       label: "copyright",
       type: formType.Primitive,
       component: "TextField",
       default: "Free of rights",
       description: "Owner of the image copyright",
-      rules: {
-        required: true,
-        min: 2,
-        max: 100,
-      },
-
       meta: "copyright", // item type on schema.org
     },
     licence: {
       label: "licence",
       type: formType.Primitive,
-      component: "TextField", // TODO change for an autocomplete
+      component: "TextField", // TODO change for an autocomplete/add and enum
       default: null,
       description: "The licence of the video",
-      rules: {
-        required: true,
-        min: 2,
-        max: 100,
-      },
-
       meta: "licence", // item type on schema.org
     },
     licenseUrl: {
       label: "licenseUrl",
       type: formType.Primitive,
-      component: "TextField", // TODO change for an autocomplete
+      component: "TextField", // TODO bind to the licence selection, change for an autocomplete/add and enum
       default: null,
       description: "The caption of the video",
       rules: {
-        required: true,
         url: true,
       },
       visibility: {
@@ -167,10 +149,9 @@ const defaultConfig: Model = {
     backgroundColor: {
       label: "backgroundColor",
       type: formType.Primitive,
-      component: "ColorPicker", // TODO change for an autocomplete
+      component: "ColorPicker",
       default: null,
       rules: {
-        required: true,
         color: true,
       },
       visibility: {
@@ -181,6 +162,6 @@ const defaultConfig: Model = {
       meta: "backgroundColor", // item type on schema.org
     },
   },
-}
+};
 
-export default defaultConfig
+export default defaultConfig;

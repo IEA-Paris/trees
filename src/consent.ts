@@ -1,25 +1,25 @@
-import { Form } from "./form"
-import { formType } from "./form"
+import { Form } from "./form";
+import { formType } from "./form";
 
 export interface Consent {
   //data consent (display info about me)
-  data: boolean
+  data: boolean;
   // record consent (record my activity, droit à l'image)
-  record: boolean
+  record: boolean;
   // broadcast consent (broadcast my activity, diffusion de contenus)
-  diffusion: boolean
+  diffusion: boolean;
   // publication consent (publish my content, generate DOIs)
-  publication: boolean
+  publication: boolean;
   // email communications (including newsletter)
-  email: boolean
+  email: boolean;
   // IEA newsletter
-  newsletter: boolean
+  newsletter: boolean;
   // news about IEA fellowship
-  fellowshipnewsletter: boolean
+  fellowshipnewsletter: boolean;
 }
 
 export interface ConsentForm {
-  form: Record<string, Form>
+  form: Record<string, Form>;
 }
 const defaultConfig: ConsentForm = {
   form: {
@@ -28,7 +28,7 @@ const defaultConfig: ConsentForm = {
       component: "Checkbox",
       type: formType.Primitive,
       default: false,
-      description: "data consent (display info about me)",
+      hint: "data consent (display info about me)",
       rules: {
         required: true,
       },
@@ -39,7 +39,7 @@ const defaultConfig: ConsentForm = {
       component: "Checkbox",
       type: formType.Primitive,
       default: false,
-      description: "record consent (record my activity, droit à l'image)",
+      hint: "record consent (record my activity, droit à l'image)",
       rules: {
         required: true,
       },
@@ -50,8 +50,7 @@ const defaultConfig: ConsentForm = {
       component: "Checkbox",
       type: formType.Primitive,
       default: false,
-      description:
-        "broadcast consent (broadcast my activity, diffusion de contenus)",
+      hint: "broadcast consent (broadcast my activity, diffusion de contenus)",
       rules: {
         required: true,
       },
@@ -62,7 +61,7 @@ const defaultConfig: ConsentForm = {
       component: "Checkbox",
       type: formType.Primitive,
       default: false,
-      description: "publication consent (publish my content, generate DOIs)",
+      hint: "publication consent (publish my content, generate DOIs)",
       rules: {
         required: true,
       },
@@ -73,7 +72,7 @@ const defaultConfig: ConsentForm = {
       component: "Checkbox",
       type: formType.Primitive,
       default: false,
-      description: "email communications (including newsletter)",
+      hint: "email communications (including newsletter)",
       rules: {
         required: true,
       },
@@ -100,6 +99,6 @@ const defaultConfig: ConsentForm = {
       meta: "fellowshipnewsletter", // item type on schema.org
     },
   },
-}
+};
 
-export default defaultConfig
+export default defaultConfig;
