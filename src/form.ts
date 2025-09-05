@@ -20,7 +20,7 @@ export enum formType {
   Template = "TEMPLATE",
   Document = "DOCUMENT",
 }
-export interface Conditionnal {
+export interface Conditional {
   default?: boolean;
   switchIf?: any[];
   disjonctive?: boolean;
@@ -42,8 +42,8 @@ export interface Form {
   description?: string;
   hint?: string | boolean;
   rules?: Rules; // used for field validation (rely on vuetify for objects and primitives, custom for arrays)
-  show?: Conditionnal;
-  enabled?: Conditionnal;
+  show?: Conditional;
+  enabled?: Conditional;
   transformers: Transformers[]; // used to format the field on blur (primitves strings only)
   meta?: string; // for SEO
   items?: any;
