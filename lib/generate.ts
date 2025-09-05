@@ -1,42 +1,42 @@
-import { templates, Form, Model, Sort, Views } from "../src/index.ts"
-import { createJsonFile } from "./utils.ts"
-import { formType } from "../src/form.ts"
+import { templates, Form, Model, Sort, Views } from "../src/index.ts";
+import { createJsonFile } from "./utils.ts";
+import { formType } from "../src/form.ts";
 
 /**
  * List configuration interface for generated modules
  */
 interface List {
-  items: any[]
-  itemsPerPage?: number
-  itemsPerPageArray?: number[]
-  filtersCount: number
-  views?: Record<string, Views>
-  sort: Record<string, Sort>
-  view: Views | string | undefined
-  filters: Record<string, any>
-  limit?: number
-  sortBy: Sort | string[] | undefined
-  sortDesc?: Sort | number[] | string[] | string | undefined
+  items: any[];
+  itemsPerPage?: number;
+  itemsPerPageArray?: number[];
+  filtersCount: number;
+  views?: Record<string, Views>;
+  sort: Record<string, Sort>;
+  view: Views | string | undefined;
+  filters: Record<string, any>;
+  limit?: number;
+  sortBy: Sort | string[] | undefined;
+  sortDesc?: Sort | number[] | string[] | string | undefined;
 }
 
 /**
  * Custom form interface for generated modules
  */
 interface CustomForm {
-  _defaults: Record<string, Form> | string
-  schema: Record<string, Form>
+  _defaults: Record<string, Form> | string;
+  schema: Record<string, Form>;
 }
 
 /**
  * Module type interface that combines form and list configurations
  */
 export interface ModuleType {
-  source?: string
-  form: CustomForm
-  list: List
-  loading: boolean
-  current: any
-  resetFilters: boolean
+  source?: string;
+  form: CustomForm;
+  list: List;
+  loading: boolean;
+  current: any;
+  resetFilters: boolean;
 }
 
 /**
@@ -47,51 +47,51 @@ interface GenerationError {
     | "CIRCULAR_DEPENDENCY"
     | "MISSING_TEMPLATE"
     | "INVALID_SCHEMA"
-    | "BUILD_ERROR"
-  message: string
-  context: { key?: string; template?: string; error?: any }
+    | "BUILD_ERROR";
+  message: string;
+  context: { key?: string; template?: string; error?: any };
 }
 
 const buildDefaults = (schema: Record<string, any>): Record<string, any> => {
-  const result: Record<string, any> = {}
+  const result: Record<string, any> = {};
   for (const [key, field] of Object.entries(schema || {})) {
     if (key === "experiences" && field.type === formType.Template) {
       console.log(
         "XXXfield.items: ",
         field.items[Object.keys(field.items || {})[0]]
-      )
-      console.log("field.items: ", field.items)
+      );
+      console.log("field.items: ", field.items);
     }
     switch (field.type) {
       case formType.Primitive: {
-        if ("default" in field) result[key] = field.default
-        else if (field.component === "Checkbox") result[key] = false
-        else result[key] = ""
-        break
+        if ("default" in field) result[key] = field.default;
+        else if (field.component === "Checkbox") result[key] = false;
+        else result[key] = "";
+        break;
       }
       case formType.Document: {
-        result[key] = "default" in field ? field.default : ""
-        break
+        result[key] = "default" in field ? field.default : "";
+        break;
       }
       case formType.Object: {
-        result[key] = buildDefaults(field.items || {})
-        break
+        result[key] = buildDefaults(field.items || {});
+        break;
       }
       case formType.Array: {
-        result[key] = field && field.items && [buildDefaults(field.items)]
-        break
+        result[key] = field && field.items && [buildDefaults(field.items)];
+        break;
       }
       case formType.Template: {
-        result[key] = field && field.items && buildDefaults(field.items)
-        break
+        result[key] = field && field.items && buildDefaults(field.items);
+        break;
       }
       default: {
-        result[key] = field && field.items && buildDefaults(field.items)
+        result[key] = field && field.items && buildDefaults(field.items);
       }
     }
   }
-  return result
-}
+  return result;
+};
 
 /**
  * Completes form schema by resolving templates and handling nested structures
@@ -103,15 +103,15 @@ const completeSchema = (
   schema: Record<string, Form>,
   visitedTemplates: Set<string> = new Set()
 ): Record<string, Form> => {
-  const completedSchema: Record<string, Form> = {}
+  const completedSchema: Record<string, Form> = {};
 
   try {
     for (const key of Object.keys(schema)) {
       try {
         switch (schema[key]?.type) {
           case formType.Primitive:
-            completedSchema[key] = schema[key]
-            break
+            completedSchema[key] = schema[key];
+            break;
 
           case formType.Object:
             completedSchema[key] = {
@@ -120,8 +120,8 @@ const completeSchema = (
                 schema[key].items as Record<string, Form>,
                 visitedTemplates
               ),
-            }
-            break
+            };
+            break;
 
           case formType.Array:
             completedSchema[key] = {
@@ -130,15 +130,15 @@ const completeSchema = (
                 { [key]: schema[key].items } as Record<string, Form>,
                 visitedTemplates
               ),
-            }
-            break
+            };
+            break;
 
           case formType.Document:
             completedSchema[key] = {
               ...schema[key],
               default: schema[key].default ?? "",
-            }
-            break
+            };
+            break;
 
           case formType.Template:
             // Check for circular dependencies
@@ -147,179 +147,181 @@ const completeSchema = (
                 type: "CIRCULAR_DEPENDENCY",
                 message: `Circular dependency detected for template: ${key}`,
                 context: { key, template: key },
-              }
-              console.warn(`⚠️  ${error.message}`)
-              completedSchema[key] = { ...schema[key], items: {} } // Break the cycle
-              continue
+              };
+              console.warn(`⚠️  ${error.message}`);
+              completedSchema[key] = { ...schema[key], items: {} }; // Break the cycle
+              continue;
             }
 
-            console.log(`📦 Importing template: ${key}`)
+            console.log(`📦 Importing template: ${key}`);
 
-            visitedTemplates.add(key)
+            visitedTemplates.add(key);
             try {
               if (!templates[key]) {
                 const error: GenerationError = {
                   type: "MISSING_TEMPLATE",
                   message: `Template '${key}' not found in templates`,
                   context: { key, template: key },
-                }
-                console.error(`❌ ${error.message}`)
-                completedSchema[key] = { ...schema[key], items: {} }
-                continue
+                };
+                console.error(`❌ ${error.message}`);
+                completedSchema[key] = { ...schema[key], items: {} };
+                continue;
               }
 
               completedSchema[key] = {
                 ...schema[key],
-                type: formType.Object,
+                type: schema[key]?.component.toLowerCase().startsWith("object")
+                  ? formType.Object
+                  : formType.Array,
                 items: completeSchema(
                   templates[key].form as Record<string, Form>,
                   visitedTemplates
                 ),
-              }
+              };
             } finally {
-              visitedTemplates.delete(key)
+              visitedTemplates.delete(key);
             }
-            break
+            break;
 
           default:
             console.warn(
               `⚠️  Unknown form type for key '${key}': ${schema[key]?.type}`
-            )
-            break
+            );
+            break;
         }
       } catch (fieldError) {
         const error: GenerationError = {
           type: "INVALID_SCHEMA",
           message: `Error processing field '${key}'`,
           context: { key, error: fieldError },
-        }
-        console.error(`❌ ${error.message}:`, fieldError)
+        };
+        console.error(`❌ ${error.message}:`, fieldError);
         // Continue with other fields
       }
     }
 
-    return completedSchema
+    return completedSchema;
   } catch (error) {
     const genError: GenerationError = {
       type: "BUILD_ERROR",
       message: "Error completing schema",
       context: { error },
-    }
-    console.error(`💥 ${genError.message}:`, error)
-    return {}
+    };
+    console.error(`💥 ${genError.message}:`, error);
+    return {};
   }
-}
+};
 
 /**
  * Creates a complete module configuration for a given type
  * @param type - The type name to create module for
  */
 const createModule = (type: string): void => {
-  console.log(`\n🔨 Creating module for: ${type.toUpperCase()}`)
+  console.log(`\n🔨 Creating module for: ${type.toUpperCase()}`);
 
   try {
-    const baseType = templates[type] as Model
+    const baseType = templates[type] as Model;
 
     if (!baseType) {
-      console.error(`❌ No configuration found for type: ${type}`)
-      return
+      console.error(`❌ No configuration found for type: ${type}`);
+      return;
     }
 
-    const baseSchema: Record<string, Form> | undefined = baseType.form
+    const baseSchema: Record<string, Form> | undefined = baseType.form;
     if (!baseSchema) {
-      console.warn(`⚠️  No form schema found for type: ${type}`)
-      return
+      console.warn(`⚠️  No form schema found for type: ${type}`);
+      return;
     }
 
     console.log(
       `   📋 Processing ${Object.keys(baseSchema).length} form fields...`
-    )
+    );
 
-    const defaultState: Record<string, Form> = completeSchema(baseSchema)
+    const defaultState: Record<string, Form> = completeSchema(baseSchema);
 
     // Find default view
     const defaultViewKey: string | undefined =
       baseType?.list?.views &&
       Object.keys(baseType.list.views).find((item) => {
-        return baseType.list.views[item]?.default === true
-      })
+        return baseType.list.views[item]?.default === true;
+      });
 
     const defaultView =
       defaultViewKey !== undefined
         ? { ...baseType?.list.views[defaultViewKey], name: defaultViewKey }
-        : undefined
+        : undefined;
 
     // Find default sort
     const defaultSortKey: string | undefined =
       baseType?.list.sort &&
       Object.keys(baseType.list.sort).find((item) => {
-        return baseType.list.sort[item].default === true
-      })
+        return baseType.list.sort[item].default === true;
+      });
 
-    const defaultPerPage = defaultView?.perPage?.default
-    const perPageOptions = defaultView?.perPage?.options
+    const defaultPerPage = defaultView?.perPage?.default;
+    const perPageOptions = defaultView?.perPage?.options;
 
     const defaultSort: Sort | undefined =
       defaultSortKey !== undefined
         ? baseType?.list.sort[defaultSortKey]
-        : undefined
+        : undefined;
 
     console.log(
       `   📊 List config: ${
         defaultView ? defaultView.name : "no default"
       } view, ${defaultSort ? "sorted by " + defaultSortKey : "no sort"}`
-    )
+    );
 
     // Create a Set to track visited templates and prevent circular dependencies
-    const visitedTemplates = new Set<string>()
+    const visitedTemplates = new Set<string>();
 
     // Helper function to handle aliases
     const processAliases = (aliases: string[]): Record<string, Form> => {
-      console.log("aliases: ", aliases)
-      let aliasTemplatesForms: Record<string, Form> = {}
+      console.log("aliases: ", aliases);
+      let aliasTemplatesForms: Record<string, Form> = {};
 
       aliases.map((alias) => {
-        const aliasTemplate = templates[alias]
+        const aliasTemplate = templates[alias];
         aliasTemplatesForms = {
           ...aliasTemplatesForms,
           ...aliasTemplate.form,
-        }
-        return aliasTemplatesForms
-      })
+        };
+        return aliasTemplatesForms;
+      });
 
-      return aliasTemplatesForms
-    }
+      return aliasTemplatesForms;
+    };
 
     // Helper function to handle template types
     const processTemplate = (key: string): Promise<any> => {
       /*    console.log("key2: ", key) */
       // Check for circular dependencies
       if (visitedTemplates.has(key)) {
-        console.warn(`Circular dependency detected for template: ${key}`)
-        return Promise.resolve({}) // Return empty object to break the cycle
+        console.warn(`Circular dependency detected for template: ${key}`);
+        return Promise.resolve({}); // Return empty object to break the cycle
       }
 
       // Add current template to visited set
-      visitedTemplates.add(key)
+      visitedTemplates.add(key);
 
-      const template = templates[key] as Model
+      const template = templates[key] as Model;
       try {
         // is it an implementation of another template?
         if (template?.aliases?.length) {
           const aliasTemplatesForms: Record<string, Form> = processAliases(
             template.aliases
-          )
-          const result = buildForm(aliasTemplatesForms)
+          );
+          const result = buildForm(aliasTemplatesForms);
           // build based on aliases
-          return result
+          return result;
         } else {
-          return buildForm(template.form as Record<string, Form>)
+          return buildForm(template.form as Record<string, Form>);
         }
       } finally {
         // Remove the template from visited set after processing
-        visitedTemplates.delete(key)
+        visitedTemplates.delete(key);
       }
-    }
+    };
 
     // Helper function to process items within the schema
     const processItems = (key: string, items: any[], form: any): any => {
@@ -329,7 +331,7 @@ const createModule = (type: string): void => {
       if (form[key] && form[key].type === formType.Array) {
         // if (!form[key]) form[key] = [{}];
         if (!form[key]) {
-          form[key] = [{}]
+          form[key] = [{}];
         }
         /*     for  (const item of items) {
         form[key][0] = {
@@ -339,35 +341,35 @@ const createModule = (type: string): void => {
       } */
         // else it's an object
       } else {
-        if (!form[key]) form[key] = {}
+        if (!form[key]) form[key] = {};
         if (items && Object.keys(items).length) {
           for (const subkey of Object.keys(items)) {
             form[key] = {
               ...form[key],
               ...buildForm({ [subkey]: items[subkey] }),
-            }
+            };
           }
         } else {
-          console.log("no items found for key: ", key)
+          console.log("no items found for key: ", key);
           if (["location", "image"].includes(key)) {
-            console.log(form)
+            console.log(form);
           }
         }
       }
-    }
+    };
 
     // Build the form
     const buildForm = (schema: Record<string, Form>): any => {
       try {
-        if (!schema) return {}
-        let form: { [key: string]: any } = {}
+        if (!schema) return {};
+        let form: { [key: string]: any } = {};
         for (const key of Object.keys(schema)) {
           switch (schema[key]?.type as formType) {
             // document picker
             case formType.Document:
               /*  console.log("document picker for key: ", key) */
-              form[key] = schema[key]?.default ?? []
-              break
+              form[key] = schema[key]?.default ?? [];
+              break;
 
             // template import
             case formType.Template:
@@ -377,46 +379,46 @@ const createModule = (type: string): void => {
               if (visitedTemplates.has(key)) {
                 console.warn(
                   `Avoiding circular dependency for template key: ${key}`
-                )
-                form[key] = {} // Use empty object to break the cycle
+                );
+                form[key] = {}; // Use empty object to break the cycle
               } else {
-                form[key] = processTemplate(key)
+                form[key] = processTemplate(key);
               }
-              break
+              break;
 
             // object
             case formType.Object:
               /*  console.log("object for key: ", key) */
-              processItems(key, schema[key].items, form)
-              break
+              processItems(key, schema[key].items, form);
+              break;
 
             // collection
             case formType.Array:
               /*  console.log("collection for key: ", key) */
-              processItems(key, schema[key].items, form)
-              break
+              processItems(key, schema[key].items, form);
+              break;
 
             // primitive
             case formType.Primitive:
               /*  console.log("primitive for key: ", key) */
-              form[key] = schema[key]?.default ?? ""
-              break
+              form[key] = schema[key]?.default ?? "";
+              break;
 
             default:
-              console.log("missing type in form builder for key: ", key)
-              break
+              console.log("missing type in form builder for key: ", key);
+              break;
           }
         }
-        return form
+        return form;
       } catch (error) {
-        console.log("error building form: ", error)
+        console.log("error building form: ", error);
       }
-    }
+    };
 
     const formModule = {
       _defaults: buildDefaults(defaultState),
       schema: defaultState,
-    }
+    };
     const listModule = {
       items: Array(defaultPerPage || 9).fill({}),
       ...(defaultPerPage && {
@@ -439,22 +441,22 @@ const createModule = (type: string): void => {
       }),
       sortBy: defaultSort && [defaultSort.value[0]],
       sortDesc: defaultSort && [defaultSort.value[1]],
-    }
+    };
 
     // Create the output files
-    createJsonFile(type, listModule, "/list")
-    createJsonFile(type, formModule, "/form")
+    createJsonFile(type, listModule, "/list");
+    createJsonFile(type, formModule, "/form");
 
-    console.log(`✅ Module '${type}' generated successfully`)
+    console.log(`✅ Module '${type}' generated successfully`);
   } catch (error) {
     const genError: GenerationError = {
       type: "BUILD_ERROR",
       message: `Failed to create module for type: ${type}`,
       context: { error },
-    }
-    console.error(`💥 ${genError.message}:`, error)
+    };
+    console.error(`💥 ${genError.message}:`, error);
   }
-}
+};
 
 /**
  * Array of type names to generate modules for
@@ -475,34 +477,34 @@ const Modules = [
   "users",
   "action",
   // "taxonomy", //TODO: à definir
-]
+];
 
-console.log("🚀 Starting module generation...")
-console.log(`📊 Generating ${Modules.length} modules: ${Modules.join(", ")}`)
+console.log("🚀 Starting module generation...");
+console.log(`📊 Generating ${Modules.length} modules: ${Modules.join(", ")}`);
 
-const startTime = Date.now()
-let successCount = 0
-let errorCount = 0
+const startTime = Date.now();
+let successCount = 0;
+let errorCount = 0;
 
 Modules.forEach((type) => {
   try {
-    createModule(type)
-    successCount++
+    createModule(type);
+    successCount++;
   } catch (error) {
-    errorCount++
-    console.error(`💥 Failed to generate module '${type}':`, error)
+    errorCount++;
+    console.error(`💥 Failed to generate module '${type}':`, error);
   }
-})
+});
 
-const endTime = Date.now()
-const duration = endTime - startTime
+const endTime = Date.now();
+const duration = endTime - startTime;
 
-console.log("\n📋 Generation Summary:")
+console.log("\n📋 Generation Summary:");
 console.log(
   `✅ Successfully generated: ${successCount}/${Modules.length} modules`
-)
+);
 if (errorCount > 0) {
-  console.log(`❌ Failed: ${errorCount} modules`)
+  console.log(`❌ Failed: ${errorCount} modules`);
 }
-console.log(`⏱️  Duration: ${duration}ms`)
-console.log("🎉 Module generation complete!")
+console.log(`⏱️  Duration: ${duration}ms`);
+console.log("🎉 Module generation complete!");

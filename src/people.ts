@@ -194,12 +194,12 @@ const defaultConfig: Model = {
     },
     video: {
       label: "video",
-      component: "CollectionContainerPanel",
+      component: "CollectionContainerPaqnel",
       type: formType.Template,
       meta: "video",
       items: {
         label: "video",
-        component: "ObjectContainerPanel",
+        component: "ObjectCollapsiblePanel",
         type: formType.Template,
         meta: "video",
       },

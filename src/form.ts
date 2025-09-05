@@ -44,7 +44,7 @@ export interface Form {
   rules?: Rules; // used for field validation (rely on vuetify for objects and primitives, custom for arrays)
   show?: Conditional;
   enabled?: Conditional;
-  transformers: Transformers[]; // used to format the field on blur (primitves strings only)
+  transformers?: Transformers[]; // used to format the field on blur (primitves strings only)
   meta?: string; // for SEO
   items?: any;
   multiple?: boolean;
