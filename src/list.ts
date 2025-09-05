@@ -1,34 +1,34 @@
-import { Visibility } from "./form"
+import { show } from "./form";
 export interface PerPage {
-  options: number[]
-  default: number
+  options: number[];
+  default: number;
 }
 interface Filters {
-  type: string
-  rules?: Record<string, any>
-  items?: any
-  visibility?: Visibility
-  multiple?: boolean
+  type: string;
+  rules?: Record<string, any>;
+  items?: any;
+  show?: show;
+  multiple?: boolean;
 }
 
 export interface Sort {
-  icon: string
-  text: string
-  value: [string, number]
-  default?: boolean
+  icon: string;
+  text: string;
+  value: [string, number];
+  default?: boolean;
 }
 
 export interface Views {
-  icon: string
-  default?: boolean
-  name?: string
-  perPage?: PerPage
+  icon: string;
+  default?: boolean;
+  name?: string;
+  perPage?: PerPage;
 }
 
 export interface List {
-  create: boolean
+  create: boolean;
   // perPage: PerPage
-  filters: Record<string, Filters>
-  sort: Record<string, Sort>
-  views: Record<string, Views>
+  filters: Record<string, Filters>;
+  sort: Record<string, Sort>;
+  views: Record<string, Views>;
 }

@@ -28,10 +28,7 @@ const defaultConfig: ConsentForm = {
       component: "Checkbox",
       type: formType.Primitive,
       default: false,
-      hint: "data consent (display info about me)",
-      rules: {
-        required: true,
-      },
+      hint: "My profile will be showcased on the Paris IAS websites",
       meta: "data", // item type on schema.org
     },
     record: {
@@ -39,10 +36,7 @@ const defaultConfig: ConsentForm = {
       component: "Checkbox",
       type: formType.Primitive,
       default: false,
-      hint: "record consent (record my activity, droit à l'image)",
-      rules: {
-        required: true,
-      },
+      hint: "Necessary if you appear in a video or audio recording",
       meta: "record", // item type on schema.org
     },
     diffusion: {
@@ -50,10 +44,7 @@ const defaultConfig: ConsentForm = {
       component: "Checkbox",
       type: formType.Primitive,
       default: false,
-      hint: "broadcast consent (broadcast my activity, diffusion de contenus)",
-      rules: {
-        required: true,
-      },
+      hint: "To make available my video and audio recordings in publicaitons, news, events...",
       meta: "diffusion", // item type on schema.org
     },
     publication: {
@@ -61,10 +52,7 @@ const defaultConfig: ConsentForm = {
       component: "Checkbox",
       type: formType.Primitive,
       default: false,
-      hint: "publication consent (publish my content, generate DOIs)",
-      rules: {
-        required: true,
-      },
+      hint: "To be officially published as an academic author and provide your content with a DOI",
       meta: "publication", // item type on schema.org
     },
     email: {
@@ -72,10 +60,7 @@ const defaultConfig: ConsentForm = {
       component: "Checkbox",
       type: formType.Primitive,
       default: false,
-      hint: "email communications (including newsletter)",
-      rules: {
-        required: true,
-      },
+      hint: "To allow us to send you email communications in general (including newsletter)",
       meta: "email", // item type on schema.org
     },
     newsletter: {
@@ -83,9 +68,6 @@ const defaultConfig: ConsentForm = {
       component: "Checkbox",
       type: formType.Primitive,
       default: false,
-      rules: {
-        required: true,
-      },
       meta: "newsletter", // item type on schema.org
     },
     fellowshipnewsletter: {
@@ -93,9 +75,6 @@ const defaultConfig: ConsentForm = {
       component: "Checkbox",
       type: formType.Primitive,
       default: false,
-      rules: {
-        required: true,
-      },
       meta: "fellowshipnewsletter", // item type on schema.org
     },
   },

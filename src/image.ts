@@ -1,14 +1,14 @@
-import Model from "./model"
-import { formType } from "./form"
+import Model from "./model";
+import { formType } from "./form";
 
 export interface Image {
-  url: URL
-  alt?: string
-  caption?: string
-  copyright?: string
-  license?: string
-  licenseUrl?: string
-  backgroundColor?: string
+  url: URL;
+  alt?: string;
+  caption?: string;
+  copyright?: string;
+  license?: string;
+  licenseUrl?: string;
+  backgroundColor?: string;
 }
 const defaultConfig: Model = {
   source: "md",
@@ -140,9 +140,9 @@ const defaultConfig: Model = {
         required: true,
         url: true,
       },
-      visibility: {
+      show: {
         default: false, // "default: true" is the same than "hidden = false"
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
+        switchIf: [], // array of conditions to switch the show, each condition will be assessed as a boolean
         disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "licenseUrl", // item type on schema.org
@@ -158,6 +158,6 @@ const defaultConfig: Model = {
       meta: "backgroundColor",
     },
   },
-}
+};
 
-export default defaultConfig
+export default defaultConfig;

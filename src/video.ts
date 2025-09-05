@@ -139,9 +139,9 @@ const defaultConfig: Model = {
       rules: {
         url: true,
       },
-      visibility: {
+      show: {
         default: false, // "default: true" is the same than "hidden = false"
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
+        switchIf: [], // array of conditions to switch the show, each condition will be assessed as a boolean
         disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "licenseUrl", // item type on schema.org
@@ -154,9 +154,9 @@ const defaultConfig: Model = {
       rules: {
         color: true,
       },
-      visibility: {
+      show: {
         default: false, // "default: true" is the same than "hidden = false"
-        switchIf: [], // array of conditions to switch the visibility, each condition will be assessed as a boolean
+        switchIf: [], // array of conditions to switch the show, each condition will be assessed as a boolean
         disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
       },
       meta: "backgroundColor", // item type on schema.org

@@ -1,19 +1,19 @@
-import { Affiliation } from "./affiliation"
-import { Image } from "./image"
-import { Socials } from "./socials"
-import { Position } from "./position"
-import { Consent } from "./consent"
-import { Groups } from "./groups"
-import { Disciplines } from "./disciplines"
-import { Video } from "./video"
-import Model from "./model"
-import { Related } from "./related"
-import configPeople, { People } from "./people"
-import { formType } from "./form"
+import { Affiliation } from "./affiliation";
+import { Image } from "./image";
+import { Socials } from "./socials";
+import { Position } from "./position";
+import { Consent } from "./consent";
+import { Groups } from "./groups";
+import { Disciplines } from "./disciplines";
+import { Video } from "./video";
+import Model from "./model";
+import { Related } from "./related";
+import configPeople, { People } from "./people";
+import { formType } from "./form";
 
 type Settings = {
-  lang: String
-}
+  lang: String;
+};
 export enum userStatus {
   Active = "ACTIVE",
   Pending = "PENDING",
@@ -30,16 +30,16 @@ export enum userRole {
   Guest = "GUEST",
 }
 export interface User extends People {
-  admin: Boolean
-  apps: [AppRole]
-  email: String
-  settings: Settings
-  status: userStatus
+  admin: Boolean;
+  apps: [AppRole];
+  email: String;
+  settings: Settings;
+  status: userStatus;
 }
 type AppRole = {
-  appId: String
-  roles: userRole[]
-}
+  appId: String;
+  roles: userRole[];
+};
 const userConfig: Model = {
   source: "gql",
   type: "", // 'directory' | 'file'
@@ -52,36 +52,36 @@ const userConfig: Model = {
       },
       vintage: {
         type: "Select",
-        visibility: {
+        show: {
           default: false, // same as hidden = true
-          switchIf: [{ groups: "fellows" }], // array of conditions to switch the visibility, each condition will be assessed as a boolean
+          switchIf: [{ groups: "fellows" }], // array of conditions to switch the show, each condition will be assessed as a boolean
           disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
         },
         multiple: true,
       },
       programs: {
         type: "Select",
-        visibility: {
+        show: {
           default: false, // same as hidden = true
-          switchIf: [{ groups: "fellows" }], // array of conditions to switch the visibility, each condition will be assessed as a boolean
+          switchIf: [{ groups: "fellows" }], // array of conditions to switch the show, each condition will be assessed as a boolean
           disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
         },
         multiple: true,
       },
       disciplines: {
         type: "Select",
-        visibility: {
+        show: {
           default: false, // same as hidden = true
-          switchIf: [{ groups: "fellows" }], // array of conditions to switch the visibility, each condition will be assessed as a boolean
+          switchIf: [{ groups: "fellows" }], // array of conditions to switch the show, each condition will be assessed as a boolean
           disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
         },
         multiple: true,
       },
       member: {
         type: "Select",
-        visibility: {
+        show: {
           default: false, // same as hidden = true
-          switchIf: [{ groups: "fellows" }], // array of conditions to switch the visibility, each condition will be assessed as a boolean
+          switchIf: [{ groups: "fellows" }], // array of conditions to switch the show, each condition will be assessed as a boolean
           disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
         },
         multiple: true,
@@ -254,10 +254,10 @@ const userConfig: Model = {
       meta: "lang",
     },
   },
-}
+};
 const defaultConfig: Model = {
   aliases: ["people"],
   ...configPeople,
   ...userConfig,
-}
-export default defaultConfig
+};
+export default defaultConfig;

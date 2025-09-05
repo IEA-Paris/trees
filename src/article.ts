@@ -1,27 +1,27 @@
-import { Image } from "./image"
-import { People } from "./people"
-import { Disciplines } from "./disciplines"
-import { Video } from "./video"
-import { Tag } from "./tags"
-import Model from "./model"
+import { Image } from "./image";
+import { People } from "./people";
+import { Disciplines } from "./disciplines";
+import { Video } from "./video";
+import { Tag } from "./tags";
+import Model from "./model";
 // define format from set of articles formats offered by PIAS (i.e. Zenodo api)import { formType } from "./form"
-import { formType } from "./form"
+import { formType } from "./form";
 export interface Article {
-  name: string
-  abstract: string
-  image?: Image
-  video?: Video
-  needDOI: boolean
-  DOI?: string
-  Zid?: string
-  highlight: boolean
-  date?: Date
-  authors: People[]
-  issue?: string
-  lang: string
-  disciplines?: Disciplines[]
+  name: string;
+  abstract: string;
+  image?: Image;
+  video?: Video;
+  needDOI: boolean;
+  DOI?: string;
+  Zid?: string;
+  highlight: boolean;
+  date?: Date;
+  authors: People[];
+  issue?: string;
+  lang: string;
+  disciplines?: Disciplines[];
   //format: Format[]
-  tags?: Tag[]
+  tags?: Tag[];
 }
 
 const defautConfig: Model = {
@@ -240,7 +240,7 @@ const defautConfig: Model = {
     //   rules: {
     //     required: true,
     //   },
-    //   visibility: {
+    //   show: {
     //     default: true,
     //     switchIf: [],
     //     disjonctive: false,
@@ -259,6 +259,6 @@ const defautConfig: Model = {
       meta: "tag",
     },
   },
-}
+};
 
-export default defautConfig
+export default defautConfig;

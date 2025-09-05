@@ -9,6 +9,7 @@ import { Video } from "./video";
 import Model from "./model";
 import { Related } from "./related";
 import { formType } from "./form";
+import { userRole } from "./users";
 
 export interface People {
   name: string;
@@ -39,36 +40,36 @@ const defaultConfig: Model = {
       },
       vintage: {
         type: "Select",
-        visibility: {
+        show: {
           default: false, // same as hidden = true
-          switchIf: [{ groups: "fellows" }], // array of conditions to switch the visibility, each condition will be assessed as a boolean
+          switchIf: [{ groups: "fellows" }], // array of conditions to switch the show, each condition will be assessed as a boolean
           disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
         },
         multiple: true,
       },
       programs: {
         type: "Select",
-        visibility: {
+        show: {
           default: false, // same as hidden = true
-          switchIf: [{ groups: "fellows" }], // array of conditions to switch the visibility, each condition will be assessed as a boolean
+          switchIf: [{ groups: "fellows" }], // array of conditions to switch the show, each condition will be assessed as a boolean
           disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
         },
         multiple: true,
       },
       disciplines: {
         type: "Select",
-        visibility: {
+        show: {
           default: false, // same as hidden = true
-          switchIf: [{ groups: "fellows" }], // array of conditions to switch the visibility, each condition will be assessed as a boolean
+          switchIf: [{ groups: "fellows" }], // array of conditions to switch the show, each condition will be assessed as a boolean
           disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
         },
         multiple: true,
       },
       member: {
         type: "Select",
-        visibility: {
+        show: {
           default: false, // same as hidden = true
-          switchIf: [{ groups: "fellows" }], // array of conditions to switch the visibility, each condition will be assessed as a boolean
+          switchIf: [{ groups: "fellows" }], // array of conditions to switch the show, each condition will be assessed as a boolean
           disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
         },
         multiple: true,
@@ -187,14 +188,13 @@ const defaultConfig: Model = {
     },
     disciplines: {
       label: "disciplines",
-      component: "DisciplinePicker",
+      component: "DocumentPicker",
       type: formType.Document,
-
       meta: "disciplines",
     },
     video: {
       label: "video",
-      component: "ObjectCollapsiblePanel",
+      component: "CollectionContainerPanel",
       type: formType.Template,
       meta: "video",
       items: {
@@ -224,6 +224,7 @@ const defaultConfig: Model = {
     },
     groups: {
       label: "groups",
+      groups: [userRole.Admin], // restrict to some groups
       component: "ObjectContainerPanel",
       type: formType.Template,
       meta: "groups",
