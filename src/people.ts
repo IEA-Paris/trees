@@ -8,7 +8,7 @@ import { Disciplines } from "./disciplines";
 import { Video } from "./video";
 import Model from "./model";
 import { Related } from "./related";
-import { formType } from "./form";
+import { formType, Transformers } from "./form";
 import { userRole } from "./users";
 
 export interface People {
@@ -161,6 +161,7 @@ const defaultConfig: Model = {
         max: 500,
       },
       meta: "biography",
+      transformers: [Transformers.Options],
     },
     image: {
       label: "image",
@@ -198,10 +199,12 @@ const defaultConfig: Model = {
       type: formType.Template,
       meta: "video",
       items: {
-        label: "video",
-        component: "ObjectCollapsiblePanel",
-        type: formType.Template,
-        meta: "video",
+        video: {
+          label: "video",
+          component: "ObjectCollapsiblePanel",
+          type: formType.Template,
+          meta: "video",
+        },
       },
     },
 

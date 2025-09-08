@@ -26,11 +26,12 @@ export interface Conditional {
   disjonctive?: boolean;
 }
 
-export enum Transformers {
-  Trim = "TRIM",
+export enum Transformers { // only for primitive strings
+  Options = "OPTIONS", // will use the field as source for options
+  Trim = "TRIM", // remove trailing spaces
   Capitalize = "CAPITALIZE",
-  Uppercase = "UPPERCASE",
-  Lowercase = "LOWERCASE",
+  ToUpperCase = "TO_UPPERCASE",
+  ToLowerCase = "TO_LOWERCASE",
 }
 export interface Form {
   type: formType; // Primitive, Object, Array, Template, Document
