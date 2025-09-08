@@ -150,8 +150,8 @@ const defaultConfig: Model = {
       },
       meta: "lastname", // item type on schema.org
     },
-    summary: {
-      label: "summary",
+    biography: {
+      label: "biography",
       component: "TextArea",
       i18n: true,
       type: formType.Primitive,

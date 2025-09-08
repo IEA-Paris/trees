@@ -96,6 +96,7 @@ const defaultConfig: Model = {
       label: "caption",
       type: formType.Primitive,
       component: "TextField",
+      i18n: true,
       rules: {
         required: true,
         min: 2,
@@ -106,6 +107,7 @@ const defaultConfig: Model = {
     alt: {
       label: "alt",
       type: formType.Primitive,
+      i18n: true,
       component: "TextField",
       description: "Displayed if the image cannot be loaded",
       rules: {

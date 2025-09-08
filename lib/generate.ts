@@ -64,13 +64,15 @@ const buildDefaults = (schema: Record<string, any>): Record<string, any> => {
     }
     switch (field.type) {
       case formType.Primitive: {
-        if ("default" in field) result[key] = field.default;
+        if (field.i18n) {
+          result[key] = { en: "", fr: "" }; // default i18n structure
+        } else if (field.default) result[key] = field.default;
         else if (field.component === "Checkbox") result[key] = false;
         else result[key] = "";
         break;
       }
       case formType.Document: {
-        result[key] = "default" in field ? field.default : "";
+        result[key] = field.default ?? "";
         break;
       }
       case formType.Object: {
