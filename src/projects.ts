@@ -1,29 +1,29 @@
-import { Image } from "./image"
-import { Affiliation } from "./affiliation"
-import { File } from "./files"
-import { Video } from "./video"
-import Model from "./model"
-import { Related } from "./related"
-import { Tag } from "./tags"
-import { formType } from "./form"
+import { Image } from "./image";
+import { Affiliation } from "./affiliation";
+import { File } from "./files";
+import { Video } from "./video";
+import Model from "./model";
+import { Related } from "./related";
+import { Tag } from "./tags";
+import { formType } from "./form";
 
 export interface Projects {
-  name: string
-  subtitle?: string
-  description?: string
-  summary?: string
-  url?: URL
-  affiliations?: Affiliation[]
-  related?: Related[]
-  gallery?: Image[]
-  image?: Image
-  video?: Video
-  tags?: Tag[]
-  files?: File[]
-  color?: string
-  date?: Date
-  featured?: Date
-  status: projectStatus
+  name: string;
+  subtitle?: string;
+  description?: string;
+  summary?: string;
+  url?: URL;
+  affiliations?: Affiliation[];
+  related?: Related[];
+  gallery?: Image[];
+  image?: Image;
+  video?: Video;
+  tags?: Tag[];
+  files?: File[];
+  color?: string;
+  date?: Date;
+  featured?: Date;
+  status: projectStatus;
 }
 
 export enum projectStatus {
@@ -109,8 +109,8 @@ const defaultConfig: Model = {
       i18n: true,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
+        min: 2,
+        max: 50,
       },
       meta: "title", // item type on schema.org
     },
@@ -144,7 +144,6 @@ const defaultConfig: Model = {
       type: formType.Primitive,
       i18n: true,
       rules: {
-        required: true,
         min: 5,
         max: 2000,
       },
@@ -154,9 +153,7 @@ const defaultConfig: Model = {
       label: "url",
       component: "TextField",
       type: formType.Primitive,
-
       rules: {
-        required: true,
         url: true,
       },
       meta: "url", // item type on schema.org
@@ -173,7 +170,7 @@ const defaultConfig: Model = {
     },
     affiliations: {
       label: "affiliations",
-      component: "AffiliationPicker",
+      component: "DocumentPicker",
       type: formType.Document,
       meta: "affiliations",
     },
@@ -181,12 +178,6 @@ const defaultConfig: Model = {
       label: "related",
       component: "ObjectContainerPanel",
       type: formType.Template,
-
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
       meta: "related",
     },
     image: {
@@ -195,8 +186,6 @@ const defaultConfig: Model = {
       type: formType.Document,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
       },
       meta: "image",
     },
@@ -211,7 +200,6 @@ const defaultConfig: Model = {
       label: "video",
       component: "ObjectContainerPanel",
       type: formType.Template,
-
       meta: "video",
     },
     tags: {
@@ -241,7 +229,7 @@ const defaultConfig: Model = {
     },
     date: {
       label: "date",
-      component: "FiDatePicker",
+      component: "DatePicker",
       type: formType.Primitive,
       rules: {
         required: true,
@@ -260,5 +248,5 @@ const defaultConfig: Model = {
       meta: "featured",
     },
   },
-}
-export default defaultConfig
+};
+export default defaultConfig;

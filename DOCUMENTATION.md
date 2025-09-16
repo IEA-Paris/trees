@@ -1,19 +1,286 @@
-# Types Project Documentation
+# @paris-ias/data - Canopy Types Module
 
-The Types project (@paris-ias/data) is the core schema definition and generation system for the Paris IAS data management ecosystem.
+The `@paris-ias/data` module is the foundational component of the Canopy architecture, implementing the **data-agnostic** and **isomorphic forest** principles. This module provides a comprehensive type system that generates multiple tree structures (schema, form, list, and defaults) from a single source of truth.
+
+## 🏗️ Architecture Overview
+
+The types module implements the core Canopy principle of **isomorphic forests**: each data model is defined by multiple trees with identical structure but containing different values depending on context (browsing lists, creating forms, or integrating data).
+
+```mermaid
+graph TD
+    A[Data Model Definition] --> B[Schema Tree]
+    A --> C[Form Tree]
+    A --> D[List Tree]
+    A --> E[Defaults Tree]
+    
+    B --> F[Static Structure]
+    C --> G[Dynamic Forms]
+    D --> H[List Generation]
+    E --> I[Default Values]
+    
+    F --> J[Type Safety]
+    G --> K[UI Components]
+    H --> L[Filters & Sorting]
+    I --> M[Initialization]
+    
+    style A fill:#e1f5fe
+    style B fill:#f3e5f5
+    style C fill:#e8f5e8
+    style D fill:#fff3e0
+    style E fill:#fce4ec
+```
+
+## 🌳 Core Concepts
+
+### 1. Five Element Categories
+
+Every data model is composed of five possible element types:
+
+- **Primitive**: Basic values (string, number, boolean) with optional i18n support
+- **Object**: Nested structures containing other elements
+- **Collection**: Arrays of elements
+- **Template**: References to other data models (reusable components)
+- **Document**: Database representations with existing data
+
+### 2. Tree Structure Generation
+
+Each model generates four distinct trees:
+
+```mermaid
+graph LR
+    A[Model Definition] --> B[Schema Tree]
+    A --> C[Form Tree]
+    A --> D[List Tree]
+    A --> E[Defaults Tree]
+    
+    B --> B1[Type Definitions]
+    B --> B2[Validation Rules]
+    
+    C --> C1[UI Components]
+    C --> C2[Field Configuration]
+    
+    D --> D1[Filters]
+    D --> D2[Sorting]
+    D --> D3[Views]
+    
+    E --> E1[Initial Values]
+    E --> E2[I18n Defaults]
+```
 
 ## Overview
 
 This project defines data models, form schemas, and list configurations, then generates tailored JavaScript modules for both form and list components. It serves as the single source of truth for all data structures and UI configurations.
 
-## Key Features
+## 📂 Key Files and Components
 
-- **Type-Safe Schema Definition**: Uses TypeScript interfaces and enums to define data structures
-- **Template System**: Supports reusable template components that can be composed
-- **Form Schema Generation**: Automatically generates form schemas with validation rules
-- **List Configuration**: Defines filters, sorting, and view options for lists
-- **Circular Dependency Protection**: Handles complex nested relationships safely
-- **Automatic Code Generation**: Produces optimized JavaScript modules
+### Core Infrastructure
+
+| File | Purpose | Key Exports |
+|------|---------|-------------|
+| [`src/index.ts`](/home/bob/Projects/types/src/index.ts) | Main entry point with template registry | `templates`, type exports |
+| [`src/model.ts`](/home/bob/Projects/types/src/model.ts) | Core model interface definition | `Model` interface |
+| [`src/form.ts`](/home/bob/Projects/types/src/form.ts) | Form configuration and validation | `Form`, `formType`, `Rules` |
+| [`src/list.ts`](/home/bob/Projects/types/src/list.ts) | List generation configuration | `List`, `Sort`, `Views` |
+| [`lib/generate.ts`](/home/bob/Projects/types/lib/generate.ts) | Tree generation engine | Build and export functions |
+
+### Data Model Definitions
+
+The module includes comprehensive data models for academic and research contexts:
+
+| Model | File | Description |
+|-------|------|-------------|
+| People | [`src/people.ts`](/home/bob/Projects/types/src/people.ts) | Academic profiles with affiliations, disciplines |
+| Events | [`src/events.ts`](/home/bob/Projects/types/src/events.ts) | Academic events and conferences |
+| Publications | [`src/publications.ts`](/home/bob/Projects/types/src/publications.ts) | Research publications and articles |
+| Projects | [`src/projects.ts`](/home/bob/Projects/types/src/projects.ts) | Research projects and initiatives |
+| Fellowships | [`src/fellowships.ts`](/home/bob/Projects/types/src/fellowships.ts) | Fellowship programs and applications |
+| News | [`src/news.ts`](/home/bob/Projects/types/src/news.ts) | News articles and announcements |
+
+## 🔧 Form Type System
+
+The form type system provides five fundamental types that can be composed infinitely:
+
+```typescript
+export enum formType {
+  Primitive = "PRIMITIVE",    // Basic values with optional i18n
+  Object = "OBJECT",         // Nested structures
+  Array = "ARRAY",          // Collections
+  Template = "TEMPLATE",    // References to other models
+  Document = "DOCUMENT"     // Database entities
+}
+```
+
+### Form Configuration Interface
+
+```typescript
+interface Form {
+  type: formType;
+  component?: string | boolean;  // UI component to render
+  label: string;
+  groups?: userRole[];          // Access control
+  i18n?: boolean;              // Internationalization flag
+  default?: any;               // Default value
+  rules?: Rules;              // Validation rules
+  show?: Conditional;         // Conditional visibility
+  enabled?: Conditional;      // Conditional enablement
+  transformers?: Transformers[]; // Value transformations
+  items?: any;               // Nested structure
+}
+```
+
+## 🌐 Internationalization by Default
+
+Every primitive field can be configured for internationalization:
+
+```mermaid
+graph TD
+    A[Primitive Field] --> B{i18n flag?}
+    B -->|true| C[Multi-language Object]
+    B -->|false| D[Single Value]
+    
+    C --> E[{"en": "value", "fr": "valeur"}]
+    D --> F["single string value"]
+    
+    style C fill:#e8f5e8
+    style D fill:#fff3e0
+```
+
+## 🔄 Template System and Composition
+
+Templates enable infinite composition while maintaining type safety:
+
+```mermaid
+graph TD
+    A[People Model] --> B[Affiliations Template]
+    A --> C[Socials Template] 
+    A --> D[Position Template]
+    
+    B --> B1[Organization Info]
+    B --> B2[Position Details]
+    
+    C --> C1[Social Links]
+    C --> C2[Contact Info]
+    
+    D --> D1[Role Description]
+    D --> D2[Duration Info]
+    
+    style A fill:#e1f5fe
+    style B fill:#f3e5f5
+    style C fill:#f3e5f5
+    style D fill:#f3e5f5
+```
+
+## ⚙️ Generation Process
+
+The generation process transforms model definitions into consumable trees:
+
+```mermaid
+sequenceDiagram
+    participant Dev as Developer
+    participant Gen as Generator
+    participant Templates as Template Registry
+    participant Output as Generated Files
+    
+    Dev->>Gen: Run npm run generate
+    Gen->>Templates: Load all templates
+    Gen->>Gen: Resolve template dependencies
+    Gen->>Gen: Complete schemas
+    Gen->>Gen: Build defaults
+    Gen->>Output: Export schema trees
+    Gen->>Output: Export form trees
+    Gen->>Output: Export list trees
+    Gen->>Output: Export default trees
+```
+
+### Key Generation Functions
+
+| Function | Purpose | Location |
+|----------|---------|----------|
+| `completeSchema()` | Resolves template references and builds complete schemas | [`lib/generate.ts:104`](/home/bob/Projects/types/lib/generate.ts) |
+| `buildDefaults()` | Generates default values for all fields | [`lib/generate.ts:42`](/home/bob/Projects/types/lib/generate.ts) |
+| `createJsonFile()` | Exports trees as consumable JSON/JS files | [`lib/utils.ts`](/home/bob/Projects/types/lib/utils.ts) |
+
+## 🎯 Usage Patterns
+
+### 1. Defining a New Model
+
+```typescript
+const newModel: Model = {
+  source: "gql",              // Data source type
+  type: "collection",         // Model type
+  list: {                     // List configuration
+    create: true,
+    filters: { /* ... */ },
+    sort: { /* ... */ },
+    views: { /* ... */ }
+  },
+  form: {                     // Form schema
+    fieldName: {
+      type: formType.Primitive,
+      component: "TextField",
+      label: "Field Label",
+      i18n: true,
+      rules: { required: true }
+    }
+  }
+};
+```
+
+### 2. Template Composition
+
+```typescript
+const complexModel: Model = {
+  form: {
+    basicInfo: {
+      type: formType.Template,
+      component: "ObjectField",
+      label: "Basic Information",
+      items: "people"  // Reference to people template
+    }
+  }
+};
+```
+
+## 🔍 Error Handling and Validation
+
+The generation process includes comprehensive error handling:
+
+- **Circular Dependency Detection**: Prevents infinite loops in template references
+- **Missing Template Validation**: Ensures all referenced templates exist
+- **Schema Validation**: Validates field configurations
+- **Type Safety**: Full TypeScript support throughout
+
+## 📦 Build Process
+
+```bash
+# Generate all trees from source definitions
+npm run generate
+
+# Development mode with watch
+npm run dev
+
+# Create dependency visualization
+npm run draw
+```
+
+## 🤝 Integration with Canopy Ecosystem
+
+The types module serves as the foundation for:
+
+- **[@paris-ias/form](../form)**: Consumes form trees for dynamic UI generation
+- **[@paris-ias/list](../list)**: Uses list trees for filtering and sorting
+- **[Seed Project](../seed)**: Academic content management
+- **[Apex Project](../Apex)**: Full-stack application framework
+
+## 📈 Dependency Graph
+
+The module generates a visual dependency graph showing relationships between models:
+
+```bash
+npm run draw  # Generates dependency-graph.svg
+```
+
+This creates a comprehensive visualization of how templates reference each other, helping developers understand the data model relationships and identify potential circular dependencies.
 
 ## Architecture
 
@@ -302,27 +569,6 @@ vintage: {
 - Consider lazy loading for large schemas
 - Optimize generated bundle size
 
-## Troubleshooting
-
-### Common Issues
-
-1. **Circular Dependencies**
-   ```
-   Warning: Circular dependency detected for template: socials
-   ```
-   - Solution: Review template imports and break circular references
-
-2. **Missing Templates** 
-   ```
-   Error: Cannot find template 'invalidTemplate'
-   ```
-   - Solution: Ensure template is defined in configData
-
-3. **Type Mismatches**
-   ```
-   Error: Expected formType but got undefined
-   ```
-   - Solution: Verify all form fields have proper type definitions
 
 ### Debug Mode
 Enable verbose logging during generation:
