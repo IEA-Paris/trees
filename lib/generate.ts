@@ -180,6 +180,9 @@ const completeSchema = (
                   visitedTemplates
                 ),
               };
+              if (key === "video") {
+                console.log("video template items: ", completedSchema[key]);
+              }
             } finally {
               visitedTemplates.delete(key);
             }
