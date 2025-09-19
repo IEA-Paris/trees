@@ -1,19 +1,19 @@
-import { Image } from "./image"
-import Model from "./model"
-import { Tag } from "./tags"
-import { formType } from "./form"
+import { Image } from "./image";
+import Model from "./model";
+import { Tag } from "./tags";
+import { formType } from "./form";
 export interface Apps {
-  appId: string
-  name: string
-  image?: Image
-  description?: string
-  summary?: string
-  url?: URL
-  tags?: Tag[]
-  subtitle?: string
-  color?: string
-  date?: Date
-  state?: appState
+  appId: string;
+  name: string;
+  image?: Image;
+  description?: string;
+  summary?: string;
+  url?: URL;
+  tags?: Tag[];
+  subtitle?: string;
+  color?: string;
+  date?: Date;
+  state?: appState;
 }
 export enum appState {
   Active = "ACTIVE",
@@ -21,14 +21,9 @@ export enum appState {
   Inactive = "INACTIVE",
 }
 const defaultConfig: Model = {
-  // fitlers used in the query by default (e.g. only published articles)
-  queryFilters: {},
-  source: "md",
-  type: "directory", // 'directory' | 'file
-  path: "content/app", // path to the folder where the content is stored
+  source: "gql",
   list: {
     create: true, // allow to create new items
-
     filters: {
       year: {
         type: "Select",
@@ -196,6 +191,6 @@ const defaultConfig: Model = {
       meta: "date",
     },
   },
-}
+};
 
-export default defaultConfig
+export default defaultConfig;

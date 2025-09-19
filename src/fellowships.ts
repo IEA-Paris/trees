@@ -1,35 +1,35 @@
-import { Image } from "./image"
-import { Affiliation } from "./affiliation"
-import { FellowshipDetails } from "./fellowshipDetails"
-import { File } from "./files"
-import Model from "./model"
-import { Video } from "./video"
-import { Disciplines } from "./disciplines"
-import { RelatedPeople } from "./relatedPeople"
-import { formType } from "./form"
+import { Image } from "./image";
+import { Affiliation } from "./affiliation";
+import { FellowshipDetails } from "./fellowshipDetails";
+import { File } from "./files";
+import Model from "./model";
+import { Video } from "./video";
+import { Disciplines } from "./disciplines";
+import { RelatedPeople } from "./relatedPeople";
+import { formType } from "./form";
 export interface Fellowships {
-  action?: string
-  affiliations?: Affiliation[] // AKA members behind the fellowships
-  applicationStart?: Date
-  disciplines?: Disciplines[] // 3 - Server & Client //Inside=> Presentation
-  fellowshipStart?: Date
-  contact?: string
-  description: string
-  subtitle: string
-  fellowshipDetails: FellowshipDetails
-  fellows?: RelatedPeople[]
-  url?: URL
-  applicationStop?: Date
-  fellowshipStop?: Date
-  image?: Image
-  publicationDate?: Date
-  summary?: string
-  files?: File[]
-  fellowshipType: [FellowshipType]
-  gallery?: Image[]
-  name: string
-  video?: Video[]
-  status: FellowshipStatus
+  action?: string;
+  affiliations?: Affiliation[]; // AKA members behind the fellowships
+  applicationStart?: Date;
+  disciplines?: Disciplines[]; // 3 - Server & Client //Inside=> Presentation
+  fellowshipStart?: Date;
+  contact?: string;
+  description: string;
+  subtitle: string;
+  fellowshipDetails: FellowshipDetails;
+  fellows?: RelatedPeople[];
+  url?: URL;
+  applicationStop?: Date;
+  fellowshipStop?: Date;
+  image?: Image;
+  publicationDate?: Date;
+  summary?: string;
+  files?: File[];
+  fellowshipType: [FellowshipType];
+  gallery?: Image[];
+  name: string;
+  video?: Video[];
+  status: FellowshipStatus;
 }
 
 export enum FellowshipType {
@@ -50,7 +50,6 @@ const defaultConfig: Model = {
   source: "gql",
   list: {
     create: true, // allow to create new items
-
     filters: {
       status: {
         type: "Select",
@@ -78,26 +77,26 @@ const defaultConfig: Model = {
         // by name from a to z
         icon: "sort-alphabetical-ascending",
         text: "by-name-from-a-to-z",
-        value: ["article_title", 1],
+        value: ["name", 1],
       },
       namedesc: {
         // by name from z to a
         icon: "sort-alphabetical-descending",
         text: "by-name-from-z-to-a",
-        value: ["article_title", -1],
+        value: ["name", -1],
       },
       dateasc: {
         // by date from most recent to oldest
         icon: "sort-calendar-descending",
         text: "by-date-most-recent-first",
-        value: ["date", -1],
+        value: ["applicationStart", -1],
         default: true,
       },
       datedesc: {
         // by date from oldest to most recent
         icon: "sort-calendar-ascending",
         text: "by-date-oldest-first",
-        value: ["date", 1],
+        value: ["applicationStart", 1],
       },
     },
     views: {
@@ -340,5 +339,5 @@ const defaultConfig: Model = {
       },
     },
   },
-}
-export default defaultConfig
+};
+export default defaultConfig;
