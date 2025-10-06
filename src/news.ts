@@ -4,6 +4,7 @@ import { RelatedPeople } from "./relatedPeople"
 import { Related } from "./related"
 import { Tag } from "./tags"
 import { formType } from "./form"
+import { Files } from "./files"
 
 export interface News {
   name: string
@@ -20,7 +21,7 @@ export interface News {
   date?: Date
   featured?: Date
   related?: Related[]
-  files?: File[]
+  files?: Files
 }
 export enum newsCategories {
   PressRelease = "PRESS_RELEASE",

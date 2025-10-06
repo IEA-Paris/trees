@@ -1,35 +1,35 @@
-import { Image } from "./image";
-import { Affiliation } from "./affiliation";
-import { FellowshipDetails } from "./fellowshipDetails";
-import { File } from "./files";
-import Model from "./model";
-import { Video } from "./video";
-import { Disciplines } from "./disciplines";
-import { RelatedPeople } from "./relatedPeople";
-import { formType } from "./form";
+import { Image } from "./image"
+import { Affiliation } from "./affiliation"
+import { FellowshipDetails } from "./fellowshipDetails"
+import { Files } from "./files"
+import Model from "./model"
+import { Video } from "./video"
+import { Disciplines } from "./disciplines"
+import { RelatedPeople } from "./relatedPeople"
+import { formType } from "./form"
 export interface Fellowships {
-  action?: string;
-  affiliations?: Affiliation[]; // AKA members behind the fellowships
-  applicationStart?: Date;
-  disciplines?: Disciplines[]; // 3 - Server & Client //Inside=> Presentation
-  fellowshipStart?: Date;
-  contact?: string;
-  description: string;
-  subtitle: string;
-  fellowshipDetails: FellowshipDetails;
-  fellows?: RelatedPeople[];
-  url?: URL;
-  applicationStop?: Date;
-  fellowshipStop?: Date;
-  image?: Image;
-  publicationDate?: Date;
-  summary?: string;
-  files?: File[];
-  fellowshipType: [FellowshipType];
-  gallery?: Image[];
-  name: string;
-  video?: Video[];
-  status: FellowshipStatus;
+  action?: string
+  affiliations?: Affiliation[] // AKA members behind the fellowships
+  applicationStart?: Date
+  disciplines?: Disciplines[] // 3 - Server & Client //Inside=> Presentation
+  fellowshipStart?: Date
+  contact?: string
+  description: string
+  subtitle: string
+  fellowshipDetails: FellowshipDetails
+  fellows?: RelatedPeople[]
+  url?: URL
+  applicationStop?: Date
+  fellowshipStop?: Date
+  image?: Image
+  publicationDate?: Date
+  summary?: string
+  files?: Files[]
+  fellowshipType: [FellowshipType]
+  gallery?: Image[]
+  name: string
+  video?: Video[]
+  status: FellowshipStatus
 }
 
 export enum FellowshipType {
@@ -339,5 +339,5 @@ const defaultConfig: Model = {
       },
     },
   },
-};
-export default defaultConfig;
+}
+export default defaultConfig

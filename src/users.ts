@@ -1,19 +1,10 @@
-import { Affiliation } from "./affiliation";
-import { Image } from "./image";
-import { Socials } from "./socials";
-import { Position } from "./position";
-import { Consent } from "./consent";
-import { Groups } from "./groups";
-import { Disciplines } from "./disciplines";
-import { Video } from "./video";
-import Model from "./model";
-import { Related } from "./related";
-import configPeople, { People } from "./people";
-import { formType } from "./form";
+import Model from "./model"
+import configPeople, { People } from "./people"
+import { formType } from "./form"
 
 type Settings = {
-  lang: String;
-};
+  lang: String
+}
 export enum userStatus {
   Active = "ACTIVE",
   Pending = "PENDING",
@@ -29,17 +20,17 @@ export enum userRole {
   Member = "MEMBER",
   Guest = "GUEST",
 }
-export interface User extends People {
-  admin: Boolean;
-  apps: [AppRole];
-  email: String;
-  settings: Settings;
-  status: userStatus;
+export interface Users extends People {
+  admin: Boolean
+  apps: [AppRole]
+  email: String
+  settings: Settings
+  status: userStatus
 }
 type AppRole = {
-  appId: String;
-  roles: userRole[];
-};
+  appId: String
+  roles: userRole[]
+}
 const userConfig: Model = {
   source: "gql",
   type: "", // 'directory' | 'file'
@@ -254,10 +245,10 @@ const userConfig: Model = {
       meta: "lang",
     },
   },
-};
+}
 const defaultConfig: Model = {
   aliases: ["people"],
   ...configPeople,
   ...userConfig,
-};
-export default defaultConfig;
+}
+export default defaultConfig

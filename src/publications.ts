@@ -1,6 +1,6 @@
 import { Image } from "./image"
 import { Affiliation } from "./affiliation"
-import { File } from "./files"
+import { Files } from "./files"
 import { Video } from "./video"
 import Model from "./model"
 import { Related } from "./related"
@@ -21,7 +21,7 @@ export interface Publications {
   video?: Video
   tags?: Tag[]
   disciplines?: Disciplines[]
-  files?: File[]
+  files?: Files[]
   color?: string
   date?: Date
   type: publicationType

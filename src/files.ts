@@ -2,7 +2,7 @@ import Model from "./model"
 import { Image } from "./image"
 import { formType } from "./form"
 
-export interface File {
+export interface Files {
   name: string
   url: URL
   size: number
