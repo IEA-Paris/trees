@@ -1,6 +1,5 @@
 import { Image } from "./image"
-import Model from "./model"
-import { formType } from "./form"
+
 export interface RelatedEvent {
   bookingState: number // 0 - Server & Client -
   createdAt: Date // 0 - Server & Client -

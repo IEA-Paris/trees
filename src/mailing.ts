@@ -1,4 +1,3 @@
-import { Form } from "./form"
 import Model from "./model"
 import { formType } from "./form"
 

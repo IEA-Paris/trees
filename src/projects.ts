@@ -1,29 +1,29 @@
-import { Image } from "./image";
-import { Affiliation } from "./affiliation";
-import { File } from "./files";
-import { Video } from "./video";
-import Model from "./model";
-import { Related } from "./related";
-import { Tag } from "./tags";
-import { formType } from "./form";
+import { Image } from "./image"
+import { Affiliation } from "./affiliation"
+import { Files } from "./files"
+import { Video } from "./video"
+import Model from "./model"
+import { Related } from "./related"
+import { Tag } from "./tags"
+import { formType } from "./form"
 
 export interface Projects {
-  name: string;
-  subtitle?: string;
-  description?: string;
-  summary?: string;
-  url?: URL;
-  affiliations?: Affiliation[];
-  related?: Related[];
-  gallery?: Image[];
-  image?: Image;
-  video?: Video;
-  tags?: Tag[];
-  files?: File[];
-  color?: string;
-  date?: Date;
-  featured?: Date;
-  status: projectStatus;
+  name: string
+  subtitle?: string
+  description?: string
+  summary?: string
+  url?: URL
+  affiliations?: Affiliation[]
+  related?: Related[]
+  gallery?: Image[]
+  image?: Image
+  video?: Video
+  tags?: Tag[]
+  files?: Files[]
+  color?: string
+  date?: Date
+  featured?: Date
+  status: projectStatus
 }
 
 export enum projectStatus {
@@ -248,5 +248,5 @@ const defaultConfig: Model = {
       meta: "featured",
     },
   },
-};
-export default defaultConfig;
+}
+export default defaultConfig

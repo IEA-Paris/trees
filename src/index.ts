@@ -1,7 +1,7 @@
 import { ModuleType } from "../lib/generate"
 import Model from "./model"
 import { Sort, Views } from "./list"
-import { Form, formType, FormWithMeta } from "./form"
+import { Form, formType } from "./form"
 import defaultConfigAction from "./action"
 import defaultConfigAffilation from "./affiliation"
 import defaultConfigExperiences, { ExperiencesForm } from "./experiences"

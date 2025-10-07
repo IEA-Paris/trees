@@ -1,53 +1,53 @@
-import { Location } from "./location";
-import { Image } from "./image";
-import { EventSlot } from "./eventSlot";
-import { Disciplines } from "./disciplines";
-import { Tag } from "./tags";
-import { People } from "./people";
-import { Affiliation } from "./affiliation";
-import { File } from "./files";
-import { Related } from "./related";
-import Model from "./model";
-import { formType } from "./form";
+import { Location } from "./location"
+import { Image } from "./image"
+import { EventSlot } from "./eventSlot"
+import { Disciplines } from "./disciplines"
+import { Tag } from "./tags"
+import { People } from "./people"
+import { Affiliation } from "./affiliation"
+import { Files } from "./files"
+import { Related } from "./related"
+import Model from "./model"
+import { formType } from "./form"
 
-export interface Event {
-  affiliations?: Affiliation[]; // 3 - Server & Client - //Bottom left Document
-  appId: string; // 0 - Server & Client -
-  availableSlots: number; // 0 - Server & Client - ? => Claire
-  bookingState: bookingState; // 0 - Server & Client -
-  category: eventCategories; // 0 - Server & Client -
-  createdAt?: Date; // 0 - Server & Client -
-  dateText: string; // 0 - Server & Client -
-  delay?: number; // 0 - Server & Client -
-  description: string; // 0 - Server & Client -
-  details: String; // 0 - Server & Client -
-  disciplines?: Disciplines[]; // 3 - Server & Client //Inside=> Presentation
-  discussants?: People[]; // 0 - Server & Client -
-  files?: File[]; // 3 - Server & Client -
-  lang: string[];
-  image?: Image; // 3 - Server & Client -
-  gallery?: Image[];
-  name: string; // 0 - Server & Client -
-  eventSlot?: EventSlot[]; //// 3 - Server -
-  organizers: People[] | Affiliation[]; // 3 - Server & Client -
-  outside: boolean; // 0 - Server & Client -  // Near inscription
-  location: Location; // 0 - Server & Client -
-  organiserType: organiserType; // server & client - 0 = IAS, 1 = member, 2 = fellow, 3 = external
-  program: String; // 0 - Server & Client -
-  related: Related;
+export interface Events {
+  affiliations?: Affiliation[] // 3 - Server & Client - //Bottom left Document
+  appId: string // 0 - Server & Client -
+  availableSlots: number // 0 - Server & Client - ? => Claire
+  bookingState: bookingState // 0 - Server & Client -
+  category: eventCategories // 0 - Server & Client -
+  createdAt?: Date // 0 - Server & Client -
+  dateText: string // 0 - Server & Client -
+  delay?: number // 0 - Server & Client -
+  description: string // 0 - Server & Client -
+  details: String // 0 - Server & Client -
+  disciplines?: Disciplines[] // 3 - Server & Client //Inside=> Presentation
+  discussants?: People[] // 0 - Server & Client -
+  files?: Files[] // 3 - Server & Client -
+  lang: string[]
+  image?: Image // 3 - Server & Client -
+  gallery?: Image[]
+  name: string // 0 - Server & Client -
+  eventSlot?: EventSlot[] //// 3 - Server -
+  organizers: People[] | Affiliation[] // 3 - Server & Client -
+  outside: boolean // 0 - Server & Client -  // Near inscription
+  location: Location // 0 - Server & Client -
+  organiserType: organiserType // server & client - 0 = IAS, 1 = member, 2 = fellow, 3 = external
+  program: String // 0 - Server & Client -
+  related: Related
   // slots?: EventSlot[]; //// 3 - Server
-  speakers?: People[]; // 3 - Server & Client -
-  start: string; // 0 - Server & Client -   A verifier string ? string[]
-  state: eventState; // 0 - Server & Client -
-  stop: string; // 0 - Server & Client - A verifier string ? string[]
-  stream?: string; // 0 - Server & Client -
-  subtitle?: string; // 0 - Server &
-  summary?: string; // 0 - Server & Client -
-  tags?: Tag[]; // 3 - Server & Client - Inside=> Presentation
-  totalSlots: number; // 0 - Server & Client
-  eventType: eventType; // 0 : online, 1: physical, 2: hybrid// 0 - Server & Client -
-  updatedAt: Date; // 0 - Server & Client -
-  url?: URL; // 0 - Server & Client -
+  speakers?: People[] // 3 - Server & Client -
+  start: string // 0 - Server & Client -   A verifier string ? string[]
+  state: eventState // 0 - Server & Client -
+  stop: string // 0 - Server & Client - A verifier string ? string[]
+  stream?: string // 0 - Server & Client -
+  subtitle?: string // 0 - Server &
+  summary?: string // 0 - Server & Client -
+  tags?: Tag[] // 3 - Server & Client - Inside=> Presentation
+  totalSlots: number // 0 - Server & Client
+  eventType: eventType // 0 : online, 1: physical, 2: hybrid// 0 - Server & Client -
+  updatedAt: Date // 0 - Server & Client -
+  url?: URL // 0 - Server & Client -
 }
 export enum eventState {
   Draft = "DRAFT",
@@ -568,6 +568,6 @@ const defaultConfig: Model = {
       meta: "url",
     },
   },
-};
+}
 
-export default defaultConfig;
+export default defaultConfig
