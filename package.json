@@ -5,9 +5,11 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsx index.ts",
-    "generate": "npx tsx lib/generate.ts && npx tsx lib/buildSchemas.ts",
+    "generate": "npx tsx lib/generateAll.ts",
+    "generate:modules": "npx tsx lib/generate.ts",
+    "generate:schemas": "npx tsx lib/buildSchemas.ts",
+    "generate:client": "npx tsx lib/buildClientGraphQL.ts",
     "draw": "npx depcruise src --include-only \"^src\" --output-type dot | dot -T svg > dependency-graph.svg",
-    "build": "npm run generate",
     "clean": "rm -rf dist/",
     "prebuild": "npm run clean"
   },
@@ -17,7 +19,7 @@
     "lib/**",
     "dist/**"
   ],
-  "author": "Paris Institute for Advanced Study",
+  "author": "Antoine Cordelois, Paris Institute for Advanced Study",
   "license": "ISC",
   "description": "Type definitions and schema generator for Paris IAS data management system",
   "dependencies": {
