@@ -1,4 +1,4 @@
-import { Image } from "../../files/image"
+import { Image } from "../../files/models/image"
 import { Video } from "../../files/video"
 
 export interface RelatedPublications {

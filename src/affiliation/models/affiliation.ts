@@ -1,5 +1,5 @@
-import { Image } from "../files/image"
-import { Location } from "../misc/location"
+import { Image } from "../../files/models/image"
+import { Location } from "../../misc/models/location"
 import Model from "../../model"
 import { formType } from "../../form"
 

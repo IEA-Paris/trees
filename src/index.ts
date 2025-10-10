@@ -21,7 +21,7 @@ import defaultConfigFellowshipDetails, {
 import defaultConfigFiles from "./files/files"
 import defaultConfigGallery from "./files/gallery"
 import defaultConfigGroup, { GroupsForm } from "./people/groups"
-import defaultConfigImage from "./files/image"
+import defaultConfigImage from "./files/models/image"
 import defaultConfigLocation, { LocationForm } from "./misc/location"
 import defaultConfigMailing from "./mailing/mailing"
 import defaultConfigMember from "./affiliation/member"

@@ -1,4 +1,4 @@
-import { Image } from "../files/image"
+import { Image } from "../../files/models/image"
 import Model from "../../model"
 import { formType } from "../../form"
 export interface Action {

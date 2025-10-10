@@ -1,10 +1,10 @@
-import { Image } from "../files/image"
+import { Image } from "../../files/models/image"
 import Model from "../../model"
 import { RelatedPeople } from "../misc/relatedPeople"
-import { Related } from "../misc/related"
-import { Tag } from "../misc/tags"
+import { Related } from "../../misc/models/related"
+import { Tag } from "../../misc/models/tags"
 import { formType } from "../../form"
-import { Files } from "../files/files"
+import { Files } from "../../files/models/files"
 
 export interface News {
   name: string

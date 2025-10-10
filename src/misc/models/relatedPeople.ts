@@ -1,4 +1,4 @@
-import { Image } from "../../files/image"
+import { Image } from "../../files/models/image"
 
 export interface RelatedPeople {
   firstname: string
