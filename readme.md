@@ -69,7 +69,7 @@ Every data model is composed of five fundamental types that can be infinitely co
 
 ### 🌲 Generated Trees
 
-Each model definition generates five distinct outputs:
+Each model definition generates several distinct outputs:
 
 ```typescript
 // 1. Schema Tree - Type definitions and validation, first part used by forms
