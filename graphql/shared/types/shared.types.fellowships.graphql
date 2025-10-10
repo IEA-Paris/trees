@@ -1,0 +1,38 @@
+type Fellowship  {
+  appId: String
+  action: String
+  affiliations: [Affiliation]
+  applicationStart: String
+  disciplines: [Disciplines]
+  fellowshipStart: String
+  contact: String
+  description: String
+  fellowshipDetails: FellowshipDetails!
+  fellows: [RelatedPeople]
+  url: AWSURL
+  applicationStop: String
+  fellowshipStop: String
+  image: Image
+  member: [Affiliation]
+  related: Related
+  publicationDate: String
+  summary: String
+  files: [File]
+  fellowshipType: [FellowshipType]
+  status: FellowshipStatus
+  gallery: [Image]
+  name: String!
+  video: [Video]
+  slug: AWSJSON
+}
+
+type FellowshipFilters {
+  disciplines: [String!]
+  affiliations: [String!]
+  tags: [String!]
+}
+
+type FellowshipList {
+  total: Int!
+  items: [Fellowship]
+}

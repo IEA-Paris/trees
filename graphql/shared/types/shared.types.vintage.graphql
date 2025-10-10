@@ -1,0 +1,6 @@
+type Vintage {
+  name: String
+  year: Int
+  theme: String
+  url: AWSURL
+}

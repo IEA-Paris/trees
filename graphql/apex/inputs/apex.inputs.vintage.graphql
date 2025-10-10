@@ -1,0 +1,6 @@
+input VintageInput {
+  name: String
+  year: Int
+  theme: String
+  url: AWSURL
+}

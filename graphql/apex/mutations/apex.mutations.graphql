@@ -1,0 +1,23 @@
+type Mutation {
+  # User management (admin functions)
+  inviteUser(options: UserInput!): Boolean
+  changePassword(
+    key: String!
+    password: String!
+    recaptcha: String!
+  ): TokenAndUser
+  updateUser(email: AWSEmail!, options: UpdateUserInput!): User
+  forgotPassword(email: AWSEmail!, recaptcha: String!): Boolean
+  blockUser(email: AWSEmail!): Boolean
+  deleteAccount: Boolean
+
+  # Content management (admin functions - only implemented)
+  upsertApp(options: AppInput!): Boolean
+  upsertEvent(appId: String, itemId: ID, options: EventInput!): Event
+
+  # Event booking (shared with website)
+  bookEvent(itemId: ID!, slot: SlotInput!): Boolean
+
+  # Nomenclature management
+  createNomenclature(options: NomenclatureInput!): Nomenclature
+}

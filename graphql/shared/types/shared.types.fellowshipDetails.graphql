@@ -1,0 +1,13 @@
+type FellowshipDetails {
+  type: String
+  fundingPeriod: String
+  profile: String
+  tasks: String
+  location: String
+  funding: String
+  housing: String
+  meals: String
+  applicationMaterials: String
+  selectionProcess: String
+  researchSupport: String
+}

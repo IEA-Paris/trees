@@ -1,0 +1,6 @@
+
+type RelatedPublication {
+  name: String!
+  url: AWSURL!
+  slug: AWSJSON
+}

@@ -1,0 +1,12 @@
+input SocialsInput {
+  website: AWSURL
+  wikipedia: AWSURL
+  orcid: AWSURL
+  linkedin: AWSURL
+  twitter: AWSURL
+  instagram: AWSURL
+  scholar: AWSURL
+  researchgate: AWSURL
+  mendeley: AWSURL
+  idRef: Int
+}

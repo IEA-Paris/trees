@@ -1,0 +1,4 @@
+type DisciplinesList {
+  total: Int!
+  items: [Disciplines]
+}

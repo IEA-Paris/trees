@@ -1,0 +1,13 @@
+type Mailing {
+  appId: String
+  name: String
+  description: String
+  createdAt: String
+  updatedAt: String
+  date: AWSDateTime
+}
+
+type MailingList {
+  total: Int!
+  items: [Mailing]
+}

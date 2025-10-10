@@ -1,0 +1,15 @@
+type File {
+  appId: String
+  name: String!
+  url: AWSURL!
+  size: Int!
+  fileType: String!
+  hash: String!
+  path: String!
+  file: String!
+  image: Image
+  thumb: AWSURL!
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}
+

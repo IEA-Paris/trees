@@ -1,0 +1,20 @@
+type AffiliationList {
+  total: Int!
+  items: [Affiliation]
+}
+
+
+type Affiliation {
+  location: Location
+  image: Image
+  name: String
+  ror: String
+  url: AWSURL
+  appId: String
+  slug: AWSJSON
+}
+
+type AffiliationWithPositions {
+  affiliation: Affiliation
+  positions: [Position]
+}

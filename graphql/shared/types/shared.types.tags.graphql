@@ -1,0 +1,11 @@
+type Tag  {
+  name: String
+  description: String
+  icon: String
+  createdAt: AWSDateTime
+  updatedAt: AWSDateTime
+  appId: String
+  slug: AWSJSON
+}
+
+

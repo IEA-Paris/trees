@@ -1,0 +1,13 @@
+input SearchOptionsInput {
+  modules: [String!]
+  text: String
+}
+
+
+input WikipediaInput {
+  lang: String!
+  disciplines: AWSJSON
+  thematics: AWSJSON
+  types: AWSJSON
+  tags: AWSJSON
+}

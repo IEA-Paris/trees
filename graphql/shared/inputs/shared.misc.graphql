@@ -1,0 +1,101 @@
+input AppInput {
+  name: String!
+  description: String
+  summary: String
+  subtitle: String
+  logo: String
+  url: AWSURL
+  state: appState
+  color: String
+}
+
+input AppRoleInput {
+  appId: String
+  roles: [Int!]!
+}
+
+input WikipediaIdsLabelInput {
+  ids: [String!]
+  label: String
+}
+
+input UserInput {
+  admin: Boolean
+  apps: [AppRoleInput!]
+  country: Int
+  email: AWSEmail!
+  entity: String
+  firstname: String!
+  lastname: String!
+  position: String
+}
+
+input UpdateUserInput {
+  admin: Boolean
+  apps: [AppRoleInput!]
+  profile: ProfileInput
+  settings: SettingsInput
+  status: Int
+}
+
+input SlotInput {
+  firstname: String!
+  lastname: String!
+  email: AWSEmail!
+  institution: String
+  lang: String!
+}
+
+input SettingsInput {
+  lang: String
+}
+
+input ProfileInput {
+  country: Int
+  firstname: String!
+  lastname: String!
+  position: String
+  image: ImageInput
+  references: [String]
+  presentation: String
+  twitter: String
+  linkedin: String
+  wikipedia: String
+}
+
+input PlaceInput {
+  name: String!
+  address: String
+  url: AWSURL
+}
+
+input NomenclatureSettingsInput {
+  lang: [String!]
+  defaultLang: String
+  extended: Boolean
+}
+
+input NomenclatureInput {
+  settings: NomenclatureSettingsInput
+  disciplines: WikipediaIdsLabelInput
+  types: WikipediaIdsLabelInput
+  thematics: WikipediaIdsLabelInput
+  tags: WikipediaIdsLabelInput
+}
+
+input ListInput {
+  filters: AWSJSON
+  limit: Int
+  skip: Int
+  sortBy: [String!]
+  sortDesc: [Boolean!]
+  search: String
+}
+
+
+input Entity_smInput {
+  name: String!
+  description: String
+  logo: String
+  place: PlaceInput
+}

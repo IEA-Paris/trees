@@ -1,0 +1,7 @@
+input FileInput {
+  name: String!
+  url: AWSURL!
+  size: Int
+  fileType: String
+  image: ImageInput
+}

@@ -1,0 +1,4 @@
+type Mutation {
+  # Public event booking
+  bookEvent(itemId: ID!, slot: SlotInput!): Boolean
+}

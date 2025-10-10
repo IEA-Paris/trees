@@ -1,0 +1,112 @@
+enum organiserType {
+  IAS
+  MEMBER
+  FELLOW
+  EXTERNAL
+}
+
+enum projectStatus {
+  PLANNED
+  IN_PROGRESS
+  FINISHED
+  CANCELED
+}
+
+enum publicationType {
+  ARTICLE
+  CONFERENCE_PAPER
+  BOOK
+  BOOK_CHAPTER
+  THESIS
+  REPORT
+  SOFTWARE
+  DATA
+  VIDEO
+  AUDIO
+  PODCAST
+  OTHER
+}
+
+enum newsCategories {
+  PRESS_RELEASE
+  INTERVIEW
+  ARTICLE
+  OPINION
+  REPORT
+  BLOG
+  LIFE_AT_THE_INSTITUTE
+  EVENT
+  ANNOUNCEMENT
+  JOB
+  FELLOWSHIP
+  GRANT
+  AWARD
+  PROJECT
+  TOOL
+  SOFTWARE
+  DATA
+  PUBLICATION
+  VIDEO
+  AUDIO
+  OTHER
+}
+
+enum eventType {
+  ONLINE
+  PHYSICAL
+  HYBRID
+}
+
+enum eventState {
+  DRAFT
+  PUBLISHED
+  REMOVED
+  FINISHED
+  CANCELLED
+  POSTPONED
+  RESCHEDULED
+}
+
+enum eventCategories {
+  CALL
+  SEMINAR
+  WORKSHOP
+  CONFERENCE
+  LECTURE
+  SYMPOSIUM
+  MEETING
+  COLLOQUIUM
+  FORUM
+  ROUND_TABLE
+  PANEL
+  WEBINAR
+  FELLOW_PRESENTATION
+  CONFERENCE_CYCLE
+  EXHIBITION
+  OTHER
+}
+
+enum appState {
+  ACTIVE
+  SUSPENDED
+  INACTIVE
+}
+
+enum bookingState {
+  OPEN
+  FULL
+  CLOSED
+}
+
+enum FellowshipStatus {
+  PLANNED
+  ONGOING
+  FINISHED
+  CANCELLED
+}
+
+enum FellowshipType {
+  SHORT_STAY
+  LONG_STAY
+  IN_GROUP
+}

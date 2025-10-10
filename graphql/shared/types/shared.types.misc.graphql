@@ -1,0 +1,120 @@
+
+
+type App {
+  appId: String
+  name: String!
+  description: String
+  summary: String
+  subtitle: String
+  logo: Image
+  url: AWSURL
+  state: appState
+  tags: [Tag]
+  date: AWSDateTime
+  color: String
+  slug: String
+}
+
+type AppList {
+  total: Int!
+  items: [App]
+}
+
+type AppRole {
+  appId: String
+  roles: [Int!]!
+}
+
+
+type Entity_sm {
+  name: String!
+  description: String
+  logo: String
+  place: Place
+}
+
+
+type Filters {
+  events: EventFilters
+  fellowships: FellowshipFilters
+  news: NewsFilters
+  projects: ProjectFilters
+  people: PeopleFilters
+  publications: PublicationFilters
+}
+
+
+
+type Nomenclature {
+  version: String!
+  settings: NomenclatureSettings!
+  data: [Wikipedia!]!
+}
+
+type NomenclatureSettings {
+  lang: [String!]
+  defaultLang: String
+  extended: Boolean
+}
+
+type Place {
+  name: String!
+  address: String
+  url: AWSURL
+}
+
+type Profile {
+  country: Int
+  firstname: String!
+  lastname: String!
+  position: String
+  image: Image
+  references: [String]
+  presentation: String
+  twitter: String
+  linkedin: String
+  wikipedia: String
+}
+
+
+type SearchList {
+  news: NewsList
+  projects: ProjectsList
+  events: EventsList
+  people: PeopleList
+  publications: PublicationsList
+  fellowships: FellowshipList
+}
+
+type Settings {
+  lang: String
+}
+
+type Slot {
+  firstname: String!
+  lastname: String!
+  email: AWSEmail!
+  institution: String
+  lang: String!
+}
+
+# type Slug {
+#   fr: String
+#   en: String
+# }
+
+
+type Token {
+  accessToken: String!
+}
+
+type TokenAndUser {
+  accessToken: String
+  user: User
+}
+
+
+
+
+
+

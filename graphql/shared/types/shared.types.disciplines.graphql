@@ -1,0 +1,8 @@
+type Disciplines {
+  appId: String
+  createdAt: AWSDateTime
+  description: String
+  icon: String
+  name: String
+  updatedAt: AWSDateTime
+}

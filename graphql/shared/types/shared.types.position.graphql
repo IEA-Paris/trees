@@ -1,0 +1,6 @@
+type Position {
+  role: String!
+  department: String
+  start: AWSDateTime
+  stop: AWSDateTime
+}

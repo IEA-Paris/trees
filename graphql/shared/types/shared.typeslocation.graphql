@@ -1,0 +1,17 @@
+type Location {
+  name: String!
+  details: String
+  alt: String
+  street: String
+  city: String
+  country: String
+  zip: Int
+  geocode: Geocode
+}
+
+type Geocode {
+  lat: Float
+  lng: Float
+}
+
+

@@ -1,0 +1,39 @@
+type Event  {
+  appId: String
+  createdBy: ID
+  category: eventCategories
+  name: String!
+  description: String
+  details: String
+  dateText: String
+  eventType: eventType
+  totalSlots: Int
+  availableSlots: Int
+  slots: [Slot]
+  delay: AWSDateTime
+  place: Place
+  start: AWSDateTime
+  stop: AWSDateTime
+  summary: String
+  related: Related
+  subtitle: String
+  program: String
+  outside: Boolean
+  url: AWSURL
+  image: Image
+  state: eventState
+  bookingState: bookingState
+  slug: AWSJSON
+}
+
+type EventFilters {
+  disciplines: [String!]
+  fellowships: [String!]
+  tags: [String!]
+  category: [eventCategories!]
+}
+
+type EventsList {
+  total: Int!
+  items: [Event]
+}

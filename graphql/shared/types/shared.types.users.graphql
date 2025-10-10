@@ -1,0 +1,17 @@
+type User {
+  admin: Boolean
+  apps: [AppRole]
+  createdAt: AWSDateTime!
+  email: AWSEmail!
+  profile: Profile
+  settings: Settings
+  status: Int
+  role: Int
+  branch: [String]
+  slug: AWSJSON
+}
+
+type UserList {
+  total: Int!
+  items: [User!]!
+}

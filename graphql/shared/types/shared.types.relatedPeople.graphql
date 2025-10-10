@@ -1,0 +1,6 @@
+type RelatedPeople {
+  firstname: String
+  lastname: String
+  image: Image
+  slug: AWSJSON
+}

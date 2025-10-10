@@ -1,0 +1,15 @@
+type Action {
+  appId: String
+  color: String
+  link: String
+  image: Image
+  name: String
+  video: AWSURL
+  slots: [String]
+  slug: Slug
+}
+
+type ActionList {
+  total: Int!
+  items: [Action]
+}

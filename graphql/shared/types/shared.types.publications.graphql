@@ -1,0 +1,34 @@
+type Publication  {
+  appId: String
+  name: String!
+  subtitle: String
+  description: String
+  summary: String
+  type: publicationType
+  url: AWSURL
+  affiliations: [Affiliation]
+  related: Related
+  gallery: [Image]
+  image: Image
+  video: Video
+  tags: [Tag]
+  files: [File]
+  eventCategory: eventCategories
+  disciplines: [Disciplines]
+  color: String
+  date: AWSDateTime
+  slug: AWSJSON
+}
+
+type PublicationFilters {
+  affiliations: [String!]
+  tags: [String!]
+  disciplines: [String!]
+  type: [publicationType!]
+  eventCategory: [eventCategories!]
+}
+
+type PublicationsList {
+  total: Int!
+  items: [Publication]
+}

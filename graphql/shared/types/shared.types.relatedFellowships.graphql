@@ -1,0 +1,7 @@
+type RelatedFellowship {
+  name: String
+  url: AWSURL
+  image: Image
+  description: String
+  slug: AWSJSON
+}

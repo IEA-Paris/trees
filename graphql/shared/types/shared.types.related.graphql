@@ -1,0 +1,10 @@
+
+type Related {
+  events: [RelatedEvent]
+  news: [RelatedNews]
+  people: [RelatedPeople]
+  projects: [RelatedProject]
+  publications: [RelatedPublication]
+  fellowships: [RelatedFellowship]
+  affiliations: [RelatedAffiliation]
+}

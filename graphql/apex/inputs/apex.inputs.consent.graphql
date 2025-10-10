@@ -1,0 +1,9 @@
+input ConsentInput {
+  data: Boolean!
+  record: Boolean!
+  diffusion: Boolean!
+  publication: Boolean!
+  email: Boolean!
+  newsletter: Boolean!
+  fellowshipnewsletter: Boolean!
+}

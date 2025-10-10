@@ -1,0 +1,22 @@
+type Socials {
+  website: AWSURL
+  wikipedia: AWSURL
+  orcid: AWSURL
+  linkedin: AWSURL
+  twitter: AWSURL
+  instagram: AWSURL
+  scholar: AWSURL
+  researchgate: AWSURL
+  mendeley: AWSURL
+  idRef: Int
+}
+
+
+type Wikipedia {
+  lang: String!
+  disciplines: AWSJSON
+  thematics: AWSJSON
+  types: AWSJSON
+  tags: AWSJSON
+}
+

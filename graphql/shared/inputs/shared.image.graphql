@@ -1,0 +1,9 @@
+input ImageInput {
+  url: AWSURL
+  alt: String
+  caption: String
+  copyright: String
+  license: String
+  licenseUrl: String
+  backgroundColor: String
+}

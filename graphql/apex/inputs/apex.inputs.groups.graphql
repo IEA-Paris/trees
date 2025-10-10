@@ -1,0 +1,8 @@
+input GroupsInput {
+  team: Boolean
+  sab: Boolean
+  board: Boolean
+  fellows: Boolean
+  sponsor: Boolean
+  vintage: [VintageInput]
+}

@@ -1,0 +1,35 @@
+type Query {
+  # main search
+  search(appId: ID, search: String, lang: String): SearchList
+  # Get item
+  getApp(appId: ID, lang: String): App
+  getFellowship(appId: ID, itemId: ID, lang: String): Fellowship
+  getEvent(appId: ID, itemId: ID, lang: String): Event
+  getNews(appId: ID, itemId: ID, lang: String): News
+  getPeople(appId: ID, itemId: ID, lang: String): People
+  getProject(appId: ID, itemId: ID, lang: String): Project
+  getPublication(appId: ID, itemId: ID, lang: String): Publication
+
+  # List items
+  listEvents(appId: ID, options: ListInput!, lang: String): EventsList
+  listNews(appId: ID, options: ListInput!, lang: String): NewsList
+  listPeople(appId: ID, options: ListInput!, lang: String): PeopleList
+  listProjects(appId: ID, options: ListInput!, lang: String): ProjectsList
+  listPublications(
+    appId: ID
+    options: ListInput!
+    lang: String
+  ): PublicationsList
+  listFellowships(appId: ID, options: ListInput!, lang: String): FellowshipList
+
+  # Misc
+  getPresignedUploadUrl(appId: ID, typeFile: String!): String
+  login(email: AWSEmail!, password: String!): Token
+  listUsers(appId: ID, options: ListInput!, lang: String): UserList
+  getUser(appId: ID, userId: ID): User
+  buildFiltersValues: Filters
+}
+
+schema {
+  query: Query
+}

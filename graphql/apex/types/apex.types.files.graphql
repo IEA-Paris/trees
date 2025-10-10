@@ -1,0 +1,4 @@
+type FilesList {
+  total: Int!
+  items: [File]
+}
