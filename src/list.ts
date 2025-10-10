@@ -1,4 +1,4 @@
-// import { show } from "./form";
+import { Conditional } from "./form"
 export interface PerPage {
   options: number[]
   default: number
@@ -7,7 +7,7 @@ interface Filters {
   type: string
   rules?: Record<string, any>
   items?: any
-  show?: show //TODO: not defined in form.ts
+  show?: Conditional
   multiple?: boolean
 }
 
