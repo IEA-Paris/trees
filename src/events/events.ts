@@ -1,12 +1,12 @@
-import { Location } from "../shared/location"
+import { Location } from "../misc/location"
 import { Image } from "../files/image"
 import { EventSlot } from "./eventSlot"
-import { Disciplines } from "../shared/disciplines"
-import { Tag } from "../shared/tags"
+import { Disciplines } from "../misc/disciplines"
+import { Tag } from "../misc/tags"
 import { People } from "../people/people"
 import { Affiliation } from "../affiliation/affiliation"
 import { Files } from "../files/files"
-import { Related } from "../shared/related"
+import { Related } from "../misc/related"
 import Model from "../model"
 import { formType } from "../form"
 
@@ -95,9 +95,6 @@ const defaultConfig: Model = {
   source: "gql",
   // markdown related keys
   path: "", // path to the folder where the content is stored
-  type: "", // 'directory' | 'file'
-  // GQL related keys
-
   //Features related keys
   list: {
     create: true, // allow to create new items

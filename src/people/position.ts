@@ -1,4 +1,4 @@
-import { Form, formType } from "../form"
+import Form, { formType } from "../form"
 
 export interface Position {
   role: string

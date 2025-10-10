@@ -5,7 +5,6 @@ export default interface Model {
   aliases?: string[]
   source: string | null
   path?: string | null
-  type: string | null
   list: List
   form?: Record<string, Form>
 }

@@ -3,8 +3,8 @@ import { Affiliation } from "../affiliation/affiliation"
 import { Files } from "../files/files"
 import { Video } from "../files/video"
 import Model from "../model"
-import { Related } from "../shared/related"
-import { Tag } from "../shared/tags"
+import { Related } from "../misc/related"
+import { Tag } from "../misc/tags"
 import { formType } from "../form"
 
 export interface Projects {
@@ -34,7 +34,6 @@ export enum projectStatus {
 }
 const defaultConfig: Model = {
   source: "md",
-  type: "", // 'directory' | 'file'
   path: "", // path to the folder where the content is stored
   list: {
     create: true, // allow to create new items

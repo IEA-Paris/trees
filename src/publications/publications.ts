@@ -3,10 +3,10 @@ import { Affiliation } from "../affiliation/affiliation"
 import { Files } from "../files/files"
 import { Video } from "../files/video"
 import Model from "../model"
-import { Related } from "../shared/related"
-import { Tag } from "../shared/tags"
+import { Related } from "../misc/related"
+import { Tag } from "../misc/tags"
 import { eventCategories } from "../events/events"
-import { Disciplines } from "../shared/disciplines"
+import { Disciplines } from "../misc/disciplines"
 import { formType } from "../form"
 export interface Publications {
   name: string
@@ -43,7 +43,6 @@ export enum publicationType {
 }
 const defaultConfig: Model = {
   source: "md",
-  type: "", // 'directory' | 'file'
   path: "", // path to the folder where the content is stored
   list: {
     create: true, // allow to create new items

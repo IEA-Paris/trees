@@ -1,5 +1,5 @@
 import { Image } from "../files/image"
-import { Location } from "../shared/location"
+import { Location } from "../misc/location"
 import Model from "../model"
 import { formType } from "../form"
 
@@ -12,7 +12,6 @@ export interface Affiliation {
 }
 const defaultConfig: Model = {
   source: "md",
-  type: "directory", // 'directory' | 'file
   list: {
     create: true, // allow to create new items
     filters: {

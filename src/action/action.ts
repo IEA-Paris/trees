@@ -17,7 +17,6 @@ const defaultConfig: Model = {
   queryFilters: {},
   source: "md",
   path: "content/actions", // path to the folder where the content is stored
-  type: "directory", // 'directory' | 'file
   list: {
     create: true, // allow to create new items
     filters: {

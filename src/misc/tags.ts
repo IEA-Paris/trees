@@ -1,18 +1,17 @@
-import Model from "../model";
-import { formType } from "../form";
+import Model from "../model"
+import { formType } from "../form"
 
 export interface Tag {
-  name: string;
-  description?: string;
-  icon?: string;
-  createdAt?: Date;
-  updatedAt?: Date;
-  slug: string;
+  name: string
+  description?: string
+  icon?: string
+  createdAt?: Date
+  updatedAt?: Date
+  slug: string
 }
 
 const defaultConfig: Model = {
   source: "md",
-  type: "", // 'directory' | 'file'
   path: "", // path to the folder where the content is stored
   list: {
     create: true, // allow to create new items
@@ -115,5 +114,5 @@ const defaultConfig: Model = {
       }, */
     },
   },
-};
-export default defaultConfig;
+}
+export default defaultConfig

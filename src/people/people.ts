@@ -1,13 +1,13 @@
 import { Affiliation } from "../affiliation/affiliation"
 import { Image } from "../files/image"
-import { Socials } from "../shared/socials"
+import { Socials } from "../misc/socials"
 import { Position } from "./position"
 import { Consent } from "./consent"
 import { Groups } from "./groups"
-import { Disciplines } from "../shared/disciplines"
+import { Disciplines } from "../misc/disciplines"
 import { Video } from "../files/video"
 import Model from "../model"
-import { Related } from "../shared/related"
+import { Related } from "../misc/related"
 import { formType, Transformers } from "../form"
 import { userRole } from "./users"
 
@@ -29,7 +29,6 @@ export interface People {
 
 const defaultConfig: Model = {
   source: "gql",
-  type: "", // 'directory' | 'file'
   path: "", // path to the folder where the content is stored
   list: {
     create: true, // allow to create new items

@@ -1,8 +1,8 @@
 import { Image } from "../files/image"
 import { People } from "../people/people"
-import { Disciplines } from "../shared/disciplines"
+import { Disciplines } from "../misc/disciplines"
 import { Video } from "../files/video"
-import { Tag } from "../shared/tags"
+import { Tag } from "../misc/tags"
 import Model from "../model"
 // define format from set of articles formats offered by PIAS (i.e. Zenodo api)import { formType } from "./form"
 import { formType } from "../form"
@@ -27,7 +27,6 @@ export interface Article {
 const defautConfig: Model = {
   source: "md",
   path: "content/article", // path to the folder where the content is stored
-  type: "directory", // 'directory' | 'file
   list: {
     create: true, // allow to create new items
     filters: {

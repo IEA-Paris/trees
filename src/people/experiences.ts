@@ -1,4 +1,4 @@
-import { Form, formType } from "./form"
+import { Form, formType } from "../form"
 
 export interface Experiences {
   affiliation: any // Document reference
@@ -17,8 +17,8 @@ const defaultConfig: ExperiencesForm = {
       type: formType.Document,
       meta: "affiliation",
       rules: {
-        required: true
-      }
+        required: true,
+      },
     },
     positions: {
       label: "positions",
