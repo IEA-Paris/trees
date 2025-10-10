@@ -1,6 +1,8 @@
 # @paris-ias/trees - Isomorphic Forest Types Module
 
-The `@paris-ias/trees` module is the foundational component of the Isomorphic Forest architecture, implementing the **data-agnostic** and **isomorphic forest** prin## 🔄 GraphQL Client Generation
+The `@paris-ias/trees` module is the foundational component of the Isomorphic Forest architecture, implementing the **data-agnostic** and **isomorphic forest** principles.
+
+## 🔄 GraphQL Client Generation
 
 The trees module now generates ready-to-use GraphQL client operations, providing a centralized source for all API interactions across the Isomorphic Forest ecosystem.les. This module provides a comprehensive type system that generates multiple tree structures (schema, form, list, defaults, and GraphQL client operations) from a single source of truth.
 
@@ -16,13 +18,13 @@ graph TD
     A --> E[Defaults Tree]
     A --> F[GraphQL Client Tree]
     
-    B --> G[Static Structure]
+    B --> G[Generated serverside GraphQL Schema]
     C --> H[Dynamic Forms]
     D --> I[List Generation]
     E --> J[Default Values]
     F --> K[Client Operations]
     
-    G --> L[Type Safety]
+    G --> L[Type Safety, caching, and other graphQL features]
     H --> M[UI Components]
     I --> N[Filters & Sorting]
     J --> O[Initialization]
