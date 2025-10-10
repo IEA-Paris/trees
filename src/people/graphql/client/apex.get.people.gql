@@ -1,0 +1,174 @@
+query getPeople($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
+  getPeople(appId: $appId, itemId: $itemId, lang: $lang) {
+    affiliations {
+      affiliation {
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        location {
+          alt
+          city
+          country
+          details
+          geocode {
+            lat
+            lng
+          }
+          name
+          street
+          zip
+        }
+        name
+        ror
+        url
+      }
+      positions {
+        department
+        role
+        start
+        stop
+      }
+    }
+    biography
+    firstname
+    groups {
+      board
+      fellows
+      sab
+      sponsor
+      team
+      vintage {
+        name
+        theme
+        url
+        year
+      }
+    }
+    image {
+      url
+      license
+      copyright
+      caption
+      backgroundColor
+      alt
+      licenseUrl
+    }
+    lastname
+    socials {
+      idRef
+      instagram
+      linkedin
+      mendeley
+      orcid
+      researchgate
+      scholar
+      twitter
+      website
+      wikipedia
+    }
+    video {
+      url
+      alt
+      caption
+      copyright
+      license
+      licenseUrl
+      backgroundColor
+    }
+    slug
+    appId
+    consent {
+      data
+      diffusion
+      email
+      fellowshipnewsletter
+      newsletter
+      publication
+      record
+    }
+    disciplines {
+      createdAt
+      description
+      icon
+      name
+      updatedAt
+    }
+    id
+    related {
+      events {
+        description
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        name
+        url
+        slug
+      }
+      news {
+        description
+        slug
+        id
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        name
+        url
+      }
+      people {
+        firstname
+        slug
+        id
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        lastname
+      }
+      projects {
+        description
+        slug
+        id
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        name
+        url
+      }
+      publications {
+        id
+        slug
+        name
+        url
+      }
+    }
+  }
+}

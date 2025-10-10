@@ -1,0 +1,44 @@
+query listEvents(
+  $options: ListInput = {}
+  $appId: ID = "iea"
+  $lang: String = "en"
+) {
+  listEvents(options: $options, appId: $appId, lang: $lang) {
+    items {
+      availableSlots
+      bookingState
+      category
+      dateText
+      details
+      eventType
+      summary
+      subtitle
+      id
+      image {
+        alt
+        backgroundColor
+        caption
+        copyright
+        license
+        licenseUrl
+        url
+      }
+      name
+      outside
+      place {
+        address
+        id
+        name
+        url
+      }
+      state
+      start
+      stop
+      slug {
+        fr
+        en
+      }
+    }
+    total
+  }
+}

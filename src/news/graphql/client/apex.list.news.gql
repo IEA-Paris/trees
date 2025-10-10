@@ -1,0 +1,39 @@
+query listNews(
+  $appId: ID = "iea"
+  $lang: String = "en"
+  $options: ListInput = {}
+) {
+  listNews(options: $options, appId: $appId, lang: $lang) {
+    total
+    items {
+      slug {
+        fr
+        en
+      }
+      id
+      category
+      color
+      date
+      description
+      featured
+      image {
+        alt
+        backgroundColor
+        caption
+        copyright
+        license
+        licenseUrl
+        url
+      }
+      tags {
+        createdAt
+        description
+        icon
+        name
+        updatedAt
+      }
+      name
+      url
+    }
+  }
+}

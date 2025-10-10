@@ -1,0 +1,32 @@
+query listApps($appId: ID = "", $lang: String = "", $options: ListInput = {}) {
+  listApps(options: $options, appId: $appId, lang: $lang) {
+    items {
+      appId
+      color
+      date
+      description
+      logo {
+        alt
+        backgroundColor
+        caption
+        copyright
+        license
+        licenseUrl
+        url
+      }
+      name
+      state
+      subtitle
+      summary
+      tags {
+        createdAt
+        description
+        icon
+        name
+        updatedAt
+      }
+      url
+    }
+    total
+  }
+}

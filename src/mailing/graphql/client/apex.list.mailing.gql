@@ -1,0 +1,22 @@
+query listMailing(
+  $appId: ID = "iea"
+  $lang: String = "en"
+  $options: ListInput = {
+    skip: 0
+    limit: 9
+    sortBy: ["start"]
+    sortDesc: false
+    filters: "{}"
+  }
+) {
+  listMailing(options: $options, appId: $appId, lang: $lang) {
+    items {
+      createdAt
+      date
+      description
+      name
+      updatedAt
+    }
+    total
+  }
+}

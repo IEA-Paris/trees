@@ -1,0 +1,120 @@
+query getEvent($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
+  getEvent(appId: $appId, itemId: $itemId, lang: $lang) {
+    appId
+    availableSlots
+    bookingState
+    category
+    createdBy
+    dateText
+    description
+    details
+    id
+    image {
+      alt
+      caption
+      backgroundColor
+      copyright
+      license
+      licenseUrl
+      url
+    }
+    name
+    place {
+      address
+      id
+      name
+      url
+    }
+    start
+    slug {
+      fr
+      en
+    }
+    slots {
+      email
+      firstname
+      institution
+      lang
+      lastname
+    }
+    state
+    stop
+    subtitle
+    summary
+    program
+    totalSlots
+    eventType
+    outside
+    url
+    related {
+      events {
+        description
+        slug
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        name
+        url
+      }
+      news {
+        description
+        id
+        slug
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        name
+        url
+      }
+      people {
+        firstname
+        id
+        slug
+        image {
+          alt
+          backgroundColor
+          caption
+          license
+          copyright
+          licenseUrl
+          url
+        }
+        lastname
+      }
+      projects {
+        description
+        id
+        slug
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        name
+        url
+      }
+      publications {
+        id
+        slug
+        name
+        url
+      }
+    }
+  }
+}

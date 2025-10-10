@@ -1,0 +1,22 @@
+query getAction($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
+  getAction(appId: $appId, itemId: $itemId, lang: $lang) {
+    color
+    image {
+      alt
+      backgroundColor
+      caption
+      copyright
+      license
+      licenseUrl
+      url
+    }
+    link
+    name
+    slots
+    video
+    slug {
+      fr
+      en
+    }
+  }
+}

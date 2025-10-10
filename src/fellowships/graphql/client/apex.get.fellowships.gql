@@ -1,0 +1,164 @@
+query getFellowship(
+  $appId: ID = "iea"
+  $itemId: ID = ""
+  $lang: String = "en"
+) {
+  getFellowship(appId: $appId, itemId: $itemId, lang: $lang) {
+    id
+    action
+    applicationStart
+    fellowshipStart
+    contact
+    url
+    slug {
+      fr
+      en
+    }
+    applicationStop
+    fellowshipStop
+    publicationDate
+    summary
+    description
+    fellows {
+      id
+      firstname
+      lastname
+      image {
+        alt
+        caption
+        backgroundColor
+        copyright
+        license
+        licenseUrl
+        url
+      }
+    }
+    fellowshipType
+    files {
+      createdAt
+      file
+      fileType
+      hash
+      id
+      image {
+        alt
+        caption
+        backgroundColor
+        copyright
+        license
+        licenseUrl
+        url
+      }
+      name
+      path
+      size
+      thumb
+      updatedAt
+      url
+    }
+    gallery {
+      alt
+      backgroundColor
+      caption
+      license
+      copyright
+      licenseUrl
+      url
+    }
+    image {
+      url
+      licenseUrl
+      license
+      copyright
+      caption
+      backgroundColor
+      alt
+    }
+    member {
+      name
+      ror
+      url
+      image {
+        alt
+        backgroundColor
+        caption
+        copyright
+        license
+        licenseUrl
+        url
+      }
+      location {
+        alt
+        city
+        country
+        details
+        geocode {
+          lat
+          lng
+        }
+        name
+        street
+        zip
+      }
+    }
+    name
+    video {
+      alt
+      backgroundColor
+      caption
+      copyright
+      license
+      licenseUrl
+      url
+    }
+    disciplines {
+      description
+      createdAt
+      icon
+      name
+      updatedAt
+    }
+    appId
+    affiliations {
+      image {
+        alt
+        backgroundColor
+        caption
+        copyright
+        license
+        licenseUrl
+        url
+      }
+      location {
+        alt
+        city
+        country
+        details
+        geocode {
+          lat
+          lng
+        }
+        name
+        street
+        zip
+      }
+      name
+      ror
+      url
+    }
+    fellowshipDetails {
+      applicationMaterials
+      funding
+      fundingPeriod
+      housing
+      location
+      meals
+      profile
+      researchSupport
+      selectionProcess
+      tasks
+      type
+    }
+    status
+  }
+}

@@ -1,0 +1,49 @@
+query listPeople(
+  $appId: ID = "iea"
+  $lang: String = "en"
+  $options: ListInput = {}
+) {
+  listPeople(options: $options, appId: $appId, lang: $lang) {
+    items {
+      id
+      slug
+      biography
+      firstname
+      groups {
+        board
+        fellows
+        sab
+        sponsor
+        team
+        vintage {
+          name
+          theme
+          url
+          year
+        }
+      }
+      image {
+        url
+        license
+        copyright
+        caption
+        backgroundColor
+        alt
+      }
+      lastname
+      socials {
+        idRef
+        instagram
+        linkedin
+        mendeley
+        orcid
+        researchgate
+        scholar
+        twitter
+        website
+        wikipedia
+      }
+    }
+    total
+  }
+}

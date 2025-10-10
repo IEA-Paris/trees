@@ -1,0 +1,32 @@
+query listUsers(
+  $appId: ID = "iea"
+  $lang: String = "en"
+  $options: ListInput = {}
+) {
+  listUsers(appId: $appId, lang: $lang, options: $options) {
+    items {
+      admin
+      branch
+      createdAt
+      email
+      profile {
+        country
+        firstname
+        image
+        lastname
+        linkedin
+        position
+        presentation
+        references
+        twitter
+        wikipedia
+      }
+      role
+      settings {
+        lang
+      }
+      status
+    }
+    total
+  }
+}

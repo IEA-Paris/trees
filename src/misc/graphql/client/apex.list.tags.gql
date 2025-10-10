@@ -1,0 +1,22 @@
+query listTags(
+  $options: ListInput = {
+    skip: 0
+    limit: 9
+    sortBy: ["start"]
+    sortDesc: false
+    filters: "{}"
+  }
+  $appId: ID = "iea"
+  $lang: String = "en"
+) {
+  listTags(options: $options, appId: $appId, lang: $lang) {
+    items {
+      createdAt
+      description
+      icon
+      name
+      updatedAt
+    }
+    total
+  }
+}

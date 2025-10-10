@@ -1,0 +1,17 @@
+query getDiscipline(
+  $appId: ID = "iea"
+  $itemId: ID = ""
+  $lang: String = "en"
+) {
+  getDiscipline(appId: $appId, itemId: $itemId, lang: $lang) {
+    createdAt
+    description
+    icon
+    name
+    updatedAt
+    slug {
+      fr
+      en
+    }
+  }
+}

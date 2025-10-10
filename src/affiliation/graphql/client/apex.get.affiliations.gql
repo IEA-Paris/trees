@@ -1,0 +1,37 @@
+query getAffiliation(
+  $appId: ID = "iea"
+  $itemId: ID = ""
+  $lang: String = "en"
+) {
+  getAffiliation(appId: $appId, itemId: $itemId, lang: $lang) {
+    image {
+      alt
+      backgroundColor
+      caption
+      copyright
+      license
+      licenseUrl
+      url
+    }
+    location {
+      alt
+      city
+      country
+      details
+      geocode {
+        lat
+        lng
+      }
+      name
+      street
+      zip
+    }
+    name
+    ror
+    url
+    slug {
+      fr
+      en
+    }
+  }
+}

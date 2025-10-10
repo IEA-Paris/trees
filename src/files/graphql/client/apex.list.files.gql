@@ -1,0 +1,37 @@
+query listFiles(
+  $appId: ID = "iea"
+  $lang: String = "en"
+  $options: ListInput = {
+    skip: 0
+    limit: 9
+    sortBy: ["start"]
+    sortDesc: false
+    filters: "{}"
+  }
+) {
+  listFiles(options: $options, appId: $appId, lang: $lang) {
+    items {
+      createdAt
+      file
+      fileType
+      hash
+      id
+      image {
+        alt
+        backgroundColor
+        caption
+        copyright
+        license
+        licenseUrl
+        url
+      }
+      name
+      path
+      size
+      thumb
+      updatedAt
+      url
+    }
+    total
+  }
+}

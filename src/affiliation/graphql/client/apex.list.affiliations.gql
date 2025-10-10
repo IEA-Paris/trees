@@ -1,0 +1,42 @@
+query listAffiliations(
+  $options: ListInput = {
+    skip: 0
+    limit: 9
+    sortBy: ["start"]
+    sortDesc: false
+    filters: "{}"
+  }
+  $lang: String = "en"
+  $appId: ID = "iea"
+) {
+  listAffiliations(options: $options, appId: $appId, lang: $lang) {
+    items {
+      image {
+        alt
+        backgroundColor
+        caption
+        copyright
+        license
+        licenseUrl
+        url
+      }
+      location {
+        alt
+        city
+        country
+        details
+        geocode {
+          lat
+          lng
+        }
+        name
+        street
+        zip
+      }
+      name
+      ror
+      url
+    }
+    total
+  }
+}

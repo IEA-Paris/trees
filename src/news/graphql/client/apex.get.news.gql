@@ -1,0 +1,129 @@
+query getNews($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
+  getNews(appId: $appId, itemId: $itemId, lang: $lang) {
+    category
+    color
+    date
+    description
+    featured
+    slug {
+      fr
+      en
+    }
+    files {
+      createdAt
+      file
+      fileType
+      hash
+      id
+      image {
+        alt
+        caption
+        backgroundColor
+        copyright
+        license
+        licenseUrl
+        url
+      }
+      name
+      path
+      size
+      thumb
+      updatedAt
+      url
+    }
+    gallery {
+      alt
+      backgroundColor
+      caption
+      copyright
+      license
+      licenseUrl
+      url
+    }
+    image {
+      alt
+      backgroundColor
+      caption
+      copyright
+      license
+      licenseUrl
+      url
+    }
+    tags {
+      createdAt
+      description
+      icon
+      name
+      updatedAt
+    }
+    name
+    url
+    appId
+    id
+    related {
+      events {
+        description
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        name
+        url
+      }
+      news {
+        description
+        id
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        name
+        url
+      }
+      people {
+        firstname
+        id
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        lastname
+      }
+      projects {
+        description
+        id
+        name
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        url
+      }
+      publications {
+        id
+        name
+        url
+      }
+    }
+  }
+}

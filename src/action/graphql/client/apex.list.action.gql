@@ -1,0 +1,31 @@
+query listActions(
+  $options: ListInput = {
+    skip: 0
+    limit: 9
+    sortBy: ["start"]
+    sortDesc: false
+    filters: "{}"
+  }
+  $appId: ID = "iea"
+  $lang: String = "en"
+) {
+  listActions(options: $options, appId: $appId, lang: $lang) {
+    items {
+      color
+      image {
+        alt
+        backgroundColor
+        caption
+        copyright
+        license
+        licenseUrl
+        url
+      }
+      link
+      name
+      slots
+      video
+    }
+    total
+  }
+}

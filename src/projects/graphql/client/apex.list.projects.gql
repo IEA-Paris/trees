@@ -1,0 +1,37 @@
+query listProjects(
+  $appId: ID = "iea"
+  $lang: String = "en"
+  $options: ListInput = {}
+) {
+  listProjects(options: $options, appId: $appId, lang: $lang) {
+    total
+    items {
+      date
+      featured
+      id
+      image {
+        alt
+        backgroundColor
+        caption
+        license
+        copyright
+        licenseUrl
+        url
+      }
+      name
+      summary
+      url
+      tags {
+        createdAt
+        description
+        icon
+        name
+        updatedAt
+      }
+      slug {
+        fr
+        en
+      }
+    }
+  }
+}

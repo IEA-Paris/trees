@@ -1,0 +1,169 @@
+query getPublication(
+  $appId: ID = "iea"
+  $itemId: ID = ""
+  $lang: String = "en"
+) {
+  getPublication(appId: $appId, itemId: $itemId, lang: $lang) {
+    affiliations {
+      image {
+        alt
+        backgroundColor
+        caption
+        copyright
+        license
+        licenseUrl
+        url
+      }
+      location {
+        alt
+        city
+        country
+        details
+        geocode {
+          lat
+          lng
+        }
+        name
+        street
+        zip
+      }
+      name
+      ror
+      url
+    }
+    color
+    date
+    description
+    files {
+      createdAt
+      file
+      fileType
+      hash
+      id
+      image {
+        alt
+        backgroundColor
+        caption
+        copyright
+        license
+        licenseUrl
+        url
+      }
+      name
+      path
+      size
+      thumb
+      updatedAt
+      url
+    }
+    gallery {
+      backgroundColor
+      alt
+      caption
+      copyright
+      license
+      licenseUrl
+      url
+    }
+    id
+    image {
+      alt
+      backgroundColor
+      caption
+      copyright
+      license
+      licenseUrl
+      url
+    }
+    subtitle
+    tags {
+      createdAt
+      description
+      icon
+      name
+      updatedAt
+    }
+    name
+    url
+    video {
+      alt
+      backgroundColor
+      caption
+      copyright
+      license
+      licenseUrl
+      url
+    }
+    appId
+    type
+    related {
+      events {
+        description
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        name
+        url
+      }
+      news {
+        description
+        id
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        name
+        url
+      }
+      people {
+        firstname
+        id
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        lastname
+      }
+      projects {
+        description
+        id
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        name
+        url
+      }
+      publications {
+        id
+        name
+        url
+      }
+    }
+    slug {
+      fr
+      en
+    }
+  }
+}

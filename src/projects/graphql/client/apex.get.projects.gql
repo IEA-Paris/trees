@@ -1,0 +1,171 @@
+query getProject($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
+  getProject(appId: $appId, itemId: $itemId, lang: $lang) {
+    color
+    date
+    description
+    featured
+    slug {
+      fr
+      en
+    }
+    files {
+      file
+      createdAt
+      fileType
+      hash
+      id
+      image {
+        alt
+        backgroundColor
+        copyright
+        caption
+        license
+        licenseUrl
+        url
+      }
+      path
+      size
+      name
+      thumb
+      updatedAt
+      url
+    }
+    subtitle
+    name
+    url
+    video {
+      alt
+      backgroundColor
+      caption
+      copyright
+      licenseUrl
+      license
+      url
+    }
+    affiliations {
+      name
+      ror
+      url
+      location {
+        alt
+        city
+        country
+        details
+        name
+        street
+        zip
+        geocode {
+          lat
+          lng
+        }
+      }
+      image {
+        alt
+        backgroundColor
+        caption
+        copyright
+        license
+        licenseUrl
+        url
+      }
+    }
+    gallery {
+      alt
+      backgroundColor
+      caption
+      copyright
+      license
+      licenseUrl
+      url
+    }
+    image {
+      alt
+      backgroundColor
+      caption
+      copyright
+      license
+      licenseUrl
+      url
+    }
+    tags {
+      createdAt
+      description
+      icon
+      name
+      updatedAt
+    }
+    appId
+    id
+    status
+    related {
+      events {
+        description
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          licenseUrl
+          license
+          url
+        }
+        name
+        url
+        slug
+      }
+      news {
+        description
+        id
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        name
+        url
+        slug
+      }
+      people {
+        firstname
+        id
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        lastname
+        slug
+      }
+      projects {
+        description
+        id
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        name
+        url
+        slug
+      }
+      publications {
+        id
+        name
+        url
+        slug
+      }
+    }
+  }
+}

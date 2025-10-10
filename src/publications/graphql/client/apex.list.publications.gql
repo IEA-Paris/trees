@@ -1,0 +1,37 @@
+query listPublications(
+  $appId: ID = "iea"
+  $lang: String = "en"
+  $options: ListInput = {}
+) {
+  listPublications(options: $options, appId: $appId, lang: $lang) {
+    items {
+      date
+      id
+      image {
+        alt
+        backgroundColor
+        caption
+        copyright
+        license
+        url
+        licenseUrl
+      }
+      summary
+      description
+      name
+      url
+      tags {
+        createdAt
+        description
+        name
+        icon
+        updatedAt
+      }
+      slug {
+        fr
+        en
+      }
+    }
+    total
+  }
+}
