@@ -16,6 +16,7 @@ query listTags(
       icon
       name
       updatedAt
+      slug
     }
     total
   }

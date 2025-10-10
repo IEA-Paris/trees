@@ -1,5 +1,4 @@
-import { Form } from "../../form"
-import { formType } from "../../form"
+import { Form, formType } from "../../form"
 
 export interface Consent {
   //data consent (display info about me)

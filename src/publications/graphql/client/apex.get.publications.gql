@@ -39,7 +39,7 @@ query getPublication(
       file
       fileType
       hash
-      id
+      slug
       image {
         alt
         backgroundColor
@@ -65,7 +65,6 @@ query getPublication(
       licenseUrl
       url
     }
-    id
     image {
       alt
       backgroundColor
@@ -98,6 +97,7 @@ query getPublication(
     type
     related {
       events {
+        slug
         description
         image {
           alt
@@ -113,7 +113,7 @@ query getPublication(
       }
       news {
         description
-        id
+        slug
         image {
           alt
           backgroundColor
@@ -128,7 +128,7 @@ query getPublication(
       }
       people {
         firstname
-        id
+        slug
         image {
           alt
           backgroundColor
@@ -142,7 +142,7 @@ query getPublication(
       }
       projects {
         description
-        id
+        slug
         image {
           alt
           backgroundColor
@@ -156,7 +156,7 @@ query getPublication(
         url
       }
       publications {
-        id
+        slug
         name
         url
       }

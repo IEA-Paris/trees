@@ -1,5 +1,5 @@
-import { Image } from "../../files/image"
-import { Video } from "../../files/video"
+import { Image } from "../../files/models/image"
+import { Video } from "../../files/models/video"
 
 export interface RelatedProject {
   name: string

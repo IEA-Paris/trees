@@ -6,7 +6,6 @@ query listUsers(
   listUsers(appId: $appId, lang: $lang, options: $options) {
     items {
       admin
-      branch
       createdAt
       email
       profile {

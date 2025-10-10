@@ -12,7 +12,6 @@ export interface Mailing {
 const defaultConfig: Model = {
   source: "gql",
   // markdown related keys
-  path: "", // path to the folder where the content is stored
   type: "", // 'directory' | 'file'
   // GQL related keys
 

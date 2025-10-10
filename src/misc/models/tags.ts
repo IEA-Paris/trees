@@ -1,10 +1,5 @@
-<<<<<<<< HEAD:src/misc/models/tags.ts
 import Model from "../../model"
 import { formType } from "../../form"
-========
-import Model from "../model"
-import { formType } from "../form"
->>>>>>>> 778506821c7e04dea3c2f0671954908bb2e8f775:src/misc/tags.ts
 
 export interface Tag {
   name: string
@@ -16,8 +11,6 @@ export interface Tag {
 }
 
 const defaultConfig: Model = {
-  source: "md",
-  path: "", // path to the folder where the content is stored
   list: {
     create: true, // allow to create new items
     filters: {

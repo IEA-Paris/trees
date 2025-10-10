@@ -14,7 +14,7 @@ query getNews($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
       file
       fileType
       hash
-      id
+      slug
       image {
         alt
         caption
@@ -59,7 +59,6 @@ query getNews($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
     name
     url
     appId
-    id
     related {
       events {
         description

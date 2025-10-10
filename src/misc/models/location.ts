@@ -1,8 +1,4 @@
-<<<<<<<< HEAD:src/misc/models/location.ts
 import { Form, formType } from "../../form"
-========
-import Form, { formType } from "../form"
->>>>>>>> 778506821c7e04dea3c2f0671954908bb2e8f775:src/misc/location.ts
 
 export interface Location {
   name: string

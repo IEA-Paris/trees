@@ -1,14 +1,14 @@
-import { Location } from "../misc/location"
-import { Image } from "../files/image"
+import { Location } from "../../misc/models/location"
+import { Image } from "../../files/models/image"
 import { EventSlot } from "./eventSlot"
-import { Disciplines } from "../misc/disciplines"
-import { Tag } from "../misc/tags"
-import { People } from "../people/people"
-import { Affiliation } from "../affiliation/affiliation"
-import { Files } from "../files/files"
-import { Related } from "../misc/related"
-import Model from "../model"
-import { formType } from "../form"
+import { Disciplines } from "../../misc/models/disciplines"
+import { Tag } from "../../misc/models/tags"
+import { People } from "../../people/models/people"
+import { Affiliation } from "../../affiliation/models/affiliation"
+import { Files } from "../../files/models/files"
+import { Related } from "../../misc/models/related"
+import Model from "../../model"
+import { formType } from "../../form"
 
 export interface Events {
   affiliations?: Affiliation[] // 3 - Server & Client - //Bottom left Document
@@ -94,7 +94,6 @@ export enum eventCategories {
 const defaultConfig: Model = {
   source: "gql",
   // markdown related keys
-  path: "", // path to the folder where the content is stored
   //Features related keys
   list: {
     create: true, // allow to create new items

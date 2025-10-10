@@ -1,10 +1,24 @@
-query getMailing($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
-  getMailing(appId: $appId, itemId: $itemId, lang: $lang) {
+query getFile($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
+  getFile(appId: $appId, itemId: $itemId, lang: $lang) {
     createdAt
-    date
-    description
+    file
+    fileType
+    hash
+    image {
+      alt
+      backgroundColor
+      caption
+      copyright
+      license
+      licenseUrl
+      url
+    }
     name
+    path
+    size
+    thumb
     updatedAt
+    url
     slug
   }
 }

@@ -25,6 +25,7 @@ query listActions(
       name
       slots
       video
+      slug
     }
     total
   }

@@ -99,7 +99,6 @@ query getPeople($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
       name
       updatedAt
     }
-    id
     related {
       events {
         description

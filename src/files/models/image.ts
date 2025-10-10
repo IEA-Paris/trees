@@ -11,9 +11,7 @@ export interface Image {
   backgroundColor?: string
 }
 const defaultConfig: Model = {
-  source: "md",
   // markdown related keys
-  path: "", // path to the folder where the content is stored
 
   //Features related keys
   list: {

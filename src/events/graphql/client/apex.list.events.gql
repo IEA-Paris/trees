@@ -13,7 +13,6 @@ query listEvents(
       eventType
       summary
       subtitle
-      id
       image {
         alt
         backgroundColor
@@ -34,10 +33,7 @@ query listEvents(
       state
       start
       stop
-      slug {
-        fr
-        en
-      }
+      slug
     }
     total
   }

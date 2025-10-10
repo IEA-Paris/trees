@@ -4,7 +4,6 @@ query getFellowship(
   $lang: String = "en"
 ) {
   getFellowship(appId: $appId, itemId: $itemId, lang: $lang) {
-    id
     action
     applicationStart
     fellowshipStart

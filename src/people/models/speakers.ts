@@ -1,5 +1,5 @@
 import configPeople, { People } from "./people"
-import Model from "./model"
+import Model from "../../model"
 
 export interface Sponsor extends People {}
 const defaultConfig: Model = {

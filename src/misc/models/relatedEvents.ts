@@ -1,4 +1,4 @@
-import { Image } from "../../files/image"
+import { Image } from "../../files/models/image"
 
 export interface RelatedEvent {
   bookingState: number // 0 - Server & Client -

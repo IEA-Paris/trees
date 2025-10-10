@@ -6,11 +6,7 @@ query listNews(
   listNews(options: $options, appId: $appId, lang: $lang) {
     total
     items {
-      slug {
-        fr
-        en
-      }
-      id
+      slug
       category
       color
       date

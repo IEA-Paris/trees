@@ -1,10 +1,10 @@
-import { Image } from "../files/image"
+import { Image } from "../../files/models/image"
 import { Affiliation } from "../../affiliation/models/affiliation"
-import { Files } from "../files/files"
-import { Video } from "../files/video"
+import { Files } from "../../files/models/files"
+import { Video } from "../../files/models/video"
 import Model from "../../model"
-import { Related } from "../misc/related"
-import { Tag } from "../misc/tags"
+import { Related } from "../../misc/models/related"
+import { Tag } from "../../misc/models/tags"
 import { formType } from "../../form"
 
 export interface Projects {
@@ -33,8 +33,6 @@ export enum projectStatus {
   Canceled = "CANCELED",
 }
 const defaultConfig: Model = {
-  source: "md",
-  path: "", // path to the folder where the content is stored
   list: {
     create: true, // allow to create new items
     filters: {

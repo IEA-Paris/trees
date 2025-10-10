@@ -1,4 +1,4 @@
-import { Image } from "../files/image"
+import { Image } from "../../files/models/image"
 import Model from "../../model"
 import { formType } from "../../form"
 export interface Action {
@@ -13,11 +13,6 @@ export interface Action {
 }
 
 const defaultConfig: Model = {
-  // fitlers used in the query by default (e.g. only published articles)
-  queryFilters: {},
-  source: "md",
-  path: "content/actions", // path to the folder where the content is stored
-  type: "directory", // 'directory' | 'file
   list: {
     create: true, // allow to create new items
     filters: {

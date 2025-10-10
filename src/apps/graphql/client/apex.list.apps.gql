@@ -1,4 +1,14 @@
-query listApps($appId: ID = "", $lang: String = "", $options: ListInput = {}) {
+query listApps(
+  $options: ListInput = {
+    skip: 0
+    limit: 9
+    sortBy: ["start"]
+    sortDesc: false
+    filters: "{}"
+  }
+  $lang: String = "en"
+  $appId: ID = "iea"
+) {
   listApps(options: $options, appId: $appId, lang: $lang) {
     items {
       appId
@@ -18,6 +28,7 @@ query listApps($appId: ID = "", $lang: String = "", $options: ListInput = {}) {
       state
       subtitle
       summary
+      slug
       tags {
         createdAt
         description

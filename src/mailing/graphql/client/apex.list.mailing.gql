@@ -16,6 +16,7 @@ query listMailing(
       description
       name
       updatedAt
+      slug
     }
     total
   }

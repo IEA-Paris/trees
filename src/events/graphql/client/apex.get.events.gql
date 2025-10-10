@@ -8,7 +8,6 @@ query getEvent($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
     dateText
     description
     details
-    id
     image {
       alt
       caption
