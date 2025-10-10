@@ -1,5 +1,5 @@
 import { Image } from "../../files/models/image"
-import { People } from "../people/people"
+import { People } from "../../people/models/people"
 import { Disciplines } from "../../misc/models/disciplines"
 import { Video } from "../../files/models/video"
 import { Tag } from "../../misc/models/tags"
@@ -25,9 +25,7 @@ export interface Article {
 }
 
 const defautConfig: Model = {
-  source: "md",
   path: "content/article", // path to the folder where the content is stored
-  type: "directory", // 'directory' | 'file
   list: {
     create: true, // allow to create new items
     filters: {

@@ -11,7 +11,6 @@ export interface Affiliation {
   url?: string
 }
 const defaultConfig: Model = {
-  source: "md",
   list: {
     create: true, // allow to create new items
     filters: {

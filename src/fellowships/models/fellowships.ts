@@ -5,7 +5,7 @@ import { Files } from "../../files/models/files"
 import Model from "../../model"
 import { Video } from "../../files/models/video"
 import { Disciplines } from "../../misc/models/disciplines"
-import { RelatedPeople } from "../misc/relatedPeople"
+import { RelatedPeople } from "../../misc/models/relatedPeople"
 import { formType } from "../../form"
 export interface Fellowships {
   action?: string
@@ -45,7 +45,6 @@ export enum FellowshipStatus {
 }
 
 const defaultConfig: Model = {
-  path: "", // path to the folder where the content is stored
   source: "gql",
   list: {
     create: true, // allow to create new items

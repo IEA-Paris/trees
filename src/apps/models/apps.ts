@@ -21,7 +21,6 @@ export enum appState {
   Inactive = "INACTIVE",
 }
 const defaultConfig: Model = {
-  source: "gql",
   list: {
     create: true, // allow to create new items
     filters: {

@@ -42,8 +42,6 @@ export enum publicationType {
   Podcast = "PODCAST",
 }
 const defaultConfig: Model = {
-  source: "md",
-  path: "", // path to the folder where the content is stored
   list: {
     create: true, // allow to create new items
     filters: {

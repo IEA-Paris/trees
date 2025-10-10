@@ -1,6 +1,6 @@
 import { Image } from "../../files/models/image"
 import Model from "../../model"
-import { RelatedPeople } from "../misc/relatedPeople"
+import { RelatedPeople } from "../../misc/models/relatedPeople"
 import { Related } from "../../misc/models/related"
 import { Tag } from "../../misc/models/tags"
 import { formType } from "../../form"
@@ -48,7 +48,6 @@ export enum newsCategories {
 const defaultConfig: Model = {
   source: "gql",
   type: "", // 'directory' | 'file'
-  path: "", // path to the folder where the content is stored
   list: {
     create: true, // allow to create new items
     filters: {

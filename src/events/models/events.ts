@@ -3,7 +3,7 @@ import { Image } from "../../files/models/image"
 import { EventSlot } from "./eventSlot"
 import { Disciplines } from "../../misc/models/disciplines"
 import { Tag } from "../../misc/models/tags"
-import { People } from "../people/people"
+import { People } from "../../people/models/people"
 import { Affiliation } from "../affiliation/affiliation"
 import { Files } from "../../files/models/files"
 import { Related } from "../../misc/models/related"
@@ -94,7 +94,6 @@ export enum eventCategories {
 const defaultConfig: Model = {
   source: "gql",
   // markdown related keys
-  path: "", // path to the folder where the content is stored
   //Features related keys
   list: {
     create: true, // allow to create new items

@@ -1,4 +1,4 @@
-import { Form, formType } from "../form"
+import { Form, formType } from "../../form"
 
 export interface FellowshipDetails {
   type?: string //en groupe, durée courte ou longue, etc.

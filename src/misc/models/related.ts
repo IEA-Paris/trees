@@ -16,10 +16,6 @@ export interface Related {
 }
 
 const defaultConfig: Model = {
-  source: "gql",
-  // markdown related keys
-  path: "", // path to the folder where the content is stored
-
   list: {
     create: true, // allow to create new items
     filters: {
