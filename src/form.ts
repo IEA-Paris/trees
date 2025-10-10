@@ -1,4 +1,4 @@
-import { userRole } from "./people/users"
+import { userRole } from "./people/models/users"
 
 interface Rules {
   required?: boolean
