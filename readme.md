@@ -72,29 +72,62 @@ Every data model is composed of five fundamental types that can be infinitely co
 Each model definition generates five distinct outputs:
 
 ```typescript
-// 1. Schema Tree - Type definitions and validation
+// 1. Schema Tree - Type definitions and validation, first part used by forms
 {
-  firstname: { type: "PRIMITIVE", component: "TextField", rules: { required: true } }
-}
+  lastname: { type: "PRIMITIVE", component: "TextField", rules: { required: true } },
+  ...
+},
 
-// 2. Form Tree - UI configuration
-{
-  firstname: { label: "First Name", component: "TextField", type: "PRIMITIVE" }
-}
-
-// 3. List Tree - Filtering and sorting
-{
-  filters: { status: { type: "Select" } },
-  sort: { nameasc: { value: ["lastname", 1] } }
-}
+// 3. List Tree - Filtering, pagination, views and sorting
+People: {
+  filters: { status: { type: "Select" } , ...},
+  sort: { nameasc: { value: ["lastname", 1] }, ... }
+  views: { grid: { default: true, icon: "view-grid" }, ... } // will translate in an expected FormViewsGrid component displaying PeopleGridItems components
+  ...
+},
 
 // 4. Defaults Tree - Initial values
 {
-  _defaults: { firstname: "", lastname: "", email: "" }
+  _defaults: { firstname: "", lastname: "", ... }
+  ...
 }
 
-// 5. GraphQL Operations - Ready-to-use queries and mutations
+```
+
+```graphql
+## 5. GraphQL Operations - Ready-to-use queries and mutations
+
+query getPeople($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
+  getPeople(appId: $appId, itemId: $itemId, lang: $lang) {
+    lastname
+    affiliations {
+      affiliation {
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        location {
+        ...
+
+## 6. GraphQL Schema
+
+type People {
+  appId: String
+  firstname: String!
+  lastname: String!
+  ...
+
+## 7. GraphQL Client Imports
+
+
 import("@paris-ias/trees/dist/graphql/client/people/query.list.people.gql")
+import("@paris-ias/trees/dist/graphql/client/people/query.get.people.gql")
+
 ```
 
 ---
@@ -136,9 +169,6 @@ import(
 import { Model, formType } from "@paris-ias/trees"
 
 const myModel: Model = {
-  source: "gql", // Data source: 'gql' or 'md'
-  type: "collection", // Module type identifier
-
   // List configuration
   list: {
     create: true,
@@ -217,7 +247,7 @@ form: {
 
 ### Core Concepts
 
-The trees module implements the **Isomorphic Forest** principle - a revolutionary approach to data modeling where:
+The trees module implements the **Isomorphic Forest** principle:
 
 1. **Single Definition**: One model definition serves as the source of truth
 2. **Multiple Trees**: Each model generates multiple trees with identical structure
@@ -252,7 +282,7 @@ graph TD
     style F fill:#e3f2fd
 ```
 
-### Directory Structure
+### Directory (simplified) Structure
 
 ```
 @paris-ias/trees/
@@ -293,9 +323,9 @@ graph TD
 
 ## 📚 Available Models
 
-The module includes comprehensive data models for academic and research contexts:
+The module includes comprehensive data models for academic and research contexts. It is freely extensible:
 
-### Core Entities
+### Core Entities - matching expected documents
 
 | Model            | Description                   | Key Features                                              |
 | ---------------- | ----------------------------- | --------------------------------------------------------- |
@@ -372,7 +402,7 @@ form: {
     type: formType.Primitive,
     component: "TextField",
     label: "title",
-    i18n: true  // 🌍 Enables multi-language support
+    i18n: true  // 🌍 Enables multi-language support, fr and en for now
   }
 }
 
@@ -381,7 +411,6 @@ form: {
   title: {
     en: "",
     fr: "",
-    es: ""
   }
 }
 
@@ -435,9 +464,9 @@ form: {
 
 ---
 
-## 🎭 Conditional Visibility
+## 🎭 Conditional Visibility, Disability or Function execution
 
-Show or hide fields based on other field values:
+Produce operations based on other field values in forms, and lists filters:
 
 ```typescript
 form: {
@@ -468,7 +497,7 @@ Server-side GraphQL schemas are automatically generated:
 
 ```graphql
 # Generated in dist/graphql/schemas/schema.website.graphql
-type Person {
+type People {
   id: ID!
   firstname: String!
   lastname: String!
@@ -499,8 +528,8 @@ import("@paris-ias/trees/dist/graphql/client/people/query.get.people.gql")
 import("@paris-ias/trees/dist/graphql/client/events/query.get.events.gql")
 
 // Mutations
-import("@paris-ias/trees/dist/graphql/client/people/mutation.create.people.gql")
-import("@paris-ias/trees/dist/graphql/client/events/mutation.update.events.gql")
+import("@paris-ias/trees/dist/graphql/client/people/mutation.upsert.people.gql")
+import("@paris-ias/trees/dist/graphql/client/events/mutation.upsert.events.gql")
 ```
 
 ---
@@ -519,11 +548,11 @@ Uses list trees for advanced filtering, sorting, and view management
 
 ### 🌱 [Seed Project](../seed)
 
-Academic content management system built on trees
+Academic content management system built on trees, used foir the Paris IAS website public content
 
 ### 🏔️ [Apex Project](../Apex)
 
-Full-stack application framework leveraging all tree types
+Full-stack application framework
 
 ---
 
@@ -602,7 +631,7 @@ by the Free Software Foundation, either version 3 of the License, or
 
 Developed and maintained by the **Paris Institute for Advanced Study** as part of its projects.
 
-Imagined and designed by Antoine Cordelois, with the invaluable help of Hamed Bouare.
+Imagined and designed by Antoine Cordelois, with the great help of Hamed Bouare.
 
 ---
 
