@@ -4,11 +4,11 @@ import { EventSlot } from "./eventSlot"
 import { Disciplines } from "../../misc/models/disciplines"
 import { Tag } from "../../misc/models/tags"
 import { People } from "../../people/models/people"
-import { Affiliation } from "../affiliation/affiliation"
+import { Affiliation } from "../../affiliation/models/affiliation"
 import { Files } from "../../files/models/files"
 import { Related } from "../../misc/models/related"
-import Model from "../model"
-import { formType } from "../form"
+import Model from "../../model"
+import { formType } from "../../form"
 
 export interface Events {
   affiliations?: Affiliation[] // 3 - Server & Client - //Bottom left Document
