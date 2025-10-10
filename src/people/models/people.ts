@@ -29,7 +29,6 @@ export interface People {
 
 const defaultConfig: Model = {
   source: "gql",
-  type: "", // 'directory' | 'file'
   path: "", // path to the folder where the content is stored
   list: {
     create: true, // allow to create new items

@@ -45,7 +45,6 @@ export enum FellowshipStatus {
 }
 
 const defaultConfig: Model = {
-  type: "", // 'directory' | 'file'
   path: "", // path to the folder where the content is stored
   source: "gql",
   list: {

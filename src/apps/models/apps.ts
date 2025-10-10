@@ -1,7 +1,7 @@
 import { Image } from "../files/image"
-import Model from "../model"
+import Model from "../../model"
 import { Tag } from "../misc/tags"
-import { formType } from "../form"
+import { formType } from "../../form"
 export interface Apps {
   appId: string
   name: string

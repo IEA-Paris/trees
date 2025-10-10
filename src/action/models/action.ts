@@ -1,6 +1,6 @@
 import { Image } from "../files/image"
-import Model from "../model"
-import { formType } from "../form"
+import Model from "../../model"
+import { formType } from "../../form"
 export interface Action {
   color?: string
   link: string

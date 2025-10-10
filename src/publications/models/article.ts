@@ -3,9 +3,9 @@ import { People } from "../people/people"
 import { Disciplines } from "../misc/disciplines"
 import { Video } from "../files/video"
 import { Tag } from "../misc/tags"
-import Model from "../model"
+import Model from "../../model"
 // define format from set of articles formats offered by PIAS (i.e. Zenodo api)import { formType } from "./form"
-import { formType } from "../form"
+import { formType } from "../../form"
 export interface Article {
   name: string
   abstract: string

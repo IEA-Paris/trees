@@ -1,9 +1,9 @@
 import { Image } from "../files/image"
-import Model from "../model"
+import Model from "../../model"
 import { RelatedPeople } from "../misc/relatedPeople"
 import { Related } from "../misc/related"
 import { Tag } from "../misc/tags"
-import { formType } from "../form"
+import { formType } from "../../form"
 import { Files } from "../files/files"
 
 export interface News {

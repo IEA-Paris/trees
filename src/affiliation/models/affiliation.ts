@@ -12,7 +12,6 @@ export interface Affiliation {
 }
 const defaultConfig: Model = {
   source: "md",
-  type: "directory", // 'directory' | 'file
   list: {
     create: true, // allow to create new items
     filters: {
