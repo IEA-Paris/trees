@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsx index.ts",
-    "generate": "npx tsx lib/generate.ts",
+    "generate": "npx tsx lib/generate.ts && npx tsx lib/buildSchemas.ts",
     "draw": "npx depcruise src --include-only \"^src\" --output-type dot | dot -T svg > dependency-graph.svg",
     "build": "npm run generate",
     "clean": "rm -rf dist/",
@@ -21,7 +21,10 @@
   "license": "ISC",
   "description": "Type definitions and schema generator for Paris IAS data management system",
   "dependencies": {
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "@graphql-tools/load-files": "^7",
+    "@graphql-tools/merge": "^8",
+    "graphql": "^16"
   },
   "devDependencies": {
     "dependency-cruiser": "^16.10.0"
