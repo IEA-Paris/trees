@@ -5,11 +5,7 @@ query listFellowships(
 ) {
   listFellowships(options: $options, appId: $appId, lang: $lang) {
     items {
-      id
-      slug {
-        fr
-        en
-      }
+      slug
       applicationStart
       applicationStop
       fellowshipType

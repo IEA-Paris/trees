@@ -8,7 +8,6 @@ query listProjects(
     items {
       date
       featured
-      id
       image {
         alt
         backgroundColor
@@ -28,10 +27,7 @@ query listProjects(
         name
         updatedAt
       }
-      slug {
-        fr
-        en
-      }
+      slug
     }
   }
 }

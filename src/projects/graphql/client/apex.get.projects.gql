@@ -13,7 +13,7 @@ query getProject($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
       createdAt
       fileType
       hash
-      id
+      slug
       image {
         alt
         backgroundColor
@@ -95,7 +95,6 @@ query getProject($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
       updatedAt
     }
     appId
-    id
     status
     related {
       events {
@@ -115,7 +114,6 @@ query getProject($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
       }
       news {
         description
-        id
         image {
           alt
           backgroundColor
@@ -131,7 +129,6 @@ query getProject($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
       }
       people {
         firstname
-        id
         image {
           alt
           backgroundColor
@@ -146,7 +143,6 @@ query getProject($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
       }
       projects {
         description
-        id
         image {
           alt
           backgroundColor
@@ -161,7 +157,6 @@ query getProject($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
         slug
       }
       publications {
-        id
         name
         url
         slug

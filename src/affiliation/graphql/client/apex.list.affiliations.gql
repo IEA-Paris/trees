@@ -36,6 +36,7 @@ query listAffiliations(
       name
       ror
       url
+      slug
     }
     total
   }
