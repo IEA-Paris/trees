@@ -600,7 +600,16 @@ by the Free Software Foundation, either version 3 of the License, or
 
 ## 🙏 Acknowledgments
 
-Developed and maintained by the **Paris Institute for Advanced Study** as part of the Isomorphic Forest architecture initiative.
+Developed and maintained by the **Paris Institute for Advanced Study** as part of its projects.
+
+Imagined and designed by Antoine Cordelois, with the invaluable help of Hamed Bouare.
+
+---
+
+### Contributors
+
+<a href="https://github.com/Billybobbonnet"><img src="https://github.com/Billybobbonnet.png" width="60px" alt="billybobbonnet" /></a>
+<a href="https://github.com/hbouare"><img src="https://github.com/hbouare.png" width="60px" alt="hbouare" /></a>
 
 ---
 
