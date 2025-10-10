@@ -20,6 +20,8 @@ interface BuildConfig {
   extensions: string[]
   /** Whether to create TypeScript declaration files */
   generateDeclarations: boolean
+  /** Whether to generate TypeScript index files */
+  generateIndexFiles: boolean
 }
 
 /**
@@ -45,7 +47,8 @@ const defaultConfig: BuildConfig = {
   srcDir: path.resolve(__dirname, "../src"),
   distDir: path.resolve(__dirname, "../dist/graphql/client"),
   extensions: [".gql", ".graphql"],
-  generateDeclarations: true,
+  generateDeclarations: false, // Disabled since pinia plugin imports .gql files directly
+  generateIndexFiles: false, // Disabled since pinia plugin imports .gql files directly
 }
 
 /**
@@ -302,15 +305,19 @@ export function buildClientGraphQL(config: Partial<BuildConfig> = {}): void {
     }
   }
 
-  // Generate index files for each type
-  console.log("\n📝 Generating index files...")
-  for (const typeName of typeNames) {
-    const typeFiles = graphqlFiles.filter((f) => f.typeName === typeName)
-    generateTypeIndex(typeName, typeFiles, finalConfig.distDir)
-  }
+  // Generate index files for each type (only if enabled)
+  if (finalConfig.generateIndexFiles) {
+    console.log("\n📝 Generating index files...")
+    for (const typeName of typeNames) {
+      const typeFiles = graphqlFiles.filter((f) => f.typeName === typeName)
+      generateTypeIndex(typeName, typeFiles, finalConfig.distDir)
+    }
 
-  // Generate main index file
-  generateMainIndex(Array.from(typeNames), finalConfig.distDir)
+    // Generate main index file
+    generateMainIndex(Array.from(typeNames), finalConfig.distDir)
+  } else {
+    console.log("\n⏭️  Skipping index file generation (disabled in config)")
+  }
 
   console.log("\n✨ GraphQL client build completed successfully!")
   console.log(`📊 Summary:`)

@@ -1,10 +1,12 @@
-# @paris-ias/data - Canopy Types Module
+# @paris-ias/trees - Isomorphic Forest Types Module
 
-The `@paris-ias/data` module is the foundational component of the Canopy architecture, implementing the **data-agnostic** and **isomorphic forest** principles. This module provides a comprehensive type system that generates multiple tree structures (schema, form, list, and defaults) from a single source of truth.
+The `@paris-ias/trees` module is the foundational component of the Isomorphic Forest architecture, implementing the **data-agnostic** and **isomorphic forest** prin## 🔄 GraphQL Client Generation
+
+The trees module now generates ready-to-use GraphQL client operations, providing a centralized source for all API interactions across the Isomorphic Forest ecosystem.les. This module provides a comprehensive type system that generates multiple tree structures (schema, form, list, defaults, and GraphQL client operations) from a single source of truth.
 
 ## 🏗️ Architecture Overview
 
-The types module implements the core Canopy principle of **isomorphic forests**: each data model is defined by multiple trees with identical structure but containing different values depending on context (browsing lists, creating forms, or integrating data).
+The trees module implements the core Isomorphic Forest principle of **isomorphic forests**: each data model is defined by multiple trees with identical structure but containing different values depending on context (browsing lists, creating forms, integrating data, or executing GraphQL operations).
 
 ```mermaid
 graph TD
@@ -12,22 +14,26 @@ graph TD
     A --> C[Form Tree]
     A --> D[List Tree]
     A --> E[Defaults Tree]
+    A --> F[GraphQL Client Tree]
     
-    B --> F[Static Structure]
-    C --> G[Dynamic Forms]
-    D --> H[List Generation]
-    E --> I[Default Values]
+    B --> G[Static Structure]
+    C --> H[Dynamic Forms]
+    D --> I[List Generation]
+    E --> J[Default Values]
+    F --> K[Client Operations]
     
-    F --> J[Type Safety]
-    G --> K[UI Components]
-    H --> L[Filters & Sorting]
-    I --> M[Initialization]
+    G --> L[Type Safety]
+    H --> M[UI Components]
+    I --> N[Filters & Sorting]
+    J --> O[Initialization]
+    K --> P[API Integration]
     
     style A fill:#e1f5fe
     style B fill:#f3e5f5
     style C fill:#e8f5e8
     style D fill:#fff3e0
     style E fill:#fce4ec
+    style F fill:#e3f2fd
 ```
 
 ## 🌳 Core Concepts
@@ -44,7 +50,7 @@ Every data model is composed of five possible element types:
 
 ### 2. Tree Structure Generation
 
-Each model generates four distinct trees:
+Each model generates five distinct trees:
 
 ```mermaid
 graph LR
@@ -52,6 +58,7 @@ graph LR
     A --> C[Form Tree]
     A --> D[List Tree]
     A --> E[Defaults Tree]
+    A --> F[GraphQL Client Tree]
     
     B --> B1[Type Definitions]
     B --> B2[Validation Rules]
@@ -65,6 +72,9 @@ graph LR
     
     E --> E1[Initial Values]
     E --> E2[I18n Defaults]
+    
+    F --> F1[Query Operations]
+    F --> F2[Mutation Operations]
 ```
 
 ## Overview
@@ -172,13 +182,14 @@ graph TD
 
 ## ⚙️ Generation Process
 
-The generation process transforms model definitions into consumable trees:
+The generation process transforms model definitions into consumable trees and GraphQL operations:
 
 ```mermaid
 sequenceDiagram
     participant Dev as Developer
     participant Gen as Generator
     participant Templates as Template Registry
+    participant GraphQL as GraphQL Builder
     participant Output as Generated Files
     
     Dev->>Gen: Run npm run generate
@@ -186,10 +197,14 @@ sequenceDiagram
     Gen->>Gen: Resolve template dependencies
     Gen->>Gen: Complete schemas
     Gen->>Gen: Build defaults
+    Gen->>GraphQL: Build GraphQL schemas
+    Gen->>GraphQL: Generate client operations
     Gen->>Output: Export schema trees
     Gen->>Output: Export form trees
     Gen->>Output: Export list trees
     Gen->>Output: Export default trees
+    GraphQL->>Output: Export GraphQL schemas
+    GraphQL->>Output: Export client operations
 ```
 
 ### Key Generation Functions
@@ -198,7 +213,64 @@ sequenceDiagram
 |----------|---------|----------|
 | `completeSchema()` | Resolves template references and builds complete schemas | [`lib/generate.ts:104`](/home/bob/Projects/types/lib/generate.ts) |
 | `buildDefaults()` | Generates default values for all fields | [`lib/generate.ts:42`](/home/bob/Projects/types/lib/generate.ts) |
+| `buildSchemas()` | Compiles GraphQL schemas from source definitions | [`lib/buildSchemas.ts`](/home/bob/Projects/types/lib/buildSchemas.ts) |
+| `buildClientGraphQL()` | Organizes client GraphQL operations by type | [`lib/buildClientGraphQL.ts`](/home/bob/Projects/types/lib/buildClientGraphQL.ts) |
 | `createJsonFile()` | Exports trees as consumable JSON/JS files | [`lib/utils.ts`](/home/bob/Projects/types/lib/utils.ts) |
+
+## 🔗 GraphQL Client Generation
+
+The types module now generates ready-to-use GraphQL client operations, providing a centralized source for all API interactions across the Isomorphic Forest ecosystem.
+
+### Generated Structure
+
+```mermaid
+graph TD
+    A[Source GraphQL Files] --> B[buildClientGraphQL.ts]
+    B --> C[Organized Client Operations]
+    
+    C --> D[people/]
+    C --> E[events/]
+    C --> F[publications/]
+    C --> G[projects/]
+    
+    D --> D1[query.list.people.gql]
+    D --> D2[query.get.people.gql]
+    
+    E --> E1[query.list.events.gql]
+    E --> E2[query.get.events.gql]
+    
+    F --> F1[query.list.publications.gql]
+    F --> F2[query.get.publications.gql]
+    
+    style A fill:#e3f2fd
+    style B fill:#f3e5f5
+    style C fill:#e8f5e8
+    style D fill:#fff3e0
+    style E fill:#fff3e0
+    style F fill:#fff3e0
+    style G fill:#fff3e0
+```
+
+### Client Integration
+
+Client applications can now import GraphQL operations directly from the types package:
+
+```typescript
+```typescript
+// Direct GraphQL operation imports
+import("@paris-ias/trees/dist/graphql/client/people/query.list.people.gql")
+import("@paris-ias/trees/dist/graphql/client/events/query.get.events.gql")
+import("@paris-ias/trees/dist/graphql/client/publications/query.list.publications.gql")
+```
+```
+
+### Benefits
+
+- **Single Source of Truth**: All GraphQL operations centralized in the types package
+- **Automatic Updates**: Client applications automatically receive updated operations
+- **Type Organization**: Operations organized by data model type
+- **Minimal Output**: Only essential `.gql` files are generated (no unnecessary index files)
+- **Direct Import Ready**: Optimized for direct file imports in client applications
 
 ## 🎯 Usage Patterns
 
@@ -263,9 +335,9 @@ npm run dev
 npm run draw
 ```
 
-## 🤝 Integration with Canopy Ecosystem
+## 🤝 Integration with Isomorphic Forest Ecosystem
 
-The types module serves as the foundation for:
+The trees module serves as the foundation for:
 
 - **[@paris-ias/form](../form)**: Consumes form trees for dynamic UI generation
 - **[@paris-ias/list](../list)**: Uses list trees for filtering and sorting
@@ -333,8 +405,13 @@ types/
 │   ├── model.ts           # Base model interface
 │   ├── form.ts            # Form type definitions and enums
 │   ├── list.ts            # List configuration interfaces
-│   ├── people.ts          # People model definition
-│   ├── events.ts          # Events model definition
+│   ├── people/            # People model with GraphQL operations
+│   │   ├── models/        # TypeScript model definitions
+│   │   └── graphql/       # GraphQL schema and client operations
+│   │       ├── client/    # Client-side queries and mutations
+│   │       └── server/    # Server-side schema definitions
+│   ├── events/            # Events model structure
+│   ├── publications/      # Publications model structure
 │   ├── socials.ts         # Social links template
 │   ├── experience.ts      # Work experience template
 │   ├── position.ts        # Job position template
@@ -342,10 +419,23 @@ types/
 │   └── ...                # Other models and templates
 ├── lib/                   # Generation utilities
 │   ├── generate.ts        # Main generation logic
+│   ├── buildSchemas.ts    # GraphQL schema generation
+│   ├── buildClientGraphQL.ts # GraphQL client generation
 │   └── utils.ts          # File I/O utilities
 ├── dist/                  # Generated output (created by build)
 │   ├── list/             # List configurations
 │   ├── form/             # Form schemas
+│   ├── graphql/          # GraphQL generated files
+│   │   ├── schemas/      # Compiled GraphQL schemas
+│   │   │   ├── schema.website.graphql
+│   │   │   ├── schema.apex.graphql
+│   │   │   ├── website-resolvers-list.json
+│   │   │   └── apex-resolvers-list.json
+│   │   └── client/       # Client GraphQL operations
+│   │       ├── people/   # People-related queries and mutations
+│   │       ├── events/   # Events-related operations
+│   │       ├── publications/ # Publications operations
+│   │       └── ...       # Other model operations
 │   └── *.js              # Base modules
 └── package.json
 ```
@@ -415,21 +505,29 @@ const buildForm = (schema: Record<string, Form>) => {
 ```
 
 ### 3. Output Generation
-The generator creates three types of outputs:
+The generator creates five types of outputs:
 - **Base modules**: Complete model definitions (deprecated)
 - **List modules**: Configuration for list components
 - **Form modules**: Schema and defaults for form components
+- **GraphQL schemas**: Compiled schemas for API servers (website and apex)
+- **GraphQL client operations**: Organized client queries and mutations by data type
 
 ## Usage
 
 ### Development Workflow
 
 1. **Define or modify types** in `src/*.ts` files
-2. **Run generation**: `npm run generate`
-3. **Generated files** appear in `dist/` directory
-4. **Import in other projects**:
+2. **Add GraphQL operations** in `src/[type]/graphql/client/` directories
+3. **Run generation**: `npm run generate`
+4. **Generated files** appear in `dist/` directory
+5. **Import in other projects**:
    ```typescript
-   import { formPeople, listPeople } from '@paris-ias/data'
+   // Import form and list configurations
+   import { formPeople, listPeople } from '@paris-ias/trees'
+   
+   // Import GraphQL operations directly
+   import("@paris-ias/trees/dist/graphql/client/people/query.list.people.gql")
+   import("@paris-ias/trees/dist/graphql/client/events/query.get.events.gql")
    ```
 
 ### Example: People Model
@@ -577,6 +675,83 @@ Enable verbose logging during generation:
 DEBUG=1 npm run generate
 ```
 
+## API Reference
+
+### Exported Configuration Objects
+
+All configurations are automatically generated and can be imported as:
+
+```typescript
+import { 
+  formPeople, 
+  listPeople,
+  formEvents,
+  listEvents
+  // ... other configurations
+} from '@paris-ias/trees'
+```
+
+### Available Types
+
+- **people**: Person management and directory
+- **events**: Event scheduling and registration
+- **publications**: Academic papers and articles
+- **projects**: Research project tracking
+- **fellowships**: Fellowship programs and applications
+- **news**: News articles and announcements
+- **files**: File management and metadata
+- **mailing**: Email communications
+- **affiliation**: Institutional affiliations
+- **apps**: Application configurations
+- **action**: System actions and workflows
+- **misc**: Miscellaneous utilities
+
+### GraphQL Operations
+
+GraphQL operations are available for each type at:
+`@paris-ias/trees/dist/graphql/client/[type]/[operation].gql`
+
+#### Available Operations by Type
+
+- **people**: User queries, profile management
+- **events**: Event retrieval, calendar operations  
+- **publications**: Publication queries, search operations
+- **projects**: Project listing, detail retrieval
+- **fellowships**: Fellowship queries, application operations
+- **news**: News article retrieval, content management
+- **files**: File operations, metadata queries
+- **mailing**: Email template operations
+- **affiliation**: Institution queries
+- **apps**: Application configuration queries
+- **action**: Workflow and action queries
+
+#### Usage in Pinia Stores
+
+```typescript
+// In your Pinia store or composable
+import("@paris-ias/trees/dist/graphql/client/people/query.list.people.gql")
+import("@paris-ias/trees/dist/graphql/client/events/mutation.create.event.gql")
+```
+
+### Configuration Structure
+
+Each generated configuration follows a standard structure:
+
+```typescript
+interface GeneratedConfig {
+  _defaults: Record<string, any>    // Default values for all fields
+  schema: Record<string, FieldSchema>  // Field definitions and validation
+}
+
+interface FieldSchema {
+  label: string
+  component: string
+  type: "PRIMITIVE" | "OBJECT" | "TEMPLATE"
+  rules?: ValidationRules
+  items?: Record<string, FieldSchema>  // For object types
+}
+```
+
 ## Future Enhancements
 
 1. **Enhanced Type Safety**: Generate TypeScript definitions alongside JavaScript
@@ -591,10 +766,12 @@ DEBUG=1 npm run generate
 When adding new models or templates:
 
 1. Create TypeScript definition in `src/`
-2. Follow existing naming conventions
-3. Add comprehensive validation rules
-4. Test generation with `npm run generate`
-5. Update documentation
-6. Consider backward compatibility
+2. Add GraphQL operations in `src/[type]/graphql/client/` if needed
+3. Follow existing naming conventions
+4. Add comprehensive validation rules
+5. Test generation with `npm run generate`
+6. Verify GraphQL operations are properly copied to `dist/graphql/client/`
+7. Update documentation
+8. Consider backward compatibility
 
-This types system provides the foundation for a scalable, type-safe data management ecosystem with excellent developer experience.
+This trees system provides the foundation for a scalable, type-safe data management ecosystem with excellent developer experience.

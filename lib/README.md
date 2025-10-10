@@ -62,12 +62,17 @@ dist/
 │   │   ├── schema.apex.graphql
 │   │   ├── website-resolvers-list.json
 │   │   └── apex-resolvers-list.json
-│   └── client/                     # GraphQL client operations
-│       ├── index.ts                # Main export file
+│   └── client/                     # GraphQL client operations (minimal output)
 │       ├── action/
+│       │   ├── query.get.action.gql
+│       │   └── query.list.action.gql
 │       ├── publications/
+│       │   ├── query.get.publications.gql
+│       │   └── query.list.publications.gql
 │       └── ... (other types)
 ```
+
+**Note**: Only `.gql` files are generated since client applications import them directly.
 
 ---
 
@@ -83,8 +88,8 @@ The script processes all GraphQL client files located in `src/[type]/graphql/cli
 
 - **Automatic Discovery**: Finds all `.gql` and `.graphql` files in client directories
 - **Organized Structure**: Maintains type-based organization in the dist folder
-- **TypeScript Support**: Generates `.d.ts` declaration files for each GraphQL file
-- **Index Files**: Creates index files for easy importing
+- **Minimal Output**: Only copies essential `.gql` files (no unnecessary TypeScript files)
+- **Direct Import Ready**: Optimized for direct `.gql` file imports in client applications
 - **Operation Detection**: Identifies query, mutation, and subscription operations
 
 ## Usage
@@ -164,7 +169,8 @@ const result = await client.query({
 | `srcDir` | string | `../src` | Source directory containing type folders |
 | `distDir` | string | `../dist/graphql/client` | Destination directory for built files |
 | `extensions` | string[] | `['.gql', '.graphql']` | File extensions to process |
-| `generateDeclarations` | boolean | `true` | Whether to generate TypeScript declaration files |
+| `generateDeclarations` | boolean | `false` | Whether to generate TypeScript declaration files (disabled for direct .gql imports) |
+| `generateIndexFiles` | boolean | `false` | Whether to generate TypeScript index files (disabled for direct .gql imports) |
 
 ## Integration with Build Process
 
