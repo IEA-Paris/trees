@@ -1,0 +1,27 @@
+type News {
+  appId: String
+  name: String!
+  category: newsCategories
+  description: String
+  tags: [Tag]
+  image: Image
+  gallery: [Image]
+  summary: String
+  color: String
+  url: AWSURL
+  date: AWSDateTime
+  featured: AWSDateTime
+  related: Related
+  files: [File]
+  slug: AWSJSON
+}
+
+type NewsFilters {
+  tags: [String!]
+  category: [newsCategories!]
+}
+
+type NewsList {
+  total: Int!
+  items: [News]
+}
