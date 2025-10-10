@@ -67,7 +67,7 @@ Every data model is composed of five fundamental types that can be infinitely co
 | **Template**   | References to reusable models          | Shared components, composition           |
 | **Document**   | Database entity references             | Relations, lookups, foreign keys         |
 
-### 🌲 Five Generated Trees
+### 🌲 Generated Trees
 
 Each model definition generates five distinct outputs:
 
