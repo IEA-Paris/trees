@@ -11,11 +11,11 @@ export interface ExperiencesForm {
 
 const defaultConfig: ExperiencesForm = {
   form: {
-    affiliation: {
-      label: "affiliation",
+    affiliations: {
+      label: "affiliations",
       component: "DocumentPicker",
       type: formType.Document,
-      meta: "affiliation",
+      meta: "affiliations",
       rules: {
         required: true,
       },

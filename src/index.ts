@@ -2,8 +2,8 @@ import { ModuleType } from "../lib/generate"
 import Model from "./model"
 import { Sort, Views } from "./list"
 import { Form, formType } from "./form"
-import defaultConfigAction from "./action/models/action"
-import defaultConfigAffilation from "./affiliation/models/affiliation"
+import defaultConfigActions from "./actions/models/actions"
+import defaultConfigAffilations from "./affiliations/models/affiliations"
 import defaultConfigArticle from "./publications/models/article"
 import defaultConfigExperiences, {
   ExperiencesForm,
@@ -28,10 +28,10 @@ import defaultConfigGroup, { GroupsForm } from "./people/models/groups"
 import defaultConfigImage from "./files/models/image"
 import defaultConfigLocation, { LocationForm } from "./misc/models/location"
 import defaultConfigMailing from "./mailing/models/mailing"
-import defaultConfigMember from "./affiliation/models/member"
+import defaultConfigMembers from "./affiliations/models/members"
 import defaultConfigNews from "./news/models/news"
 import defaultConfigOrganizers from "./misc/models/organizers"
-import defaultConfigPartner from "./affiliation/models/partner"
+import defaultConfigPartners from "./affiliations/models/partners"
 import defaultConfigPeople from "./people/models/people"
 import defaultConfigPosition, { PositionForm } from "./people/models/position"
 import defaultConfigProject from "./projects/models/projects"
@@ -55,9 +55,9 @@ type ConfigValue =
   | SocialsForm
 
 const templates: Record<string, ConfigValue> = {
-  action: defaultConfigAction,
+  actions: defaultConfigActions,
   workExperience: defaultConfigExperiences,
-  affiliation: defaultConfigAffilation,
+  affiliations: defaultConfigAffilations,
   apps: defautConfigApp,
   article: defaultConfigArticle,
   consent: defaultConfigConsent,
@@ -75,10 +75,10 @@ const templates: Record<string, ConfigValue> = {
   image: defaultConfigImage,
   location: defaultConfigLocation,
   mailing: defaultConfigMailing,
-  member: defaultConfigMember,
+  members: defaultConfigMembers,
   news: defaultConfigNews,
   organizers: defaultConfigOrganizers,
-  partner: defaultConfigPartner,
+  partners: defaultConfigPartners,
   people: defaultConfigPeople,
   positions: defaultConfigPosition,
   projects: defaultConfigProject,

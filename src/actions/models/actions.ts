@@ -1,7 +1,7 @@
 import { Image } from "../../files/models/image"
 import Model from "../../model"
 import { formType } from "../../form"
-export interface Action {
+export interface Actions {
   color?: string
   link: string
   image: Image

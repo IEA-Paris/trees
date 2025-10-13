@@ -1,4 +1,4 @@
-type Action {
+type Actions {
   appId: String
   color: String
   link: String
@@ -6,10 +6,10 @@ type Action {
   name: String
   video: AWSURL
   slots: [String]
-  slug: Slug
+  slug: AWSJSON
 }
 
 type ActionList {
   total: Int!
-  items: [Action]
+  items: [Actions]
 }

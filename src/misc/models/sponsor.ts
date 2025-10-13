@@ -1,10 +1,10 @@
 import configPeople, { People } from "../../people/models/people"
 import configAffiliation, {
-  Affiliation,
-} from "../../affiliation/models/affiliation"
+  Affiliations,
+} from "../../affiliations/models/affiliations"
 import Model from "../../model"
 
-export interface Sponsor extends People, Affiliation {}
+export interface Sponsor extends People, Affiliations {}
 const defaultConfig: Model = {
   aliases: ["people", "affiliations"],
   ...configPeople,

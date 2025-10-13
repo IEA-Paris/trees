@@ -464,13 +464,13 @@ const Modules = [
   "news",
   "people",
   "publications",
-  "affiliation",
+  "affiliations",
   "disciplines",
   "mailing",
   "files",
   "tags",
   "users",
-  "action",
+  "actions",
   // "taxonomy", //TODO: à definir
 ]
 

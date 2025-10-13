@@ -3,7 +3,7 @@ import { Location } from "../../misc/models/location"
 import Model from "../../model"
 import { formType } from "../../form"
 
-export interface Affiliation {
+export interface Affiliations {
   location?: Location
   image?: Image
   name: string

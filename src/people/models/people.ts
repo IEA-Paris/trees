@@ -1,4 +1,4 @@
-import { Affiliation } from "../../affiliation/models/affiliation"
+import { Affiliations } from "../../affiliations/models/affiliations"
 import { Image } from "../../files/models/image"
 import { Socials } from "../../misc/models/socials"
 import { Position } from "./position"
@@ -15,7 +15,7 @@ export interface People {
   name: string
   firstname: string
   lastname: string
-  affiliations?: [{ affiliation: Affiliation; positions: [Position] }]
+  affiliations?: [{ affiliation: Affiliations; positions: [Position] }]
   image?: Image
   socials?: Socials
   biography?: string
@@ -28,7 +28,6 @@ export interface People {
 }
 
 const defaultConfig: Model = {
-  source: "gql",
   list: {
     create: true, // allow to create new items
 
