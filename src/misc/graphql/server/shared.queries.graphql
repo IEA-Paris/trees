@@ -2,13 +2,14 @@ type Query {
   # main search
   search(appId: ID, search: String, lang: String): SearchList
   # Get item
-  getApp(appId: ID, lang: String): App
   getFellowship(appId: ID, itemId: ID, lang: String): Fellowship
+  getAction(appId: ID, itemId: ID, lang: String): Action
   getEvent(appId: ID, itemId: ID, lang: String): Event
   getNews(appId: ID, itemId: ID, lang: String): News
   getPeople(appId: ID, itemId: ID, lang: String): People
   getProject(appId: ID, itemId: ID, lang: String): Project
   getPublication(appId: ID, itemId: ID, lang: String): Publication
+  getAffiliation(appId: ID, itemId: ID, lang: String): Affiliation
 
   # List items
   listEvents(appId: ID, options: ListInput!, lang: String): EventsList
@@ -20,13 +21,16 @@ type Query {
     options: ListInput!
     lang: String
   ): PublicationsList
+  listAffiliations(
+    appId: ID
+    options: ListInput!
+    lang: String
+  ): AffiliationList
   listFellowships(appId: ID, options: ListInput!, lang: String): FellowshipList
 
   # Misc
   getPresignedUploadUrl(appId: ID, typeFile: String!): String
-  login(email: AWSEmail!, password: String!): Token
-  listUsers(appId: ID, options: ListInput!, lang: String): UserList
-  getUser(appId: ID, userId: ID): User
+  
   buildFiltersValues: Filters
 }
 

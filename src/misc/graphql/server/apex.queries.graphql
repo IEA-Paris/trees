@@ -1,21 +1,21 @@
 type Query {
   # Get item (admin-specific)
   getApp(appId: ID, itemId: ID, lang: String): App
-  getAction(appId: ID, itemId: ID, lang: String): Action
-  getAffiliation(appId: ID, itemId: ID, lang: String): Affiliation
+  # getAction(appId: ID, itemId: ID, lang: String): Action
+  # getAffiliation(appId: ID, itemId: ID, lang: String): Affiliation
   getDiscipline(appId: ID, itemId: ID, lang: String): Disciplines
   getFile(appId: ID, itemId: ID, lang: String): File
   getMailing(appId: ID, itemId: ID, lang: String): Mailing
   getTag(appId: ID, itemId: ID, lang: String): Tag
 
   # List items (admin-specific)
+  # listAffiliations(
+  #   appId: ID
+  #   options: ListInput!
+  #   lang: String
+  # ): AffiliationList
   listApps(appId: ID, options: ListInput!, lang: String): AppList
   listActions(appId: ID, options: ListInput!, lang: String): ActionList
-  listAffiliations(
-    appId: ID
-    options: ListInput!
-    lang: String
-  ): AffiliationList
   listDisciplines(appId: ID, options: ListInput!, lang: String): DisciplinesList
   listFiles(appId: ID, options: ListInput!, lang: String): FilesList
   listMailing(appId: ID, options: ListInput!, lang: String): MailingList
@@ -23,11 +23,13 @@ type Query {
   searchOptions(appId: ID, options: SearchOptionsInput!, lang: String): Related
 
   # Shared with some admin-specific parameters
-  getPresignedUploadUrl(appId: ID, typeFile: String!): String
   login(email: AWSEmail!, password: String!): Token
   listUsers(appId: ID, options: ListInput!, lang: String): UserList
   getUser(appId: ID, itemId: ID, lang: String): User
-  buildFiltersValues: Filters
+
+  # buildFiltersValues: Filters
+  # getPresignedUploadUrl(appId: ID, typeFile: String!): String
+
 }
 
 schema {
