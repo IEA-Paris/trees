@@ -17,6 +17,10 @@
     "type": "git",
     "url": "https://github.com/IEA-Paris/trees.git"
   },
+  "homepage": "https://www.npmjs.com/package/@paris-ias/trees",
+  "bugs": {
+    "url": "https://github.com/IEA-Paris/trees/issues"
+  },
   "engines": {
     "node": ">=18.0.0"
   },
