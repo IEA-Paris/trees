@@ -7,12 +7,13 @@ This directory contains scripts for generating type definitions, schemas, and Gr
 The generation process consists of three main tasks:
 
 1. **Module Generation** (`generate.ts`) - Creates type modules and configurations
-2. **Schema Generation** (`buildSchemas.ts`) - Builds GraphQL schemas and resolver lists  
+2. **Schema Generation** (`buildSchemas.ts`) - Builds GraphQL schemas and resolver lists
 3. **GraphQL Client Generation** (`buildClientGraphQL.ts`) - Copies and organizes client GraphQL files
 
 ## Unified Generation
 
 ### Main Command
+
 ```bash
 npm run generate
 ```
@@ -20,11 +21,12 @@ npm run generate
 This runs the unified generation script (`generateAll.ts`) that orchestrates all three tasks and provides a single consolidated overview instead of three separate outputs.
 
 ### Individual Commands
+
 If you need to run specific tasks:
 
 ```bash
 npm run generate:modules    # Module generation only
-npm run generate:schemas    # Schema generation only  
+npm run generate:schemas    # Schema generation only
 npm run generate:client     # GraphQL client generation only
 ```
 
@@ -55,7 +57,7 @@ After running the generation, the following structure is created:
 ```
 dist/
 ├── form/                           # Module form configurations
-├── list/                           # Module list configurations  
+├── list/                           # Module list configurations
 ├── graphql/
 │   ├── schemas/                    # Generated GraphQL schemas
 │   │   ├── schema.website.graphql
@@ -95,28 +97,31 @@ The script processes all GraphQL client files located in `src/[type]/graphql/cli
 ## Usage
 
 ### Build Script
+
 ```bash
 npm run build:client-graphql
 ```
 
 ### Manual Execution
+
 ```bash
 npx tsx lib/buildClientGraphQL.ts
 ```
 
 ### Programmatic Usage
+
 ```typescript
-import { buildClientGraphQL } from './lib/buildClientGraphQL.ts'
+import { buildClientGraphQL } from "./lib/buildClientGraphQL.ts"
 
 // Use default configuration
 buildClientGraphQL()
 
 // Use custom configuration
 buildClientGraphQL({
-  srcDir: './custom/src',
-  distDir: './custom/dist',
-  extensions: ['.gql'],
-  generateDeclarations: false
+  srcDir: "./custom/src",
+  distDir: "./custom/dist",
+  extensions: [".gql"],
+  generateDeclarations: false,
 })
 ```
 
@@ -146,13 +151,13 @@ Once built, client applications can import GraphQL operations like this:
 
 ```typescript
 // Import specific operations
-import { GET_PUBLICATIONS, LIST_PUBLICATIONS } from '@paris-ias/data/dist/graphql/client/publications'
+import { GET_PUBLICATIONS, LIST_PUBLICATIONS } from '@paris-ias/trees/dist/graphql/client/publications'
 
 // Import all operations for a type
-import * as publicationsQueries from '@paris-ias/data/dist/graphql/client/publications'
+import * as publicationsQueries from '@paris-ias/trees/dist/graphql/client/publications'
 
 // Import all operations
-import * as graphqlClient from '@paris-ias/data/dist/graphql/client'
+import * as graphqlClient from '@paris-ias/trees/dist/graphql/client'
 
 // Use with Apollo Client, Relay, or other GraphQL clients
 const client = new ApolloClient({...})
@@ -164,13 +169,13 @@ const result = await client.query({
 
 ## Configuration Options
 
-| Option | Type | Default | Description |
-|--------|------|---------|-------------|
-| `srcDir` | string | `../src` | Source directory containing type folders |
-| `distDir` | string | `../dist/graphql/client` | Destination directory for built files |
-| `extensions` | string[] | `['.gql', '.graphql']` | File extensions to process |
-| `generateDeclarations` | boolean | `false` | Whether to generate TypeScript declaration files (disabled for direct .gql imports) |
-| `generateIndexFiles` | boolean | `false` | Whether to generate TypeScript index files (disabled for direct .gql imports) |
+| Option                 | Type     | Default                  | Description                                                                         |
+| ---------------------- | -------- | ------------------------ | ----------------------------------------------------------------------------------- |
+| `srcDir`               | string   | `../src`                 | Source directory containing type folders                                            |
+| `distDir`              | string   | `../dist/graphql/client` | Destination directory for built files                                               |
+| `extensions`           | string[] | `['.gql', '.graphql']`   | File extensions to process                                                          |
+| `generateDeclarations` | boolean  | `false`                  | Whether to generate TypeScript declaration files (disabled for direct .gql imports) |
+| `generateIndexFiles`   | boolean  | `false`                  | Whether to generate TypeScript index files (disabled for direct .gql imports)       |
 
 ## Integration with Build Process
 
@@ -184,13 +189,15 @@ The script is integrated into the main build process:
 ## File Naming Conventions
 
 The script recognizes the following naming patterns:
+
 - `query.*` - GraphQL queries
-- `mutation.*` or `*.mutations.*` - GraphQL mutations  
+- `mutation.*` or `*.mutations.*` - GraphQL mutations
 - `subscription.*` - GraphQL subscriptions
 
 ## Error Handling
 
 The script includes comprehensive error handling:
+
 - Missing directories are reported but don't stop the build
 - File copy errors are logged and re-thrown
 - TypeScript declaration generation errors are handled gracefully

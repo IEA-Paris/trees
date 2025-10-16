@@ -34,12 +34,12 @@ graph LR
     E --> J[Initialization]
     F --> K[API Integration]
 
-    style A fill:#e1f5fe
-    style B fill:#f3e5f5
-    style C fill:#e8f5e8
-    style D fill:#fff3e0
-    style E fill:#fce4ec
-    style F fill:#e3f2fd
+    style A fill:#0277bd,color:#fff
+    style B fill:#6a1b9a,color:#fff
+    style C fill:#2e7d32,color:#fff
+    style D fill:#e65100,color:#fff
+    style E fill:#c2185b,color:#fff
+    style F fill:#1565c0,color:#fff
 ```
 
 ### Why Isomorphic Forests?
@@ -274,12 +274,12 @@ graph TD
     J --> O[Initialization]
     K --> P[API Integration]
 
-    style A fill:#e1f5fe
-    style B fill:#f3e5f5
-    style C fill:#e8f5e8
-    style D fill:#fff3e0
-    style E fill:#fce4ec
-    style F fill:#e3f2fd
+    style A fill:#0277bd,color:#fff
+    style B fill:#6a1b9a,color:#fff
+    style C fill:#2e7d32,color:#fff
+    style D fill:#e65100,color:#fff
+    style E fill:#c2185b,color:#fff
+    style F fill:#1565c0,color:#fff
 ```
 
 ### Directory (simplified) Structure
