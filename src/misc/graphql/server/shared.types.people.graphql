@@ -1,0 +1,17 @@
+type People {
+  appId: String
+  firstname: String!
+  lastname: String!
+  affiliations: [AffiliationWithPositions]
+  image: Image
+  socials: Socials
+  biography: String
+  consent: Consent!
+  summary: String
+  groups: Groups!
+  disciplines: [Disciplines]
+  related: Related
+  video: [Video]
+  slug: AWSJSON
+  tags: [Tag]
+}

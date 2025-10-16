@@ -1,0 +1,10 @@
+type Actions {
+  appId: String
+  color: String
+  link: String
+  image: Image
+  name: String
+  video: AWSURL
+  slots: [String]
+  slug: AWSJSON
+}
