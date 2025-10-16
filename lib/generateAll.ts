@@ -129,6 +129,12 @@ function extractMetrics(result: TaskResult): string {
       }
       return "GraphQL client status unknown"
 
+    case "Generate TypeScript Declarations (dist)":
+      return "dist/ declarations generated"
+
+    case "Generate TypeScript Declarations (index)":
+      return "index.d.ts generated"
+
     default:
       return "Status unknown"
   }
@@ -168,6 +174,145 @@ export async function generateAll(): Promise<void> {
     }
   }
 
+  // Generate TypeScript declarations for dist files
+  console.log(`🔄 Generate TypeScript Declarations for dist/...`)
+  const tsStartTime = Date.now()
+  const tsResult = await new Promise<TaskResult>((resolve) => {
+    const output: string[] = []
+    const errors: string[] = []
+
+    const child = spawn("tsc", ["--emitDeclarationOnly"], {
+      cwd: path.dirname(__dirname),
+      stdio: ["pipe", "pipe", "pipe"],
+    })
+
+    child.stdout?.on("data", (data: any) => {
+      const lines = data
+        .toString()
+        .split("\n")
+        .filter((line: string) => line.trim())
+      lines.forEach((line: string) => {
+        output.push(line)
+        console.log(`   ${line}`)
+      })
+    })
+
+    child.stderr?.on("data", (data: any) => {
+      const lines = data
+        .toString()
+        .split("\n")
+        .filter((line: string) => line.trim())
+      lines.forEach((line: string) => {
+        errors.push(line)
+        console.log(`   ⚠️  ${line}`)
+      })
+    })
+
+    child.on("close", (code: any) => {
+      const duration = Date.now() - tsStartTime
+      const success = code === 0
+
+      console.log(
+        `   ${success ? "✅" : "❌"} Generate TypeScript Declarations ${
+          success ? "completed" : "failed"
+        } (${duration}ms)`
+      )
+
+      resolve({
+        name: "Generate TypeScript Declarations (dist)",
+        success,
+        duration,
+        output,
+        errors,
+      })
+    })
+  })
+
+  stats.tasks.push(tsResult)
+  if (tsResult.success) {
+    stats.successCount++
+  } else {
+    stats.errorCount++
+  }
+
+  // Generate TypeScript declarations for index.ts
+  console.log(`🔄 Generate TypeScript Declarations for index.ts...`)
+  const tsIndexStartTime = Date.now()
+  const tsIndexResult = await new Promise<TaskResult>((resolve) => {
+    const output: string[] = []
+    const errors: string[] = []
+
+    const child = spawn(
+      "npx",
+      [
+        "tsc",
+        "index.ts",
+        "--declaration",
+        "--emitDeclarationOnly",
+        "--skipLibCheck",
+        "--module",
+        "ES2020",
+        "--target",
+        "ES2020",
+        "--moduleResolution",
+        "bundler",
+        "--esModuleInterop",
+      ],
+      {
+        cwd: path.dirname(__dirname),
+        stdio: ["pipe", "pipe", "pipe"],
+      }
+    )
+
+    child.stdout?.on("data", (data: any) => {
+      const lines = data
+        .toString()
+        .split("\n")
+        .filter((line: string) => line.trim())
+      lines.forEach((line: string) => {
+        output.push(line)
+        console.log(`   ${line}`)
+      })
+    })
+
+    child.stderr?.on("data", (data: any) => {
+      const lines = data
+        .toString()
+        .split("\n")
+        .filter((line: string) => line.trim())
+      lines.forEach((line: string) => {
+        errors.push(line)
+        console.log(`   ⚠️  ${line}`)
+      })
+    })
+
+    child.on("close", (code: any) => {
+      const duration = Date.now() - tsIndexStartTime
+      const success = code === 0
+
+      console.log(
+        `   ${success ? "✅" : "❌"} Generate TypeScript Declarations (index) ${
+          success ? "completed" : "failed"
+        } (${duration}ms)`
+      )
+
+      resolve({
+        name: "Generate TypeScript Declarations (index)",
+        success,
+        duration,
+        output,
+        errors,
+      })
+    })
+  })
+
+  stats.tasks.push(tsIndexResult)
+  if (tsIndexResult.success) {
+    stats.successCount++
+  } else {
+    stats.errorCount++
+  }
+
   // Calculate total duration
   stats.totalDuration = Date.now() - overallStartTime
 
@@ -178,7 +323,7 @@ export async function generateAll(): Promise<void> {
 
   console.log(`🕐 Total Duration: ${stats.totalDuration}ms`)
   console.log(
-    `� Success Rate: ${stats.successCount}/${tasks.length} tasks completed`
+    `✓ Success Rate: ${stats.successCount}/${stats.tasks.length} tasks completed`
   )
 
   if (stats.successCount > 0) {

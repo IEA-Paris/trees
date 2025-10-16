@@ -4,14 +4,14 @@ import { EventSlot } from "./eventSlot"
 import { Disciplines } from "../../misc/models/disciplines"
 import { Tag } from "../../misc/models/tags"
 import { People } from "../../people/models/people"
-import { Affiliation } from "../../affiliation/models/affiliation"
+import { Affiliations } from "../../affiliations/models/affiliations"
 import { Files } from "../../files/models/files"
 import { Related } from "../../misc/models/related"
 import Model from "../../model"
 import { formType } from "../../form"
 
 export interface Events {
-  affiliations?: Affiliation[] // 3 - Server & Client - //Bottom left Document
+  affiliations?: Affiliations[] // 3 - Server & Client - //Bottom left Document
   appId: string // 0 - Server & Client -
   availableSlots: number // 0 - Server & Client - ? => Claire
   bookingState: bookingState // 0 - Server & Client -
@@ -29,7 +29,7 @@ export interface Events {
   gallery?: Image[]
   name: string // 0 - Server & Client -
   eventSlot?: EventSlot[] //// 3 - Server -
-  organizers: People[] | Affiliation[] // 3 - Server & Client -
+  organizers: People[] | Affiliations[] // 3 - Server & Client -
   outside: boolean // 0 - Server & Client -  // Near inscription
   location: Location // 0 - Server & Client -
   organiserType: organiserType // server & client - 0 = IAS, 1 = member, 2 = fellow, 3 = external
@@ -92,9 +92,6 @@ export enum eventCategories {
   Other = "OTHER",
 }
 const defaultConfig: Model = {
-  source: "gql",
-  // markdown related keys
-  //Features related keys
   list: {
     create: true, // allow to create new items
 

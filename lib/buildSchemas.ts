@@ -72,7 +72,7 @@ const websiteSchema: DocumentNode = mergeTypeDefs(
 fs.writeFileSync(APEX_SCHEMA_PATH, print(apexSchema), "utf8")
 fs.writeFileSync(WEBSITE_SCHEMA_PATH, print(websiteSchema), "utf8")
 
-/* function extractResolvers(appId: string, schema: DocumentNode): string {
+ function extractResolvers(appId: string, schema: DocumentNode): string {
   const queries: string[] = []
   const mutations: string[] = []
 
@@ -98,7 +98,7 @@ fs.writeFileSync(WEBSITE_SCHEMA_PATH, print(websiteSchema), "utf8")
 }
 
 const apexResolversFile = extractResolvers("apex", apexSchema)
-const websiteResolversFile = extractResolvers("website", websiteSchema) */
+const websiteResolversFile = extractResolvers("website", websiteSchema)
 
 console.log("✅ Schemas generated successfully:")
 console.log(`  - Website schema : ${WEBSITE_SCHEMA_PATH}`)

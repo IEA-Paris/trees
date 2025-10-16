@@ -1,5 +1,5 @@
 import { Image } from "../../files/models/image"
-import { Affiliation } from "../../affiliation/models/affiliation"
+import { Affiliations } from "../../affiliations/models/affiliations"
 import { FellowshipDetails } from "./fellowshipDetails"
 import { Files } from "../../files/models/files"
 import Model from "../../model"
@@ -9,7 +9,7 @@ import { RelatedPeople } from "../../misc/models/relatedPeople"
 import { formType } from "../../form"
 export interface Fellowships {
   action?: string
-  affiliations?: Affiliation[] // AKA members behind the fellowships
+  affiliations?: Affiliations[] // AKA members behind the fellowships
   applicationStart?: Date
   disciplines?: Disciplines[] // 3 - Server & Client //Inside=> Presentation
   fellowshipStart?: Date
@@ -45,7 +45,6 @@ export enum FellowshipStatus {
 }
 
 const defaultConfig: Model = {
-  source: "gql",
   list: {
     create: true, // allow to create new items
     filters: {

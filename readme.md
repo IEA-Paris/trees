@@ -136,7 +136,7 @@ import("@paris-ias/trees/dist/graphql/client/people/query.get.people.gql")
 
 ```bash
 # Using npm
-npm install @paris-ias/trees
+npm install @paris-ias/treessss
 
 # Using yarn
 yarn add @paris-ias/trees

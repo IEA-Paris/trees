@@ -25,7 +25,6 @@ export interface Article {
 }
 
 const defautConfig: Model = {
-  path: "content/article", // path to the folder where the content is stored
   list: {
     create: true, // allow to create new items
     filters: {

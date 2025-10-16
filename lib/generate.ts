@@ -1,6 +1,6 @@
-import { templates, Form, Model, Sort, Views } from "../src/index.ts"
-import { createJsonFile } from "./utils.ts"
-import { formType } from "../src/form.ts"
+import { templates, Form, Model, Sort, Views } from "../src/index"
+import { createJsonFile } from "./utils"
+import { formType } from "../src/form"
 
 /**
  * List configuration interface for generated modules
@@ -165,9 +165,13 @@ const completeSchema = (
 
               completedSchema[key] = {
                 ...schema[key],
-                type: schema[key]?.component.toLowerCase().startsWith("object")
-                  ? formType.Object
-                  : formType.Array,
+                type:
+                  typeof schema[key]?.component === "string" &&
+                  schema[key].component.toLowerCase().startsWith("object")
+                    ? formType.Object
+                    : schema[key]?.component
+                    ? formType.Array
+                    : formType.Object,
                 items: completeSchema(
                   templates[key].form as Record<string, Form>,
                   visitedTemplates
@@ -319,7 +323,11 @@ const createModule = (type: string): void => {
     }
 
     // Helper function to process items within the schema
-    const processItems = (key: string, items: any[], form: any): any => {
+    const processItems = (
+      key: string,
+      items: Record<string, any>,
+      form: any
+    ): any => {
       /*     console.log("processing items for key: ", key) */
 
       // only collection have items with an array type

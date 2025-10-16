@@ -1,5 +1,5 @@
 import { Image } from "../../files/models/image"
-import { Affiliation } from "../../affiliation/models/affiliation"
+import { Affiliations } from "../../affiliations/models/affiliations"
 import { Files } from "../../files/models/files"
 import { Video } from "../../files/models/video"
 import Model from "../../model"
@@ -14,7 +14,7 @@ export interface Publications {
   description?: string
   summary?: string
   url?: URL
-  affiliations?: Affiliation[]
+  affiliations?: Affiliations[]
   related?: Related[]
   gallery?: Image[]
   image?: Image

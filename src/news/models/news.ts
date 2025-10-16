@@ -46,8 +46,6 @@ export enum newsCategories {
   Audio = "AUDIO",
 }
 const defaultConfig: Model = {
-  source: "gql",
-  type: "", // 'directory' | 'file'
   list: {
     create: true, // allow to create new items
     filters: {

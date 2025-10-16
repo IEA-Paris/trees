@@ -1,27 +1,31 @@
-import events from "./dist/events"
-import news from "./dist/news"
-import people from "./dist/people"
-import projects from "./dist/projects"
-import fellowships from "./dist/fellowships"
-import publications from "./dist/publications"
-import workExperience from "./dist/workExperience"
+import listActions from "./dist/list/actions"
+import listAffiliations from "./dist/list/affiliations"
+import listApps from "./dist/list/apps"
+import listDisciplines from "./dist/list/disciplines"
 import listEvents from "./dist/list/events"
+import listFellowships from "./dist/list/fellowships"
+import listFiles from "./dist/list/files"
+import listMailing from "./dist/list/mailing"
 import listNews from "./dist/list/news"
 import listPeople from "./dist/list/people"
 import listProjects from "./dist/list/projects"
-import listFellowships from "./dist/list/fellowships"
 import listPublications from "./dist/list/publications"
-import listApps from "./dist/list/apps"
-import listExperiences from "./dist/list/workExperience"
+import listTags from "./dist/list/tags"
+import listUsers from "./dist/list/users"
+import formActions from "./dist/form/actions"
+import formAffiliations from "./dist/form/affiliations"
+import formApps from "./dist/form/apps"
+import formDisciplines from "./dist/form/disciplines"
 import formEvents from "./dist/form/events"
+import formFellowships from "./dist/form/fellowships"
+import formFiles from "./dist/form/files"
+import formMailing from "./dist/form/mailing"
 import formNews from "./dist/form/news"
 import formPeople from "./dist/form/people"
 import formProjects from "./dist/form/projects"
-import formFellowships from "./dist/form/fellowships"
 import formPublications from "./dist/form/publications"
-import formApps from "./dist/form/apps"
-import formExperiences from "./dist/form/workExperience"
-import apps from "./dist/apps"
+import formTags from "./dist/form/tags"
+import formUsers from "./dist/form/users"
 import {
   templates,
   ConfigValue,
@@ -35,29 +39,33 @@ import {
 
 export {
   templates,
-  apps,
-  events,
-  news,
-  people,
-  projects,
-  fellowships,
-  publications,
-  workExperience,
+  listActions,
+  listAffiliations,
+  listApps,
+  listDisciplines,
   listEvents,
+  listFellowships,
+  listFiles,
+  listMailing,
   listNews,
   listPeople,
   listProjects,
-  listFellowships,
   listPublications,
-  listApps,
-  listExperiences,
+  listTags,
+  listUsers,
+  formActions,
+  formAffiliations,
+  formApps,
+  formDisciplines,
   formEvents,
+  formFellowships,
+  formFiles,
+  formMailing,
   formNews,
   formPeople,
   formProjects,
-  formFellowships,
   formPublications,
-  formApps,
-  formExperiences,
+  formTags,
+  formUsers,
 }
 export type { Form, Sort, Views, ConfigValue, Model, ModuleType, formType }

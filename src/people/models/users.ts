@@ -32,7 +32,6 @@ type AppRole = {
   roles: userRole[]
 }
 const userConfig: Model = {
-  source: "gql",
   list: {
     create: true, // allow to create new items
     filters: {

@@ -1,34 +1,193 @@
 {
-  "name": "@paris-ias/data",
-  "version": "1.8.59",
+  "name": "@paris-ias/trees",
+  "version": "1.8.58",
   "type": "module",
   "main": "index.js",
+  "types": "index.d.ts",
+  "description": "Type definitions and schema generator for Paris IAS data management system",
+  "author": "Antoine Cordelois, Paris Institute for Advanced Study",
+  "license": "AGPL-3.0",
+  "keywords": [
+    "graphql",
+    "types",
+    "schema",
+    "paris-ias"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IEA-Paris/trees.git"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.js"
+    },
+    "./form/actions": {
+      "types": "./dist/form/actions.d.ts",
+      "import": "./dist/form/actions.js"
+    },
+    "./form/affiliations": {
+      "types": "./dist/form/affiliations.d.ts",
+      "import": "./dist/form/affiliations.js"
+    },
+    "./form/apps": {
+      "types": "./dist/form/apps.d.ts",
+      "import": "./dist/form/apps.js"
+    },
+    "./form/disciplines": {
+      "types": "./dist/form/disciplines.d.ts",
+      "import": "./dist/form/disciplines.js"
+    },
+    "./form/events": {
+      "types": "./dist/form/events.d.ts",
+      "import": "./dist/form/events.js"
+    },
+    "./form/fellowships": {
+      "types": "./dist/form/fellowships.d.ts",
+      "import": "./dist/form/fellowships.js"
+    },
+    "./form/files": {
+      "types": "./dist/form/files.d.ts",
+      "import": "./dist/form/files.js"
+    },
+    "./form/mailing": {
+      "types": "./dist/form/mailing.d.ts",
+      "import": "./dist/form/mailing.js"
+    },
+    "./form/news": {
+      "types": "./dist/form/news.d.ts",
+      "import": "./dist/form/news.js"
+    },
+    "./form/people": {
+      "types": "./dist/form/people.d.ts",
+      "import": "./dist/form/people.js"
+    },
+    "./form/projects": {
+      "types": "./dist/form/projects.d.ts",
+      "import": "./dist/form/projects.js"
+    },
+    "./form/publications": {
+      "types": "./dist/form/publications.d.ts",
+      "import": "./dist/form/publications.js"
+    },
+    "./form/tags": {
+      "types": "./dist/form/tags.d.ts",
+      "import": "./dist/form/tags.js"
+    },
+    "./form/users": {
+      "types": "./dist/form/users.d.ts",
+      "import": "./dist/form/users.js"
+    },
+    "./list/actions": {
+      "types": "./dist/list/actions.d.ts",
+      "import": "./dist/list/actions.js"
+    },
+    "./list/affiliations": {
+      "types": "./dist/list/affiliations.d.ts",
+      "import": "./dist/list/affiliations.js"
+    },
+    "./list/apps": {
+      "types": "./dist/list/apps.d.ts",
+      "import": "./dist/list/apps.js"
+    },
+    "./list/disciplines": {
+      "types": "./dist/list/disciplines.d.ts",
+      "import": "./dist/list/disciplines.js"
+    },
+    "./list/events": {
+      "types": "./dist/list/events.d.ts",
+      "import": "./dist/list/events.js"
+    },
+    "./list/fellowships": {
+      "types": "./dist/list/fellowships.d.ts",
+      "import": "./dist/list/fellowships.js"
+    },
+    "./list/files": {
+      "types": "./dist/list/files.d.ts",
+      "import": "./dist/list/files.js"
+    },
+    "./list/mailing": {
+      "types": "./dist/list/mailing.d.ts",
+      "import": "./dist/list/mailing.js"
+    },
+    "./list/news": {
+      "types": "./dist/list/news.d.ts",
+      "import": "./dist/list/news.js"
+    },
+    "./list/people": {
+      "types": "./dist/list/people.d.ts",
+      "import": "./dist/list/people.js"
+    },
+    "./list/projects": {
+      "types": "./dist/list/projects.d.ts",
+      "import": "./dist/list/projects.js"
+    },
+    "./list/publications": {
+      "types": "./dist/list/publications.d.ts",
+      "import": "./dist/list/publications.js"
+    },
+    "./list/tags": {
+      "types": "./dist/list/tags.d.ts",
+      "import": "./dist/list/tags.js"
+    },
+    "./list/users": {
+      "types": "./dist/list/users.d.ts",
+      "import": "./dist/list/users.js"
+    },
+    "./graphql/client/actions": "./dist/graphql/client/actions/*.gql",
+    "./graphql/client/affiliations": "./dist/graphql/client/affiliations/*.gql",
+    "./graphql/client/apps": "./dist/graphql/client/apps/*.gql",
+    "./graphql/client/events": "./dist/graphql/client/events/*.gql",
+    "./graphql/client/fellowships": "./dist/graphql/client/fellowships/*.gql",
+    "./graphql/client/files": "./dist/graphql/client/files/*.gql",
+    "./graphql/client/mailing": "./dist/graphql/client/mailing/*.gql",
+    "./graphql/client/misc": "./dist/graphql/client/misc/*.gql",
+    "./graphql/client/news": "./dist/graphql/client/news/*.gql",
+    "./graphql/client/people": "./dist/graphql/client/people/*.gql",
+    "./graphql/client/projects": "./dist/graphql/client/projects/*.gql",
+    "./graphql/client/publications": "./dist/graphql/client/publications/*.gql",
+    "./graphql/schemas/apex": "./dist/graphql/schemas/schema.apex.graphql",
+    "./graphql/schemas/apex-resolvers": "./dist/graphql/schemas/apex-resolvers-list.json",
+    "./graphql/schemas/website": "./dist/graphql/schemas/schema.website.graphql",
+    "./graphql/schemas/website-resolvers": "./dist/graphql/schemas/website-resolvers-list.json",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "dist/**/*.js",
+    "dist/**/*.d.ts",
+    "dist/**/*.gql",
+    "dist/**/*.graphql",
+    "dist/**/*.json",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "dev": "tsx index.ts",
-    "generate": "npx tsx lib/generateAll.ts",
+    "build": "npx tsx lib/generateAll.ts",
+    "build:types": "tsc --emitDeclarationOnly",
     "generate:modules": "npx tsx lib/generate.ts",
     "generate:schemas": "npx tsx lib/buildSchemas.ts",
     "generate:client": "npx tsx lib/buildClientGraphQL.ts",
     "draw": "npx depcruise src --include-only \"^src\" --output-type dot | dot -T svg > dependency-graph.svg",
     "clean": "rm -rf dist/",
-    "prebuild": "npm run clean"
+    "prebuild": "npm run clean",
+    "prepublishOnly": "npm run build"
   },
-  "files": [
-    "index.ts",
-    "src/**",
-    "lib/**",
-    "dist/**"
-  ],
-  "author": "Antoine Cordelois, Paris Institute for Advanced Study",
-  "license": "ISC",
-  "description": "Type definitions and schema generator for Paris IAS data management system",
   "dependencies": {
-    "ts-node": "^10.9.2",
     "@graphql-tools/load-files": "^7",
     "@graphql-tools/merge": "^8",
     "graphql": "^16"
   },
   "devDependencies": {
-    "dependency-cruiser": "^16.10.0"
+    "@types/node": "^24.7.2",
+    "dependency-cruiser": "^16.10.0",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0"
   }
 }

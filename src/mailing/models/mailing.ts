@@ -10,11 +10,6 @@ export interface Mailing {
 }
 
 const defaultConfig: Model = {
-  source: "gql",
-  // markdown related keys
-  type: "", // 'directory' | 'file'
-  // GQL related keys
-
   //Features related keys
   list: {
     create: true, // allow to create new items
