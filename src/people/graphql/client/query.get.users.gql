@@ -1,0 +1,41 @@
+query GetUser($appId: ID = "iea", $itemId: ID = "", $lang: String = "") {
+  getUser(appId: $appId, itemId: $itemId, lang: $lang) {
+    admin
+    apps {
+      appId
+      roles
+    }
+    branch
+    createdAt
+    email
+    profile {
+      country
+      firstname
+      image {
+        alt
+        backgroundColor
+        caption
+        copyright
+        license
+        licenseUrl
+        url
+      }
+      lastname
+      linkedin
+      position
+      presentation
+      references
+      twitter
+      wikipedia
+    }
+    role
+    settings {
+      lang
+    }
+    slug {
+      en
+      fr
+    }
+    status
+  }
+}

@@ -1,13 +1,11 @@
-type User {
+type User implements People {
   admin: Boolean
   apps: [AppRole]
   createdAt: AWSDateTime!
-  email: AWSEmail!
-  profile: Profile
+  email: [AWSEmail]!
   settings: Settings
   status: Int
   role: Int
-  branch: [String]
   slug: AWSJSON
 }
 
