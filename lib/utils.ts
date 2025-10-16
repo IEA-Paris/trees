@@ -13,10 +13,27 @@ export function createJsonFile(
   }
 
   const filePath = path.join(distPath, `${type}.js`)
-  fs.writeFileSync(
-    filePath,
-    `export default ${JSON.stringify(module, null, 2)}`
-  )
+
+  // Generate immutable export with deep freeze
+  const freezeCode = `// Deep freeze utility to make exports immutable
+const deepFreeze = (obj) => {
+  Object.freeze(obj);
+  Object.getOwnPropertyNames(obj).forEach(prop => {
+    if (obj[prop] !== null
+      && (typeof obj[prop] === "object" || typeof obj[prop] === "function")
+      && !Object.isFrozen(obj[prop])) {
+      deepFreeze(obj[prop]);
+    }
+  });
+  return obj;
+};
+
+const data = ${JSON.stringify(module, null, 2)};
+
+export default deepFreeze(data);
+`
+
+  fs.writeFileSync(filePath, freezeCode)
 }
 export const mapEnum = (arg: Object) =>
   Object.keys(arg)

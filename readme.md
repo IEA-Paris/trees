@@ -2,7 +2,7 @@
 
 # 🌳 @paris-ias/trees
 
-**Isomorphic Forest Types Module**
+**Isomorphic Forest Trees Module**
 
 _The foundational data model layer for the Paris IAS ecosystem_
 
@@ -28,11 +28,17 @@ graph LR
     A --> E[Defaults Tree]
     A --> F[GraphQL Operations]
 
-    B --> G[Type Safety]
+    B --> G[Type Safety & Immutability]
     C --> H[Dynamic Forms]
     D --> I[Smart Lists]
     E --> J[Initialization]
     F --> K[API Integration]
+
+    G --> L[TypeScript Declarations]
+    H --> L
+    I --> L
+    J --> L
+    K --> L
 
     style A fill:#0277bd,color:#fff
     style B fill:#6a1b9a,color:#fff
@@ -40,6 +46,7 @@ graph LR
     style D fill:#e65100,color:#fff
     style E fill:#c2185b,color:#fff
     style F fill:#1565c0,color:#fff
+    style L fill:#455a64,color:#fff
 ```
 
 ### Why Isomorphic Forests?
@@ -49,7 +56,8 @@ graph LR
 - **🌍 I18n by Default**: Built-in internationalization support at the primitive level
 - **🧩 Infinite Composition**: Template system enables unlimited reusable components
 - **⚡ Type Safety**: Full TypeScript support with generated type definitions
-- **📡 GraphQL Ready**: Automatically generates client operations and server schemas
+- **� Immutable Exports**: All generated trees are deeply frozen and immutable
+- **�📡 GraphQL Ready**: Automatically generates client operations and server schemas
 
 ---
 
@@ -69,7 +77,7 @@ Every data model is composed of five fundamental types that can be infinitely co
 
 ### 🌲 Generated Trees
 
-Each model definition generates several distinct outputs:
+Each model definition generates several distinct outputs, all **immutable** and **fully typed**:
 
 ```typescript
 // 1. Schema Tree - Type definitions and validation, first part used by forms
@@ -152,8 +160,11 @@ pnpm add @paris-ias/trees
 ### Importing Generated Trees
 
 ```typescript
-// Import form and list configurations
+// Import form and list configurations (immutable and fully typed)
 import { formPeople, listPeople } from "@paris-ias/trees"
+
+// All exports are deeply frozen - mutations will throw errors in strict mode
+formPeople._defaults.firstname = "hack" // ❌ TypeError: Cannot assign to read only property
 
 // Import GraphQL operations directly
 import("@paris-ias/trees/dist/graphql/client/people/query.list.people.gql")
@@ -274,12 +285,21 @@ graph TD
     J --> O[Initialization]
     K --> P[API Integration]
 
+    B --> Q[TypeScript Declarations]
+    C --> Q
+    D --> Q
+    E --> Q
+    F --> Q
+    Q --> R[Immutable Exports]
+
     style A fill:#0277bd,color:#fff
     style B fill:#6a1b9a,color:#fff
     style C fill:#2e7d32,color:#fff
     style D fill:#e65100,color:#fff
     style E fill:#c2185b,color:#fff
     style F fill:#1565c0,color:#fff
+    style Q fill:#455a64,color:#fff
+    style R fill:#d32f2f,color:#fff
 ```
 
 ### Directory (simplified) Structure
@@ -388,6 +408,63 @@ npm run clean
 # Full rebuild
 npm run clean && npm run generate
 ```
+
+---
+
+## 🔒 Immutability & Type Safety
+
+### Deep Freeze Protection
+
+All generated tree exports are **deeply frozen** using `Object.freeze()`, ensuring complete immutability:
+
+```typescript
+import { formPeople } from "@paris-ias/trees"
+
+// ❌ All mutations are prevented
+formPeople._defaults.firstname = "hacked"        // Fails silently (non-strict)
+formPeople.schema.firstname.label = "modified"   // TypeError in strict mode
+formPeople.newProperty = "value"                 // Cannot extend frozen objects
+delete formPeople._defaults                       // Cannot delete properties
+
+// ✅ Safe to share across your application
+const config1 = formPeople
+const config2 = formPeople // Same reference, guaranteed unchanged
+
+// ✅ Objects are frozen at all levels
+Object.isFrozen(formPeople)                      // true
+Object.isFrozen(formPeople._defaults)            // true
+Object.isFrozen(formPeople.schema)               // true
+Object.isFrozen(formPeople.schema.firstname)     // true
+```
+
+### Full TypeScript Support
+
+Complete type definitions are automatically generated for all exports:
+
+```typescript
+// Imports include full type information
+import { formPeople, listPeople, type Form, type List } from "@paris-ias/trees"
+
+// IDE autocomplete and type checking work perfectly
+const firstname = formPeople.schema.firstname    // Fully typed
+const defaultName = formPeople._defaults.firstname // Type: string | { en: string, fr: string }
+
+// Type-safe development
+function processForm(form: typeof formPeople) {
+  // Full intellisense and type checking
+  const schema = form.schema
+  const defaults = form._defaults
+}
+```
+
+### Benefits
+
+- **🛡️ Data Integrity**: Prevents accidental mutations throughout your codebase
+- **🔄 Safe Sharing**: Share configuration objects without defensive copying
+- **⚡ Performance**: Enables optimizations in React, Vue, and other frameworks
+- **🐛 Easier Debugging**: Data structures never change unexpectedly
+- **📝 Better Intellisense**: Full TypeScript support with autocomplete
+- **✅ Type Safety**: Catch errors at compile time, not runtime
 
 ---
 
