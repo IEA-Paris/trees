@@ -1,0 +1,133 @@
+query search($appId: ID = "", $search: String = "", $lang: String = "en") {
+  search(appId: $appId, search: $search, lang: $lang) {
+    people {
+      items {
+        firstname
+        id
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        lastname
+        slug
+      }
+      total
+    }
+    projects {
+      items {
+        date
+        id
+        featured
+        name
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        subtitle
+        tags {
+          name
+        }
+        slug
+      }
+      total
+    }
+    publications {
+      items {
+        subtitle
+        name
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          licenseUrl
+          license
+          url
+        }
+        id
+        date
+        slug
+      }
+      total
+    }
+    events {
+      items {
+        availableSlots
+        bookingState
+        category
+        start
+        state
+        summary
+        eventType
+        slug
+        name
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          licenseUrl
+          license
+          url
+        }
+      }
+      total
+    }
+    fellowships {
+      total
+      items {
+        applicationStart
+        applicationStop
+        disciplines {
+          name
+        }
+        fellowshipStart
+        fellowshipType
+        fellowshipStop
+        id
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        name
+        summary
+        slug
+      }
+    }
+    news {
+      total
+      items {
+        category
+        date
+        featured
+        id
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        name
+        slug
+      }
+    }
+  }
+}
