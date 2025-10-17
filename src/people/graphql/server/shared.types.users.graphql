@@ -1,4 +1,4 @@
-type User implements People {
+type User {
   admin: Boolean
   apps: [AppRole]
   createdAt: AWSDateTime!
