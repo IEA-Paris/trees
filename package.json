@@ -27,119 +27,148 @@
   "exports": {
     ".": {
       "types": "./index.d.ts",
-      "import": "./index.js"
+      "import": "./index.js",
+      "require": "./dist/index.cjs.js"
     },
     "./form/actions": {
       "types": "./dist/form/actions.d.ts",
-      "import": "./dist/form/actions.js"
+      "import": "./dist/form/actions.js",
+      "require": "./dist/form/actions.cjs.js"
     },
     "./form/affiliations": {
       "types": "./dist/form/affiliations.d.ts",
-      "import": "./dist/form/affiliations.js"
+      "import": "./dist/form/affiliations.js",
+      "require": "./dist/form/affiliations.cjs.js"
     },
     "./form/apps": {
       "types": "./dist/form/apps.d.ts",
-      "import": "./dist/form/apps.js"
+      "import": "./dist/form/apps.js",
+      "require": "./dist/form/apps.cjs.js"
     },
     "./form/disciplines": {
       "types": "./dist/form/disciplines.d.ts",
-      "import": "./dist/form/disciplines.js"
+      "import": "./dist/form/disciplines.js",
+      "require": "./dist/form/disciplines.cjs.js"
     },
     "./form/events": {
       "types": "./dist/form/events.d.ts",
-      "import": "./dist/form/events.js"
+      "import": "./dist/form/events.js",
+      "require": "./dist/form/events.cjs.js"
     },
     "./form/fellowships": {
       "types": "./dist/form/fellowships.d.ts",
-      "import": "./dist/form/fellowships.js"
+      "import": "./dist/form/fellowships.js",
+      "require": "./dist/form/fellowships.cjs.js"
     },
     "./form/files": {
       "types": "./dist/form/files.d.ts",
-      "import": "./dist/form/files.js"
+      "import": "./dist/form/files.js",
+      "require": "./dist/form/files.cjs.js"
     },
     "./form/mailing": {
       "types": "./dist/form/mailing.d.ts",
-      "import": "./dist/form/mailing.js"
+      "import": "./dist/form/mailing.js",
+      "require": "./dist/form/mailing.cjs.js"
     },
     "./form/news": {
       "types": "./dist/form/news.d.ts",
-      "import": "./dist/form/news.js"
+      "import": "./dist/form/news.js",
+      "require": "./dist/form/news.cjs.js"
     },
     "./form/people": {
       "types": "./dist/form/people.d.ts",
-      "import": "./dist/form/people.js"
+      "import": "./dist/form/people.js",
+      "require": "./dist/form/people.cjs.js"
     },
     "./form/projects": {
       "types": "./dist/form/projects.d.ts",
-      "import": "./dist/form/projects.js"
+      "import": "./dist/form/projects.js",
+      "require": "./dist/form/projects.cjs.js"
     },
     "./form/publications": {
       "types": "./dist/form/publications.d.ts",
-      "import": "./dist/form/publications.js"
+      "import": "./dist/form/publications.js",
+      "require": "./dist/form/publications.cjs.js"
     },
     "./form/tags": {
       "types": "./dist/form/tags.d.ts",
-      "import": "./dist/form/tags.js"
+      "import": "./dist/form/tags.js",
+      "require": "./dist/form/tags.cjs.js"
     },
     "./form/users": {
       "types": "./dist/form/users.d.ts",
-      "import": "./dist/form/users.js"
+      "import": "./dist/form/users.js",
+      "require": "./dist/form/users.cjs.js"
     },
     "./list/actions": {
       "types": "./dist/list/actions.d.ts",
-      "import": "./dist/list/actions.js"
+      "import": "./dist/list/actions.js",
+      "require": "./dist/list/actions.cjs.js"
     },
     "./list/affiliations": {
       "types": "./dist/list/affiliations.d.ts",
-      "import": "./dist/list/affiliations.js"
+      "import": "./dist/list/affiliations.js",
+      "require": "./dist/list/affiliations.cjs.js"
     },
     "./list/apps": {
       "types": "./dist/list/apps.d.ts",
-      "import": "./dist/list/apps.js"
+      "import": "./dist/list/apps.js",
+      "require": "./dist/list/apps.cjs.js"
     },
     "./list/disciplines": {
       "types": "./dist/list/disciplines.d.ts",
-      "import": "./dist/list/disciplines.js"
+      "import": "./dist/list/disciplines.js",
+      "require": "./dist/list/disciplines.cjs.js"
     },
     "./list/events": {
       "types": "./dist/list/events.d.ts",
-      "import": "./dist/list/events.js"
+      "import": "./dist/list/events.js",
+      "require": "./dist/list/events.cjs.js"
     },
     "./list/fellowships": {
       "types": "./dist/list/fellowships.d.ts",
-      "import": "./dist/list/fellowships.js"
+      "import": "./dist/list/fellowships.js",
+      "require": "./dist/list/fellowships.cjs.js"
     },
     "./list/files": {
       "types": "./dist/list/files.d.ts",
-      "import": "./dist/list/files.js"
+      "import": "./dist/list/files.js",
+      "require": "./dist/list/files.cjs.js"
     },
     "./list/mailing": {
       "types": "./dist/list/mailing.d.ts",
-      "import": "./dist/list/mailing.js"
+      "import": "./dist/list/mailing.js",
+      "require": "./dist/list/mailing.cjs.js"
     },
     "./list/news": {
       "types": "./dist/list/news.d.ts",
-      "import": "./dist/list/news.js"
+      "import": "./dist/list/news.js",
+      "require": "./dist/list/news.cjs.js"
     },
     "./list/people": {
       "types": "./dist/list/people.d.ts",
-      "import": "./dist/list/people.js"
+      "import": "./dist/list/people.js",
+      "require": "./dist/list/people.cjs.js"
     },
     "./list/projects": {
       "types": "./dist/list/projects.d.ts",
-      "import": "./dist/list/projects.js"
+      "import": "./dist/list/projects.js",
+      "require": "./dist/list/projects.cjs.js"
     },
     "./list/publications": {
       "types": "./dist/list/publications.d.ts",
-      "import": "./dist/list/publications.js"
+      "import": "./dist/list/publications.js",
+      "require": "./dist/list/publications.cjs.js"
     },
     "./list/tags": {
       "types": "./dist/list/tags.d.ts",
-      "import": "./dist/list/tags.js"
+      "import": "./dist/list/tags.js",
+      "require": "./dist/list/tags.cjs.js"
     },
     "./list/users": {
       "types": "./dist/list/users.d.ts",
-      "import": "./dist/list/users.js"
+      "import": "./dist/list/users.js",
+      "require": "./dist/list/users.cjs.js"
     },
     "./dist/graphql/client/actions/*.gql": "./dist/graphql/client/actions/*.gql",
     "./dist/graphql/client/affiliations/*.gql": "./dist/graphql/client/affiliations/*.gql",
@@ -172,7 +201,7 @@
   ],
   "scripts": {
     "dev": "tsx index.ts",
-    "build": "npx tsx lib/generateAll.ts",
+    "build": "npx tsx lib/generateAll.ts && rollup -c",
     "postbuild": "find src -name '*.d.ts' -type f -delete",
     "build:types": "tsc -p tsconfig.index.json",
     "generate:modules": "npx tsx lib/generate.ts",
@@ -189,8 +218,13 @@
     "graphql": "^16"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.8",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@rollup/plugin-typescript": "^12.1.4",
     "@types/node": "^24.7.2",
     "dependency-cruiser": "^16.10.0",
+    "rollup": "^4.52.5",
+    "rollup-plugin-dts": "^6.2.3",
     "ts-node": "^10.9.2",
     "tsx": "^4.0.0",
     "typescript": "^5.0.0"
