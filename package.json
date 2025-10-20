@@ -173,7 +173,8 @@
   "scripts": {
     "dev": "tsx index.ts",
     "build": "npx tsx lib/generateAll.ts",
-    "build:types": "tsc --emitDeclarationOnly",
+    "postbuild": "find src -name '*.d.ts' -type f -delete",
+    "build:types": "tsc -p tsconfig.index.json",
     "generate:modules": "npx tsx lib/generate.ts",
     "generate:schemas": "npx tsx lib/buildSchemas.ts",
     "generate:client": "npx tsx lib/buildClientGraphQL.ts",
