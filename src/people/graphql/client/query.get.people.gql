@@ -118,7 +118,6 @@ query getPeople($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
       news {
         description
         slug
-        id
         image {
           alt
           backgroundColor
@@ -134,7 +133,6 @@ query getPeople($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
       people {
         firstname
         slug
-        id
         image {
           alt
           backgroundColor
@@ -149,7 +147,6 @@ query getPeople($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
       projects {
         description
         slug
-        id
         image {
           alt
           backgroundColor
@@ -163,7 +160,6 @@ query getPeople($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
         url
       }
       publications {
-        id
         slug
         name
         url
