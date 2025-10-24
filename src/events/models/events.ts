@@ -156,7 +156,7 @@ const defaultConfig: Model = {
         // by date from most recent to oldest
         icon: "sort-calendar-descending",
         text: "by-date-most-recent-first",
-        value: ["start", -1],
+        value: ["start", 1],
         default: true,
       },
       datedesc: {

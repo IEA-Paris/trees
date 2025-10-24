@@ -10,7 +10,6 @@ query getProject($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
       createdAt
       fileType
       hash
-      slug
       image {
         alt
         backgroundColor
