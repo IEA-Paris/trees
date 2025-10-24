@@ -73,7 +73,6 @@ query getNews($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
       }
       news {
         description
-        id
         image {
           alt
           backgroundColor
@@ -88,7 +87,6 @@ query getNews($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
       }
       people {
         firstname
-        id
         image {
           alt
           backgroundColor
@@ -102,7 +100,6 @@ query getNews($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
       }
       projects {
         description
-        id
         name
         image {
           alt
@@ -116,7 +113,6 @@ query getNews($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
         url
       }
       publications {
-        id
         name
         url
       }

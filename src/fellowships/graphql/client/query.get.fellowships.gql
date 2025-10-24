@@ -16,7 +16,6 @@ query getFellowship(
     summary
     description
     fellows {
-      id
       firstname
       lastname
       image {
@@ -35,7 +34,6 @@ query getFellowship(
       file
       fileType
       hash
-      id
       image {
         alt
         caption

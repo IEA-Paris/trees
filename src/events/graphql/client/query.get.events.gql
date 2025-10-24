@@ -20,7 +20,6 @@ query getEvent($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
     name
     place {
       address
-      id
       name
       url
     }
@@ -60,7 +59,6 @@ query getEvent($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
       }
       news {
         description
-        id
         slug
         image {
           alt
@@ -76,7 +74,6 @@ query getEvent($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
       }
       people {
         firstname
-        id
         slug
         image {
           alt
@@ -91,7 +88,6 @@ query getEvent($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
       }
       projects {
         description
-        id
         slug
         image {
           alt
@@ -106,7 +102,6 @@ query getEvent($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
         url
       }
       publications {
-        id
         slug
         name
         url
