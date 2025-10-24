@@ -9,9 +9,6 @@ query getDiscipline(
     icon
     name
     updatedAt
-    slug {
-      fr
-      en
-    }
+    slug
   }
 }

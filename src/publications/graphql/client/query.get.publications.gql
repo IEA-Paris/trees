@@ -161,9 +161,6 @@ query getPublication(
         url
       }
     }
-    slug {
-      fr
-      en
-    }
+    slug
   }
 }

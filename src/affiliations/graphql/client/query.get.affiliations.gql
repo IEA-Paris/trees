@@ -29,9 +29,6 @@ query getAffiliation(
     name
     ror
     url
-    slug {
-      fr
-      en
-    }
+    slug
   }
 }

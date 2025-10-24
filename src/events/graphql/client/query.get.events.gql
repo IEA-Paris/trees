@@ -25,10 +25,7 @@ query getEvent($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
       url
     }
     start
-    slug {
-      fr
-      en
-    }
+    slug
     slots {
       email
       firstname

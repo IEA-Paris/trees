@@ -4,10 +4,7 @@ query getProject($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
     date
     description
     featured
-    slug {
-      fr
-      en
-    }
+    slug
     files {
       file
       createdAt

@@ -1,5 +1,3 @@
-
-
 type App {
   appId: String
   name: String!
@@ -25,14 +23,12 @@ type AppRole {
   roles: [Int!]!
 }
 
-
 type Entity_sm {
   name: String!
   description: String
   logo: String
   place: Place
 }
-
 
 type Filters {
   events: EventFilters
@@ -42,8 +38,6 @@ type Filters {
   people: PeopleFilters
   publications: PublicationFilters
 }
-
-
 
 type Nomenclature {
   version: String!
@@ -76,7 +70,6 @@ type Profile {
   wikipedia: String
 }
 
-
 type SearchList {
   news: NewsList
   projects: ProjectsList
@@ -98,12 +91,6 @@ type Slot {
   lang: String!
 }
 
-# type Slug {
-#   fr: String
-#   en: String
-# }
-
-
 type Token {
   accessToken: String!
 }
@@ -112,9 +99,3 @@ type TokenAndUser {
   accessToken: String
   user: User
 }
-
-
-
-
-
-
