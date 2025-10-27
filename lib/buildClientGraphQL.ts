@@ -327,18 +327,16 @@ export function buildClientGraphQL(config: Partial<BuildConfig> = {}): void {
 }
 
 // Execute if run directly
-// if (
-//   typeof process !== "undefined" &&
-//   import.meta.url === `file://${process.argv[1]}`
-// ) {
-//   try {
-//     buildClientGraphQL()
-//   } catch (error) {
-//     console.error("💥 Build failed:", error)
-//     if (typeof process !== "undefined") {
-//       process.exit(1)
-//     }
-//   }
-// }
-
-buildClientGraphQL()
+if (
+  typeof process !== "undefined" &&
+  import.meta.url === `file://${process.argv[1]}`
+) {
+  try {
+    buildClientGraphQL()
+  } catch (error) {
+    console.error("💥 Build failed:", error)
+    if (typeof process !== "undefined") {
+      process.exit(1)
+    }
+  }
+}
