@@ -86,7 +86,6 @@ const defaultConfig: Model = {
         url: true,
         max: 2048,
       },
-
       meta: "url", // item type on schema.org
     },
     caption: {
@@ -112,7 +111,6 @@ const defaultConfig: Model = {
       },
       meta: "alt", // item type on schema.org
     },
-
     copyright: {
       label: "copyright",
       type: formType.Primitive,

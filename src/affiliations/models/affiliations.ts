@@ -88,7 +88,6 @@ const defaultConfig: Model = {
       },
       meta: "name",
     },
-
     image: {
       label: "image",
       component: "ImagePicker",

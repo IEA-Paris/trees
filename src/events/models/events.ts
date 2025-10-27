@@ -156,7 +156,7 @@ const defaultConfig: Model = {
         // by date from most recent to oldest
         icon: "sort-calendar-descending",
         text: "by-date-most-recent-first",
-        value: ["start", 1],
+        value: ["start", -1],
         default: true,
       },
       datedesc: {
@@ -195,7 +195,6 @@ const defaultConfig: Model = {
       label: "name",
       component: "TextField",
       type: formType.Primitive,
-
       i18n: true,
       rules: {
         required: true,
@@ -204,7 +203,6 @@ const defaultConfig: Model = {
       },
       meta: "name",
     },
-
     start: {
       label: "start",
       component: "DatePicker",
@@ -216,7 +214,6 @@ const defaultConfig: Model = {
       },
       meta: "start",
     },
-
     stop: {
       label: "stop",
       component: "DatePicker",
@@ -334,7 +331,6 @@ const defaultConfig: Model = {
       default: 0,
       meta: "bookingState",
     },
-
     delay: {
       label: "delay",
       component: false,
@@ -345,7 +341,6 @@ const defaultConfig: Model = {
       },
       meta: "delay",
     },
-
     dateText: {
       label: "dateText",
       component: "TextArea",
@@ -357,7 +352,6 @@ const defaultConfig: Model = {
       },
       meta: "dateText",
     },
-
     disciplines: {
       label: "disciplines",
       component: "DisciplinePicker",
@@ -380,7 +374,6 @@ const defaultConfig: Model = {
       },
       meta: "discussants",
     },
-
     organiserType: {
       label: "organiserType",
       component: "Select",
@@ -449,7 +442,6 @@ const defaultConfig: Model = {
         min: 5,
         max: 200,
       },
-
       meta: "organizers",
     },
     organizerState: {
@@ -484,7 +476,6 @@ const defaultConfig: Model = {
       },
       meta: "place",
     },
-
     related: {
       label: "related",
       component: "ObjectContainerPanel",

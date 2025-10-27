@@ -316,7 +316,6 @@ const defaultConfig: Model = {
       },
       meta: "publicationDate",
     },
-
     files: {
       label: "files",
       component: "FilePicker",

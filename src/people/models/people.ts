@@ -90,13 +90,13 @@ const defaultConfig: Model = {
         // by name from z to a
         icon: "sort-calendar-descending",
         text: "by-vintage-from-old-to-recent",
-        value: ["groups.vintage.year", 1],
+        value: ["groups.vintage.year", -1],
       },
       vintageasc: {
         // by name from z to a
         icon: "sort-calendar-descending",
         text: "by-vintage-from-recent-to-old",
-        value: ["groups.vintage.year", -1],
+        value: ["groups.vintage.year", 1],
         default: true,
       },
     },
@@ -158,7 +158,7 @@ const defaultConfig: Model = {
         max: 500,
       },
       meta: "biography",
-      transformers: [Transformers.Options],
+      transformers: [Transformers.Candidates],
     },
     image: {
       label: "image",
@@ -177,7 +177,6 @@ const defaultConfig: Model = {
         meta: "experiences",
       },
     },
-
     socials: {
       label: "socials",
       component: "ObjectKeyPairContainer",
@@ -202,7 +201,6 @@ const defaultConfig: Model = {
         meta: "video",
       },
     },
-
     related: {
       label: "related",
       component: "ObjectContainerPanel",

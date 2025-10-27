@@ -46,7 +46,6 @@ const defaultConfig: SocialsForm = {
       },
       meta: "orcid", // item type on schema.org
     },
-
     scholar: {
       label: "scholar",
       type: formType.Primitive,
