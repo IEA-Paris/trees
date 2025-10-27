@@ -367,8 +367,14 @@ const defaultConfig: Model = {
     },
     discussants: {
       label: "discussants",
-      component: "DocumentPicker",
-      type: formType.Document,
+      component: "CollectionContainerPanel",
+      type: formType.Array,
+      items: {
+        label: "discussants",
+        component: "DocumentPicker",
+        type: formType.Document,
+        meta: "discussants",
+      },
       meta: "discussants",
     },
     organiserType: {
@@ -432,8 +438,14 @@ const defaultConfig: Model = {
     },
     organizers: {
       label: "organizers",
-      component: "DocumentPicker",
-      type: formType.Document,
+      component: "CollectionContainerPanel",
+      type: formType.Array,
+      items: {
+        label: "organizers",
+        component: "DocumentPicker",
+        type: formType.Document,
+        meta: "organizers",
+      },
       meta: "organizers",
     },
     organizerState: {
@@ -482,8 +494,14 @@ const defaultConfig: Model = {
     },
     speakers: {
       label: "speakers",
-      component: "DocumentPicker",
-      type: formType.Document,
+      component: "CollectionContainerPanel",
+      type: formType.Array,
+      items: {
+        label: "speakers",
+        component: "DocumentPicker",
+        type: formType.Document,
+        meta: "speakers",
+      },
       meta: "speakers",
     },
     state: {
