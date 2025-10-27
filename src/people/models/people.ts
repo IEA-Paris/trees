@@ -40,7 +40,7 @@ const defaultConfig: Model = {
         show: {
           default: false, // same as hidden = true
           switchIf: [{ groups: "fellows" }], // array of conditions to switch the show, each condition will be assessed as a boolean
-          disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
+          disjonctive: false,
         },
         multiple: true,
       },
@@ -49,7 +49,7 @@ const defaultConfig: Model = {
         show: {
           default: false, // same as hidden = true
           switchIf: [{ groups: "fellows" }], // array of conditions to switch the show, each condition will be assessed as a boolean
-          disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
+          disjonctive: false,
         },
         multiple: true,
       },
@@ -58,7 +58,7 @@ const defaultConfig: Model = {
         show: {
           default: false, // same as hidden = true
           switchIf: [{ groups: "fellows" }], // array of conditions to switch the show, each condition will be assessed as a boolean
-          disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
+          disjonctive: false,
         },
         multiple: true,
       },
@@ -67,7 +67,7 @@ const defaultConfig: Model = {
         show: {
           default: false, // same as hidden = true
           switchIf: [{ groups: "fellows" }], // array of conditions to switch the show, each condition will be assessed as a boolean
-          disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
+          disjonctive: false,
         },
         multiple: true,
       },
