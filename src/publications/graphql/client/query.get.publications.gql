@@ -39,7 +39,6 @@ query getPublication(
       file
       fileType
       hash
-      slug
       image {
         alt
         backgroundColor

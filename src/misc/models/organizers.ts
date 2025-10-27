@@ -1,13 +1,12 @@
-import configPeople, { People } from "../../people/models/people"
 import configAffiliation, {
   Affiliations,
 } from "../../affiliations/models/affiliations"
 import Model from "../../model"
+import { RelatedPeople } from "./relatedPeople"
 
-export interface Organizer extends People, Affiliations {}
+export interface Organizer extends RelatedPeople, Affiliations {}
 const defaultConfig: Model = {
-  aliases: ["people", "affiliations"],
-  ...configPeople,
+  aliases: ["relatedPeople", "affiliations"],
   ...configAffiliation,
 }
 export default defaultConfig

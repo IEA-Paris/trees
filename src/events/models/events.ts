@@ -9,6 +9,7 @@ import { Files } from "../../files/models/files"
 import { Related } from "../../misc/models/related"
 import Model from "../../model"
 import { formType } from "../../form"
+import { RelatedPeople } from "../../misc/models/relatedPeople"
 
 export interface Events {
   affiliations?: Affiliations[] // 3 - Server & Client - //Bottom left Document
@@ -22,21 +23,21 @@ export interface Events {
   description: string // 0 - Server & Client -
   details: String // 0 - Server & Client -
   disciplines?: Disciplines[] // 3 - Server & Client //Inside=> Presentation
-  discussants?: People[] // 0 - Server & Client -
+  discussants?: RelatedPeople[] // 0 - Server & Client -
   files?: Files[] // 3 - Server & Client -
   lang: string[]
   image?: Image // 3 - Server & Client -
   gallery?: Image[]
   name: string // 0 - Server & Client -
   eventSlot?: EventSlot[] //// 3 - Server -
-  organizers: People[] | Affiliations[] // 3 - Server & Client -
+  organizers: RelatedPeople[] | Affiliations[] // 3 - Server & Client -
   outside: boolean // 0 - Server & Client -  // Near inscription
   location: Location // 0 - Server & Client -
   organiserType: organiserType // server & client - 0 = IAS, 1 = member, 2 = fellow, 3 = external
   program: String // 0 - Server & Client -
   related: Related
   // slots?: EventSlot[]; //// 3 - Server
-  speakers?: People[] // 3 - Server & Client -
+  speakers?: RelatedPeople[] // 3 - Server & Client -
   start: string // 0 - Server & Client -   A verifier string ? string[]
   state: eventState // 0 - Server & Client -
   stop: string // 0 - Server & Client - A verifier string ? string[]
@@ -367,10 +368,12 @@ const defaultConfig: Model = {
     discussants: {
       label: "discussants",
       component: "CollectionContainerPanel",
-      type: formType.Document,
-
-      rules: {
-        required: true,
+      type: formType.Array,
+      items: {
+        label: "discussants",
+        component: "DocumentPicker",
+        type: formType.Document,
+        meta: "discussants",
       },
       meta: "discussants",
     },
@@ -436,11 +439,12 @@ const defaultConfig: Model = {
     organizers: {
       label: "organizers",
       component: "CollectionContainerPanel",
-      type: formType.Template,
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
+      type: formType.Array,
+      items: {
+        label: "organizers",
+        component: "DocumentPicker",
+        type: formType.Document,
+        meta: "organizers",
       },
       meta: "organizers",
     },
@@ -491,10 +495,12 @@ const defaultConfig: Model = {
     speakers: {
       label: "speakers",
       component: "CollectionContainerPanel",
-      type: formType.Document,
-
-      rules: {
-        required: true,
+      type: formType.Array,
+      items: {
+        label: "speakers",
+        component: "DocumentPicker",
+        type: formType.Document,
+        meta: "speakers",
       },
       meta: "speakers",
     },
