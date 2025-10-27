@@ -13,7 +13,7 @@ interface Rules {
   digit?: boolean
   orcid?: boolean
 }
-export declare enum formType {
+export enum formType {
   Primitive = "PRIMITIVE",
   // could contain any other formType elements in keys' values
   Object = "OBJECT",
