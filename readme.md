@@ -421,20 +421,20 @@ All generated tree exports are **deeply frozen** using `Object.freeze()`, ensuri
 import { formPeople } from "@paris-ias/trees"
 
 // ❌ All mutations are prevented
-formPeople._defaults.firstname = "hacked"        // Fails silently (non-strict)
-formPeople.schema.firstname.label = "modified"   // TypeError in strict mode
-formPeople.newProperty = "value"                 // Cannot extend frozen objects
-delete formPeople._defaults                       // Cannot delete properties
+formPeople._defaults.firstname = "hacked" // Fails silently (non-strict)
+formPeople.schema.firstname.label = "modified" // TypeError in strict mode
+formPeople.newProperty = "value" // Cannot extend frozen objects
+delete formPeople._defaults // Cannot delete properties
 
 // ✅ Safe to share across your application
 const config1 = formPeople
 const config2 = formPeople // Same reference, guaranteed unchanged
 
 // ✅ Objects are frozen at all levels
-Object.isFrozen(formPeople)                      // true
-Object.isFrozen(formPeople._defaults)            // true
-Object.isFrozen(formPeople.schema)               // true
-Object.isFrozen(formPeople.schema.firstname)     // true
+Object.isFrozen(formPeople) // true
+Object.isFrozen(formPeople._defaults) // true
+Object.isFrozen(formPeople.schema) // true
+Object.isFrozen(formPeople.schema.firstname) // true
 ```
 
 ### Full TypeScript Support
@@ -446,7 +446,7 @@ Complete type definitions are automatically generated for all exports:
 import { formPeople, listPeople, type Form, type List } from "@paris-ias/trees"
 
 // IDE autocomplete and type checking work perfectly
-const firstname = formPeople.schema.firstname    // Fully typed
+const firstname = formPeople.schema.firstname // Fully typed
 const defaultName = formPeople._defaults.firstname // Type: string | { en: string, fr: string }
 
 // Type-safe development

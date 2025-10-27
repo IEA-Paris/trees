@@ -14,9 +14,6 @@ query getAction($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
     name
     slots
     video
-    slug {
-      fr
-      en
-    }
+    slug
   }
 }

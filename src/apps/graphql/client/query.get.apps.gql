@@ -25,9 +25,6 @@ query getApp($appId: ID = "iea", $lang: String = "en") {
       updatedAt
     }
     url
-    slug {
-      fr
-      en
-    }
+    slug
   }
 }

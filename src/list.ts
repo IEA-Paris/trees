@@ -8,6 +8,8 @@ interface Filters {
   rules?: Record<string, any>
   items?: any
   show?: Conditional
+  admin?: Conditional
+  enabled?: Conditional
   multiple?: boolean
 }
 

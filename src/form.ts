@@ -15,9 +15,13 @@ interface Rules {
 }
 export enum formType {
   Primitive = "PRIMITIVE",
+  // could contain any other formType elements in keys' values
   Object = "OBJECT",
+  // could contain any other formType elements but arrays
   Array = "ARRAY",
+  // Reusable tree template, matching another form/list/API/model/_defaults/declaration structure
   Template = "TEMPLATE",
+  // Matches an existing backend database document
   Document = "DOCUMENT",
 }
 export interface Conditional {
@@ -27,7 +31,7 @@ export interface Conditional {
 }
 
 export enum Transformers { // only for primitive strings
-  Options = "OPTIONS", // will use the field as source for options
+  Candidates = "CANDIDATES", // will use the field as source for options
   Trim = "TRIM", // remove trailing spaces
   Capitalize = "CAPITALIZE",
   ToUpperCase = "TO_UPPERCASE",
@@ -45,6 +49,7 @@ export interface Form {
   rules?: Rules // used for field validation (rely on vuetify for objects and primitives, custom for arrays)
   show?: Conditional
   enabled?: Conditional
+  admin?: Conditional
   transformers?: Transformers[] // used to format the field on blur (primitves strings only)
   meta?: string // for SEO
   items?: any

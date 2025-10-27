@@ -5,9 +5,6 @@ query getTag($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
     icon
     name
     updatedAt
-    slug {
-      fr
-      en
-    }
+    slug
   }
 }

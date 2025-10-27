@@ -3,7 +3,6 @@ query search($appId: ID = "", $search: String = "", $lang: String = "en") {
     people {
       items {
         firstname
-        id
         image {
           alt
           backgroundColor
@@ -21,7 +20,6 @@ query search($appId: ID = "", $search: String = "", $lang: String = "en") {
     projects {
       items {
         date
-        id
         featured
         name
         image {
@@ -54,7 +52,6 @@ query search($appId: ID = "", $search: String = "", $lang: String = "en") {
           license
           url
         }
-        id
         date
         slug
       }
@@ -94,7 +91,6 @@ query search($appId: ID = "", $search: String = "", $lang: String = "en") {
         fellowshipStart
         fellowshipType
         fellowshipStop
-        id
         image {
           alt
           backgroundColor
@@ -115,7 +111,6 @@ query search($appId: ID = "", $search: String = "", $lang: String = "en") {
         category
         date
         featured
-        id
         image {
           alt
           backgroundColor

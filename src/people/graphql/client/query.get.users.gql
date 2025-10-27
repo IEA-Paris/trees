@@ -32,10 +32,7 @@ query GetUser($appId: ID = "iea", $itemId: ID = "", $lang: String = "") {
     settings {
       lang
     }
-    slug {
-      en
-      fr
-    }
+    slug
     status
   }
 }
