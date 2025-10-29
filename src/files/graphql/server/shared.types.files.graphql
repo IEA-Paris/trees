@@ -11,5 +11,5 @@ type File {
   thumb: AWSURL!
   createdAt: AWSDateTime!
   updatedAt: AWSDateTime!
+  score: Float
 }
-

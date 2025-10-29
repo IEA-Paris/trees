@@ -1,4 +1,4 @@
-type Event  {
+type Event {
   appId: String
   createdBy: ID
   category: eventCategories
@@ -24,6 +24,7 @@ type Event  {
   state: eventState
   bookingState: bookingState
   slug: AWSJSON
+  score: Float
 }
 
 type EventFilters {

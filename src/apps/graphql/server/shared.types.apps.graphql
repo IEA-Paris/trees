@@ -1,0 +1,25 @@
+type App {
+  appId: String
+  name: String!
+  description: String
+  summary: String
+  subtitle: String
+  logo: Image
+  url: AWSURL
+  state: appState
+  tags: [Tag]
+  date: AWSDateTime
+  color: String
+  slug: String
+  score: Float
+}
+
+type AppList {
+  total: Int!
+  items: [App]
+}
+
+type AppRole {
+  appId: String
+  roles: [Int!]!
+}

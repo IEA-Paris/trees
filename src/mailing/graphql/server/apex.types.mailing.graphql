@@ -5,6 +5,7 @@ type Mailing {
   createdAt: String
   updatedAt: String
   date: AWSDateTime
+  score: Float
 }
 
 type MailingList {
