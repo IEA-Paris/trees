@@ -1,9 +1,8 @@
-import configPeople, { People } from "./people"
 import Model from "../../model"
+import { RelatedPeople } from "../../misc/models/relatedPeople"
 
-export interface Discussants extends People {}
+export interface Discussants extends RelatedPeople {}
 const defaultConfig: Model = {
-  aliases: ["people"],
-  ...configPeople,
+  aliases: ["relatedPeople"],
 }
 export default defaultConfig
