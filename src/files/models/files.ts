@@ -24,6 +24,7 @@ const defautConfig: Model = {
     filters: {
       year: {
         type: "Select",
+        value: "",
       },
     },
     sort: {

@@ -17,6 +17,7 @@ const defaultConfig: Model = {
       year: {
         type: "Select",
         items: "",
+        value: "",
       },
     },
     sort: {

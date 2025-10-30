@@ -101,42 +101,51 @@ const defaultConfig: Model = {
         type: "Select",
         items: eventCategories,
         multiple: true,
+        value: "",
       },
       status: {
         type: "Select",
         items: bookingState,
+        value: "",
       },
       organiserCategory: {
         type: "Select",
         items: organiserType,
         multiple: true,
+        value: "",
       },
       tags: {
         type: "AutoComplete",
         items: [],
         multiple: true,
+        value: "",
       },
       disciplines: {
         type: "AutoComplete",
         items: [],
         multiple: true,
+        value: "",
       },
       fellowship: {
         type: "AutoComplete",
         items: [],
         multiple: true,
+        value: "",
       },
       online: {
         type: "Checkbox",
         items: false,
+        value: "",
       },
       outside: {
         type: "Checkbox",
         items: false,
+        value: "",
       },
       past: {
         type: "Checkbox",
         items: false,
+        value: "",
       },
     },
     sort: {

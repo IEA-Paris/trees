@@ -37,6 +37,7 @@ const userConfig: Model = {
     filters: {
       groups: {
         type: "Select",
+        value: "",
       },
       vintage: {
         type: "Select",
@@ -46,6 +47,7 @@ const userConfig: Model = {
           disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
         },
         multiple: true,
+        value: "",
       },
       programs: {
         type: "Select",
@@ -55,6 +57,7 @@ const userConfig: Model = {
           disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
         },
         multiple: true,
+        value: "",
       },
       disciplines: {
         type: "Select",
@@ -64,6 +67,7 @@ const userConfig: Model = {
           disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
         },
         multiple: true,
+        value: "",
       },
       member: {
         type: "Select",
@@ -73,6 +77,7 @@ const userConfig: Model = {
           disjonctive: false, //TODO: implement.  if true, show only if one of the if is true, if false, show only if all of the if are true
         },
         multiple: true,
+        value: "",
       },
     },
     sort: {

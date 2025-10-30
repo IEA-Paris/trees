@@ -34,6 +34,7 @@ const defaultConfig: Model = {
     filters: {
       groups: {
         type: "Select",
+        value: "",
       },
       vintage: {
         type: "Select",
@@ -43,6 +44,7 @@ const defaultConfig: Model = {
           disjonctive: false,
         },
         multiple: true,
+        value: "",
       },
       programs: {
         type: "Select",
@@ -52,6 +54,7 @@ const defaultConfig: Model = {
           disjonctive: false,
         },
         multiple: true,
+        value: "",
       },
       disciplines: {
         type: "Select",
@@ -61,6 +64,7 @@ const defaultConfig: Model = {
           disjonctive: false,
         },
         multiple: true,
+        value: "",
       },
       member: {
         type: "Select",
@@ -70,6 +74,7 @@ const defaultConfig: Model = {
           disjonctive: false,
         },
         multiple: true,
+        value: "",
       },
     },
     sort: {

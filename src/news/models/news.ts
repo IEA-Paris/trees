@@ -52,11 +52,13 @@ const defaultConfig: Model = {
       tags: {
         type: "AutoComplete",
         multiple: true,
+        value: "",
       },
       category: {
         type: "Select",
         multiple: true,
         items: newsCategories,
+        value: "",
       },
     },
     sort: {

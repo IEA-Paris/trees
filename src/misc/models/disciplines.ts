@@ -15,6 +15,7 @@ const configDefault: Model = {
     filters: {
       year: {
         type: "Select",
+        value: "",
       },
     },
     sort: {

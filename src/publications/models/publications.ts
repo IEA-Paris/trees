@@ -49,20 +49,24 @@ const defaultConfig: Model = {
         type: "Select",
         items: [],
         multiple: true,
+        value: "",
       },
       tags: {
         type: "Select",
         multiple: true,
+        value: "",
       },
       disciplines: {
         type: "AutoComplete",
         items: [],
         multiple: true,
+        value: "",
       },
       type: {
         type: "Select",
         items: publicationType,
         multiple: true,
+        value: "",
       },
     },
     sort: {

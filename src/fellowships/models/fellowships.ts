@@ -52,20 +52,24 @@ const defaultConfig: Model = {
         type: "Select",
         multiple: true,
         items: FellowshipStatus,
+        value: "",
       },
       fellowshipType: {
         type: "Select",
         multiple: true,
         items: FellowshipType,
+        value: "",
       },
       affiliation: {
         type: "Select",
         multiple: true,
         items: [],
+        value: "",
       },
       disciplines: {
         type: "Select",
         multiple: true,
+        value: "",
       },
     },
     sort: {

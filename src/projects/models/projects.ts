@@ -39,11 +39,13 @@ const defaultConfig: Model = {
       status: {
         type: "Select",
         items: projectStatus,
+        value: "",
       },
       tags: {
         type: "AutoComplete",
         items: [],
         multiple: true,
+        value: "",
       },
     },
     sort: {

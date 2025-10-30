@@ -11,6 +11,7 @@ interface Filters {
   admin?: Conditional
   enabled?: Conditional
   multiple?: boolean
+  value?: string | string[]
 }
 
 export interface Sort {

@@ -31,6 +31,7 @@ const defautConfig: Model = {
       year: {
         type: "Select",
         items: "",
+        value: "",
       },
     },
     sort: {
