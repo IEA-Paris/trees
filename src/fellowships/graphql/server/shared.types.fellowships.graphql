@@ -1,4 +1,4 @@
-type Fellowship  {
+type Fellowship {
   appId: String
   action: String
   affiliations: [Affiliation]
@@ -24,6 +24,7 @@ type Fellowship  {
   name: String!
   video: [Video]
   slug: AWSJSON
+  score: Float
 }
 
 type FellowshipFilters {

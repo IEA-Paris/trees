@@ -17,6 +17,7 @@ type Project {
   featured: AWSDateTime
   status: projectStatus
   slug: AWSJSON
+  score: Float
 }
 
 type ProjectFilters {

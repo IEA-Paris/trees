@@ -5,4 +5,5 @@ type Disciplines {
   icon: String
   name: String
   updatedAt: AWSDateTime
+  score: Float
 }
