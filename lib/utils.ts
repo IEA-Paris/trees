@@ -60,21 +60,59 @@ export function createJsonFile(
 
   // Generate immutable export with deep freeze
   const freezeCode = `// Deep freeze utility to make exports immutable
-const deepFreeze = (obj) => {
-  Object.freeze(obj);
-  Object.getOwnPropertyNames(obj).forEach(prop => {
-    if (obj[prop] !== null
-      && (typeof obj[prop] === "object" || typeof obj[prop] === "function")
-      && !Object.isFrozen(obj[prop])) {
-      deepFreeze(obj[prop]);
+const lockAllBut = (obj, mutableKeys = []) => {
+  for (const key of Object.getOwnPropertyNames(obj)) {
+    if (mutableKeys.includes(key)) continue;
+
+    const desc = Object.getOwnPropertyDescriptor(obj, key);
+    if (!desc) continue;
+
+    if ("value" in desc) {
+      Object.defineProperty(obj, key, {
+        ...desc,
+        writable: false,
+        configurable: false,
+      });
+    } else {
+      Object.defineProperty(obj, key, {
+        ...desc,
+        configurable: false,
+      });
     }
-  });
+  }
+  Object.preventExtensions(obj);
   return obj;
+};
+const selectiveDeepFreeze = (obj, path = []) => {
+  if (obj === null || typeof obj !== "object") return obj;
+
+  if (Array.isArray(obj)) {
+    obj.forEach((v, i) => selectiveDeepFreeze(v, path.concat(String(i))));
+    return Object.freeze(obj);
+  }
+
+  const parentKey = path.length >= 1 ? path[path.length - 1] : null;
+  const grandParentKey = path.length >= 2 ? path[path.length - 2] : null;
+
+  const isFilterEntry = grandParentKey === "filters";
+
+  if (isFilterEntry) {
+    for (const k of Object.getOwnPropertyNames(obj)) {
+      if (k === "value") continue; // laisser value libre
+      selectiveDeepFreeze(obj[k], path.concat(parentKey, k));
+    }
+    return lockAllBut(obj, ["value"]);
+  }
+
+  for (const prop of Object.getOwnPropertyNames(obj)) {
+    selectiveDeepFreeze(obj[prop], path.concat(prop));
+  }
+  return Object.freeze(obj);
 };
 
 const data = ${JSON.stringify(module, null, 2)};
 
-export default deepFreeze(data);
+export default selectiveDeepFreeze(data);
 `
 
   fs.writeFileSync(filePath, freezeCode)
