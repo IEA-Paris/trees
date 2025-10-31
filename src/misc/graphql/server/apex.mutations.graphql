@@ -14,6 +14,8 @@ type Mutation {
   # Content management (admin functions - only implemented)
   upsertApp(options: AppInput!): Boolean
   upsertEvent(appId: String, itemId: ID, options: EventInput!): Event
+  upsertItem(appId: ID, itemId: ID, type: String!, item: AWSJSON!): Boolean
+  deleteItem(appId: ID, itemId: ID!, type: String!): Boolean
 
   # Event booking (shared with website)
   bookEvent(itemId: ID!, slot: SlotInput!): Boolean

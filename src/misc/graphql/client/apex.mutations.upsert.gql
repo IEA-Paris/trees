@@ -1,0 +1,8 @@
+mutation UpsertItem(
+  $appId: ID = "iea"
+  $itemId: ID
+  $type: String!
+  $item: AWSJSON!
+) {
+  upsertItem(appId: $appId, itemId: $itemId, type: $type, item: $item)
+}
