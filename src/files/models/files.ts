@@ -2,19 +2,27 @@ import Model from "../../model"
 import { Image } from "./image"
 import { formType } from "../../form"
 
+export enum FileCategory {
+  Document = "DOCUMENT",
+  Image = "IMAGE",
+  Video = "VIDEO",
+  Audio = "AUDIO",
+  Dataset = "DATASET",
+  Software = "SOFTWARE",
+  Other = "OTHER",
+}
 export interface Files {
   name: string
   url: URL
   size: number
   fileType: string
+  catetgory: FileCategory
   hash: string
   path: string
-  file: string
-  image?: Image
   thumb: URL
   createdAt: Date
   updatedAt: Date
-  id: string
+  slug: string
 }
 
 const defautConfig: Model = {
@@ -24,6 +32,19 @@ const defautConfig: Model = {
     filters: {
       year: {
         type: "Select",
+        value: "",
+      },
+      category: {
+        type: "Select",
+        items: [
+          { text: "Document", value: FileCategory.Document },
+          { text: "Image", value: FileCategory.Image },
+          { text: "Video", value: FileCategory.Video },
+          { text: "Audio", value: FileCategory.Audio },
+          { text: "Dataset", value: FileCategory.Dataset },
+          { text: "Software", value: FileCategory.Software },
+          { text: "Other", value: FileCategory.Other },
+        ],
         value: "",
       },
     },
@@ -95,18 +116,6 @@ const defautConfig: Model = {
         max: 200,
       },
       meta: "name",
-    },
-    file: {
-      label: "file",
-      component: "TextField",
-      type: formType.Primitive,
-
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
-      meta: "file",
     },
   },
 }

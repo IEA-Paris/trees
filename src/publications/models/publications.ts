@@ -213,7 +213,6 @@ const defaultConfig: Model = {
       label: "related",
       component: "ObjectContainerPanel",
       type: formType.Template,
-
       rules: {
         required: true,
         min: 5,
@@ -256,7 +255,6 @@ const defaultConfig: Model = {
       label: "video",
       component: "ObjectContainerPanel",
       type: formType.Template,
-
       meta: "video",
     },
     tags: {

@@ -1,8 +1,8 @@
 import Model from "../../model"
 import { formType } from "../../form"
+import { Files } from "./files"
 
-export interface Video {
-  url: URL
+export interface Video extends Files {
   alt?: string
   caption?: string
   copyright?: string

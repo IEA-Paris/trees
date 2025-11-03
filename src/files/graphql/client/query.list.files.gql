@@ -14,17 +14,15 @@ query listFiles(
       createdAt
       file
       fileType
+      category
       hash
       slug
-      image {
-        alt
-        backgroundColor
-        caption
-        copyright
-        license
-        licenseUrl
-        url
-      }
+      alt
+      backgroundColor
+      caption
+      copyright
+      license
+      licenseUrl
       name
       path
       size

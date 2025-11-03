@@ -1,8 +1,7 @@
 import Model from "../../model"
 import { formType } from "../../form"
-
-export interface Image {
-  url: URL
+import { Files } from "./files"
+export interface Image extends Files {
   alt?: string
   caption?: string
   copyright?: string
