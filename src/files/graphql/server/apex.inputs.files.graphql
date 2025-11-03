@@ -4,4 +4,5 @@ input FileInput {
   size: Int
   fileType: String
   image: ImageInput
+  category: FileCategory
 }
