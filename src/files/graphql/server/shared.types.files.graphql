@@ -4,6 +4,7 @@ type File {
   url: AWSURL!
   size: Int!
   fileType: String!
+  category: FileCategory!
   hash: String!
   path: String!
   file: String!
@@ -12,4 +13,11 @@ type File {
   createdAt: AWSDateTime!
   updatedAt: AWSDateTime!
   score: Float
+  slug: string
+  alt: String
+  caption: String
+  copyright: String
+  license: String
+  licenseUrl: String
+  backgroundColor: String
 }

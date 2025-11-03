@@ -110,3 +110,12 @@ enum FellowshipType {
   LONG_STAY
   IN_GROUP
 }
+
+enum FileCategory {
+  IMAGE
+  VIDEO
+  AUDIO
+  DOCUMENT
+  ARCHIVE
+  OTHER
+}
