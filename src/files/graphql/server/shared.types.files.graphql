@@ -13,7 +13,7 @@ type File {
   createdAt: AWSDateTime!
   updatedAt: AWSDateTime!
   score: Float
-  slug: string
+  slug: String
   alt: String
   caption: String
   copyright: String
