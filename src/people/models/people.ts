@@ -210,11 +210,6 @@ const defaultConfig: Model = {
       label: "related",
       component: "ObjectContainerPanel",
       type: formType.Template,
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
       meta: "related",
     },
     consent: {

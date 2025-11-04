@@ -12,6 +12,7 @@ export interface Socials {
   researchgate?: URL
   mendeley?: URL
   idRef?: number
+  //!\TODO complete as needed, update the dissemination and harvesting trees
 }
 
 export interface SocialsForm {

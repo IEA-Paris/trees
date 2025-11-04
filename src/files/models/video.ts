@@ -3,6 +3,7 @@ import { formType } from "../../form"
 import { Files } from "./files"
 
 export interface Video extends Files {
+  //!\TODO rework to include platform provider from custom enum and external videos
   alt?: string
   caption?: string
   copyright?: string

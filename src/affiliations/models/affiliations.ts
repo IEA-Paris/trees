@@ -1,7 +1,7 @@
 import { Image } from "../../files/models/image"
 import { Location } from "../../misc/models/location"
 import Model from "../../model"
-import { formType } from "../../form"
+import { formType, Transformers } from "../../form"
 
 export interface Affiliations {
   location?: Location
@@ -93,22 +93,26 @@ const defaultConfig: Model = {
       label: "image",
       component: "ImagePicker",
       type: formType.Document,
-
       meta: "image",
     },
-    location: {
-      label: "location",
-      component: "ObjectContainerPanel",
-      type: formType.Template,
-      meta: "location",
+    locations: {
+      label: "locations",
+      component: "CollectionContainerPanel",
+      type: formType.Array,
+      items: {
+        label: "location",
+        component: "ObjectContainerPanel",
+        type: formType.Template,
+        meta: "location",
+      },
+      meta: "locations",
     },
     ror: {
       label: "ror",
       component: "TextField", // TODO, ROR picker
       type: formType.Primitive,
-
+      transformers: [Transformers.Candidates],
       rules: {
-        required: true,
         ror: true,
       },
       meta: "ror",
@@ -117,9 +121,7 @@ const defaultConfig: Model = {
       label: "url",
       component: "TextField",
       type: formType.Primitive,
-
       rules: {
-        required: true,
         url: true,
       },
       meta: "url",

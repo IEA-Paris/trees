@@ -126,10 +126,9 @@ const defaultConfig: Model = {
       label: "summary",
       component: "TextArea",
       type: formType.Primitive,
-
+      description: "Will be extracted from description if left empty",
       i18n: true,
       rules: {
-        required: true,
         min: 5,
         max: 200,
       },

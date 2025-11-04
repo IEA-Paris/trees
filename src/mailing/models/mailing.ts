@@ -7,6 +7,7 @@ export interface Mailing {
   createdAt: string
   updatedAt: string
   date: Date
+  slug: string
 }
 
 const defaultConfig: Model = {
@@ -97,19 +98,18 @@ const defaultConfig: Model = {
       rules: {
         required: true,
         min: 5,
-        max: 200,
+        max: 20000,
       },
       meta: "content",
     },
     date: {
       label: "date",
-      component: "TextField",
+      component: "DatePicker",
       description: "The date when the mailing will be sent",
       type: formType.Primitive,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
+        date: true,
       },
       meta: "date",
     },

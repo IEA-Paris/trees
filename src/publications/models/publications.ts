@@ -126,7 +126,6 @@ const defaultConfig: Model = {
       label: "name",
       component: "TextField",
       type: formType.Primitive,
-
       i18n: true,
       rules: {
         required: true,
@@ -163,9 +162,9 @@ const defaultConfig: Model = {
       label: "summary",
       component: "TextArea",
       type: formType.Primitive,
+      description: "Will be extracted from description if left empty",
       i18n: true,
       rules: {
-        required: true,
         min: 5,
         max: 2000,
       },
@@ -184,7 +183,7 @@ const defaultConfig: Model = {
     },
     affiliations: {
       label: "affiliations",
-      component: "AffiliationPicker",
+      component: "DocumentPicker",
       type: formType.Document,
 
       meta: "affiliations",
@@ -213,11 +212,7 @@ const defaultConfig: Model = {
       label: "related",
       component: "ObjectContainerPanel",
       type: formType.Template,
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
+
       meta: "related",
     },
     disciplines: {
@@ -236,11 +231,8 @@ const defaultConfig: Model = {
       label: "image",
       component: "ImagePicker",
       type: formType.Document,
-
       rules: {
-        required: true,
-        min: 5,
-        max: 200,
+        max: 1,
       },
       meta: "image",
     },

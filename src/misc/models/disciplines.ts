@@ -1,12 +1,13 @@
 import Model from "../../model"
 import { formType } from "../../form"
-
+import { Image } from "../../files/models/image"
 export interface Disciplines {
   createdAt: Date
   description: string
   icon: string
   name: string
   updatedAt: Date
+  image: Image
 }
 
 const configDefault: Model = {
@@ -91,13 +92,21 @@ const configDefault: Model = {
       label: "description",
       component: "TextField",
       type: formType.Primitive,
-
       rules: {
         required: true,
         min: 5,
-        max: 200,
+        max: 2000,
       },
       meta: "description",
+    },
+    image: {
+      label: "image",
+      component: "ImagePicker",
+      type: formType.Document,
+      rules: {
+        required: true,
+      },
+      meta: "image",
     },
     // TODO: add discipline picker based on the complete list of disciplines
     /*     icon: {

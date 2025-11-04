@@ -1,8 +1,10 @@
 import { Form, formType } from "../../form"
-
+import { Image } from "../../files/models/image"
 export interface Location {
   name: string
+  acronym: string
   details?: string // natural language description of the location
+  image: Image
   alt?: string
   street?: string
   city?: string
@@ -23,7 +25,6 @@ const defaultConfig: LocationForm = {
       label: "name",
       component: "TextField",
       type: formType.Primitive,
-
       rules: {
         required: true,
         min: 5,
@@ -31,38 +32,41 @@ const defaultConfig: LocationForm = {
       },
       meta: "name",
     },
+    acronym: {
+      label: "acronym",
+      component: "TextField",
+      type: formType.Primitive,
+      rules: {
+        max: 20,
+      },
+      meta: "acronym",
+    },
+    image: {
+      label: "image",
+      component: "ImagePicker",
+      type: formType.Document,
+      rules: {
+        required: true,
+      },
+      meta: "image",
+    },
     details: {
       label: "details",
       component: "TextArea",
       type: formType.Primitive,
-
       rules: {
-        required: true,
         min: 5,
-        max: 200,
+        max: 2000,
       },
       meta: "details",
-    },
-    alt: {
-      label: "alt",
-      component: "TextArea",
-      type: formType.Primitive,
-
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
-      meta: "alt",
     },
     street: {
       label: "street",
       component: "TextField",
       type: formType.Primitive,
-
       rules: {
         required: true,
-        max: 200,
+        max: 2000,
       },
       meta: "street",
     },
@@ -70,7 +74,6 @@ const defaultConfig: LocationForm = {
       label: "city",
       component: "TextField",
       type: formType.Primitive,
-
       rules: {
         required: true,
         max: 200,
@@ -81,8 +84,8 @@ const defaultConfig: LocationForm = {
       label: "country",
       component: "AutoComplete",
       type: formType.Primitive,
-
       meta: "country",
+      //!\TODO add countries list from enum or external source
     },
     zip: {
       label: "zip",
@@ -90,41 +93,26 @@ const defaultConfig: LocationForm = {
       type: formType.Primitive,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
+        numerical: true,
       },
       meta: "zip",
     },
     geocode: {
       label: "geocode",
-      component: "LocationPicker",
+      component: "GeocodePicker",
       type: formType.Object,
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
+      rules: {},
       items: {
         lat: {
           label: "latitude",
-          component: "TextField",
+          component: false,
           type: formType.Primitive,
-          rules: {
-            required: true,
-            min: 5,
-            max: 200,
-          },
           meta: "latitude",
         },
         lng: {
           label: "longitude",
-          component: "TextField",
+          component: false,
           type: formType.Primitive,
-          rules: {
-            required: true,
-            min: 5,
-            max: 200,
-          },
           meta: "longitude",
         },
       },

@@ -10,9 +10,15 @@ interface Rules {
   DOI?: boolean
   date?: boolean
   email?: boolean
-  digit?: boolean
+  numerical?: boolean
   orcid?: boolean
 }
+
+export enum availableLanguages {
+  EN = "en",
+  FR = "fr",
+}
+
 export enum formType {
   Primitive = "PRIMITIVE",
   // could contain any other formType elements in keys' values

@@ -132,7 +132,7 @@ const defaultConfig: Model = {
       type: formType.Primitive,
       rules: {
         required: true,
-        min: 5,
+        min: 3,
         max: 200,
       },
       meta: "name",
@@ -153,56 +153,96 @@ const defaultConfig: Model = {
       label: "summary",
       component: "TextArea",
       type: formType.Primitive,
+      description: "Will be extracted from description if left empty",
       i18n: true,
       rules: {
-        required: true,
         min: 5,
         max: 200,
       },
       meta: "summary",
     },
-    action: {
-      label: "action",
-      component: "TextField",
-      type: formType.Primitive,
+    image: {
+      label: "image",
+      component: "ImagePicker",
+      type: formType.Document,
       rules: {
         required: true,
       },
-      meta: "action", // item type on schema.org
+      meta: "image",
     },
-    affiliation: {
+    affiliations: {
       label: "affiliations",
-      component: "AffiliationPicker",
+      component: "DocumentPicker",
       type: formType.Document,
       rules: {
         required: true,
       },
       meta: "affiliations", // item type on schema.org
     },
+    publicationDate: {
+      label: "publicationDate",
+      component: "DatePicker",
+      description:
+        "The date when the fellowship is published on the website. It should not be visible before.",
+      type: formType.Primitive,
+      rules: {
+        required: true,
+        date: true,
+      },
+      meta: "publicationDate",
+    },
     applicationStart: {
       label: "applicationStart",
       component: "DatePicker", //TODO
       type: formType.Primitive,
+      description: "The date when applications open",
       rules: {
         required: true,
         date: true,
       },
       meta: "applicationStart",
     },
+    applicationStop: {
+      label: "applicationStop",
+      component: "DatePicker",
+      description: "The date when applications close",
+      type: formType.Primitive,
+      rules: {
+        required: true,
+        date: true,
+      },
+      meta: "applicationStop",
+    },
     fellowshipStart: {
       label: "fellowshipStart",
       component: "DatePicker", //TODO
       type: formType.Primitive,
+      description:
+        "The date when the fellowship starts, i.e. the fellow arrives",
       rules: {
         required: true,
         date: true,
       },
       meta: "fellowshipStart",
     },
+    fellowshipStop: {
+      label: "fellowshipStop",
+      component: "DatePicker",
+      type: formType.Primitive,
+      description: "The date when the fellowship ends",
+      rules: {
+        required: true,
+        date: true,
+      },
+      meta: "fellowshipStop",
+    },
+
     contact: {
       label: "contact",
       component: "TextField",
       type: formType.Primitive,
+      description:
+        "it will be hidden from public view but used to reroute applications",
       rules: {
         required: true,
         email: true,
@@ -217,7 +257,7 @@ const defaultConfig: Model = {
       rules: {
         required: true,
         min: 5,
-        max: 200,
+        max: 1600,
       },
       meta: "description",
     },
@@ -227,8 +267,8 @@ const defaultConfig: Model = {
       type: formType.Document,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
+        min: 1,
+        max: 15,
       },
       meta: "disciplines",
     },
@@ -238,8 +278,8 @@ const defaultConfig: Model = {
       type: formType.Primitive,
       rules: {
         required: true,
-        min: 5,
-        max: 200,
+        min: 1,
+        max: 3,
       },
       items: FellowshipType,
       meta: "fellowshipType",
@@ -250,10 +290,13 @@ const defaultConfig: Model = {
       type: formType.Template,
       rules: {
         required: true,
+        min: 1,
+        max: 1600,
       },
       meta: "details",
     },
     fellows: {
+      //!\TODO make it collapsible as it is not meant to be the place where we define fellows (rather on people trees)
       label: "fellows",
       component: "CollectionContainerPanel",
       type: formType.Array,
@@ -282,48 +325,11 @@ const defaultConfig: Model = {
       },
       meta: "url",
     },
-    fellowshipStop: {
-      label: "fellowshipStop",
-      component: "DatePicker",
-      type: formType.Primitive,
-      rules: {
-        required: true,
-        date: true,
-      },
-      meta: "fellowshipStop",
-    },
-    applicationStop: {
-      label: "applicationStop",
-      component: "DatePicker",
-      type: formType.Primitive,
-      rules: {
-        required: true,
-        date: true,
-      },
-      meta: "applicationStop",
-    },
-    image: {
-      label: "image",
-      component: "ImagePicker",
-      type: formType.Document,
-      rules: {
-        required: true,
-      },
-      meta: "image",
-    },
-    publicationDate: {
-      label: "publicationDate",
-      component: "DatePicker",
-      type: formType.Primitive,
-      rules: {
-        required: true,
-        date: true,
-      },
-      meta: "publicationDate",
-    },
     files: {
       label: "files",
       component: "FilePicker",
+      description:
+        "Additional files related to the fellowship - e.g. application form",
       type: formType.Document,
       meta: "files",
     },

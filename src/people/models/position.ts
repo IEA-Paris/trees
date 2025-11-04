@@ -31,7 +31,7 @@ const defaultConfig: PositionForm = {
       rules: {
         required: true,
         min: 3,
-        max: 200,
+        max: 400,
       },
       meta: "department",
     },

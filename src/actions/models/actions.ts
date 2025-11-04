@@ -1,6 +1,21 @@
 import { Image } from "../../files/models/image"
 import Model from "../../model"
 import { formType } from "../../form"
+import { Publications } from "../../publications/models/publications"
+import { News } from "../../news/models/news"
+import { People } from "../../people/models/people"
+
+export enum ActionSlots {
+  All = "ALL",
+  Fellowships = "FELLOWSHIPS",
+  Network = "NETWORK",
+  Projects = "PROJECTS",
+  Events = "EVENTS",
+  Publications = "PUBLICATIONS",
+  News = "NEWS",
+  People = "PEOPLE",
+}
+
 export interface Actions {
   color?: string
   link: string
@@ -83,11 +98,11 @@ const defaultConfig: Model = {
       label: "name",
       type: formType.Primitive,
       component: "TextField",
-      description: "The name of the ad",
+      description: "The name of the ad (internal use only)",
       rules: {
         required: true,
         min: 2,
-        max: 4,
+        max: 200,
       },
       meta: "name", // item type on schema.org
     },
@@ -95,17 +110,16 @@ const defaultConfig: Model = {
       label: "image",
       type: formType.Document,
       component: "ImagePicker",
-      description: "The logo of the app",
+      description: "Picture to display for the action",
       rules: {
         required: true,
       },
-      default: { url: "", licence: "" }, // default value
     },
     link: {
       label: "url",
       type: formType.Primitive,
       component: "TextField",
-      description: "The url of the app",
+      description: "The url of the action should point to",
       rules: {
         required: true,
         url: true,
@@ -126,6 +140,8 @@ const defaultConfig: Model = {
     video: {
       label: "video",
       component: "TextField",
+      description:
+        "For video actions only, will replace the picture by a video embed",
       type: formType.Document,
       rules: {
         url: true,
@@ -134,13 +150,9 @@ const defaultConfig: Model = {
     },
     slots: {
       label: "slots",
-      component: "TextField",
+      component: "Select",
       type: formType.Primitive,
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
+      items: ActionSlots,
       meta: "slots",
     },
   },

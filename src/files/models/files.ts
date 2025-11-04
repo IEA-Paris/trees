@@ -1,5 +1,4 @@
 import Model from "../../model"
-import { Image } from "./image"
 import { formType } from "../../form"
 
 export enum FileCategory {
@@ -109,7 +108,6 @@ const defautConfig: Model = {
       label: "name",
       component: "TextField",
       type: formType.Primitive,
-
       rules: {
         required: true,
         min: 5,

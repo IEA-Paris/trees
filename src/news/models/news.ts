@@ -118,8 +118,8 @@ const defaultConfig: Model = {
       component: "TextArea",
       type: formType.Primitive,
       i18n: true,
+      description: "Will be extracted from description if left empty",
       rules: {
-        required: true,
         min: 5,
         max: 200,
       },
@@ -137,109 +137,30 @@ const defaultConfig: Model = {
       },
       meta: "subtitle", // item type on schema.org
     },
+
     description: {
       label: "description",
       component: "TextArea",
       i18n: true,
       type: formType.Primitive,
-
       rules: {
         required: true,
         min: 5,
-        max: 200,
+        max: 2000,
       },
       meta: "description",
-    },
-    image: {
-      label: "image",
-      component: "ImagePicker",
-      type: formType.Document,
-
-      rules: {
-        required: true,
-      },
-      meta: "image",
-    },
-    color: {
-      label: "color",
-      component: "ColorPicker",
-      type: formType.Primitive,
-
-      rules: {
-        required: true,
-        color: true,
-      },
-      meta: "color",
-    },
-    url: {
-      label: "url",
-      component: "TextField",
-      type: formType.Primitive,
-
-      rules: {
-        required: true,
-        url: true,
-      },
-      meta: "url",
-    },
-    files: {
-      label: "files",
-      component: "FilePicker",
-      type: formType.Document,
-
-      rules: {
-        required: true,
-      },
-      meta: "files",
-    },
-    gallery: {
-      label: "gallery",
-      component: "ImagePicker",
-      type: formType.Document,
-      multiple: true,
-      meta: "gallery",
     },
     date: {
       label: "date",
       component: "DatePicker",
       type: formType.Primitive,
-
+      description:
+        "If the date is in the future, will be scheduled for publication at due time/date",
       rules: {
         required: true,
         date: true,
       },
       meta: "date",
-    },
-    featured: {
-      label: "featured",
-      component: "DatePicker",
-      type: formType.Primitive,
-      rules: {
-        required: true,
-        date: true,
-      },
-      meta: "featured",
-    },
-    tags: {
-      label: "tags",
-      component: "TagPicker",
-      type: formType.Document,
-      rules: {
-        required: true,
-        min: 1,
-      },
-      meta: "tags",
-    },
-    related: {
-      label: "related",
-      component: "ObjectContainerPanel",
-      type: formType.Template,
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
-      meta: "related",
     },
     category: {
       label: "category",
@@ -250,6 +171,70 @@ const defaultConfig: Model = {
       },
       items: newsCategories,
       meta: "category", // item type on schema.org
+    },
+    image: {
+      label: "image",
+      component: "ImagePicker",
+      type: formType.Document,
+      meta: "image",
+    },
+    color: {
+      label: "color",
+      component: "ColorPicker",
+      type: formType.Primitive,
+      rules: {
+        color: true,
+      },
+      meta: "color",
+    },
+    url: {
+      label: "url",
+      component: "TextField",
+      type: formType.Primitive,
+      rules: {
+        url: true,
+      },
+      meta: "url",
+    },
+    files: {
+      label: "files",
+      component: "FilePicker",
+      type: formType.Document,
+      meta: "files",
+    },
+    gallery: {
+      label: "gallery",
+      component: "ImagePicker",
+      type: formType.Document,
+      meta: "gallery",
+      rules: {
+        max: 100,
+      },
+    },
+
+    featured: {
+      label: "featured",
+      component: "DatePicker",
+      type: formType.Primitive,
+      rules: {
+        date: true,
+      },
+      meta: "featured",
+    },
+    tags: {
+      label: "tags",
+      component: "TagPicker",
+      type: formType.Document,
+      rules: {
+        min: 1,
+      },
+      meta: "tags",
+    },
+    related: {
+      label: "related",
+      component: "ObjectContainerPanel",
+      type: formType.Template,
+      meta: "related",
     },
   },
 }

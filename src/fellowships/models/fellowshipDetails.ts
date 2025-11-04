@@ -87,7 +87,7 @@ const configDefault: FellowshipDetailsForm = {
       rules: {
         required: true,
         min: 5,
-        max: 200,
+        max: 2000,
       },
       meta: "housing",
     },
@@ -99,7 +99,7 @@ const configDefault: FellowshipDetailsForm = {
       rules: {
         required: true,
         min: 5,
-        max: 200,
+        max: 2000,
       },
       meta: "meals",
     },
@@ -111,7 +111,7 @@ const configDefault: FellowshipDetailsForm = {
       rules: {
         required: true,
         min: 5,
-        max: 200,
+        max: 2000,
       },
       meta: "applicationMaterials",
     },
@@ -123,7 +123,7 @@ const configDefault: FellowshipDetailsForm = {
       rules: {
         required: true,
         min: 5,
-        max: 200,
+        max: 2000,
       },
       meta: "selectionProcess",
     },
@@ -135,7 +135,7 @@ const configDefault: FellowshipDetailsForm = {
       rules: {
         required: true,
         min: 5,
-        max: 200,
+        max: 2000,
       },
       meta: "researchSupport",
     },

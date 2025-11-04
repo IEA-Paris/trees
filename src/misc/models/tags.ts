@@ -1,9 +1,10 @@
 import Model from "../../model"
 import { formType } from "../../form"
-
+import { Image } from "../../files/models/image"
 export interface Tag {
   name: string
   description?: string
+  image: Image
   icon?: string
   createdAt?: Date
   updatedAt?: Date
@@ -81,7 +82,6 @@ const defaultConfig: Model = {
       label: "name",
       component: "TextField",
       type: formType.Primitive,
-
       rules: {
         required: true,
         min: 5,
@@ -89,11 +89,18 @@ const defaultConfig: Model = {
       },
       meta: "name",
     },
+    image: {
+      label: "image",
+      component: "ImagePicker",
+      description: "will replace the icon if provided",
+      type: formType.Document,
+
+      meta: "image",
+    },
     description: {
       label: "description",
       component: "TextArea",
       type: formType.Primitive,
-
       rules: {
         required: true,
         min: 5,

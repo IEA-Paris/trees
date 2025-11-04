@@ -159,7 +159,7 @@ const userConfig: Model = {
     },
     affiliations: {
       label: "affiliations",
-      component: "AffiliationPicker",
+      component: "DocumentPicker",
       type: formType.Document,
 
       meta: "affiliations",
@@ -211,11 +211,7 @@ const userConfig: Model = {
       label: "related",
       component: "ObjectContainerPanel",
       type: formType.Template,
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
+
       meta: "related",
     },
     consent: {

@@ -6,6 +6,7 @@ export interface Vintage {
   year: number
   theme?: string
   url?: URL
+  slug: string
 }
 
 const defaultConfig: Model = {

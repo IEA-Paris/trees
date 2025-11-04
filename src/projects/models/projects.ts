@@ -141,12 +141,23 @@ const defaultConfig: Model = {
       label: "summary",
       component: "TextArea",
       type: formType.Primitive,
+      description: "Will be extracted from description if left empty",
       i18n: true,
       rules: {
         min: 5,
         max: 2000,
       },
       meta: "summary", // item type on schema.org
+    },
+    image: {
+      label: "image",
+      component: "ImagePicker",
+      type: formType.Document,
+      rules: {
+        required: true,
+        max: 1,
+      },
+      meta: "image",
     },
     url: {
       label: "url",
@@ -179,20 +190,13 @@ const defaultConfig: Model = {
       type: formType.Template,
       meta: "related",
     },
-    image: {
-      label: "image",
-      component: "ImagePicker",
-      type: formType.Document,
-      rules: {
-        required: true,
-      },
-      meta: "image",
-    },
     gallery: {
       label: "gallery",
       component: "ImagePicker",
       type: formType.Document,
-      multiple: true,
+      rules: {
+        max: 100,
+      },
       meta: "gallery",
     },
     video: {
@@ -205,9 +209,7 @@ const defaultConfig: Model = {
       label: "tags",
       component: "TagPicker",
       type: formType.Document,
-      rules: {
-        required: true,
-      },
+      rules: {},
       meta: "tags",
     },
     files: {
@@ -221,7 +223,6 @@ const defaultConfig: Model = {
       component: "ColorPicker",
       type: formType.Primitive,
       rules: {
-        required: true,
         color: true,
       },
       meta: "color",
@@ -241,7 +242,6 @@ const defaultConfig: Model = {
       component: "DatePicker",
       type: formType.Primitive,
       rules: {
-        required: true,
         date: true,
       },
       meta: "featured",

@@ -1,4 +1,4 @@
-import { Form, formType } from "../../form"
+import { availableLanguages, Form, formType } from "../../form"
 
 export interface EventSlot {
   email: string
@@ -19,7 +19,6 @@ const defautConfig: EventSlotForm = {
       label: "email",
       component: "TextField",
       type: formType.Primitive,
-
       rules: {
         required: true,
         email: true,
@@ -30,7 +29,6 @@ const defautConfig: EventSlotForm = {
       label: "firstname",
       component: "TextField",
       type: formType.Primitive,
-
       rules: {
         required: true,
         min: 1,
@@ -42,7 +40,6 @@ const defautConfig: EventSlotForm = {
       label: "lastname",
       component: "TextField",
       type: formType.Primitive,
-
       rules: {
         required: true,
         min: 1,
@@ -54,17 +51,16 @@ const defautConfig: EventSlotForm = {
       label: "institution",
       component: "TextField",
       type: formType.Primitive,
-
       meta: "institution",
     },
     lang: {
       label: "lang",
       component: "ListSelect",
       type: formType.Primitive,
-
       rules: {
         required: true,
       },
+      items: availableLanguages,
       meta: "lang",
     },
   },

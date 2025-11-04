@@ -8,9 +8,8 @@ import { Affiliations } from "../../affiliations/models/affiliations"
 import { Files } from "../../files/models/files"
 import { Related } from "../../misc/models/related"
 import Model from "../../model"
-import { formType } from "../../form"
+import { availableLanguages, formType, Transformers } from "../../form"
 import { RelatedPeople } from "../../misc/models/relatedPeople"
-
 export interface Events {
   affiliations?: Affiliations[] // 3 - Server & Client - //Bottom left Document
   appId: string // 0 - Server & Client -
@@ -209,7 +208,7 @@ const defaultConfig: Model = {
       rules: {
         required: true,
         min: 5,
-        max: 200,
+        max: 300,
       },
       meta: "name",
     },
@@ -235,6 +234,15 @@ const defaultConfig: Model = {
       },
       meta: "stop",
     },
+    image: {
+      label: "image",
+      component: "ImagePicker",
+      type: formType.Document,
+      rules: {
+        required: true,
+      },
+      meta: "image",
+    },
     subtitle: {
       label: "subtitle",
       component: "TextArea",
@@ -244,7 +252,7 @@ const defaultConfig: Model = {
       rules: {
         required: true,
         min: 5,
-        max: 200,
+        max: 400,
       },
       meta: "subtitle",
     },
@@ -252,9 +260,9 @@ const defaultConfig: Model = {
       label: "summary",
       component: "TextArea",
       type: formType.Primitive,
+      description: "Will be extracted from description if left empty",
       i18n: true,
       rules: {
-        required: true,
         min: 5,
         max: 200,
       },
@@ -289,43 +297,41 @@ const defaultConfig: Model = {
       rules: {
         required: true,
         min: 5,
-        max: 200,
+        max: 2000,
       },
+      transformers: [Transformers.Candidates],
       meta: "description",
     },
     details: {
       label: "details",
       component: "TextArea",
       type: formType.Primitive,
-
       i18n: true,
       rules: {
         required: true,
         min: 5,
-        max: 200,
+        max: 2000,
       },
+      transformers: [Transformers.Candidates],
       meta: "details",
     },
     program: {
       label: "program",
       component: "TextArea",
       type: formType.Primitive,
-
       i18n: true,
       rules: {
         required: true,
         min: 5,
-        max: 200,
+        max: 2000,
       },
+      transformers: [Transformers.Candidates],
       meta: "program",
     },
-    affiliation: {
+    affiliations: {
       label: "affiliations",
-      component: "AffiliationPicker",
+      component: "DocumentPicker",
       type: formType.Document,
-      rules: {
-        required: true,
-      },
       meta: "affiliations", // item type on schema.org
     },
     appId: {
@@ -347,15 +353,16 @@ const defaultConfig: Model = {
       type: formType.Primitive,
       default: 0,
       rules: {
-        required: true,
+        numerical: true,
       },
       meta: "delay",
     },
     dateText: {
       label: "dateText",
-      component: "TextArea",
+      component: "TextField",
       type: formType.Primitive,
       i18n: true,
+      hint: "full text date for details and nuances, e.g. Mondays, Wednesdays and Fridays, from 10 am to 12 pm, from September 20 to December 15, 2023",
       rules: {
         min: 5,
         max: 200,
@@ -366,7 +373,6 @@ const defaultConfig: Model = {
       label: "disciplines",
       component: "DisciplinePicker",
       type: formType.Document,
-
       rules: {
         required: true,
         min: 5,
@@ -376,21 +382,14 @@ const defaultConfig: Model = {
     },
     discussants: {
       label: "discussants",
-      component: "CollectionContainerPanel",
-      type: formType.Array,
-      items: {
-        label: "discussants",
-        component: "DocumentPicker",
-        type: formType.Document,
-        meta: "discussants",
-      },
+      component: "DocumentPicker",
+      type: formType.Document,
       meta: "discussants",
     },
     organiserType: {
       label: "organiserType",
       component: "Select",
       type: formType.Primitive,
-
       rules: {
         required: true,
       },
@@ -401,7 +400,7 @@ const defaultConfig: Model = {
       label: "lang",
       component: "Select",
       type: formType.Primitive,
-
+      items: availableLanguages,
       rules: {
         required: true,
       },
@@ -411,21 +410,10 @@ const defaultConfig: Model = {
       label: "files",
       component: "FilePicker",
       type: formType.Document,
-
       rules: {
         required: true,
       },
       meta: "files",
-    },
-    image: {
-      label: "image",
-      component: "ImagePicker",
-      type: formType.Document,
-
-      rules: {
-        required: true,
-      },
-      meta: "image",
     },
     gallery: {
       label: "gallery",
@@ -435,6 +423,7 @@ const defaultConfig: Model = {
       meta: "gallery",
     },
     eventSlot: {
+      //!\ TODO:
       label: "eventSlot",
       component: "CollectionContainerPanel",
       type: formType.Template, //TODO, create an eventSlot dedicated form to manually add participants from back office
@@ -447,45 +436,40 @@ const defaultConfig: Model = {
     },
     organizers: {
       label: "organizers",
-      component: "CollectionContainerPanel",
-      type: formType.Array,
-      items: {
-        label: "organizers",
-        component: "DocumentPicker",
-        type: formType.Document,
-        meta: "organizers",
-      },
+      component: "DocumentPicker",
+      type: formType.Document,
       meta: "organizers",
+      rules: {
+        max: 20,
+      },
     },
-    organizerState: {
+    /*     organizerState: {
       label: "organizerState",
       component: "ListRadio",
       type: formType.Primitive,
-
       rules: {
         required: true,
       },
       meta: "organizerState",
-    },
+    }, */
     outside: {
       label: "outside",
       component: "Checkbox",
+      hint: "Tick this to indicate the event is not taking place at hotel de Lauzun",
       type: formType.Primitive,
-
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
       meta: "outside",
     },
     location: {
       label: "place",
       component: "ObjectContainerPanel",
       type: formType.Template,
-
       rules: {
         required: true,
+      },
+      show: {
+        switchIf: [{ outside: false }],
+        default: true,
+        disjonctive: false,
       },
       meta: "place",
     },
@@ -493,52 +477,41 @@ const defaultConfig: Model = {
       label: "related",
       component: "ObjectContainerPanel",
       type: formType.Template,
-
-      rules: {
-        required: true,
-        min: 5,
-        max: 200,
-      },
       meta: "related",
     },
     speakers: {
       label: "speakers",
-      component: "CollectionContainerPanel",
-      type: formType.Array,
-      items: {
-        label: "speakers",
-        component: "DocumentPicker",
-        type: formType.Document,
-        meta: "speakers",
-      },
+      component: "DocumentPicker",
+      type: formType.Document,
       meta: "speakers",
+      rules: {
+        max: 200,
+      },
     },
     state: {
       label: "state",
       component: "ListRadio",
       type: formType.Primitive,
-
       rules: {
         required: true,
       },
+      items: eventState,
       meta: "state",
     },
     tags: {
       label: "tags",
       component: "TagPicker",
       type: formType.Document,
-      rules: {
-        required: true,
-      },
       meta: "tags",
     },
     totalSlots: {
       label: "totalSlots",
+      hint: "Total number of slots available for booking. event will show up as full when all slots are booked.",
       component: false,
       type: formType.Primitive,
-
       rules: {
         required: true,
+        numerical: true,
         min: 5,
         max: 200,
       },
@@ -548,7 +521,6 @@ const defaultConfig: Model = {
       label: "stream",
       component: "TextField",
       type: formType.Primitive,
-
       rules: {
         required: true,
         url: true,
@@ -559,9 +531,7 @@ const defaultConfig: Model = {
       label: "url",
       component: "TextField",
       type: formType.Primitive,
-
       rules: {
-        required: true,
         url: true,
       },
       meta: "url",
