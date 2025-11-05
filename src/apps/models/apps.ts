@@ -22,11 +22,10 @@ export enum appState {
 }
 const defaultConfig: Model = {
   list: {
-    create: true, // allow to create new items
     filters: {
-      year: {
+      state: {
         type: "Select",
-        items: "",
+        items: appState,
         value: "",
       },
     },
@@ -118,7 +117,7 @@ const defaultConfig: Model = {
       rules: {
         required: true,
         min: 5,
-        max: 200,
+        max: 2000,
       },
       meta: "description",
     },

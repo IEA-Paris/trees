@@ -1,9 +1,6 @@
 import { Image } from "../../files/models/image"
 import Model from "../../model"
 import { formType } from "../../form"
-import { Publications } from "../../publications/models/publications"
-import { News } from "../../news/models/news"
-import { People } from "../../people/models/people"
 
 export enum ActionSlots {
   All = "ALL",
@@ -22,19 +19,19 @@ export interface Actions {
   image: Image
   name: string
   video?: URL
-  slots: string[]
+  slots: ActionSlots[]
   start: Date
   stop: Date
 }
 
 const defaultConfig: Model = {
   list: {
-    create: true, // allow to create new items
     filters: {
-      year: {
+      slots: {
         type: "Select",
-        items: "",
+        items: ActionSlots,
         value: "",
+        multiple: true,
       },
     },
     sort: {

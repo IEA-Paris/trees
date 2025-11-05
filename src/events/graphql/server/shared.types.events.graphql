@@ -11,7 +11,7 @@ type Event {
   availableSlots: Int
   slots: [Slot]
   delay: AWSDateTime
-  place: Place
+  location: Location
   start: AWSDateTime
   stop: AWSDateTime
   summary: String

@@ -10,18 +10,8 @@ export interface Image extends Files {
   backgroundColor?: string
 }
 const defaultConfig: Model = {
-  // markdown related keys
-
-  //Features related keys
   list: {
-    create: true, // allow to create new items
-
-    filters: {
-      year: {
-        type: "Select",
-        value: "",
-      },
-    },
+    filters: {},
     sort: {
       // sort options
       nameasc: {

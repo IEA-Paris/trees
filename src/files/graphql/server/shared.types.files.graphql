@@ -11,7 +11,7 @@ type File {
   image: Image
   thumb: AWSURL!
   createdAt: AWSDateTime!
-  updatedAt: AWSDateTime!
+  updatedAt: AWSDateTime
   score: Float
   slug: String
   alt: String

@@ -13,13 +13,7 @@ export interface Video extends Files {
 }
 const defaultConfig: Model = {
   list: {
-    create: true, // allow to create new items
-    filters: {
-      year: {
-        type: "Select",
-        value: "",
-      },
-    },
+    filters: {},
     sort: {
       // sort options
       nameasc: {

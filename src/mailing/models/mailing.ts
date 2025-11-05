@@ -13,14 +13,7 @@ export interface Mailing {
 const defaultConfig: Model = {
   //Features related keys
   list: {
-    create: true, // allow to create new items
-
-    filters: {
-      year: {
-        type: "Select",
-        value: "",
-      },
-    },
+    filters: {},
     sort: {
       // sort options
       nameasc: {

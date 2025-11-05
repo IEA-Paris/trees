@@ -7,11 +7,10 @@ type Location {
   country: String
   zip: Int
   geocode: Geocode
+  slug: AWSJSON
 }
 
 type Geocode {
   lat: Float
   lng: Float
 }
-
-

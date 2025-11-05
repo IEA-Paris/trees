@@ -2,6 +2,12 @@ import { Image } from "../../files/models/image"
 import { Location } from "../../misc/models/location"
 import Model from "../../model"
 import { formType, Transformers } from "../../form"
+import { Sponsor } from "../../misc/models/sponsor"
+export enum AffiliationCategories {
+  Member = "MEMBER",
+  Sponsor = "SPONSOR",
+  Partner = "PARTNER",
+}
 
 export interface Affiliations {
   location?: Location
@@ -9,11 +15,18 @@ export interface Affiliations {
   name: string
   ror?: string
   url?: string
+  category: AffiliationCategories[]
 }
 const defaultConfig: Model = {
   list: {
-    create: true, // allow to create new items
-    filters: {},
+    filters: {
+      category: {
+        type: "Select",
+        items: AffiliationCategories,
+        value: "",
+        multiple: true,
+      },
+    },
     sort: {
       // sort options
       nameasc: {

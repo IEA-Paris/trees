@@ -63,12 +63,6 @@ input ProfileInput {
   wikipedia: String
 }
 
-input PlaceInput {
-  name: String!
-  address: String
-  url: AWSURL
-}
-
 input NomenclatureSettingsInput {
   lang: [String!]
   defaultLang: String
@@ -92,10 +86,19 @@ input ListInput {
   search: String
 }
 
-
 input Entity_smInput {
   name: String!
   description: String
   logo: String
-  place: PlaceInput
+}
+
+input LocationInput {
+  name: String!
+  details: String
+  alt: String
+  street: String
+  city: String
+  country: String
+  zip: Int
+  geocode: Geocode
 }

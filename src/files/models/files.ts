@@ -26,25 +26,12 @@ export interface Files {
 
 const defautConfig: Model = {
   list: {
-    create: true, // allow to create new items
-
     filters: {
-      year: {
-        type: "Select",
-        value: "",
-      },
       category: {
         type: "Select",
-        items: [
-          { text: "Document", value: FileCategory.Document },
-          { text: "Image", value: FileCategory.Image },
-          { text: "Video", value: FileCategory.Video },
-          { text: "Audio", value: FileCategory.Audio },
-          { text: "Dataset", value: FileCategory.Dataset },
-          { text: "Software", value: FileCategory.Software },
-          { text: "Other", value: FileCategory.Other },
-        ],
+        items: FileCategory,
         value: "",
+        multiple: true,
       },
     },
     sort: {

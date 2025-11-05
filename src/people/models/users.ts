@@ -33,7 +33,6 @@ type AppRole = {
 }
 const userConfig: Model = {
   list: {
-    create: true, // allow to create new items
     filters: {
       groups: {
         type: "Select",

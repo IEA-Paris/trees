@@ -29,7 +29,6 @@ export interface Views {
 }
 
 export interface List {
-  create: boolean
   // perPage: PerPage
   filters: Record<string, Filters>
   sort: Record<string, Sort>

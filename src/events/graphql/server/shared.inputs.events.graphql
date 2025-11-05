@@ -10,7 +10,7 @@ input EventInput {
   availableSlots: Int
   slots: [SlotInput!]
   delay: AWSDateTime
-  place: PlaceInput
+  location: LocationInput
   start: AWSDateTime
   stop: AWSDateTime
   summary: String

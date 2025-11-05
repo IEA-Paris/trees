@@ -34,7 +34,6 @@ export enum projectStatus {
 }
 const defaultConfig: Model = {
   list: {
-    create: true, // allow to create new items
     filters: {
       status: {
         type: "Select",

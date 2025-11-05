@@ -26,14 +26,7 @@ export interface Article {
 
 const defautConfig: Model = {
   list: {
-    create: true, // allow to create new items
-    filters: {
-      year: {
-        type: "Select",
-        items: "",
-        value: "",
-      },
-    },
+    filters: {},
     sort: {
       // sort options
       nameasc: {

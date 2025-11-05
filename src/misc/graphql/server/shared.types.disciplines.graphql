@@ -6,4 +6,5 @@ type Disciplines {
   name: String
   updatedAt: AWSDateTime
   score: Float
+  slug: AWSJSON
 }

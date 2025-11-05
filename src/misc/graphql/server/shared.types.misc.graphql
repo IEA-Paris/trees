@@ -2,7 +2,6 @@ type Entity_sm {
   name: String!
   description: String
   logo: String
-  place: Place
 }
 
 type Filters {
@@ -24,12 +23,6 @@ type NomenclatureSettings {
   lang: [String!]
   defaultLang: String
   extended: Boolean
-}
-
-type Place {
-  name: String!
-  address: String
-  url: AWSURL
 }
 
 type Profile {
