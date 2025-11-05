@@ -13,13 +13,7 @@ export interface Affiliations {
 const defaultConfig: Model = {
   list: {
     create: true, // allow to create new items
-    filters: {
-      year: {
-        type: "Select",
-        items: "",
-        value: "",
-      },
-    },
+    filters: {},
     sort: {
       // sort options
       nameasc: {
