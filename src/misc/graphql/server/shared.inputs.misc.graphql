@@ -92,6 +92,11 @@ input Entity_smInput {
   logo: String
 }
 
+input GeocodeInput {
+  lat: Float!
+  lon: Float!
+}
+
 input LocationInput {
   name: String!
   details: String
@@ -100,5 +105,5 @@ input LocationInput {
   city: String
   country: String
   zip: Int
-  geocode: Geocode
+  geocode: GeocodeInput
 }
