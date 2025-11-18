@@ -1,24 +1,21 @@
 query getFile($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
   getFile(appId: $appId, itemId: $itemId, lang: $lang) {
+    alt
+    backgroundColor
+    caption
+    category
+    copyright
     createdAt
-    file
     fileType
     hash
-    image {
-      alt
-      backgroundColor
-      caption
-      copyright
-      license
-      licenseUrl
-      url
-    }
+    license
+    licenseUrl
     name
     path
     size
+    slug
     thumb
     updatedAt
     url
-    slug
   }
 }

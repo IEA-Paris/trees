@@ -1,30 +1,30 @@
 type Event {
   appId: String
-  createdBy: ID
+  availableSlots: Int
+  bookingState: bookingState
   category: eventCategories
-  name: String!
+  createdBy: ID
+  dateText: String
+  delay: AWSDateTime
   description: String
   details: String
-  dateText: String
   eventType: eventType
-  totalSlots: Int
-  availableSlots: Int
-  slots: [Slot]
-  delay: AWSDateTime
-  location: Location
-  start: AWSDateTime
-  stop: AWSDateTime
-  summary: String
-  related: Related
-  subtitle: String
-  program: String
-  outside: Boolean
-  url: AWSURL
   image: Image
-  state: eventState
-  bookingState: bookingState
-  slug: AWSJSON
+  location: Location
+  name: String!
+  outside: Boolean
+  program: String
+  related: Related
   score: Float
+  slots: [Slot]
+  slug: AWSJSON
+  start: AWSDateTime
+  state: eventState
+  stop: AWSDateTime
+  subtitle: String
+  summary: String
+  totalSlots: Int
+  url: AWSURL
 }
 
 type EventFilters {

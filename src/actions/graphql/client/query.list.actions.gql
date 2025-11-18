@@ -24,6 +24,8 @@ query listActions(
       link
       name
       slots
+      start
+      stop
       video
       slug
     }

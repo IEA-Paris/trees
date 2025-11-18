@@ -1,24 +1,24 @@
 input EventInput {
-  name: String!
+  availableSlots: Int
+  bookingState: bookingState
+  category: eventCategories
+  date: AWSDateTime
+  dateText: String
+  delay: AWSDateTime
   description: String
   details: String
-  dateText: String
-  date: AWSDateTime
   eventType: eventType
-  category: eventCategories
-  totalSlots: Int
-  availableSlots: Int
-  slots: [SlotInput!]
-  delay: AWSDateTime
-  location: LocationInput
-  start: AWSDateTime
-  stop: AWSDateTime
-  summary: String
-  subtitle: String
-  program: String
-  outside: Boolean
-  url: AWSURL
   image: ImageInput
+  location: LocationInput
+  name: String!
+  outside: Boolean
+  program: String
+  slots: [SlotInput!]
+  start: AWSDateTime
   state: eventState
-  bookingState: bookingState
+  stop: AWSDateTime
+  subtitle: String
+  summary: String
+  totalSlots: Int
+  url: AWSURL
 }

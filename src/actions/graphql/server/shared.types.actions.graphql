@@ -8,6 +8,8 @@ type Actions {
   slots: [String]
   slug: AWSJSON
   score: Float
+  start: AWSDateTime
+  stop: AWSDateTime
 }
 
 type ActionList {

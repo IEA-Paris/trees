@@ -13,6 +13,8 @@ query getAction($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
     link
     name
     slots
+    start
+    stop
     video
     slug
   }

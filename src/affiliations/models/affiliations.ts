@@ -10,7 +10,7 @@ export enum AffiliationCategories {
 }
 
 export interface Affiliations {
-  location?: Location
+  locations?: Location[]
   image?: Image
   name: string
   ror?: string

@@ -13,7 +13,7 @@ query getAffiliation(
       licenseUrl
       url
     }
-    location {
+    locations {
       alt
       city
       country

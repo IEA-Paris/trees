@@ -18,7 +18,7 @@ query getEvent($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
       url
     }
     name
-    place {
+    location {
       address
       name
       url

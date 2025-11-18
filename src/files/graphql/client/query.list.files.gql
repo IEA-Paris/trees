@@ -11,21 +11,20 @@ query listFiles(
 ) {
   listFiles(options: $options, appId: $appId, lang: $lang) {
     items {
-      createdAt
-      file
-      fileType
-      category
-      hash
-      slug
       alt
       backgroundColor
       caption
+      category
       copyright
+      createdAt
+      fileType
+      hash
       license
       licenseUrl
       name
       path
       size
+      slug
       thumb
       updatedAt
       url

@@ -1,6 +1,7 @@
 import { Image } from "../../files/models/image"
 import Model from "../../model"
 import { formType } from "../../form"
+import { start } from "repl"
 
 export enum ActionSlots {
   All = "ALL",
@@ -102,6 +103,26 @@ const defaultConfig: Model = {
         max: 200,
       },
       meta: "name", // item type on schema.org
+    },
+    start: {
+      label: "start_date",
+      type: formType.Primitive,
+      component: "DateTimePicker",
+      description: "The start date of the action",
+      rules: {
+        required: true,
+      },
+      meta: "startDate", // item type on schema.org
+    },
+    stop: {
+      label: "end_date",
+      type: formType.Primitive,
+      component: "DateTimePicker",
+      description: "The end date of the action",
+      rules: {
+        required: false,
+      },
+      meta: "endDate", // item type on schema.org
     },
     image: {
       label: "image",

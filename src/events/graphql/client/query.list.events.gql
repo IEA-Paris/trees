@@ -24,7 +24,7 @@ query listEvents(
       }
       name
       outside
-      place {
+      location {
         address
         name
         url

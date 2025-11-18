@@ -100,6 +100,16 @@ const defaultConfig: Model = {
     },
   },
   form: {
+    category: {
+      label: "category",
+      component: "Select",
+      type: formType.Primitive,
+      rules: {
+        required: true,
+      },
+      items: newsCategories,
+      meta: "category", // item type on schema.org
+    },
     name: {
       label: "name",
       component: "TextField",
@@ -161,16 +171,7 @@ const defaultConfig: Model = {
       },
       meta: "date",
     },
-    category: {
-      label: "category",
-      component: "Select",
-      type: formType.Primitive,
-      rules: {
-        required: true,
-      },
-      items: newsCategories,
-      meta: "category", // item type on schema.org
-    },
+
     image: {
       label: "image",
       component: "ImagePicker",
