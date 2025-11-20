@@ -81,19 +81,19 @@ query getFellowship(
         licenseUrl
         url
       }
-      location {
-        alt
-        city
-        country
-        details
-        geocode {
-          lat
-          lng
-        }
-        name
-        street
-        zip
-      }
+      # location {
+      #   alt
+      #   city
+      #   country
+      #   details
+      #   geocode {
+      #     lat
+      #     lng
+      #   }
+      #   name
+      #   street
+      #   zip
+      # }
     }
     name
     video {
@@ -145,7 +145,7 @@ query getFellowship(
       funding
       fundingPeriod
       housing
-      location
+      # location
       meals
       profile
       researchSupport

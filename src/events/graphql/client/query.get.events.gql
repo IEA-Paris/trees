@@ -18,11 +18,11 @@ query getEvent($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
       url
     }
     name
-    location {
-      address
-      name
-      url
-    }
+    # location {
+    #   address
+    #   name
+    #   url
+    # }
     start
     slug
     slots {
