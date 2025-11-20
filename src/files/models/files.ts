@@ -15,7 +15,7 @@ export interface Files {
   url: URL
   size: number
   fileType: string
-  catetgory: FileCategory
+  category: FileCategory
   hash: string
   path: string
   thumb: URL
