@@ -42,19 +42,19 @@ query getProject($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
       name
       ror
       url
-      location {
-        alt
-        city
-        country
-        details
-        name
-        street
-        zip
-        geocode {
-          lat
-          lng
-        }
-      }
+      # location {
+      #   alt
+      #   city
+      #   country
+      #   details
+      #   name
+      #   street
+      #   zip
+      #   geocode {
+      #     lat
+      #     lng
+      #   }
+      # }
       image {
         alt
         backgroundColor

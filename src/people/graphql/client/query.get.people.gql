@@ -11,19 +11,19 @@ query getPeople($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
           licenseUrl
           url
         }
-        location {
-          alt
-          city
-          country
-          details
-          geocode {
-            lat
-            lng
-          }
-          name
-          street
-          zip
-        }
+        # location {
+        #   alt
+        #   city
+        #   country
+        #   details
+        #   geocode {
+        #     lat
+        #     lng
+        #   }
+        #   name
+        #   street
+        #   zip
+        # }
         name
         ror
         url
