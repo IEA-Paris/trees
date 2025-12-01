@@ -14,15 +14,15 @@ query getPublication(
         licenseUrl
         url
       }
-      location {
-        alt
-        city
-        country
-        details
-        geocode {
-          lat
-          lng
-        }
+      # location {
+      #   alt
+      #   city
+      #   country
+      #   details
+      #   geocode {
+      #     lat
+      #     lng
+      #   }
         name
         street
         zip

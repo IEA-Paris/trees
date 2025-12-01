@@ -24,11 +24,11 @@ query listEvents(
       }
       name
       outside
-      location {
-        address
-        name
-        url
-      }
+      # location {
+      #   address
+      #   name
+      #   url
+      # }
       state
       start
       stop

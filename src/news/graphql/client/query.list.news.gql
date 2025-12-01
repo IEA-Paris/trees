@@ -7,6 +7,7 @@ query listNews(
     total
     items {
       slug
+      summary
       category
       color
       date
