@@ -32,6 +32,7 @@ export interface Events {
   organizers: RelatedPeople[] | Affiliations[] // 3 - Server & Client -
   outside: boolean // 0 - Server & Client -  // Near inscription
   location: Location // 0 - Server & Client -
+  place: String
   organiserType: organiserType // server & client - 0 = IAS, 1 = member, 2 = fellow, 3 = external
   program: String // 0 - Server & Client -
   related: Related
@@ -458,7 +459,7 @@ const defaultConfig: Model = {
       meta: "outside",
     },
     location: {
-      label: "place",
+      label: "location",
       component: "ObjectContainerPanel",
       type: formType.Template,
       rules: {
@@ -514,6 +515,12 @@ const defaultConfig: Model = {
         max: 200,
       },
       meta: "totalSlots",
+    },
+    place: {
+      label: "place",
+      component: "TextField",
+      type: formType.Primitive,
+      meta: "place",
     },
     stream: {
       label: "stream",

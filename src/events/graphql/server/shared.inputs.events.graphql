@@ -12,6 +12,7 @@ input EventInput {
   location: LocationInput
   name: String!
   outside: Boolean
+  place: String
   program: String
   slots: [SlotInput!]
   start: AWSDateTime

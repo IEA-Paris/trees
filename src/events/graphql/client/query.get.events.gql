@@ -19,9 +19,17 @@ query getEvent($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
     }
     name
     location {
-      address
+      alt
+      city
+      country
+      details
+      geocode {
+        lat
+        lng
+      }
       name
-      url
+      street
+      zip
     }
     start
     slug
@@ -36,6 +44,7 @@ query getEvent($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
     stop
     subtitle
     summary
+    place
     program
     totalSlots
     eventType

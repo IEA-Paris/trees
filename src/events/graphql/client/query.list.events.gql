@@ -29,6 +29,7 @@ query listEvents(
         name
         url
       }
+      place
       state
       start
       stop
