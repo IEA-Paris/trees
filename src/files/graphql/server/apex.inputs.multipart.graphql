@@ -1,0 +1,21 @@
+input MultipartInitInput {
+  fileName: String!
+  appId: ID
+}
+
+input MultipartPreSignedUrlsInput {
+  fileKey: String!
+  fileId: String!
+  parts: Int!
+}
+
+input MultipartPartInput {
+  ETag: String!
+  PartNumber: Int!
+}
+
+input MultipartFinalizeInput {
+  fileKey: String!
+  fileId: String!
+  parts: [MultipartPartInput!]!
+}

@@ -1,0 +1,9 @@
+mutation MultipartFinalize(
+  $fileKey: String!
+  $fileId: String!
+  $parts: [MultipartPartInput!]!
+) {
+  multipartFinalize(fileKey: $fileKey, fileId: $fileId, parts: $parts) {
+    fileKey
+  }
+}

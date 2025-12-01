@@ -1,0 +1,13 @@
+type MultipartInitResult {
+  fileId: String!
+  fileKey: String!
+}
+
+type MultipartPreSignedUrl {
+  signedUrl: String!
+  PartNumber: Int!
+}
+
+type MultipartFinalizeResult {
+  fileKey: String!
+}

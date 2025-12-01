@@ -22,4 +22,17 @@ type Mutation {
 
   # Nomenclature management
   createNomenclature(options: NomenclatureInput!): Nomenclature
+
+  # Multipart upload operations
+  multipartInit(fileName: String!, appId: ID): MultipartInitResult!
+  multipartPreSignedUrls(
+    fileKey: String!
+    fileId: String!
+    parts: Int!
+  ): [MultipartPreSignedUrl!]!
+  multipartFinalize(
+    fileKey: String!
+    fileId: String!
+    parts: [MultipartPartInput!]!
+  ): MultipartFinalizeResult!
 }

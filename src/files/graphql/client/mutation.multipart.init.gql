@@ -1,0 +1,6 @@
+mutation MultipartInit($fileName: String!, $appId: ID) {
+  multipartInit(fileName: $fileName, appId: $appId) {
+    fileId
+    fileKey
+  }
+}

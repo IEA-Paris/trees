@@ -11,17 +11,16 @@ export enum FileCategory {
   Other = "OTHER",
 }
 export interface Files {
-  name: string
-  url: URL
-  size: number
-  fileType: string
   catetgory: FileCategory
-  hash: string
-  path: string
-  thumb: URL
   createdAt: Date
-  updatedAt: Date
+  fileType: string
+  hash: string
+  name: string
+  size: number
   slug: string
+  thumb: URL
+  updatedAt: Date
+  url: URL
 }
 
 const defautConfig: Model = {
