@@ -516,12 +516,6 @@ const defaultConfig: Model = {
       },
       meta: "totalSlots",
     },
-    place: {
-      label: "place",
-      component: "TextField",
-      type: formType.Primitive,
-      meta: "place",
-    },
     stream: {
       label: "stream",
       component: "TextField",
