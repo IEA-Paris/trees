@@ -14,7 +14,7 @@ query getPublication(
         licenseUrl
         url
       }
-      location {
+      locations {
         alt
         city
         country
