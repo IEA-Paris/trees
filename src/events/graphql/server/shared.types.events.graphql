@@ -13,7 +13,6 @@ type Event {
   location: Location
   name: String!
   outside: Boolean
-  place: String
   program: String
   related: Related
   score: Float

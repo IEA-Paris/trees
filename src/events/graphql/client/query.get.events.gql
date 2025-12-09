@@ -44,7 +44,6 @@ query getEvent($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
     stop
     subtitle
     summary
-    place
     program
     totalSlots
     eventType
