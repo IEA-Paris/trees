@@ -1,4 +1,8 @@
-query getProject($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
+query getProject(
+  $appId: ID = "iea"
+  $itemId: ID = "proceedings-of-institutes-for-advanced-study"
+  $lang: String = "en"
+) {
   getProject(appId: $appId, itemId: $itemId, lang: $lang) {
     color
     date
@@ -47,13 +51,13 @@ query getProject($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
         city
         country
         details
-        name
-        street
-        zip
         geocode {
           lat
           lng
         }
+        name
+        street
+        zip
       }
       image {
         alt

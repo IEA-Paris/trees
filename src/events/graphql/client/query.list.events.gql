@@ -25,11 +25,16 @@ query listEvents(
       name
       outside
       location {
-        name
-        details
-        street
+        alt
         city
         country
+        details
+        geocode {
+          lat
+          lng
+        }
+        name
+        street
         zip
       }
       state

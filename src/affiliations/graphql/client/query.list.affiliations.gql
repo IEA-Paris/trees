@@ -33,6 +33,7 @@ query listAffiliations(
         street
         zip
       }
+      category
       name
       ror
       url

@@ -1,0 +1,6 @@
+enum affiliationCategory {
+  MEMBER
+  PARTNER
+  SPONSOR
+  OTHER
+}

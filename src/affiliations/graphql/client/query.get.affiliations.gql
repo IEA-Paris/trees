@@ -13,6 +13,7 @@ query getAffiliation(
       licenseUrl
       url
     }
+    category
     locations {
       alt
       city
