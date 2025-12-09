@@ -20,6 +20,15 @@ query listUsers(
         twitter
         wikipedia
       }
+      consent {
+        data
+        diffusion
+        email
+        fellowshipnewsletter
+        newsletter
+        publication
+        record
+      }
       role
       settings {
         lang

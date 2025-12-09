@@ -28,6 +28,15 @@ query GetUser($appId: ID = "iea", $itemId: ID = "", $lang: String = "") {
       twitter
       wikipedia
     }
+    consent {
+      data
+      diffusion
+      email
+      fellowshipnewsletter
+      newsletter
+      publication
+      record
+    }
     role
     settings {
       lang
