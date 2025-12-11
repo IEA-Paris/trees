@@ -10,7 +10,7 @@ query listNews(
       category
       color
       date
-      description
+      summary
       featured
       image {
         alt
