@@ -152,13 +152,13 @@ const defaultConfig: Model = {
         // by name from a to z
         icon: "sort-alphabetical-ascending",
         text: "by-name-from-a-to-z",
-        value: ["name", 1],
+        value: [{ name: 1 }],
       },
       namedesc: {
         // by name from z to a
         icon: "sort-alphabetical-descending",
         text: "by-name-from-z-to-a",
-        value: ["name", -1],
+        value: [{ name: -1 }],
       },
       dateasc: {
         // by date from most recent to oldest

@@ -65,14 +65,14 @@ const defaultConfig: Model = {
         // by date from most recent to oldest
         icon: "sort-calendar-descending",
         text: "by-date-most-recent-first",
-        value: ["date", -1],
+        value: [{ date: -1 }],
         default: true,
       },
       datedesc: {
         // by date from oldest to most recent
         icon: "sort-calendar-ascending",
         text: "by-date-oldest-first",
-        value: ["date", 1],
+        value: [{ date: 1 }],
       },
     },
     views: {
