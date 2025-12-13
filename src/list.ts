@@ -17,7 +17,7 @@ interface Filters {
 export interface Sort {
   icon: string
   text: string
-  value: [string, number]
+  value: Array<Record<string, number>>
   default?: boolean
 }
 
