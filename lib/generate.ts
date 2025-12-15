@@ -211,6 +211,30 @@ const completeSchema = (
   }
 }
 
+type SortOrder = 1 | -1
+
+const buildSortParams = (
+  sort?: Sort
+): { sortBy?: string[]; sortDesc?: SortOrder[] } => {
+  if (!sort?.value?.length) return {}
+
+  const sortBy: string[] = []
+  const sortDesc: SortOrder[] = []
+
+  for (const rule of sort.value) {
+    const key = Object.keys(rule ?? {})[0]
+    if (!key) continue
+
+    const order = (rule as Record<string, SortOrder>)[key]
+    if (order !== 1 && order !== -1) continue
+
+    sortBy.push(key)
+    sortDesc.push(order)
+  }
+
+  if (!sortBy.length) return {}
+  return { sortBy, sortDesc }
+}
 /**
  * Creates a complete module configuration for a given type
  * @param type - The type name to create module for
@@ -418,6 +442,8 @@ const createModule = (type: string): void => {
       }
     }
 
+    const { sortBy, sortDesc } = buildSortParams(defaultSort)
+
     const formModule = {
       _defaults: buildDefaults(defaultState),
       schema: defaultState,
@@ -442,8 +468,8 @@ const createModule = (type: string): void => {
       ...(defaultPerPage && {
         limit: defaultPerPage,
       }),
-      sortBy: defaultSort && [defaultSort.value[0]],
-      sortDesc: defaultSort && [defaultSort.value[1]],
+      sortBy: sortBy, //defaultSort && [defaultSort.value[0]],
+      sortDesc: sortDesc, //defaultSort && [defaultSort.value[1]],
     }
 
     // Create the output files
