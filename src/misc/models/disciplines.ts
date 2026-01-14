@@ -20,12 +20,14 @@ const configDefault: Model = {
         icon: "sort-alphabetical-ascending",
         text: "by-name-from-a-to-z",
         value: [{ article_title: 1 }],
+        active: false,
       },
       namedesc: {
         // by name from z to a
         icon: "sort-alphabetical-descending",
         text: "by-name-from-z-to-a",
         value: [{ article_title: -1 }],
+        active: false,
       },
       dateasc: {
         // by date from most recent to oldest
@@ -33,12 +35,14 @@ const configDefault: Model = {
         text: "by-date-most-recent-first",
         value: [{ date: -1 }],
         default: true,
+        active: true,
       },
       datedesc: {
         // by date from oldest to most recent
         icon: "sort-calendar-ascending",
         text: "by-date-oldest-first",
         value: [{ date: 1 }],
+        active: false,
       },
     },
     views: {

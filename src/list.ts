@@ -19,6 +19,7 @@ export interface Sort {
   text: string
   value: Array<Record<string, number>>
   default?: boolean
+  active?: boolean
 }
 
 export interface Views {

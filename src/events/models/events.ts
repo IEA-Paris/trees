@@ -153,25 +153,29 @@ const defaultConfig: Model = {
         icon: "sort-alphabetical-ascending",
         text: "by-name-from-a-to-z",
         value: [{ name: 1 }],
+        active: false,
       },
       namedesc: {
         // by name from z to a
         icon: "sort-alphabetical-descending",
         text: "by-name-from-z-to-a",
         value: [{ name: -1 }],
+        active: false,
       },
       dateasc: {
         // by date from most recent to oldest
         icon: "sort-calendar-descending",
         text: "by-date-most-recent-first",
-        value: ["start", -1],
+        value: [{ start: -1 }],
         default: true,
+        active: true,
       },
       datedesc: {
         // by date from oldest to most recent
         icon: "sort-calendar-ascending",
         text: "by-date-oldest-first",
-        value: ["start", 1],
+        value: [{ start: 1 }],
+        active: false,
       },
     },
     views: {

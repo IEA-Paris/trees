@@ -86,18 +86,21 @@ const userConfig: Model = {
         icon: "sort-alphabetical-ascending",
         text: "by-name-from-a-to-z",
         value: [{ lastname: 1 }],
+        active: false,
       },
       namedesc: {
         // by name from z to a
         icon: "sort-alphabetical-descending",
         text: "by-name-from-z-to-a",
         value: [{ lastname: -1 }],
+        active: false,
       },
       vintagedesc: {
         // by name from z to a
         icon: "sort-calendar-descending",
         text: "by-vintage-from-old-to-recent",
         value: [{ "groups.vintage.year": -1 }, { lastname: 1 }],
+        active: false,
       },
       vintageasc: {
         // by name from z to a
@@ -105,6 +108,7 @@ const userConfig: Model = {
         text: "by-vintage-from-recent-to-old",
         value: [{ "groups.vintage.year": 1 }, { lastname: 1 }],
         default: true,
+        active: true,
       },
     },
     views: {
