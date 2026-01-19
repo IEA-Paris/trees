@@ -2,8 +2,7 @@ query listAffiliations(
   $options: ListInput = {
     skip: 0
     limit: 9
-    sortBy: ["start"]
-    sortDesc: false
+    sort
     filters: "{}"
   }
   $lang: String = "en"

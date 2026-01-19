@@ -81,8 +81,7 @@ input ListInput {
   filters: AWSJSON
   limit: Int
   skip: Int
-  sortBy: [String!]
-  sortDesc: [Boolean!]
+  sort: [String!]
   search: String
 }
 

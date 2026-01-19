@@ -4,8 +4,7 @@ query listDisciplines(
   $options: ListInput = {
     skip: 0
     limit: 9
-    sortBy: ["start"]
-    sortDesc: false
+    sort
     filters: "{}"
   }
 ) {

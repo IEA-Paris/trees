@@ -159,8 +159,8 @@ export interface ListModule {
   view?: Views | string
   filters: Record<string, any>
   limit?: number
-  sortBy?: string[]
-  sortDesc?: number[]
+  // sortBy?: string[]
+  // sortDesc?: number[]
 }
 
 declare const data: ListModule
