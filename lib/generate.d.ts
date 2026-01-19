@@ -12,8 +12,6 @@ interface List {
     view: Views | string | undefined;
     filters: Record<string, any>;
     limit?: number;
-    sortBy: Sort | string[] | undefined;
-    sortDesc?: Sort | number[] | string[] | string | undefined;
 }
 /**
  * Custom form interface for generated modules
