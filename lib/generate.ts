@@ -96,7 +96,7 @@ const buildDefaults = (schema: Record<string, any>): Record<string, any> => {
  */
 const completeSchema = (
   schema: Record<string, Form>,
-  visitedTemplates: Set<string> = new Set()
+  visitedTemplates: Set<string> = new Set(),
 ): Record<string, Form> => {
   const completedSchema: Record<string, Form> = {}
 
@@ -113,7 +113,7 @@ const completeSchema = (
               ...schema[key],
               items: completeSchema(
                 schema[key].items as Record<string, Form>,
-                visitedTemplates
+                visitedTemplates,
               ),
             }
             break
@@ -123,7 +123,7 @@ const completeSchema = (
               ...schema[key],
               items: completeSchema(
                 { [key]: schema[key].items } as Record<string, Form>,
-                visitedTemplates
+                visitedTemplates,
               ),
             }
             break
@@ -170,11 +170,11 @@ const completeSchema = (
                   schema[key].component.toLowerCase().startsWith("object")
                     ? formType.Object
                     : schema[key]?.component
-                    ? formType.Array
-                    : formType.Object,
+                      ? formType.Array
+                      : formType.Object,
                 items: completeSchema(
                   templates[key].form as Record<string, Form>,
-                  visitedTemplates
+                  visitedTemplates,
                 ),
               }
             } finally {
@@ -184,7 +184,7 @@ const completeSchema = (
 
           default:
             console.warn(
-              `⚠️  Unknown form type for key '${key}': ${schema[key]?.type}`
+              `⚠️  Unknown form type for key '${key}': ${schema[key]?.type}`,
             )
             break
         }
@@ -257,7 +257,7 @@ const createModule = (type: string): void => {
     }
 
     console.log(
-      `   📋 Processing ${Object.keys(baseSchema).length} form fields...`
+      `   📋 Processing ${Object.keys(baseSchema).length} form fields...`,
     )
 
     const defaultState: Record<string, Form> = completeSchema(baseSchema)
@@ -292,7 +292,7 @@ const createModule = (type: string): void => {
     console.log(
       `   📊 List config: ${
         defaultView ? defaultView.name : "no default"
-      } view, ${defaultSort ? "sorted by " + defaultSortKey : "no sort"}`
+      } view, ${defaultSort ? "sorted by " + defaultSortKey : "no sort"}`,
     )
 
     // Create a Set to track visited templates and prevent circular dependencies
@@ -332,7 +332,7 @@ const createModule = (type: string): void => {
         // is it an implementation of another template?
         if (template?.aliases?.length) {
           const aliasTemplatesForms: Record<string, Form> = processAliases(
-            template.aliases
+            template.aliases,
           )
           const result = buildForm(aliasTemplatesForms)
           // build based on aliases
@@ -350,7 +350,7 @@ const createModule = (type: string): void => {
     const processItems = (
       key: string,
       items: Record<string, any>,
-      form: any
+      form: any,
     ): any => {
       /*     console.log("processing items for key: ", key) */
 
@@ -405,7 +405,7 @@ const createModule = (type: string): void => {
               // Check if this is a template we're already processing (to avoid circular dependencies)
               if (visitedTemplates.has(key)) {
                 console.warn(
-                  `Avoiding circular dependency for template key: ${key}`
+                  `Avoiding circular dependency for template key: ${key}`,
                 )
                 form[key] = {} // Use empty object to break the cycle
               } else {
@@ -468,8 +468,6 @@ const createModule = (type: string): void => {
       ...(defaultPerPage && {
         limit: defaultPerPage,
       }),
-      // sortBy: sortBy, //defaultSort && [defaultSort.value[0]],
-      // sortDesc: sortDesc, //defaultSort && [defaultSort.value[1]],
     }
 
     // Create the output files
@@ -530,7 +528,7 @@ const duration = endTime - startTime
 
 console.log("\n📋 Generation Summary:")
 console.log(
-  `✅ Successfully generated: ${successCount}/${Modules.length} modules`
+  `✅ Successfully generated: ${successCount}/${Modules.length} modules`,
 )
 if (errorCount > 0) {
   console.log(`❌ Failed: ${errorCount} modules`)

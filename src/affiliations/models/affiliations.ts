@@ -8,7 +8,6 @@ export enum AffiliationCategories {
   Sponsor = "SPONSOR",
   Partner = "PARTNER",
 }
-
 export interface Affiliations {
   locations?: Location[]
   image?: Image
@@ -16,6 +15,9 @@ export interface Affiliations {
   ror?: string
   url?: string
   category: AffiliationCategories[]
+  description?: string
+  summary?: string
+  color?: string
 }
 const defaultConfig: Model = {
   list: {
@@ -34,25 +36,13 @@ const defaultConfig: Model = {
         icon: "sort-alphabetical-ascending",
         text: "by-name-from-a-to-z",
         value: [{ name: 1 }],
+        default: true,
       },
       namedesc: {
         // by name from z to a
         icon: "sort-alphabetical-descending",
         text: "by-name-from-z-to-a",
         value: [{ name: -1 }],
-      },
-      dateasc: {
-        // by date from most recent to oldest
-        icon: "sort-calendar-descending",
-        text: "by-date-most-recent-first",
-        value: [{ date: -1 }],
-        default: true,
-      },
-      datedesc: {
-        // by date from oldest to most recent
-        icon: "sort-calendar-ascending",
-        text: "by-date-oldest-first",
-        value: [{ date: 1 }],
       },
     },
     views: {

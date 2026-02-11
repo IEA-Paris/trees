@@ -1,10 +1,5 @@
 query listAffiliations(
-  $options: ListInput = {
-    skip: 0
-    limit: 9
-    sort
-    filters: "{}"
-  }
+  $options: ListInput = {}
   $lang: String = "en"
   $appId: ID = "iea"
 ) {
