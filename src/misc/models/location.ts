@@ -1,8 +1,8 @@
 import { Form, formType } from "../../form"
 import { Image } from "../../files/models/image"
 export interface Location {
-  name: string
-  acronym: string
+  name?: string
+  acronym?: string
   details?: Record<string, string> // natural language description of the location (i18n)
   image?: Image
   alt?: string
