@@ -4,7 +4,7 @@ export interface Location {
   name: string
   acronym: string
   details?: string // natural language description of the location
-  image: Image
+  image?: Image
   alt?: string
   street?: string
   city?: string
@@ -45,9 +45,7 @@ const defaultConfig: LocationForm = {
       label: "image",
       component: "ImagePicker",
       type: formType.Document,
-      rules: {
-        required: true,
-      },
+      rules: {},
       meta: "image",
     },
     details: {
