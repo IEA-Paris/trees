@@ -3,7 +3,7 @@ import { Image } from "../../files/models/image"
 export interface Location {
   name: string
   acronym: string
-  details?: string // natural language description of the location
+  details?: Record<string, string> // natural language description of the location (i18n)
   image?: Image
   alt?: string
   street?: string
@@ -52,6 +52,7 @@ const defaultConfig: LocationForm = {
       label: "details",
       component: "TextArea",
       type: formType.Primitive,
+      i18n: true,
       rules: {
         min: 5,
         max: 2000,
