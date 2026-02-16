@@ -28,6 +28,8 @@ query listAffiliations(
         zip
       }
       category
+      description
+      summary
       name
       ror
       url

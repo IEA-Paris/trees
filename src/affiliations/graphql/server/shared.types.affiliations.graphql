@@ -13,6 +13,8 @@ type Affiliation {
   slug: AWSJSON
   score: Float
   category: [affiliationCategory]
+  description: String
+  summary: String
 }
 
 type AffiliationWithPositions {

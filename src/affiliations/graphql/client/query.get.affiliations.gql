@@ -28,6 +28,8 @@ query getAffiliation(
       zip
     }
     name
+    description
+    summary
     ror
     url
     slug
