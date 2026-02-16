@@ -1,10 +1,5 @@
 query listApps(
-  $options: ListInput = {
-    skip: 0
-    limit: 9
-    sort
-    filters: "{}"
-  }
+  $options: ListInput = { skip: 0, limit: 9, sort: "nameasc", filters: "{}" }
   $lang: String = "en"
   $appId: ID = "iea"
 ) {

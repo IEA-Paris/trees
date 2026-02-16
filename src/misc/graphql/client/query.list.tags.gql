@@ -1,10 +1,5 @@
 query listTags(
-  $options: ListInput = {
-    skip: 0
-    limit: 9
-    sort
-    filters: "{}"
-  }
+  $options: ListInput = { skip: 0, limit: 9, sort: "nameasc", filters: "{}" }
   $appId: ID = "iea"
   $lang: String = "en"
 ) {

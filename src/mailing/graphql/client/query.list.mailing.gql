@@ -1,12 +1,7 @@
 query listMailing(
   $appId: ID = "iea"
   $lang: String = "en"
-  $options: ListInput = {
-    skip: 0
-    limit: 9
-    sort
-    filters: "{}"
-  }
+  $options: ListInput = { skip: 0, limit: 9, sort: "nameasc", filters: "{}" }
 ) {
   listMailing(options: $options, appId: $appId, lang: $lang) {
     items {
