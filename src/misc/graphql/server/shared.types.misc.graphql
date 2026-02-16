@@ -59,6 +59,11 @@ type Slot {
   lang: String!
 }
 
+type AltchaVerification {
+  valid: Boolean!
+  verified: Boolean!
+}
+
 type Token {
   accessToken: String!
 }

@@ -1,0 +1,6 @@
+query checkAltcha($payload: String!, $hmacKey: String!) {
+  checkAltcha(payload: $payload, hmacKey: $hmacKey) {
+    valid
+    verified
+  }
+}

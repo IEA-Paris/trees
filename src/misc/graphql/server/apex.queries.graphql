@@ -29,7 +29,6 @@ type Query {
 
   # buildFiltersValues: Filters
   # getPresignedUploadUrl(appId: ID, typeFile: String!): String
-
 }
 
 schema {
