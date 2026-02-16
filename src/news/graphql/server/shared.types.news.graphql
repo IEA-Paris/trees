@@ -13,7 +13,7 @@ type News {
   featured: AWSDateTime
   related: Related
   files: [File]
-  slug: AWSJSON
+  slug: string
   score: Float
 }
 

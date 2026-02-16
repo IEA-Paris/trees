@@ -23,7 +23,7 @@ type Fellowship {
   gallery: [Image]
   name: String!
   video: [Video]
-  slug: AWSJSON
+  slug: string
   score: Float
 }
 

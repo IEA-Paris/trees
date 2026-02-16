@@ -7,7 +7,7 @@ type Location {
   country: String
   zip: Int
   geocode: Geocode
-  slug: AWSJSON
+  slug: string
 }
 
 type Geocode {

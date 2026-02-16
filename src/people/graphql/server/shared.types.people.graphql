@@ -12,7 +12,7 @@ type People {
   disciplines: [Disciplines]
   related: Related
   video: [Video]
-  slug: AWSJSON
+  slug: string
   tags: [Tag]
   score: Float
 }

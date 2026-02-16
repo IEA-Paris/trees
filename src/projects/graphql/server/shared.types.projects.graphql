@@ -16,7 +16,7 @@ type Project {
   date: AWSDateTime
   featured: AWSDateTime
   status: projectStatus
-  slug: AWSJSON
+  slug: string
   score: Float
 }
 

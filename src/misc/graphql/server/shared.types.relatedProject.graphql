@@ -3,5 +3,5 @@ type RelatedProject {
   url: AWSURL
   image: Image
   description: String
-  slug: AWSJSON
+  slug: string
 }

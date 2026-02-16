@@ -10,7 +10,7 @@ type Affiliation {
   ror: String
   url: AWSURL
   appId: String
-  slug: AWSJSON
+  slug: string
   score: Float
   category: [affiliationCategory]
   description: String

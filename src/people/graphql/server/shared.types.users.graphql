@@ -6,7 +6,7 @@ type User {
   settings: Settings
   status: Int
   role: Int
-  slug: AWSJSON
+  slug: string
 }
 
 type UserList {

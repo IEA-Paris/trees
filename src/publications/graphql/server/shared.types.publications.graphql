@@ -17,7 +17,7 @@ type Publication {
   disciplines: [Disciplines]
   color: String
   date: AWSDateTime
-  slug: AWSJSON
+  slug: string
   score: Float
 }
 
