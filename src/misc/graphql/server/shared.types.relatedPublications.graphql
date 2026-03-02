@@ -1,5 +1,5 @@
 type RelatedPublication {
   name: String!
   url: AWSURL!
-  slug: string
+  slug: String
 }

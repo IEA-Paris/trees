@@ -19,7 +19,7 @@ export interface Files {
   hash: string
   path: string
   createdAt: Date
-  slug: string
+  slug: String
   thumb: URL
   updatedAt: Date
 }

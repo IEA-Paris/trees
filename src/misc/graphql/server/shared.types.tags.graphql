@@ -5,6 +5,6 @@ type Tag {
   createdAt: AWSDateTime
   updatedAt: AWSDateTime
   appId: String
-  slug: string
+  slug: String
   score: Float
 }

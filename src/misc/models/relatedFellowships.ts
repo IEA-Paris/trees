@@ -3,5 +3,5 @@ export interface RelatedFellowships {
   description?: string
   url: URL
   date?: Date
-  slug: string
+  slug: String
 }

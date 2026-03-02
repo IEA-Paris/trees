@@ -6,7 +6,7 @@ type Actions {
   name: String
   video: AWSURL
   slots: [String]
-  slug: string
+  slug: String
   score: Float
   start: AWSDateTime
   stop: AWSDateTime

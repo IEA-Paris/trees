@@ -17,7 +17,7 @@ type Event {
   related: Related
   score: Float
   slots: [Slot]
-  slug: string
+  slug: String
   start: AWSDateTime
   state: eventState
   stop: AWSDateTime

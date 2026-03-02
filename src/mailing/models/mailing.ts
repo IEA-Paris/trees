@@ -7,7 +7,7 @@ export interface Mailing {
   createdAt: string
   updatedAt: string
   date: Date
-  slug: string
+  slug: String
 }
 
 const defaultConfig: Model = {

@@ -3,5 +3,5 @@ type RelatedEvent {
   url: AWSURL
   image: Image
   description: String
-  slug: string
+  slug: String
 }

@@ -10,5 +10,5 @@ export interface RelatedPublications {
   video?: Video
   color?: string
   date?: Date
-  slug: string
+  slug: String
 }
