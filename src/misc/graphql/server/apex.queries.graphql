@@ -27,6 +27,9 @@ type Query {
   listUsers(appId: ID, options: ListInput!, lang: String): UserList
   getUser(appId: ID, itemId: ID, lang: String): User
 
+  # Security & validation
+  checkAltcha(payload: String!): AltchaVerification
+
   # buildFiltersValues: Filters
   # getPresignedUploadUrl(appId: ID, typeFile: String!): String
 }

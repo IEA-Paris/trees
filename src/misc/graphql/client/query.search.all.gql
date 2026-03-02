@@ -13,6 +13,7 @@ query search($appId: ID = "", $search: String = "", $lang: String = "en") {
           url
         }
         lastname
+        summary
         slug
         score
       }
@@ -23,6 +24,7 @@ query search($appId: ID = "", $search: String = "", $lang: String = "en") {
         date
         featured
         name
+        summary
         image {
           alt
           backgroundColor
@@ -45,6 +47,7 @@ query search($appId: ID = "", $search: String = "", $lang: String = "en") {
       items {
         subtitle
         name
+        summary
         image {
           alt
           backgroundColor
@@ -115,6 +118,7 @@ query search($appId: ID = "", $search: String = "", $lang: String = "en") {
         category
         date
         featured
+        summary
         image {
           alt
           backgroundColor
