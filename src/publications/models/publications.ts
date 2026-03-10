@@ -239,7 +239,9 @@ const defaultConfig: Model = {
       label: "gallery",
       component: "ImagePicker",
       type: formType.Document,
-      multiple: true,
+      rules: {
+        max: 24,
+      },
       meta: "gallery",
     },
     video: {

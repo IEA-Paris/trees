@@ -239,6 +239,7 @@ const defaultConfig: Model = {
       type: formType.Document,
       rules: {
         required: true,
+        max: 1,
       },
       meta: "image",
     },
@@ -418,7 +419,9 @@ const defaultConfig: Model = {
       label: "gallery",
       component: "ImagePicker",
       type: formType.Document,
-      multiple: true,
+      rules: {
+        max: 24,
+      },
       meta: "gallery",
     },
     eventSlot: {
