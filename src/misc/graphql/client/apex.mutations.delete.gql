@@ -1,3 +1,8 @@
-mutation DeleteItem($appId: String, $itemId: String, $type: String!) {
-  deleteItem(appId: $appId, itemId: $itemId, type: $type)
+mutation DeleteItem(
+  $appId: String
+  $itemId: String
+  $type: String!
+  $lang: String = "en"
+) {
+  deleteItem(appId: $appId, itemId: $itemId, lang: $lang, type: $type)
 }

@@ -2,7 +2,14 @@ mutation UpsertItem(
   $appId: ID = "iea"
   $itemId: ID
   $type: String!
+  $lang: String = "en"
   $item: AWSJSON!
 ) {
-  upsertItem(appId: $appId, itemId: $itemId, type: $type, item: $item)
+  upsertItem(
+    appId: $appId
+    itemId: $itemId
+    type: $type
+    lang: $lang
+    item: $item
+  )
 }
