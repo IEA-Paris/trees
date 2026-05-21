@@ -42,6 +42,7 @@ query getPeople($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
       fellows
       sab
       sponsor
+      ethics
       team
       vintage {
         name

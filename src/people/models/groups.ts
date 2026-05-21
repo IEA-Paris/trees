@@ -5,6 +5,7 @@ export interface Groups {
   team?: boolean
   sab?: boolean
   board?: boolean
+  ethics?: boolean
   fellows?: boolean
   sponsor?: boolean
   vintage?: Vintage[]
@@ -27,6 +28,12 @@ const defaultConfig: GroupsForm = {
       component: "Checkbox",
       type: formType.Primitive,
       meta: "sab",
+    },
+    ethics: {
+      label: "ethics",
+      component: "Checkbox",
+      type: formType.Primitive,
+      meta: "ethics",
     },
     board: {
       label: "board",

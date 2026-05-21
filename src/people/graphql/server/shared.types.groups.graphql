@@ -2,6 +2,7 @@ type Groups {
   team: Boolean
   sab: Boolean
   board: Boolean
+  ethics: Boolean
   fellows: Boolean
   sponsor: Boolean
   vintage: [Vintage]

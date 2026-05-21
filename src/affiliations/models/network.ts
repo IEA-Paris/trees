@@ -1,7 +1,7 @@
 import config, { Affiliations } from "./affiliations"
 import Model from "../../model"
 
-export interface Partner extends Affiliations {}
+export interface Network extends Affiliations {}
 const defaultConfig: Model = {
   aliases: ["affiliations"],
   ...config,

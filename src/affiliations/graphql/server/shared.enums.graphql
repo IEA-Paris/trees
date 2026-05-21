@@ -1,6 +1,7 @@
 enum affiliationCategory {
   MEMBER
   PARTNER
-  SPONSOR
+  SUPPORT
+  NETWORK
   OTHER
 }

@@ -17,6 +17,7 @@ query listProjects(
         licenseUrl
         url
       }
+      type
       name
       summary
       url

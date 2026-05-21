@@ -4,5 +4,6 @@ input GroupsInput {
   board: Boolean
   fellows: Boolean
   sponsor: Boolean
+  ethics: Boolean
   vintage: [VintageInput]
 }

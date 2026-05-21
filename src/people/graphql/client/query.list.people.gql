@@ -20,6 +20,7 @@ query listPeople(
         fellows
         sab
         sponsor
+        ethics
         team
         vintage {
           name

@@ -31,7 +31,8 @@ import defaultConfigMailing from "./mailing/models/mailing"
 import defaultConfigMembers from "./affiliations/models/members"
 import defaultConfigNews from "./news/models/news"
 import defaultConfigOrganizers from "./misc/models/organizers"
-import defaultConfigPartners from "./affiliations/models/partners"
+import defaultConfigNetwork from "./affiliations/models/network"
+import defaultConfigSupports from "./affiliations/models/supports"
 import defaultConfigPeople from "./people/models/people"
 import defaultConfigPosition, { PositionForm } from "./people/models/position"
 import defaultConfigProject from "./projects/models/projects"
@@ -78,7 +79,8 @@ const templates: Record<string, ConfigValue> = {
   members: defaultConfigMembers,
   news: defaultConfigNews,
   organizers: defaultConfigOrganizers,
-  partners: defaultConfigPartners,
+  network: defaultConfigNetwork,
+  support: defaultConfigSupports,
   people: defaultConfigPeople,
   positions: defaultConfigPosition,
   projects: defaultConfigProject,

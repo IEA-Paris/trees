@@ -35,13 +35,11 @@ export interface Fellowships {
 export enum FellowshipType {
   ShortStay = "SHORT_STAY",
   LongStay = "LONG_STAY",
-  InGroup = "IN_GROUP",
 }
 export enum FellowshipStatus {
   Planned = "PLANNED",
   Ongoing = "ONGOING",
   Finished = "FINISHED",
-  Cancelled = "CANCELLED",
 }
 
 const defaultConfig: Model = {
@@ -57,17 +55,6 @@ const defaultConfig: Model = {
         type: "Select",
         multiple: true,
         items: FellowshipType,
-        value: "",
-      },
-      affiliation: {
-        type: "Select",
-        multiple: true,
-        items: [],
-        value: "",
-      },
-      disciplines: {
-        type: "Select",
-        multiple: true,
         value: "",
       },
     },

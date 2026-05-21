@@ -42,6 +42,7 @@ query getProject(
       license
       url
     }
+    type
     affiliations {
       name
       ror

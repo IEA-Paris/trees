@@ -24,8 +24,13 @@ export interface Projects {
   date?: Date
   featured?: Date
   status: projectStatus
+  type: projectTypes
 }
-
+export enum projectTypes {
+  Initiative = "INITIATIVE",
+  Platform = "PLATFORM",
+  Research = "RESEARCH",
+}
 export enum projectStatus {
   Planned = "PLANNED",
   InProgress = "IN_PROGRESS",
@@ -147,6 +152,16 @@ const defaultConfig: Model = {
         max: 2000,
       },
       meta: "summary", // item type on schema.org
+    },
+    type: {
+      label: "type",
+      component: "Select",
+      type: formType.Primitive,
+      rules: {
+        required: true,
+      },
+      items: projectTypes,
+      meta: "type", // item type on schema.org
     },
     image: {
       label: "image",

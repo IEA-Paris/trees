@@ -12,6 +12,12 @@ enum projectStatus {
   CANCELED
 }
 
+enum projectTypes {
+  INITIATIVE
+  PLATFORM
+  RESEARCH
+}
+
 enum publicationType {
   ARTICLE
   CONFERENCE_PAPER

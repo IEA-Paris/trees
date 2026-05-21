@@ -26,51 +26,32 @@ export interface People {
   related?: Related[]
   video?: Video[]
 }
-
+export enum FellowStatus {
+  Past = "PAST",
+  InProgress = "IN_PROGRESS",
+  Upcoming = "UPCOMING",
+}
 const defaultConfig: Model = {
   list: {
     filters: {
-      groups: {
-        type: "Select",
-        value: "",
-      },
       vintage: {
         type: "Select",
-        show: {
-          default: false, // same as hidden = true
-          switchIf: [{ groups: "fellows" }], // array of conditions to switch the show, each condition will be assessed as a boolean
-          disjonctive: false,
-        },
         multiple: true,
         value: "",
       },
       programs: {
         type: "Select",
-        show: {
-          default: false, // same as hidden = true
-          switchIf: [{ groups: "fellows" }], // array of conditions to switch the show, each condition will be assessed as a boolean
-          disjonctive: false,
-        },
         multiple: true,
         value: "",
       },
       disciplines: {
         type: "Select",
-        show: {
-          default: false, // same as hidden = true
-          switchIf: [{ groups: "fellows" }], // array of conditions to switch the show, each condition will be assessed as a boolean
-          disjonctive: false,
-        },
         multiple: true,
         value: "",
       },
-      member: {
+      status: {
         type: "Select",
-        show: {
-          default: false, // same as hidden = true
-          switchIf: [{ groups: "fellows" }], // array of conditions to switch the show, each condition will be assessed as a boolean
-          disjonctive: false,
-        },
+        items: FellowStatus,
         multiple: true,
         value: "",
       },

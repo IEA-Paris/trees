@@ -5,8 +5,10 @@ import { formType, Transformers } from "../../form"
 import { Sponsor } from "../../misc/models/sponsor"
 export enum AffiliationCategories {
   Member = "MEMBER",
-  Sponsor = "SPONSOR",
+  Support = "SUPPORT",
   Partner = "PARTNER",
+  Other = "OTHER",
+  Network = "NETWORK",
 }
 export interface Affiliations {
   locations?: Location[]
