@@ -201,14 +201,14 @@
   ],
   "scripts": {
     "dev": "tsx index.ts",
-    "build": "npx tsx lib/generateAll.ts && rollup -c",
+    "build": "unset npm_config_version_commit_hooks npm_config_version_tag_prefix npm_config_version_git_message npm_config_version_git_tag npm_config_version_git_sign npm_config_argv && npx tsx lib/generateAll.ts && rollup -c",
     "postbuild": "find src -name '*.d.ts' -type f -delete",
     "build:types": "tsc -p tsconfig.index.json",
     "generate:modules": "npx tsx lib/generate.ts",
     "generate:schemas": "npx tsx lib/buildSchemas.ts",
     "generate:client": "npx tsx lib/buildClientGraphQL.ts",
     "draw": "npx depcruise src --include-only \"^src\" --output-type dot | dot -T svg > dependency-graph.svg",
-    "clean": "rm -rf dist/",
+    "clean": "unset npm_config_version_commit_hooks npm_config_version_tag_prefix npm_config_version_git_message npm_config_version_git_tag npm_config_version_git_sign npm_config_argv && rm -rf dist/",
     "prebuild": "npm run clean",
     "prepublishOnly": "npm run build"
   },

@@ -2,7 +2,7 @@ import { Image } from "../../files/models/image"
 import { Location } from "../../misc/models/location"
 import Model from "../../model"
 import { formType, Transformers } from "../../form"
-import { Sponsor } from "../../misc/models/sponsor"
+
 export enum AffiliationCategories {
   Member = "MEMBER",
   Support = "SUPPORT",
@@ -94,7 +94,7 @@ const defaultConfig: Model = {
       type: formType.Document,
       meta: "image",
     },
-    locations: {
+    location: {
       label: "locations",
       component: "CollectionContainerPanel",
       type: formType.Array,
@@ -105,6 +105,15 @@ const defaultConfig: Model = {
         meta: "location",
       },
       meta: "locations",
+    },
+    category: {
+      label: "category",
+      component: "Select",
+      type: formType.Primitive,
+      items: AffiliationCategories,
+      multiple: true,
+      value: "",
+      meta: "category",
     },
     ror: {
       label: "ror",

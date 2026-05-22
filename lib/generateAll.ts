@@ -9,6 +9,23 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
 /**
+ * Strips deprecated npm_config_* env vars that npm 9+ warns about when
+ * inherited from a parent npm process.
+ */
+function cleanEnv(): NodeJS.ProcessEnv {
+  const deprecated = [
+    "npm_config_version_commit_hooks",
+    "npm_config_version_tag_prefix",
+    "npm_config_version_git_message",
+    "npm_config_version_git_tag",
+    "npm_config_argv",
+  ]
+  const env = { ...process.env }
+  for (const key of deprecated) delete env[key]
+  return env
+}
+
+/**
  * Task execution result
  */
 interface TaskResult {
@@ -46,6 +63,7 @@ function executeScript(
     const child = spawn("npx", ["tsx", scriptPath], {
       cwd: path.dirname(__dirname),
       stdio: ["pipe", "pipe", "pipe"],
+      env: cleanEnv(),
     })
 
     child.stdout?.on("data", (data: any) => {
@@ -181,6 +199,7 @@ export async function generateAll(): Promise<void> {
     const child = spawn("npm", ["run", "build:types"], {
       cwd: path.dirname(__dirname),
       stdio: ["pipe", "pipe", "pipe"],
+      env: cleanEnv(),
     })
 
     child.stdout?.on("data", (data: any) => {

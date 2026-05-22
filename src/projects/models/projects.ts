@@ -6,7 +6,11 @@ import Model from "../../model"
 import { Related } from "../../misc/models/related"
 import { Tag } from "../../misc/models/tags"
 import { formType } from "../../form"
-
+export enum projectTypes {
+  Initiative = "INITIATIVE",
+  Platform = "PLATFORM",
+  Research = "RESEARCH",
+}
 export interface Projects {
   name: string
   subtitle?: string
@@ -26,11 +30,7 @@ export interface Projects {
   status: projectStatus
   type: projectTypes
 }
-export enum projectTypes {
-  Initiative = "INITIATIVE",
-  Platform = "PLATFORM",
-  Research = "RESEARCH",
-}
+
 export enum projectStatus {
   Planned = "PLANNED",
   InProgress = "IN_PROGRESS",
@@ -50,6 +50,10 @@ const defaultConfig: Model = {
         items: [],
         multiple: true,
         value: "",
+      },
+      type: {
+        type: "Select",
+        items: projectTypes,
       },
     },
     sort: {
