@@ -6,26 +6,51 @@ import Model from "../../model"
 import { Related } from "../../misc/models/related"
 import { Tag } from "../../misc/models/tags"
 import { eventCategories } from "../../events/models/events"
+import { RelatedPeople } from "../../misc/models/relatedPeople"
 import { Disciplines } from "../../misc/models/disciplines"
 import { formType } from "../../form"
+export enum newsCategories {
+  PressRelease = "PRESS_RELEASE",
+  Interview = "INTERVIEW",
+  Article = "ARTICLE",
+  Opinion = "OPINION",
+  Report = "REPORT",
+  Blog = "BLOG",
+  LifeAtTheInstitute = "LIFE_AT_THE_INSTITUTE",
+  Event = "EVENT",
+  Announcement = "ANNOUNCEMENT",
+  Job = "JOB",
+  Fellowship = "FELLOWSHIP",
+  Grant = "GRANT",
+  Award = "AWARD",
+  Project = "PROJECT",
+  Tool = "TOOL",
+  Software = "SOFTWARE",
+  Data = "DATA",
+  Publication = "PUBLICATION",
+  Video = "VIDEO",
+  Audio = "AUDIO",
+}
 export interface Publications {
   name: string
   subtitle?: string
   description?: string
   summary?: string
   url?: URL
-  affiliations?: Affiliations[]
   related?: Related[]
   gallery?: Image[]
   image?: Image
   video?: Video
+  authors: [RelatedPeople]
   tags?: Tag[]
   disciplines?: Disciplines[]
   files?: Files[]
+  featured?: Date
   color?: string
   date?: Date
   type: publicationType
-  eventCategories: eventCategories
+  eventCategories?: eventCategories
+  newsCategories?: newsCategories
 }
 
 export enum publicationType {
@@ -36,6 +61,7 @@ export enum publicationType {
   Thesis = "THESIS",
   Report = "REPORT",
   Software = "SOFTWARE",
+  News = "NEWS",
   Data = "DATA",
   Video = "VIDEO",
   Audio = "AUDIO",
@@ -169,6 +195,15 @@ const defaultConfig: Model = {
       },
       meta: "summary", // item type on schema.org
     },
+    authors: {
+      label: "authors",
+      component: "RelatedPeoplePicker",
+      type: formType.Document,
+      rules: {
+        required: true,
+      },
+      meta: "authors",
+    },
     url: {
       label: "url",
       component: "TextField",
@@ -196,6 +231,16 @@ const defaultConfig: Model = {
         required: true,
       },
       meta: "eventCategories",
+    },
+    newsCategories: {
+      label: "newsCategories",
+      component: "Select",
+      type: formType.Primitive,
+      rules: {
+        required: true,
+      },
+      items: newsCategories,
+      meta: "newsCategories",
     },
     type: {
       label: "type",

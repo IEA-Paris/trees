@@ -10,6 +10,7 @@ export enum AffiliationCategories {
   Other = "OTHER",
   Network = "NETWORK",
 }
+
 export interface Affiliations {
   locations?: Location[]
   image?: Image
@@ -21,6 +22,7 @@ export interface Affiliations {
   summary?: string
   color?: string
 }
+
 const defaultConfig: Model = {
   list: {
     filters: {

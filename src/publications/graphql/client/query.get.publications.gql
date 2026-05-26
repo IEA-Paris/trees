@@ -31,9 +31,26 @@ query getPublication(
       ror
       url
     }
+    authors {
+      firstname
+      lastname
+      slug
+      image {
+        alt
+        backgroundColor
+        caption
+        copyright
+        license
+        licenseUrl
+        url
+      }
+    }
     color
     date
+    featured
     description
+    eventCategories
+    newsCategory
     files {
       createdAt
       file

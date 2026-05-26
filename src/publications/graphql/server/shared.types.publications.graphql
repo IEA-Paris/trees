@@ -7,16 +7,19 @@ type Publication {
   type: publicationType
   url: AWSURL
   affiliations: [Affiliation]
+  authors: [RelatedPeople]
   related: Related
   gallery: [Image]
   image: Image
   video: Video
   tags: [Tag]
   files: [File]
-  eventCategory: eventCategories
+  eventCategories: eventCategories
+  newsCategory: newsCategories
   disciplines: [Disciplines]
   color: String
   date: AWSDateTime
+  featured: AWSDateTime
   slug: String
   score: Float
 }
@@ -26,7 +29,8 @@ type PublicationFilters {
   tags: [String!]
   disciplines: [String!]
   type: [publicationType!]
-  eventCategory: [eventCategories!]
+  eventCategories: [eventCategories!]
+  newsCategory: [newsCategories!]
 }
 
 type PublicationsList {

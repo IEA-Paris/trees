@@ -26,6 +26,7 @@ enum publicationType {
   THESIS
   REPORT
   SOFTWARE
+  NEWS
   DATA
   VIDEO
   AUDIO

@@ -8,19 +8,19 @@ import { Files } from "../../files/models/files"
 
 export interface News {
   name: string
-  authors: [RelatedPeople]
-  category?: newsCategories
+  subtitle?: string
   description?: string
   summary?: string
-  subtitle?: string
-  tags?: Tag[]
-  image?: Image
-  gallery?: Image[]
-  color?: string
   url?: URL
+  related?: Related[]
+  gallery?: Image[]
+  image?: Image
+  tags?: Tag[]
+  authors: [RelatedPeople]
+  category?: newsCategories
+  color?: string
   date?: Date
   featured?: Date
-  related?: Related[]
   files?: Files
 }
 export enum newsCategories {

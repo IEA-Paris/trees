@@ -6,8 +6,24 @@ query listPublications(
   listPublications(options: $options, appId: $appId, lang: $lang) {
     items {
       date
-      eventCategory
+      featured
+      eventCategories
+      newsCategory
       type
+      authors {
+        firstname
+        lastname
+        slug
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+      }
       image {
         alt
         backgroundColor
