@@ -10,47 +10,49 @@ import { RelatedPeople } from "../../misc/models/relatedPeople"
 import { Disciplines } from "../../misc/models/disciplines"
 import { formType } from "../../form"
 export enum newsCategories {
-  PressRelease = "PRESS_RELEASE",
-  Interview = "INTERVIEW",
-  Article = "ARTICLE",
-  Opinion = "OPINION",
-  Report = "REPORT",
-  Blog = "BLOG",
-  LifeAtTheInstitute = "LIFE_AT_THE_INSTITUTE",
-  Event = "EVENT",
   Announcement = "ANNOUNCEMENT",
-  Job = "JOB",
+  Article = "ARTICLE",
+  Audio = "AUDIO",
+  Award = "AWARD",
+  Blog = "BLOG",
+  Data = "DATA",
+  Event = "EVENT",
   Fellowship = "FELLOWSHIP",
   Grant = "GRANT",
-  Award = "AWARD",
+  Interview = "INTERVIEW",
+  Job = "JOB",
+  LifeAtTheInstitute = "LIFE_AT_THE_INSTITUTE",
+  Opinion = "OPINION",
+  Other = "OTHER",
+  Ppias = "PPIAS",
+  PressRelease = "PRESS_RELEASE",
   Project = "PROJECT",
-  Tool = "TOOL",
-  Software = "SOFTWARE",
-  Data = "DATA",
   Publication = "PUBLICATION",
+  Report = "REPORT",
+  Software = "SOFTWARE",
+  Tool = "TOOL",
   Video = "VIDEO",
-  Audio = "AUDIO",
 }
 export interface Publications {
-  name: string
-  subtitle?: string
-  description?: string
-  summary?: string
-  url?: URL
-  related?: Related[]
-  gallery?: Image[]
-  image?: Image
-  video?: Video
   authors: [RelatedPeople]
-  tags?: Tag[]
-  disciplines?: Disciplines[]
-  files?: Files[]
-  featured?: Date
   color?: string
   date?: Date
-  type: publicationType
+  description?: string
+  disciplines?: Disciplines[]
   eventCategories?: eventCategories
+  featured?: Date
+  files?: Files[]
+  gallery?: Image[]
+  image?: Image
+  name: string
   newsCategories?: newsCategories
+  related?: Related[]
+  subtitle?: string
+  summary?: string
+  tags?: Tag[]
+  type: publicationType
+  url?: URL
+  video?: Video
 }
 
 export enum publicationType {

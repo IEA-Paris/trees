@@ -114,7 +114,6 @@ const defaultConfig: Model = {
       type: formType.Primitive,
       items: AffiliationCategories,
       multiple: true,
-      value: "",
       meta: "category",
     },
     ror: {

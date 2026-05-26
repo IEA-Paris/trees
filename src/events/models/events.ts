@@ -1,7 +1,8 @@
 import { Location } from "../../misc/models/location"
 import { Image } from "../../files/models/image"
 import { EventSlot } from "./eventSlot"
-import { Disciplines } from "../../misc/models/disciplines"
+import { DisciplinesOptions } from "../../misc/models/disciplines"
+import { Thematics } from "../../misc/models/thematics"
 import { Tag } from "../../misc/models/tags"
 import { People } from "../../people/models/people"
 import { Affiliations } from "../../affiliations/models/affiliations"
@@ -21,7 +22,7 @@ export interface Events {
   delay?: number // 0 - Server & Client -
   description: string // 0 - Server & Client -
   details: String // 0 - Server & Client -
-  disciplines?: Disciplines[] // 3 - Server & Client //Inside=> Presentation
+  disciplines?: DisciplinesOptions[] // 3 - Server & Client //Inside=> Presentation
   discussants?: RelatedPeople[] // 0 - Server & Client -
   files?: Files[] // 3 - Server & Client -
   lang: string[]
@@ -45,13 +46,13 @@ export interface Events {
   subtitle?: string // 0 - Server &
   summary?: string // 0 - Server & Client -
   tags?: Tag[] // 3 - Server & Client - Inside=> Presentation
+  thematics: Thematics[] // 0 - Server & Client
   totalSlots: number // 0 - Server & Client
   eventType: eventType // 0 : online, 1: physical, 2: hybrid// 0 - Server & Client -
   updatedAt: Date // 0 - Server & Client -
   url?: URL // 0 - Server & Client -
 }
 export enum eventState {
-  Draft = "DRAFT",
   Published = "PUBLISHED",
   Removed = "REMOVED",
   Finished = "FINISHED",
@@ -120,7 +121,7 @@ const defaultConfig: Model = {
       },
       disciplines: {
         type: "AutoComplete",
-        items: [],
+        items: DisciplinesOptions,
         multiple: true,
         value: "",
       },

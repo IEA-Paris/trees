@@ -1,27 +1,27 @@
 type Publication {
-  appId: String
-  name: String!
-  subtitle: String
-  description: String
-  summary: String
-  type: publicationType
-  url: AWSURL
   affiliations: [Affiliation]
+  appId: String
   authors: [RelatedPeople]
-  related: Related
-  gallery: [Image]
-  image: Image
-  video: Video
-  tags: [Tag]
-  files: [File]
-  eventCategories: eventCategories
-  newsCategory: newsCategories
-  disciplines: [Disciplines]
   color: String
   date: AWSDateTime
+  description: String
+  disciplines: [Disciplines]
+  eventCategories: eventCategories
   featured: AWSDateTime
-  slug: String
+  files: [File]
+  gallery: [Image]
+  image: Image
+  name: String!
+  newsCategory: newsCategories
+  related: Related
   score: Float
+  slug: String
+  subtitle: String
+  summary: String
+  tags: [Tag]
+  type: publicationType
+  url: AWSURL
+  video: Video
 }
 
 type PublicationFilters {

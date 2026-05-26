@@ -1,6 +1,40 @@
 import Model from "../../model"
 import { formType } from "../../form"
 import { Image } from "../../files/models/image"
+
+export enum DisciplinesOptions {
+  AnthropologyAndEthnology = "ANTHROPOLOGY_AND_ETHNOLOGY",
+  ArchitectureAndUrbanPlanning = "ARCHITECTURE_AND_URBAN_PLANNING",
+  Archaeology = "ARCHAEOLOGY",
+  ArtAndHistoryOfArt = "ART_AND_HISTORY_OF_ART",
+  ClassicalStudies = "CLASSICAL_STUDIES",
+  Demography = "DEMOGRAPHY",
+  DigitalHumanities = "DIGITAL_HUMANITIES",
+  Economics = "ECONOMICS",
+  EducationSciences = "EDUCATION_SCIENCES",
+  EnvironmentalSciences = "ENVIRONMENTAL_SCIENCES",
+  Geography = "GEOGRAPHY",
+  History = "HISTORY",
+  InformationAndCommunicationSciences = "INFORMATION_AND_COMMUNICATION_SCIENCES",
+  InternationalRelations = "INTERNATIONAL_RELATIONS",
+  Law = "LAW",
+  Linguistics = "LINGUISTICS",
+  Literature = "LITERATURE",
+  ManagementAndPublicAdministration = "MANAGEMENT_AND_PUBLIC_ADMINISTRATION",
+  NeurosciencesAndCognitiveSciences = "NEUROSCIENCES_AND_COGNITIVE_SCIENCES",
+  Philosophy = "PHILOSOPHY",
+  PoliticalScience = "POLITICAL_SCIENCE",
+  Psychology = "PSYCHOLOGY",
+  Sociology = "SOCIOLOGY",
+  StudiesInScienceAndTechnology = "STUDIES_IN_SCIENCE_AND_TECHNOLOGY",
+  Theology = "THEOLOGY",
+  Biology = "BIOLOGY",
+  Chemistry = "CHEMISTRY",
+  ComputerScience = "COMPUTER_SCIENCE",
+  Medicine = "MEDICINE",
+  PhysicsMathematicsAndEngineering = "PHYSICS_MATHEMATICS_AND_ENGINEERING",
+}
+
 export interface Disciplines {
   createdAt: Date
   description: string

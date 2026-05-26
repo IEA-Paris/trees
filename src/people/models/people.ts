@@ -4,12 +4,13 @@ import { Socials } from "../../misc/models/socials"
 import { Position } from "./position"
 import { Consent } from "./consent"
 import { Groups } from "./groups"
-import { Disciplines } from "../../misc/models/disciplines"
+import { DisciplinesOptions } from "../../misc/models/disciplines"
 import { Video } from "../../files/models/video"
 import Model from "../../model"
 import { Related } from "../../misc/models/related"
 import { formType, Transformers } from "../../form"
 import { userRole } from "./users"
+import { Thematics } from "../../misc/models/thematics"
 
 export interface People {
   name: string
@@ -22,10 +23,12 @@ export interface People {
   consent: Consent
   groups: Groups
   lang: string
-  disciplines?: Disciplines[]
+  disciplines?: DisciplinesOptions[]
+  thematics?: Thematics[]
   related?: Related[]
   video?: Video[]
 }
+
 export enum FellowStatus {
   Past = "PAST",
   InProgress = "IN_PROGRESS",
@@ -47,6 +50,13 @@ const defaultConfig: Model = {
       disciplines: {
         type: "Select",
         multiple: true,
+        items: DisciplinesOptions,
+        value: "",
+      },
+      thematics: {
+        type: "Select",
+        multiple: true,
+        items: Thematics,
         value: "",
       },
       status: {
@@ -172,6 +182,14 @@ const defaultConfig: Model = {
       component: "DocumentPicker",
       type: formType.Document,
       meta: "disciplines",
+      items: DisciplinesOptions,
+    },
+    thematics: {
+      label: "thematics",
+      component: "DocumentPicker",
+      type: formType.Document,
+      meta: "thematics",
+      items: Thematics,
     },
     video: {
       label: "videos",
