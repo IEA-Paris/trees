@@ -37,16 +37,6 @@ export enum FellowStatus {
 const defaultConfig: Model = {
   list: {
     filters: {
-      vintage: {
-        type: "Select",
-        multiple: true,
-        value: "",
-      },
-      programs: {
-        type: "Select",
-        multiple: true,
-        value: "",
-      },
       disciplines: {
         type: "Select",
         multiple: true,
@@ -62,6 +52,16 @@ const defaultConfig: Model = {
       status: {
         type: "Select",
         items: FellowStatus,
+        multiple: true,
+        value: "",
+      },
+      vintage: {
+        type: "Select",
+        multiple: true,
+        value: "",
+      },
+      programs: {
+        type: "Select",
         multiple: true,
         value: "",
       },

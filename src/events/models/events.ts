@@ -77,6 +77,12 @@ export enum organiserType {
   External = "EXTERNAL",
 }
 
+export enum locationType {
+  Online = "ONLINE",
+  Onsite = "ONSITE",
+  Hybrid = "HYBRID",
+  Outsite = "OUTSITE",
+}
 export enum eventCategories {
   Seminar = "SEMINAR",
   Workshop = "WORKSHOP",
@@ -96,15 +102,15 @@ export enum eventCategories {
 const defaultConfig: Model = {
   list: {
     filters: {
+      status: {
+        type: "Select",
+        items: bookingState,
+        value: "",
+      },
       category: {
         type: "Select",
         items: eventCategories,
         multiple: true,
-        value: "",
-      },
-      status: {
-        type: "Select",
-        items: bookingState,
         value: "",
       },
       organiserCategory: {
@@ -113,9 +119,15 @@ const defaultConfig: Model = {
         multiple: true,
         value: "",
       },
-      tags: {
+      location: {
+        type: "Select",
+        items: locationType, // to fill with locations from events
+        multiple: true,
+        value: "",
+      },
+      thematics: {
         type: "AutoComplete",
-        items: [],
+        items: Thematics,
         multiple: true,
         value: "",
       },
@@ -123,27 +135,6 @@ const defaultConfig: Model = {
         type: "AutoComplete",
         items: DisciplinesOptions,
         multiple: true,
-        value: "",
-      },
-      fellowship: {
-        type: "AutoComplete",
-        items: [],
-        multiple: true,
-        value: "",
-      },
-      online: {
-        type: "Checkbox",
-        items: false,
-        value: "",
-      },
-      outside: {
-        type: "Checkbox",
-        items: false,
-        value: "",
-      },
-      past: {
-        type: "Checkbox",
-        items: false,
         value: "",
       },
     },

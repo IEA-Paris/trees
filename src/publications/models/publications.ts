@@ -7,8 +7,18 @@ import { Related } from "../../misc/models/related"
 import { Tag } from "../../misc/models/tags"
 import { eventCategories } from "../../events/models/events"
 import { RelatedPeople } from "../../misc/models/relatedPeople"
-import { Disciplines } from "../../misc/models/disciplines"
+import { DisciplinesOptions } from "../../misc/models/disciplines"
 import { formType } from "../../form"
+import { Thematics } from "../../misc/models/thematics"
+
+export enum videoType {
+  Fellows = "FELLOWS",
+  Events = "EVENTS",
+  Ideas = "IDEAS",
+  ConferenceCycle = "CONFERENCE_CYCLE",
+  Other = "OTHER",
+}
+
 export enum newsCategories {
   Announcement = "ANNOUNCEMENT",
   Article = "ARTICLE",
@@ -38,7 +48,7 @@ export interface Publications {
   color?: string
   date?: Date
   description?: string
-  disciplines?: Disciplines[]
+  disciplines?: DisciplinesOptions[]
   eventCategories?: eventCategories
   featured?: Date
   files?: Files[]
@@ -72,27 +82,54 @@ export enum publicationType {
 const defaultConfig: Model = {
   list: {
     filters: {
-      affiliations: {
-        type: "Select",
-        items: [],
-        multiple: true,
-        value: "",
-      },
-      tags: {
-        type: "Select",
-        multiple: true,
-        value: "",
-      },
-      disciplines: {
-        type: "AutoComplete",
-        items: [],
-        multiple: true,
-        value: "",
-      },
       type: {
         type: "Select",
         items: publicationType,
         multiple: true,
+        value: "",
+      },
+      thematics: {
+        type: "AutoComplete",
+        items: Thematics,
+        multiple: true,
+        show: {
+          default: true,
+          switchIf: [{ groups: "news" }, { type: "videos" }], // array of conditions to switch the show, each condition will be assessed as a boolean
+          disjonctive: false,
+        },
+        value: "",
+      },
+      disciplines: {
+        type: "AutoComplete",
+        items: DisciplinesOptions,
+        show: {
+          default: false,
+          switchIf: [{ groups: "news" }, { type: "videos" }], // array of conditions to switch the show, each condition will be assessed as a boolean
+          disjonctive: false,
+        },
+        multiple: true,
+        value: "",
+      },
+      videoType: {
+        type: "Select",
+        items: videoType,
+        show: {
+          default: false,
+          switchIf: [{ type: "videos" }], // array of conditions to switch the show, each condition will be assessed as a boolean
+          disjonctive: false,
+        },
+        multiple: true,
+        value: "",
+      },
+      newsCategories: {
+        type: "Select",
+        items: newsCategories,
+        multiple: true,
+        show: {
+          default: false,
+          switchIf: [{ type: "news" }], // array of conditions to switch the show, each condition will be assessed as a boolean
+          disjonctive: false,
+        },
         value: "",
       },
     },
