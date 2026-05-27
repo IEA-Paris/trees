@@ -94,7 +94,7 @@ const defaultConfig: Model = {
         multiple: true,
         show: {
           default: true,
-          switchIf: [{ groups: "news" }, { type: "videos" }], // array of conditions to switch the show, each condition will be assessed as a boolean
+          switchIf: [{ groups: "NEWS" }, { type: "VIDEOS" }], // array of conditions to switch the show, each condition will be assessed as a boolean
           disjonctive: false,
         },
         value: "",
@@ -104,7 +104,7 @@ const defaultConfig: Model = {
         items: DisciplinesOptions,
         show: {
           default: false,
-          switchIf: [{ groups: "news" }, { type: "videos" }], // array of conditions to switch the show, each condition will be assessed as a boolean
+          switchIf: [{ groups: "NEWS" }, { type: "VIDEOS" }], // array of conditions to switch the show, each condition will be assessed as a boolean
           disjonctive: false,
         },
         multiple: true,
@@ -115,7 +115,7 @@ const defaultConfig: Model = {
         items: videoType,
         show: {
           default: false,
-          switchIf: [{ type: "videos" }], // array of conditions to switch the show, each condition will be assessed as a boolean
+          switchIf: [{ type: "VIDEOS" }], // array of conditions to switch the show, each condition will be assessed as a boolean
           disjonctive: false,
         },
         multiple: true,
@@ -127,7 +127,7 @@ const defaultConfig: Model = {
         multiple: true,
         show: {
           default: false,
-          switchIf: [{ type: "news" }], // array of conditions to switch the show, each condition will be assessed as a boolean
+          switchIf: [{ type: "NEWS" }], // array of conditions to switch the show, each condition will be assessed as a boolean
           disjonctive: false,
         },
         value: "",
