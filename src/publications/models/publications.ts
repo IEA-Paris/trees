@@ -11,7 +11,7 @@ import { DisciplinesOptions } from "../../misc/models/disciplines"
 import { formType } from "../../form"
 import { Thematics } from "../../misc/models/thematics"
 
-export enum videoType {
+export enum mediaType {
   Fellows = "FELLOWS",
   Events = "EVENTS",
   Ideas = "IDEAS",
@@ -43,6 +43,23 @@ export enum newsCategories {
   Tool = "TOOL",
   Video = "VIDEO",
 }
+export enum publicationType {
+  // Publication
+  Article = "ARTICLE", // Aka PPIAS publication
+  Book = "BOOK",
+  BookChapter = "BOOK_CHAPTER",
+  ConferencePaper = "CONFERENCE_PAPER",
+  Data = "DATA",
+  Report = "REPORT",
+  Software = "SOFTWARE",
+  Thesis = "THESIS",
+  // Media
+  Audio = "AUDIO",
+  Podcast = "PODCAST",
+  Video = "VIDEO",
+  // News
+  News = "NEWS",
+}
 export interface Publications {
   authors: [RelatedPeople]
   color?: string
@@ -65,20 +82,6 @@ export interface Publications {
   video?: Video
 }
 
-export enum publicationType {
-  Article = "ARTICLE",
-  ConferencePaper = "CONFERENCE_PAPER",
-  Book = "BOOK",
-  BookChapter = "BOOK_CHAPTER",
-  Thesis = "THESIS",
-  Report = "REPORT",
-  Software = "SOFTWARE",
-  News = "NEWS",
-  Data = "DATA",
-  Video = "VIDEO",
-  Audio = "AUDIO",
-  Podcast = "PODCAST",
-}
 const defaultConfig: Model = {
   list: {
     filters: {
@@ -94,8 +97,13 @@ const defaultConfig: Model = {
         multiple: true,
         show: {
           default: true,
-          switchIf: [{ groups: "NEWS" }, { type: "VIDEOS" }], // array of conditions to switch the show, each condition will be assessed as a boolean
-          disjonctive: false,
+          switchIf: [
+            { type: "NEWS" },
+            { type: "VIDEOS" },
+            { type: "AUDIO" },
+            { type: "PODCAST" },
+          ], // array of conditions to switch the show, each condition will be assessed as a boolean
+          disjonctive: true,
         },
         value: "",
       },
@@ -104,19 +112,28 @@ const defaultConfig: Model = {
         items: DisciplinesOptions,
         show: {
           default: false,
-          switchIf: [{ groups: "NEWS" }, { type: "VIDEOS" }], // array of conditions to switch the show, each condition will be assessed as a boolean
-          disjonctive: false,
+          switchIf: [
+            { type: "NEWS" },
+            { type: "VIDEOS" },
+            { type: "AUDIO" },
+            { type: "PODCAST" },
+          ], // array of conditions to switch the show, each condition will be assessed as a boolean
+          disjonctive: true,
         },
         multiple: true,
         value: "",
       },
-      videoType: {
+      mediaType: {
         type: "Select",
-        items: videoType,
+        items: mediaType,
         show: {
           default: false,
-          switchIf: [{ type: "VIDEOS" }], // array of conditions to switch the show, each condition will be assessed as a boolean
-          disjonctive: false,
+          switchIf: [
+            { type: "VIDEOS" },
+            { type: "AUDIO" },
+            { type: "PODCAST" },
+          ], // array of conditions to switch the show, each condition will be assessed as a boolean
+          disjonctive: true,
         },
         multiple: true,
         value: "",
