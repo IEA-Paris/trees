@@ -8,8 +8,8 @@ import { Tag } from "../../misc/models/tags"
 import { formType } from "../../form"
 export enum projectTypes {
   Initiative = "INITIATIVE",
-  Platform = "PLATFORM",
-  Research = "RESEARCH",
+  Tool = "TOOL",
+  Project = "PROJECT",
 }
 export interface Projects {
   name: string
@@ -27,15 +27,20 @@ export interface Projects {
   color?: string
   date?: Date
   featured?: Date
-  status: projectStatus
+  status: projectStatus | projectStatusAdmin
   type: projectTypes
 }
-
 export enum projectStatus {
+  InProgress = "IN_PROGRESS",
+  Finished = "FINISHED",
+}
+export enum projectStatusAdmin {
   Planned = "PLANNED",
   InProgress = "IN_PROGRESS",
   Finished = "FINISHED",
   Canceled = "CANCELED",
+  Draft = "DRAFT",
+  Archived = "ARCHIVED",
 }
 const defaultConfig: Model = {
   list: {

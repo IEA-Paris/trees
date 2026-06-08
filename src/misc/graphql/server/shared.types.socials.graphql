@@ -9,8 +9,8 @@ type Socials {
   researchgate: AWSURL
   mendeley: AWSURL
   idRef: Int
+  github: AWSURL
 }
-
 
 type Wikipedia {
   lang: String!
@@ -19,4 +19,3 @@ type Wikipedia {
   types: AWSJSON
   tags: AWSJSON
 }
-

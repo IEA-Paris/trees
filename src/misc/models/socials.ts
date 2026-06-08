@@ -12,6 +12,7 @@ export interface Socials {
   researchgate?: URL
   mendeley?: URL
   idRef?: number
+  github?: URL
   //!\TODO complete as needed, update the dissemination and harvesting trees
 }
 
@@ -127,6 +128,15 @@ const defaultConfig: SocialsForm = {
         url: true,
       },
       meta: "youtube", // item type on schema.org
+    },
+    github: {
+      label: "github",
+      type: formType.Primitive,
+      component: "TextField",
+      rules: {
+        url: true,
+      },
+      meta: "github", // item type on schema.org
     },
   },
 }

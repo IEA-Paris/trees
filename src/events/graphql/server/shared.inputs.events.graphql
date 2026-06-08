@@ -15,7 +15,7 @@ input EventInput {
   program: String
   slots: [SlotInput!]
   start: AWSDateTime
-  state: eventState
+  status: eventState
   stop: AWSDateTime
   subtitle: String
   summary: String

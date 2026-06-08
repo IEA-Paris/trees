@@ -83,6 +83,9 @@ input ListInput {
   skip: Int
   sort: String
   search: String
+  # Logical view selector resolved server-side into additional filters
+  # (e.g. "fellows", "media", "tools"). See MODIFIERS in apex-backend-lib.
+  modifier: String
 }
 
 input Entity_smInput {

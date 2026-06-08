@@ -14,8 +14,8 @@ enum projectStatus {
 
 enum projectTypes {
   INITIATIVE
-  PLATFORM
-  RESEARCH
+  TOOL
+  PROJECT
 }
 
 enum publicationType {
@@ -65,6 +65,11 @@ enum eventType {
 }
 
 enum eventState {
+  PUBLISHED
+  FINISHED
+}
+
+enum eventStateAdmin {
   DRAFT
   PUBLISHED
   REMOVED
@@ -73,7 +78,6 @@ enum eventState {
   POSTPONED
   RESCHEDULED
 }
-
 enum eventCategories {
   CALL
   SEMINAR
@@ -110,6 +114,14 @@ enum FellowshipStatus {
   ONGOING
   FINISHED
   CANCELLED
+}
+enum FellowshipStatusAdmin {
+  PLANNED
+  ONGOING
+  FINISHED
+  CANCELLED
+  ARCHIVED
+  DRAFT
 }
 
 enum FellowshipType {

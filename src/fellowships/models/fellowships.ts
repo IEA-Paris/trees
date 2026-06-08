@@ -29,7 +29,7 @@ export interface Fellowships {
   gallery?: Image[]
   name: string
   video?: Video[]
-  status: FellowshipStatus
+  status: FellowshipStatus | FellowshipStatusAdmin
 }
 
 export enum FellowshipType {
@@ -42,7 +42,14 @@ export enum FellowshipStatus {
   Ongoing = "ONGOING",
   Finished = "FINISHED",
 }
-
+export enum FellowshipStatusAdmin {
+  Planned = "PLANNED",
+  Ongoing = "ONGOING",
+  Finished = "FINISHED",
+  Draft = "DRAFT",
+  Archived = "ARCHIVED",
+  Cancelled = "CANCELLED",
+}
 const defaultConfig: Model = {
   list: {
     filters: {

@@ -40,7 +40,7 @@ query getEvent($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
       lang
       lastname
     }
-    state
+    status
     stop
     subtitle
     summary

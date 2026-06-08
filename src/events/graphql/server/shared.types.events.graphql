@@ -19,7 +19,7 @@ type Event {
   slots: [Slot]
   slug: String
   start: AWSDateTime
-  state: eventState
+  status: eventState
   stop: AWSDateTime
   subtitle: String
   summary: String

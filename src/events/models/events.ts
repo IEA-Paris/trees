@@ -40,7 +40,7 @@ export interface Events {
   // slots?: EventSlot[]; //// 3 - Server
   speakers?: RelatedPeople[] // 3 - Server & Client -
   start: string // 0 - Server & Client -   A verifier string ? string[]
-  state: eventState // 0 - Server & Client -
+  status: eventState // 0 - Server & Client -
   stop: string // 0 - Server & Client - A verifier string ? string[]
   stream?: string // 0 - Server & Client -
   subtitle?: string // 0 - Server &
@@ -54,12 +54,18 @@ export interface Events {
 }
 export enum eventState {
   Published = "PUBLISHED",
+  Finished = "FINISHED",
+}
+
+export enum eventStateAdmin {
+  Published = "PUBLISHED",
   Removed = "REMOVED",
   Finished = "FINISHED",
   Cancelled = "CANCELLED",
   Postponed = "POSTPONED",
   Rescheduled = "RESCHEDULED",
 }
+
 export enum bookingState {
   Open = "OPEN",
   Full = "FULL",
