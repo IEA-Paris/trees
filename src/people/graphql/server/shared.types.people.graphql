@@ -1,3 +1,5 @@
+union Latest = Vintage | Position
+
 type People {
   appId: String
   firstname: String!
@@ -15,6 +17,7 @@ type People {
   slug: String
   tags: [Tag]
   score: Float
+  latest: Latest
 }
 
 type PeopleFilters {

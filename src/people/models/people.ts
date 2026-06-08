@@ -11,6 +11,7 @@ import { Related } from "../../misc/models/related"
 import { formType, Transformers } from "../../form"
 import { userRole } from "./users"
 import { Thematics } from "../../misc/models/thematics"
+import { Vintage } from "./vintage"
 
 export interface People {
   name: string
@@ -27,6 +28,7 @@ export interface People {
   thematics?: Thematics[]
   related?: Related[]
   video?: Video[]
+  latest: Vintage | Position
 }
 
 export enum FellowStatus {

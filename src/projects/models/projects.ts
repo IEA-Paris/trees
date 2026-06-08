@@ -6,6 +6,7 @@ import Model from "../../model"
 import { Related } from "../../misc/models/related"
 import { Tag } from "../../misc/models/tags"
 import { formType } from "../../form"
+
 export enum projectTypes {
   Initiative = "INITIATIVE",
   Tool = "TOOL",

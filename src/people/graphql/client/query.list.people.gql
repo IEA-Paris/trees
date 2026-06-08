@@ -50,6 +50,20 @@ query listPeople(
         website
         wikipedia
       }
+      latest {
+        ... on Vintage {
+          name
+          theme
+          url
+          year
+        }
+        ... on Position {
+          role
+          department
+          start
+          stop
+        }
+      }
     }
     total
   }
