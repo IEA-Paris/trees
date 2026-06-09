@@ -7,10 +7,7 @@ query getProject(
     color
     date
     description
-    disciplines {
-      name
-      slug
-    }
+    disciplines
     featured
     slug
     files {

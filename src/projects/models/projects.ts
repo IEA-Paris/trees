@@ -6,7 +6,7 @@ import Model from "../../model"
 import { Related } from "../../misc/models/related"
 import { Tag } from "../../misc/models/tags"
 import { formType } from "../../form"
-import { Disciplines } from "../../misc/models/disciplines"
+import { DisciplinesOptions } from "../../misc/models/disciplines"
 
 export enum projectTypes {
   Initiative = "INITIATIVE",
@@ -18,7 +18,7 @@ export interface Projects {
   subtitle?: string
   description?: string
   summary?: string
-  disciplines?: Disciplines[]
+  disciplines?: DisciplinesOptions[]
   url?: URL
   affiliations?: Affiliations[]
   related?: Related[]
@@ -167,9 +167,16 @@ const defaultConfig: Model = {
     },
     disciplines: {
       label: "disciplines",
-      component: "DocumentPicker",
+      component: "Select",
       type: formType.Document,
       meta: "disciplines",
+      items: DisciplinesOptions,
+      multiple: true,
+      rules: {
+        required: true,
+        min: 1,
+        max: 5,
+      },
     },
     type: {
       label: "type",

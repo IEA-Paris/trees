@@ -4,7 +4,7 @@ type Project {
   color: String
   date: AWSDateTime
   description: String
-  disciplines: [Discipline]
+  disciplines: [String]
   featured: AWSDateTime
   files: [File]
   gallery: [Image]

@@ -7,10 +7,7 @@ query listProjects(
     total
     items {
       date
-      disciplines {
-        name
-        slug
-      }
+      disciplines
       featured
       image {
         alt
