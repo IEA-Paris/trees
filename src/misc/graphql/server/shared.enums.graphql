@@ -5,7 +5,7 @@ enum organiserType {
   EXTERNAL
 }
 
-enum projectStatus {
+enum projectStates {
   PLANNED
   IN_PROGRESS
   FINISHED
