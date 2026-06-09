@@ -30,7 +30,7 @@ export interface Projects {
   color?: string
   date?: Date
   featured?: Date
-  state: projectStates | projectStatesAdmin
+  state: projectStates | projectStateAdmin
   type: projectTypes
 }
 export enum projectStates {
