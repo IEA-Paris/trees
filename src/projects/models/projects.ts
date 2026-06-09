@@ -6,6 +6,7 @@ import Model from "../../model"
 import { Related } from "../../misc/models/related"
 import { Tag } from "../../misc/models/tags"
 import { formType } from "../../form"
+import { Disciplines } from "../../misc/models/disciplines"
 
 export enum projectTypes {
   Initiative = "INITIATIVE",
@@ -17,6 +18,7 @@ export interface Projects {
   subtitle?: string
   description?: string
   summary?: string
+  disciplines?: Disciplines[]
   url?: URL
   affiliations?: Affiliations[]
   related?: Related[]
@@ -28,14 +30,14 @@ export interface Projects {
   color?: string
   date?: Date
   featured?: Date
-  status: projectStatus | projectStatusAdmin
+  state: projectState | projectStateAdmin
   type: projectTypes
 }
-export enum projectStatus {
+export enum projectState {
   InProgress = "IN_PROGRESS",
   Finished = "FINISHED",
 }
-export enum projectStatusAdmin {
+export enum projectStateAdmin {
   Planned = "PLANNED",
   InProgress = "IN_PROGRESS",
   Finished = "FINISHED",
@@ -48,7 +50,7 @@ const defaultConfig: Model = {
     filters: {
       status: {
         type: "Select",
-        items: projectStatus,
+        items: projectState,
         value: "",
       },
       tags: {
@@ -163,6 +165,12 @@ const defaultConfig: Model = {
       },
       meta: "summary", // item type on schema.org
     },
+    disciplines: {
+      label: "disciplines",
+      component: "DocumentPicker",
+      type: formType.Document,
+      meta: "disciplines",
+    },
     type: {
       label: "type",
       component: "Select",
@@ -199,7 +207,7 @@ const defaultConfig: Model = {
       rules: {
         required: true,
       },
-      items: projectStatus,
+      items: projectState,
       meta: "status",
     },
     affiliations: {

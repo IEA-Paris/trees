@@ -7,6 +7,10 @@ query listProjects(
     total
     items {
       date
+      disciplines {
+        name
+        slug
+      }
       featured
       image {
         alt
@@ -19,6 +23,7 @@ query listProjects(
       }
       type
       name
+      state
       summary
       url
       tags {

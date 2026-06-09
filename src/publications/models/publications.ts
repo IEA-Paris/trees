@@ -18,6 +18,19 @@ export enum mediaType {
   ConferenceCycle = "CONFERENCE_CYCLE",
   Other = "OTHER",
 }
+export enum publicationState {
+  Published = "PUBLISHED",
+  Finished = "FINISHED",
+}
+
+export enum publicationStateAdmin {
+  Published = "PUBLISHED",
+  Removed = "REMOVED",
+  Finished = "FINISHED",
+  Cancelled = "CANCELLED",
+  Postponed = "POSTPONED",
+  Rescheduled = "RESCHEDULED",
+}
 
 export enum newsCategories {
   Announcement = "ANNOUNCEMENT",
@@ -60,6 +73,7 @@ export enum publicationType {
   // News
   News = "NEWS",
 }
+
 export interface Publications {
   authors: [RelatedPeople]
   color?: string
@@ -76,6 +90,7 @@ export interface Publications {
   related?: Related[]
   subtitle?: string
   summary?: string
+  state?: publicationState | publicationStateAdmin
   tags?: Tag[]
   type: publicationType
   url?: URL

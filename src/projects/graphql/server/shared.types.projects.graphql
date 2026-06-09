@@ -1,24 +1,25 @@
 type Project {
-  appId: String
-  name: String!
-  subtitle: String
-  summary: String
-  description: String
-  url: AWSURL
   affiliations: [Affiliation]
-  related: Related
-  gallery: [Image]
-  image: Image
-  video: [Video]
-  tags: [Tag]
-  files: [File]
+  appId: String
   color: String
   date: AWSDateTime
+  description: String
+  disciplines: [Discipline]
   featured: AWSDateTime
-  status: projectStatus
-  slug: String
+  files: [File]
+  gallery: [Image]
+  image: Image
+  name: String!
+  related: Related
   score: Float
+  slug: String
+  state: projectState
+  subtitle: String
+  summary: String
+  tags: [Tag]
   type: projectTypes
+  url: AWSURL
+  video: [Video]
 }
 
 type ProjectFilters {

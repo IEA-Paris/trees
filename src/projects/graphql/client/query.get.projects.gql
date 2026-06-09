@@ -7,6 +7,10 @@ query getProject(
     color
     date
     description
+    disciplines {
+      name
+      slug
+    }
     featured
     slug
     files {
@@ -96,7 +100,7 @@ query getProject(
       updatedAt
     }
     appId
-    status
+    state
     related {
       events {
         description
