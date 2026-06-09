@@ -3,5 +3,6 @@ enum affiliationCategory {
   PARTNER
   SUPPORT
   NETWORK
+  FUNDING
   OTHER
 }

@@ -7,6 +7,7 @@ export enum AffiliationCategories {
   Member = "MEMBER",
   Support = "SUPPORT",
   Partner = "PARTNER",
+  Funding = "FUNDING",
   Other = "OTHER",
   Network = "NETWORK",
 }
