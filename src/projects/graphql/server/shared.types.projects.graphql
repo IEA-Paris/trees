@@ -13,7 +13,7 @@ type Project {
   related: Related
   score: Float
   slug: String
-  state: projectState
+  state: projectStates
   subtitle: String
   summary: String
   tags: [Tag]

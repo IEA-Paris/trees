@@ -30,10 +30,10 @@ export interface Projects {
   color?: string
   date?: Date
   featured?: Date
-  state: projectState | projectStateAdmin
+  state: projectStates | projectStatesAdmin
   type: projectTypes
 }
-export enum projectState {
+export enum projectStates {
   InProgress = "IN_PROGRESS",
   Finished = "FINISHED",
 }
@@ -50,7 +50,7 @@ const defaultConfig: Model = {
     filters: {
       status: {
         type: "Select",
-        items: projectState,
+        items: projectStates,
         value: "",
       },
       tags: {
@@ -214,7 +214,7 @@ const defaultConfig: Model = {
       rules: {
         required: true,
       },
-      items: projectState,
+      items: projectStates,
       meta: "status",
     },
     affiliations: {
