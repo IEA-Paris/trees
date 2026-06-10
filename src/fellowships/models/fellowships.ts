@@ -4,14 +4,14 @@ import { FellowshipDetails } from "./fellowshipDetails"
 import { Files } from "../../files/models/files"
 import Model from "../../model"
 import { Video } from "../../files/models/video"
-import { Disciplines } from "../../misc/models/disciplines"
+import { DisciplinesOptions } from "../../misc/models/disciplines"
 import { RelatedPeople } from "../../misc/models/relatedPeople"
 import { formType } from "../../form"
 export interface Fellowships {
   action?: string
   affiliations?: Affiliations[] // AKA members behind the fellowships
   applicationStart?: Date
-  disciplines?: Disciplines[] // 3 - Server & Client //Inside=> Presentation
+  disciplines?: DisciplinesOptions[] // 3 - Server & Client //Inside=> Presentation
   fellowshipStart?: Date
   contact?: string
   description: string

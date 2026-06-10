@@ -5,7 +5,7 @@ type Publication {
   color: String
   date: AWSDateTime
   description: String
-  disciplines: [Disciplines]
+  disciplines: [String]
   eventCategories: eventCategories
   featured: AWSDateTime
   files: [File]

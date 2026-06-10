@@ -13,6 +13,7 @@ query listEvents(
       eventType
       summary
       subtitle
+      disciplines
       image {
         alt
         backgroundColor

@@ -10,6 +10,7 @@ query listPublications(
       eventCategories
       newsCategory
       type
+      disciplines
       authors {
         firstname
         lastname

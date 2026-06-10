@@ -9,13 +9,7 @@ query listFellowships(
       applicationStart
       applicationStop
       fellowshipType
-      disciplines {
-        createdAt
-        description
-        icon
-        name
-        updatedAt
-      }
+      disciplines
       image {
         alt
         backgroundColor

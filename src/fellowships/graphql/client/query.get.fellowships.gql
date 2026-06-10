@@ -92,13 +92,7 @@ query getFellowship(
       licenseUrl
       url
     }
-    disciplines {
-      description
-      createdAt
-      icon
-      name
-      updatedAt
-    }
+    disciplines
     appId
     affiliations {
       image {

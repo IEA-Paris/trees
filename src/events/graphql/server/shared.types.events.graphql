@@ -8,6 +8,7 @@ type Event {
   delay: AWSDateTime
   description: String
   details: String
+  disciplines: [String]
   eventType: eventType
   image: Image
   location: Location
