@@ -4,8 +4,8 @@ query getPublication(
   $lang: String = "en"
 ) {
   getPublication(appId: $appId, itemId: $itemId, lang: $lang) {
+    disciplines
     affiliations {
-      disciplines
       image {
         alt
         backgroundColor

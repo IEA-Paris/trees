@@ -62,6 +62,13 @@ const defaultConfig: Model = {
       type: {
         type: "Select",
         items: projectTypes,
+        value: "",
+      },
+      disciplines: {
+        type: "AutoComplete",
+        items: DisciplinesOptions,
+        multiple: true,
+        value: "",
       },
     },
     sort: {

@@ -65,6 +65,12 @@ const defaultConfig: Model = {
         items: FellowshipType,
         value: "",
       },
+      disciplines: {
+        type: "AutoComplete",
+        items: DisciplinesOptions,
+        multiple: true,
+        value: "",
+      },
     },
     sort: {
       // sort options

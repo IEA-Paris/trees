@@ -114,7 +114,7 @@ const defaultConfig: Model = {
           default: true,
           switchIf: [
             { type: "NEWS" },
-            { type: "VIDEOS" },
+            { type: "VIDEO" },
             { type: "AUDIO" },
             { type: "PODCAST" },
           ], // array of conditions to switch the show, each condition will be assessed as a boolean
@@ -129,7 +129,7 @@ const defaultConfig: Model = {
           default: false,
           switchIf: [
             { type: "NEWS" },
-            { type: "VIDEOS" },
+            { type: "VIDEO" },
             { type: "AUDIO" },
             { type: "PODCAST" },
           ], // array of conditions to switch the show, each condition will be assessed as a boolean
@@ -144,7 +144,7 @@ const defaultConfig: Model = {
         show: {
           default: false,
           switchIf: [
-            { type: "VIDEOS" },
+            { type: "VIDEO" },
             { type: "AUDIO" },
             { type: "PODCAST" },
           ], // array of conditions to switch the show, each condition will be assessed as a boolean
