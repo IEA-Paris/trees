@@ -69,7 +69,7 @@ query search($appId: ID = "", $search: String = "", $lang: String = "en") {
         bookingState
         category
         start
-        state
+        status
         summary
         eventType
         slug
