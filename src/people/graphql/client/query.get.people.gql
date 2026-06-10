@@ -41,6 +41,8 @@ query getPeople($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
         theme
         url
         year
+        start
+        stop
       }
       ... on Position {
         role

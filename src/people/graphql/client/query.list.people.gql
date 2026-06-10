@@ -54,6 +54,8 @@ query listPeople(
           theme
           url
           year
+          start
+          stop
         }
         ... on Position {
           role
