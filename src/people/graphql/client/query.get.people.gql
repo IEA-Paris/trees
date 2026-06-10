@@ -35,6 +35,21 @@ query getPeople($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
         stop
       }
     }
+    latest {
+      ... on Vintage {
+        name
+        theme
+        url
+        year
+      }
+      ... on Position {
+        role
+        department
+        start
+        stop
+      }
+    }
+    disciplines
     biography
     firstname
     groups {
@@ -84,13 +99,6 @@ query getPeople($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
     }
     slug
     appId
-    disciplines {
-      createdAt
-      description
-      icon
-      name
-      updatedAt
-    }
     related {
       events {
         description

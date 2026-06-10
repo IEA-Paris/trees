@@ -11,7 +11,7 @@ type People {
   consent: Consent!
   summary: String
   groups: Groups!
-  disciplines: [Disciplines]
+  disciplines: [String]
   related: Related
   video: [Video]
   slug: String

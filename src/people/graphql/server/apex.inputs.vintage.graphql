@@ -3,4 +3,6 @@ input VintageInput {
   year: Int
   theme: String
   url: AWSURL
+  start: AWSDateTime
+  stop: AWSDateTime
 }
