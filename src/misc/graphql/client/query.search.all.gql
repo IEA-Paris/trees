@@ -14,6 +14,7 @@ query search($appId: ID = "", $search: String = "", $lang: String = "en") {
         }
         lastname
         summary
+        disciplines
         slug
         score
       }
@@ -25,6 +26,7 @@ query search($appId: ID = "", $search: String = "", $lang: String = "en") {
         featured
         name
         summary
+        disciplines
         image {
           alt
           backgroundColor
@@ -45,6 +47,7 @@ query search($appId: ID = "", $search: String = "", $lang: String = "en") {
     }
     publications {
       items {
+        disciplines
         subtitle
         name
         summary
@@ -68,6 +71,7 @@ query search($appId: ID = "", $search: String = "", $lang: String = "en") {
         availableSlots
         bookingState
         category
+        disciplines
         start
         status
         summary
@@ -92,9 +96,7 @@ query search($appId: ID = "", $search: String = "", $lang: String = "en") {
       items {
         applicationStart
         applicationStop
-        disciplines {
-          name
-        }
+        disciplines
         fellowshipStart
         fellowshipType
         fellowshipStop
