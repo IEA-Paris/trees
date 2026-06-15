@@ -86,13 +86,13 @@ const defaultConfig: Model = {
         // by name from z to a
         icon: "sort-calendar-descending",
         text: "by-vintage-from-old-to-recent",
-        value: [{ "groups.vintage.year": 1 }, { lastname: 1 }],
+        value: [{ "latest.start||latest.year:year": 1 }, { lastname: 1 }],
       },
       vintageasc: {
         // by name from z to a
         icon: "sort-calendar-descending",
         text: "by-vintage-from-recent-to-old",
-        value: [{ "groups.vintage.year": -1 }, { lastname: 1 }],
+        value: [{ "latest.start||latest.year:year": -1 }, { lastname: 1 }],
         default: true,
       },
     },
