@@ -38,13 +38,30 @@ type Profile {
   wikipedia: String
 }
 
+# Global search results, dispatched into modifier-based sub-categories that
+# mirror the MODIFIERS server config (apex-backend-lib/constants/listQuery.js).
+# Each sub-category reuses the parent collection's *List type. People may
+# legitimately appear in several group sub-categories (groups.* are independent
+# booleans), so those totals must not be summed as a unique people count.
 type SearchList {
-  news: NewsList
-  projects: ProjectsList
+  # events (unchanged)
   events: EventsList
-  people: PeopleList
-  publications: PublicationsList
+  # fellowship (unchanged)
   fellowships: FellowshipList
+  # People -> groups.*
+  team: PeopleList
+  sab: PeopleList
+  board: PeopleList
+  ethics: PeopleList
+  fellows: PeopleList
+  # Collective Intelligence (projects) -> type
+  initiatives: ProjectsList
+  tools: ProjectsList
+  projects: ProjectsList
+  # Resources (publications) -> type
+  media: PublicationsList
+  publications: PublicationsList
+  news: PublicationsList
 }
 
 type Settings {

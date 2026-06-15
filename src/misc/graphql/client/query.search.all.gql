@@ -1,71 +1,15 @@
-query search($appId: ID = "", $search: String = "", $lang: String = "en") {
-  search(appId: $appId, search: $search, lang: $lang) {
-    people {
-      items {
-        firstname
-        image {
-          alt
-          backgroundColor
-          caption
-          copyright
-          license
-          licenseUrl
-          url
-        }
-        lastname
-        summary
-        disciplines
-        slug
-        score
-      }
-      total
-    }
-    projects {
-      items {
-        date
-        featured
-        name
-        summary
-        disciplines
-        image {
-          alt
-          backgroundColor
-          caption
-          copyright
-          license
-          licenseUrl
-          url
-        }
-        subtitle
-        tags {
-          name
-        }
-        slug
-        score
-      }
-      total
-    }
-    publications {
-      items {
-        disciplines
-        subtitle
-        name
-        summary
-        image {
-          alt
-          backgroundColor
-          caption
-          copyright
-          licenseUrl
-          license
-          url
-        }
-        date
-        slug
-        score
-      }
-      total
-    }
+query search(
+  $appId: ID = ""
+  $search: String = ""
+  $lang: String = "en"
+  $disciplines: [String]
+) {
+  search(
+    appId: $appId
+    search: $search
+    lang: $lang
+    disciplines: $disciplines
+  ) {
     events {
       items {
         availableSlots
@@ -79,62 +23,151 @@ query search($appId: ID = "", $search: String = "", $lang: String = "en") {
         slug
         name
         image {
-          alt
-          backgroundColor
-          caption
-          copyright
-          licenseUrl
-          license
-          url
+          ...searchImage
         }
         score
       }
       total
     }
     fellowships {
-      total
       items {
-        applicationStart
-        applicationStop
-        disciplines
-        fellowshipStart
-        fellowshipType
-        fellowshipStop
-        image {
-          alt
-          backgroundColor
-          caption
-          copyright
-          license
-          licenseUrl
-          url
-        }
-        name
-        summary
-        slug
-        score
+        ...fellowshipItem
       }
+      total
+    }
+    team {
+      items {
+        ...peopleItem
+      }
+      total
+    }
+    sab {
+      items {
+        ...peopleItem
+      }
+      total
+    }
+    board {
+      items {
+        ...peopleItem
+      }
+      total
+    }
+    ethics {
+      items {
+        ...peopleItem
+      }
+      total
+    }
+    fellows {
+      items {
+        ...peopleItem
+      }
+      total
+    }
+    initiatives {
+      items {
+        ...projectItem
+      }
+      total
+    }
+    tools {
+      items {
+        ...projectItem
+      }
+      total
+    }
+    projects {
+      items {
+        ...projectItem
+      }
+      total
+    }
+    media {
+      items {
+        ...publicationItem
+      }
+      total
+    }
+    publications {
+      items {
+        ...publicationItem
+      }
+      total
     }
     news {
       items {
-        category
-        date
-        featured
-        summary
-        image {
-          alt
-          backgroundColor
-          caption
-          copyright
-          license
-          licenseUrl
-          url
-        }
-        name
-        slug
-        score
+        ...publicationItem
       }
       total
     }
+  }
+}
+
+fragment searchImage on Image {
+  alt
+  backgroundColor
+  caption
+  copyright
+  license
+  licenseUrl
+  url
+}
+
+fragment peopleItem on People {
+  firstname
+  lastname
+  summary
+  disciplines
+  slug
+  score
+  image {
+    ...searchImage
+  }
+}
+
+fragment projectItem on Project {
+  date
+  featured
+  name
+  summary
+  disciplines
+  subtitle
+  tags {
+    name
+  }
+  slug
+  score
+  image {
+    ...searchImage
+  }
+}
+
+fragment publicationItem on Publication {
+  disciplines
+  subtitle
+  name
+  summary
+  date
+  slug
+  score
+  image {
+    ...searchImage
+  }
+}
+
+fragment fellowshipItem on Fellowship {
+  applicationStart
+  applicationStop
+  disciplines
+  fellowshipStart
+  fellowshipType
+  fellowshipStop
+  name
+  summary
+  slug
+  score
+  image {
+    ...searchImage
   }
 }

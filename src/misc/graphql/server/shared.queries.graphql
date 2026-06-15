@@ -1,6 +1,11 @@
 type Query {
   # main search
-  search(appId: ID, search: String, lang: String): SearchList
+  search(
+    appId: ID
+    search: String
+    lang: String
+    disciplines: [String]
+  ): SearchList
   # Get item
   getFellowship(appId: ID, itemId: ID, lang: String): Fellowship
   getAction(appId: ID, itemId: ID, lang: String): Actions
