@@ -111,13 +111,10 @@ const defaultConfig: Model = {
         items: Thematics,
         multiple: true,
         show: {
+          // Shown for the "publications" view; hidden for the news/media views,
+          // which narrow `type` server-side via the modifier.
           default: true,
-          switchIf: [
-            { type: "NEWS" },
-            { type: "VIDEO" },
-            { type: "AUDIO" },
-            { type: "PODCAST" },
-          ], // array of conditions to switch the show, each condition will be assessed as a boolean
+          switchIf: [{ modifier: "news" }, { modifier: "media" }], // conditions matched against the active view modifier
           disjonctive: true,
         },
         value: "",
@@ -127,12 +124,7 @@ const defaultConfig: Model = {
         items: DisciplinesOptions,
         show: {
           default: false,
-          switchIf: [
-            { type: "NEWS" },
-            { type: "VIDEO" },
-            { type: "AUDIO" },
-            { type: "PODCAST" },
-          ], // array of conditions to switch the show, each condition will be assessed as a boolean
+          switchIf: [{ modifier: "news" }, { modifier: "media" }], // conditions matched against the active view modifier
           disjonctive: true,
         },
         multiple: true,
@@ -143,11 +135,7 @@ const defaultConfig: Model = {
         items: mediaType,
         show: {
           default: false,
-          switchIf: [
-            { type: "VIDEO" },
-            { type: "AUDIO" },
-            { type: "PODCAST" },
-          ], // array of conditions to switch the show, each condition will be assessed as a boolean
+          switchIf: [{ modifier: "media" }], // conditions matched against the active view modifier
           disjonctive: true,
         },
         multiple: true,
@@ -159,7 +147,7 @@ const defaultConfig: Model = {
         multiple: true,
         show: {
           default: false,
-          switchIf: [{ type: "NEWS" }], // array of conditions to switch the show, each condition will be assessed as a boolean
+          switchIf: [{ modifier: "news" }], // conditions matched against the active view modifier
           disjonctive: false,
         },
         value: "",
