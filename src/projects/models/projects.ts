@@ -62,6 +62,7 @@ const defaultConfig: Model = {
       type: {
         type: "Select",
         items: projectTypes,
+        multiple: true,
         value: "",
       },
       disciplines: {
