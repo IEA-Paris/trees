@@ -35,7 +35,7 @@ export interface Fellowships {
 export enum FellowshipType {
   ShortStay = "SHORT_STAY",
   LongStay = "LONG_STAY",
-  Group = "GROUP",
+  Group = "IN_GROUP",
 }
 export enum FellowshipStatus {
   Planned = "PLANNED",

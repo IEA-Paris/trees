@@ -105,6 +105,7 @@ const defaultConfig: Model = {
         items: publicationType,
         multiple: true,
         value: "",
+        appId: ["apex"],
       },
       thematics: {
         type: "AutoComplete",
