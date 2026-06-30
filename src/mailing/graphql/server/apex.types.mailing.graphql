@@ -1,6 +1,7 @@
 type Mailing {
   appId: String
   name: String
+  slug: String
   description: String
   createdAt: String
   updatedAt: String
