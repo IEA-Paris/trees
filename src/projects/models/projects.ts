@@ -63,6 +63,15 @@ const defaultConfig: Model = {
         type: "Select",
         items: projectTypes,
         multiple: true,
+        show: {
+          default: true,
+          switchIf: [
+            { modifier: "initiatives" },
+            { modifier: "tools" },
+            { modifier: "projects" },
+          ], // conditions matched against the active view modifier
+          disjonctive: true,
+        },
         value: "",
       },
       disciplines: {

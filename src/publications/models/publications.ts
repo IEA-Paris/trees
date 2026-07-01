@@ -123,11 +123,6 @@ const defaultConfig: Model = {
       disciplines: {
         type: "AutoComplete",
         items: DisciplinesOptions,
-        show: {
-          default: false,
-          switchIf: [{ modifier: "news" }, { modifier: "media" }], // conditions matched against the active view modifier
-          disjonctive: true,
-        },
         multiple: true,
         value: "",
       },
