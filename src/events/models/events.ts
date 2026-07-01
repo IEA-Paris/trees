@@ -135,6 +135,9 @@ const defaultConfig: Model = {
         type: "AutoComplete",
         items: Thematics,
         multiple: true,
+        // No `thematics` data exists on events; hide the filter on public
+        // consumers (only the admin app "apex" still sees it).
+        appId: ["apex"],
         value: "",
       },
       disciplines: {

@@ -29,3 +29,5 @@ dist
 # Exclude auto-generated TypeScript declarations in source directories
 src/**/*.d.ts
 src/**/*.d.ts.map
+
+.claude

@@ -56,6 +56,24 @@ export enum newsCategories {
   Tool = "TOOL",
   Video = "VIDEO",
 }
+
+export enum publicationPublicType {
+  Article = "ARTICLE", // Aka PPIAS publication
+  Book = "BOOK",
+  BookChapter = "BOOK_CHAPTER",
+  ConferencePaper = "CONFERENCE_PAPER",
+  Data = "DATA",
+  Report = "REPORT",
+  Software = "SOFTWARE",
+  Thesis = "THESIS",
+}
+
+export enum mediaPublicType {
+  Audio = "AUDIO",
+  Podcast = "PODCAST",
+  Video = "VIDEO",
+}
+
 export enum publicationType {
   // Publication
   Article = "ARTICLE", // Aka PPIAS publication
@@ -93,6 +111,9 @@ export interface Publications {
   state?: publicationState | publicationStateAdmin
   tags?: Tag[]
   type: publicationType
+  publicationType?: publicationPublicType
+  mediaType?: mediaPublicType
+  mediaCategory?: mediaType
   url?: URL
   video?: Video
 }
@@ -145,6 +166,46 @@ const defaultConfig: Model = {
           default: false,
           switchIf: [{ modifier: "news" }], // conditions matched against the active view modifier
           disjonctive: false,
+        },
+        value: "",
+      },
+      // Public-facing subset of `type`, shown only in the "publications" view.
+      // Resolves server-side against `type` intersected with publicationPublicType.
+      publicationType: {
+        type: "Select",
+        items: publicationPublicType,
+        multiple: true,
+        show: {
+          default: false,
+          switchIf: [{ modifier: "publications" }], // conditions matched against the active view modifier
+          disjonctive: true,
+        },
+        value: "",
+      },
+      // Public-facing subset of `type`, shown only in the "media" view.
+      // Resolves server-side against `type` intersected with mediaPublicType.
+      mediaPublicType: {
+        type: "Select",
+        items: mediaPublicType,
+        multiple: true,
+        show: {
+          default: false,
+          switchIf: [{ modifier: "media" }], // conditions matched against the active view modifier
+          disjonctive: true,
+        },
+        value: "",
+      },
+      // Shown only in the "media" view. Matches the `mediaCategory` field, which
+      // is not yet present on any document (so it currently filters nothing);
+      // becomes functional automatically once the field is populated.
+      mediaCategory: {
+        type: "Select",
+        items: mediaType,
+        multiple: true,
+        show: {
+          default: false,
+          switchIf: [{ modifier: "media" }], // conditions matched against the active view modifier
+          disjonctive: true,
         },
         value: "",
       },
