@@ -33,6 +33,7 @@ export enum DisciplinesOptions {
   ComputerScience = "COMPUTER_SCIENCE",
   Medicine = "MEDICINE",
   PhysicsMathematicsAndEngineering = "PHYSICS_MATHEMATICS_AND_ENGINEERING",
+  Other = "OTHER",
 }
 
 export interface Disciplines {
