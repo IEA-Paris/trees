@@ -1,6 +1,6 @@
 {
   "name": "@paris-ias/trees",
-  "version": "2.2.20",
+  "version": "2.2.21",
   "type": "module",
   "main": "index.js",
   "types": "index.d.ts",
