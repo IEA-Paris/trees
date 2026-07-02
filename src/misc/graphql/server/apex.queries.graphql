@@ -8,6 +8,10 @@ type Query {
   getMailing(appId: ID, itemId: ID, lang: String): Mailing
   getTag(appId: ID, itemId: ID, lang: String): Tag
 
+  # Get the RAW, un-localized document (i18n objects preserved) for edit forms.
+  # Generic across all entity types; returns the stored document as-is.
+  getRawItem(appId: ID, itemId: ID!, type: String!, lang: String): AWSJSON
+
   # List items (admin-specific)
   # listAffiliations(
   #   appId: ID

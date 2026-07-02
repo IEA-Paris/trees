@@ -1,0 +1,8 @@
+query getRawItem(
+  $appId: ID = "iea"
+  $itemId: ID!
+  $type: String!
+  $lang: String = "en"
+) {
+  getRawItem(appId: $appId, itemId: $itemId, type: $type, lang: $lang)
+}
